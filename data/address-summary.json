@@ -1,0 +1,22 @@
+{
+  "count": 13882,
+  "counts": {
+    "1": 3525,
+    "2": 3272,
+    "3": 3771,
+    "4": 3314
+  },
+  "excludedNearby": 70541,
+  "ambiguous": 0,
+  "sourceDate": "2025-10-31",
+  "prepared": "2026-09-09",
+  "cityHall": [
+    {
+      "id": "fa2d1e2a38db73921cbf",
+      "label": "525 Henrietta St",
+      "lon": -122.13541100037854,
+      "lat": 38.014076999792046,
+      "district": "1"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "boundarySource": "C:/PDI - Redistricting Dropbox/Redistricting Files/City of Martinez/Final Redistricting Materials/Final Shapefile City of Martinez 2022/City of Martinez Final Map 2022.shp",
+  "districtField": "DISTRICT",
+  "excludedUnassignedRecords": 1,
+  "roster": {
+    "city": "Martinez",
+    "state": "CA",
+    "verified_on": "2026-09-09",
+    "source_page_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+    "source_page_title": "Mayor and City Council | Martinez, CA",
+    "profile_url_note": "The official biographies are sections of this shared page. The headings expose no anchor IDs; no individual official profile URLs were found on this page.",
+    "office_phone": "(925) 372-3505",
+    "office_phone_label": "City Council office (shared)",
+    "office_address": "525 Henrietta Street, Martinez, CA 94553",
+    "portrait_reuse": {
+      "source": "Portrait images published on the official City of Martinez council biography page.",
+      "license": null,
+      "photographer_credit": null,
+      "note": "No explicit reuse license or photographer credit was displayed with these portraits on the source page. Public availability is not a verified open license."
+    },
+    "officials": [
+      {
+        "name": "Jay Howard",
+        "title": "Councilmember",
+        "district": 1,
+        "email": "jhoward@cityofmartinez.org",
+        "office_phone": "(925) 372-3505",
+        "office_phone_is_shared": true,
+        "term_end": "2026-12",
+        "term_end_display": "December 2026",
+        "profile_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+        "portrait_url": "https://www.cityofmartinez.org/home/showpublishedimage/1723/638132665886530000",
+        "portrait_alt_in_source": "District 1 -Jay Howard 2023 (6) Selected",
+        "portrait_width": 1920,
+        "portrait_height": 2688
+      },
+      {
+        "name": "Greg Young",
+        "title": "Councilmember",
+        "district": 2,
+        "email": "gyoung@cityofmartinez.org",
+        "office_phone": "(925) 372-3505",
+        "office_phone_is_shared": true,
+        "term_end": "2028-12",
+        "term_end_display": "December 2028",
+        "profile_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+        "portrait_url": "https://www.cityofmartinez.org/home/showpublishedimage/2563/638727221110370000",
+        "portrait_alt_in_source": "G.Young-1 (Favorite)",
+        "portrait_width": 1920,
+        "portrait_height": 2880
+      },
+      {
+        "name": "Satinder S. Malhi",
+        "title": "Vice Mayor",
+        "district": 3,
+        "email": "ssmalhi@cityofmartinez.org",
+        "office_phone": "(925) 372-3505",
+        "office_phone_is_shared": true,
+        "term_end": "2028-12",
+        "term_end_display": "December 2028",
+        "profile_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+        "portrait_url": "https://www.cityofmartinez.org/home/showpublishedimage/1729/638136117997030000",
+        "portrait_alt_in_source": "",
+        "portrait_width": 1920,
+        "portrait_height": 2688
+      },
+      {
+        "name": "Debbie McKillop",
+        "title": "Councilmember",
+        "district": 4,
+        "email": "dmckillop@cityofmartinez.org",
+        "office_phone": "(925) 372-3505",
+        "office_phone_is_shared": true,
+        "term_end": "2026-12",
+        "term_end_display": "December 2026",
+        "profile_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+        "portrait_url": "https://www.cityofmartinez.org/home/showpublishedimage/2686/638917246359070000",
+        "portrait_alt_in_source": "Official Photograph",
+        "portrait_width": 533,
+        "portrait_height": 800
+      },
+      {
+        "name": "Brianne Zorn",
+        "title": "Mayor",
+        "district": null,
+        "district_display": "Citywide (at large)",
+        "email": "bzorn@cityofmartinez.org",
+        "office_phone": "(925) 372-3505",
+        "office_phone_is_shared": true,
+        "term_end": "2026-12",
+        "term_end_display": "December 2026",
+        "profile_url": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+        "portrait_url": "https://www.cityofmartinez.org/home/showpublishedimage/1725/638132665895900000",
+        "portrait_alt_in_source": "Mayor Brianne Zorn 2023",
+        "portrait_width": 1920,
+        "portrait_height": 2688
+      }
+    ]
+  },
+  "addressSource": "https://gis.cccounty.us/Downloads/General%20County%20Data/CCC_DOIT_AddressData.zip",
+  "addressFileDate": "2025-10-31",
+  "reviewedOn": "2026-09-09"
+}

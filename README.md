@@ -57,4 +57,3 @@ The app is marked as an RP demonstration and excluded from search indexing. Depl
 For HTTP integration testing after building: run `npm test` to create the test output directory, run `node scripts/start-test-server.mjs` in one terminal, and `node scripts/test-http.mjs` in another. The runner creates a fresh temporary database on localhost port 3001. It verifies setup/MFA, protected routes, CSRF, lookup, photos, draft isolation, publishing, conflicts, map replacement, recovery and password changes without touching the local or deployed administrator. Stop the test server afterwards. Never point these tests at production.
 
 The business offering under discussion remains free agency use until July 1, 2027, followed by $1,200/year for the basic service and separately scoped advanced offerings starting around $2,500/year. Billing and agency agreement flows are intentionally not implemented in this pilot.
-

@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.env*
+.data
+.test-data
+.test-build
+.openai
+*.tsbuildinfo
+work
+outputs
