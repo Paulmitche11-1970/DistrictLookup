@@ -283,6 +283,15 @@ svg {
   gap: 13px;
   text-decoration: none;
 }
+.wordmark-city-logo {
+  width: 340px;
+  min-width: 0;
+}
+.city-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .wordmark-icon {
   width: 42px;
   height: 48px;
@@ -308,6 +317,7 @@ svg {
   align-items: center;
   gap: 25px;
   font-size: 0.875rem;
+  flex-shrink: 0;
 }
 .header-links a {
   text-decoration: none;
@@ -985,6 +995,9 @@ svg {
   }
 }
 @media (max-width: 760px) {
+  .wordmark-city-logo {
+    width: 220px;
+  }
   .public-header {
     height: 76px;
     padding: 0 20px;

@@ -22,6 +22,19 @@ import DistrictMapView from './district-map';
 import type { Content, Address, Official } from '@/lib/model';
 import { colorFor, termLabel } from '@/lib/model';
 export function Brand({ name = 'Martinez' }: { name?: string }) {
+  if (name.toLowerCase() === 'martinez') {
+    return (
+      <a className="wordmark wordmark-city-logo" href="/">
+        <img
+          src="/branding/martinez-logo.svg"
+          alt="City of Martinez, CA — The Bay Area’s Hidden Gem"
+          width={470}
+          height={104}
+          className="city-logo"
+        />
+      </a>
+    );
+  }
   return (
     <a className="wordmark" href="/">
       <div className="wordmark-icon">
