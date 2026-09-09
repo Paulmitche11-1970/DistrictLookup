@@ -14,7 +14,7 @@ const child = spawn(
   process.execPath,
   [
     'node_modules/next/dist/bin/next',
-    'start',
+    process.argv.includes('--dev') ? 'dev' : 'start',
     '--hostname',
     '127.0.0.1',
     '--port',
@@ -28,6 +28,7 @@ const child = spawn(
       APP_SECRET: randomBytes(32).toString('hex'),
       ADMIN_SETUP_TOKEN: setupToken,
       APP_URL: 'http://localhost:3001',
+      ...(process.argv.includes('--dev') ? {NEXT_DIST_DIR:'.next-qa'} : {}),
     },
   },
 );
