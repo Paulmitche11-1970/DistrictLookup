@@ -19,8 +19,14 @@ import {
 } from '@/components/ui/combobox';
 import type { Content, Address, Official } from '@/lib/model';
 import { colorFor, termLabel, fullAddress, lookupIntro } from '@/lib/model';
-export function Brand({ name = 'Martinez' }: { name?: string }) {
-  if (name.toLowerCase() === 'martinez') {
+export function Brand({
+  name = 'Martinez',
+  sandbox = false,
+}: {
+  name?: string;
+  sandbox?: boolean;
+}) {
+  if (!sandbox && name.toLowerCase() === 'martinez') {
     return (
       <a
         className="wordmark wordmark-city-logo"
@@ -37,7 +43,7 @@ export function Brand({ name = 'Martinez' }: { name?: string }) {
     );
   }
   return (
-    <a className="wordmark" href="https://www.cityofmartinez.org/">
+    <a className="wordmark" href={sandbox ? '/arpeeville' : '/'}>
       <div className="wordmark-icon">
         <MapPin size={24} />
       </div>
@@ -90,12 +96,16 @@ export function useDistrictLookup(content: Content, preview = false) {
   const [results, setResults] = useState<Address[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [address, setAddress] = useState<Address | null>(null);
+  // Keep the chosen combobox value immediately, while the server resolves its
+  // district. Otherwise closing a slow lookup can clear the input and cancel it.
+  const [searchChoice, setSearchChoice] = useState<Address | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const official = content.officials.find((o) => o.district === selected);
   const mayor = content.officials.find((o) => o.district === null);
   const a = content.agency;
+  const apiRoot = a.sandbox ? '/api/arpeeville' : '/api';
   useEffect(() => {
     if (query.trim().length < 2) {
       setResults([]);
@@ -106,9 +116,12 @@ export function useDistrictLookup(content: Content, preview = false) {
     const delay = setTimeout(async () => {
       setBusy(true);
       try {
-        const r = await fetch(`/api/addresses?q=${encodeURIComponent(query)}`, {
-          signal: controller.signal,
-        });
+        const r = await fetch(
+          `${apiRoot}/addresses?q=${encodeURIComponent(query)}`,
+          {
+            signal: controller.signal,
+          },
+        );
         const data = await r.json();
         if (!r.ok)
           throw Error(
@@ -129,16 +142,17 @@ export function useDistrictLookup(content: Content, preview = false) {
       clearTimeout(delay);
       controller.abort();
     };
-  }, [query]);
+  }, [query, apiRoot]);
   async function choose(value: Address | null) {
     if (!value) return;
+    setSearchChoice(value);
     const request = ++lookupRequest.current;
     setBusy(true);
     setSearchOpen(false);
     setMessage('');
     try {
       const r = await fetch(
-        `/api/lookup?id=${encodeURIComponent(value.id)}${preview ? '&preview=1' : ''}`,
+        `${apiRoot}/lookup?id=${encodeURIComponent(value.id)}${preview ? '&preview=1' : ''}`,
       );
       const data = await r.json();
       if (request !== lookupRequest.current) return;
@@ -151,6 +165,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       if (request !== lookupRequest.current) return;
       setSelected(null);
       setAddress(null);
+      setSearchChoice(null);
       setMessage((e as Error).message);
     } finally {
       if (request === lookupRequest.current) setBusy(false);
@@ -161,6 +176,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     setBusy(false);
     setSelected(id);
     setAddress(null);
+    setSearchChoice(null);
     setQuery('');
     setResults([]);
     setSearchOpen(false);
@@ -172,6 +188,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     setBusy(false);
     setSelected(null);
     setAddress(null);
+    setSearchChoice(null);
     setQuery('');
     setResults([]);
     setMessage('');
@@ -186,6 +203,8 @@ export function useDistrictLookup(content: Content, preview = false) {
     setSelected,
     address,
     setAddress,
+    searchChoice,
+    setSearchChoice,
     busy,
     message,
     searchOpen,
@@ -204,7 +223,8 @@ export type LookupState = ReturnType<typeof useDistrictLookup>;
 export function AddressSearch({ lookup }: { lookup: LookupState }) {
   const {
     results,
-    address,
+    searchChoice,
+    setSearchChoice,
     choose,
     query,
     lookupRequest,
@@ -225,7 +245,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
         <Combobox
           items={results}
           filter={null}
-          value={address}
+          value={searchChoice}
           onValueChange={choose}
           inputValue={query}
           onInputValueChange={(text, details) => {
@@ -234,6 +254,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
               details.reason === 'input-clear'
             ) {
               lookupRequest.current++;
+              setSearchChoice(null);
               setSearchOpen(true);
             }
             setQuery(text);
@@ -252,7 +273,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
           <ComboboxContent>
             <ComboboxEmpty>
               {busy
-                ? 'Searching Martinez addresses…'
+                ? `Searching ${lookup.a.shortName} addresses…`
                 : query.trim().length < 2
                   ? 'Type at least two characters.'
                   : 'No matching city address. Try the street number and name.'}
@@ -264,7 +285,10 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
                     <MapPin size={17} />
                     <div>
                       {item.label}
-                      <small>Martinez, California</small>
+                      <small>
+                        {lookup.a.shortName}, California
+                        {lookup.a.sandbox ? ' · Test address' : ''}
+                      </small>
                     </div>
                   </div>
                 </ComboboxItem>
@@ -279,11 +303,11 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
               className="example-link"
               onClick={() => {
                 lookupRequest.current++;
-                setQuery('525 Henrietta');
+                setQuery(lookup.a.sandbox ? '100 Democracy' : '525 Henrietta');
                 setSearchOpen(true);
               }}
             >
-              525 Henrietta Street
+              {lookup.a.sandbox ? '100 Democracy Way' : '525 Henrietta Street'}
             </button>
           </p>
         )}

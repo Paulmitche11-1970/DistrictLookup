@@ -19,6 +19,7 @@ export function locate(
 export function normalizeMap(
   input: unknown,
   field: string,
+  region: 'martinez' | 'arpeeville' = 'martinez',
 ): { map: DistrictMap; skipped: number } {
   if (!input || typeof input !== 'object')
     throw Error('Choose a polygon GeoJSON or a zipped shapefile.');
@@ -75,8 +76,19 @@ export function normalizeMap(
             throw Error(
               'Coordinates must use longitude/latitude (WGS84). Include the .prj with a shapefile.',
             );
-          if (p[0] < -122.5 || p[0] > -121.7 || p[1] < 37.6 || p[1] > 38.4)
-            throw Error('This map is outside the Martinez area.');
+          const bounds =
+            region === 'arpeeville'
+              ? [-122.6, 37.3, -122.0, 37.8]
+              : [-122.5, 37.6, -121.7, 38.4];
+          if (
+            p[0] < bounds[0] ||
+            p[0] > bounds[2] ||
+            p[1] < bounds[1] ||
+            p[1] > bounds[3]
+          )
+            throw Error(
+              `This map is outside the ${region === 'arpeeville' ? 'Arpeeville test' : 'Martinez'} area.`,
+            );
         }
       }
     }

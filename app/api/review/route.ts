@@ -20,7 +20,13 @@ export async function POST(request: Request) {
     const scope = body.get('scope') === 'rp' ? 'rp' : 'martinez';
     const next =
       scope === 'rp'
-        ? '/'
+        ? [
+            '/arpeeville',
+            '/arpeeville/administration',
+            '/arpeeville/preview',
+          ].includes(body.get('next') || '')
+          ? body.get('next')!
+          : '/'
         : body.get('next') === '/martinez/administration'
           ? '/martinez/administration'
           : '/martinez';

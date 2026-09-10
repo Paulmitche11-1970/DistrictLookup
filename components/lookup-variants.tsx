@@ -86,9 +86,10 @@ export default function LookupVariant({
                 <div className="concierge-explainer">
                   <MapPin size={21} />
                   <p>
-                    Your address connects you to one of Martinez’s{' '}
-                    {content.map.features.length} council districts. Your
-                    councilmember’s details will appear here.
+                    Your address connects you to one of{' '}
+                    {content.agency.shortName}’s {content.map.features.length}{' '}
+                    council districts. Your councilmember’s details will appear
+                    here.
                   </p>
                 </div>
               )}
@@ -138,7 +139,9 @@ export default function LookupVariant({
                 <Compass size={24} />
               </span>
               <div>
-                <span className="eyebrow">Explore Martinez</span>
+                <span className="eyebrow">
+                  Explore {content.agency.shortName}
+                </span>
                 <h1>Find your district.</h1>
               </div>
             </div>
@@ -151,7 +154,9 @@ export default function LookupVariant({
                 result
               ) : (
                 <>
-                  <span className="eyebrow">A city. Four districts.</span>
+                  <span className="eyebrow">
+                    A city. {content.map.features.length} districts.
+                  </span>
                   <h2>Where do you fit in?</h2>
                   <p>
                     Search your address for your councilmember, or choose a
@@ -250,9 +255,9 @@ export default function LookupVariant({
                     at your district.
                   </h2>
                   <p>
-                    Every Martinez address belongs to a council district. Find
-                    yours above, or select a councilmember to see their district
-                    and contact information.
+                    Every {content.agency.shortName} address belongs to a
+                    council district. Find yours above, or select a
+                    councilmember to see their district and contact information.
                   </p>
                   <span className="council-detail-note">
                     <Compass size={21} /> {content.map.features.length}{' '}

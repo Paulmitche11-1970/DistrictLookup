@@ -2,9 +2,11 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Content, Address } from './model';
-let db: DatabaseSync | undefined;
+import { isSandbox } from './agency-scope';
+const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
 function withPostalCode(address: Address): Address {
+  if (isSandbox()) return { ...address, city: 'Arpeeville' };
   postalCodes ||= JSON.parse(
     readFileSync(
       path.join(process.cwd(), 'data/address-postal-codes.json'),
@@ -17,11 +19,18 @@ function withPostalCode(address: Address): Address {
   };
 }
 export function dataDir() {
-  return process.env.DATA_DIR || path.join(process.cwd(), '.data');
+  const base = process.env.DATA_DIR || path.join(process.cwd(), '.data');
+  return isSandbox() ? path.join(base, 'arpeeville') : base;
 }
 export function database() {
-  if (db) return db;
   const dir = dataDir();
+  const existing = databases.get(dir);
+  if (existing) return existing;
+  const seedDir = path.join(
+    process.cwd(),
+    'data',
+    isSandbox() ? 'arpeeville' : '',
+  );
   mkdirSync(dir, { recursive: true });
   const conn = new DatabaseSync(path.join(dir, 'district-lookup.sqlite'));
   conn.exec(
@@ -31,10 +40,7 @@ export function database() {
     `CREATE TABLE IF NOT EXISTS app_state (id INTEGER PRIMARY KEY CHECK(id=1), draft TEXT NOT NULL, published TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, published_revision INTEGER NOT NULL DEFAULT 1, published_at TEXT NOT NULL); CREATE TABLE IF NOT EXISTS admins (id TEXT PRIMARY KEY,email TEXT NOT NULL UNIQUE,name TEXT NOT NULL,password TEXT NOT NULL,totp_secret TEXT,totp_active INTEGER NOT NULL DEFAULT 0,last_totp INTEGER NOT NULL DEFAULT -1,created_at TEXT NOT NULL); CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY,admin_id TEXT NOT NULL REFERENCES admins(id),stage TEXT NOT NULL,expires_at INTEGER NOT NULL); CREATE INDEX IF NOT EXISTS sessions_admin ON sessions(admin_id); CREATE TABLE IF NOT EXISTS recovery_codes (hash TEXT PRIMARY KEY,admin_id TEXT NOT NULL REFERENCES admins(id)); CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY,count INTEGER NOT NULL,expires_at INTEGER NOT NULL); CREATE TABLE IF NOT EXISTS audit (id INTEGER PRIMARY KEY,actor TEXT NOT NULL,action TEXT NOT NULL,detail TEXT NOT NULL,created_at TEXT NOT NULL); CREATE TABLE IF NOT EXISTS photos (id TEXT PRIMARY KEY,mime TEXT NOT NULL,created_at TEXT NOT NULL); CREATE TABLE IF NOT EXISTS addresses (id TEXT PRIMARY KEY,label TEXT NOT NULL,search TEXT NOT NULL,lon REAL NOT NULL,lat REAL NOT NULL); CREATE INDEX IF NOT EXISTS addresses_search ON addresses(search);`,
   );
   if (!conn.prepare('SELECT id FROM app_state WHERE id=1').get()) {
-    const content = readFileSync(
-      path.join(process.cwd(), 'data/seed.json'),
-      'utf8',
-    );
+    const content = readFileSync(path.join(seedDir, 'seed.json'), 'utf8');
     conn
       .prepare(
         'INSERT INTO app_state (id,draft,published,published_at) VALUES (1,?,?,?)',
@@ -47,7 +53,7 @@ export function database() {
     ).n
   ) {
     const records = JSON.parse(
-      readFileSync(path.join(process.cwd(), 'data/addresses.json'), 'utf8'),
+      readFileSync(path.join(seedDir, 'addresses.json'), 'utf8'),
     ) as Address[];
     const insert = conn.prepare(
       'INSERT INTO addresses (id,label,search,lon,lat) VALUES (?,?,?,?,?)',
@@ -62,8 +68,8 @@ export function database() {
       throw e;
     }
   }
-  db = conn;
-  return db;
+  databases.set(dir, conn);
+  return conn;
 }
 export function normalizeSearch(value: string) {
   const synonyms: Record<string, string> = {

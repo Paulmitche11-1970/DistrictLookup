@@ -10,6 +10,7 @@ import {
 import { officialSchema, agencySchema } from '@/lib/validation';
 import { normalizeMap, locate } from '@/lib/geo';
 import type { Address, Official } from '@/lib/model';
+import { isSandbox, photoInScope, photoPrefix } from '@/lib/agency-scope';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export async function GET() {
@@ -55,6 +56,8 @@ export async function POST(request: Request) {
     const content = current.draft;
     if (body.action === 'official') {
       const official = officialSchema.parse(body.official);
+      if (!photoInScope(official.photo))
+        throw new HttpError(400, 'Use a photo uploaded for this agency.');
       const index = content.officials.findIndex((o) => o.id === official.id);
       if (index < 0 || official.district !== content.officials[index].district)
         throw new HttpError(
@@ -62,7 +65,7 @@ export async function POST(request: Request) {
           'The district assignment cannot be changed from this form.',
         );
       if (
-        official.photo.startsWith('/api/photos/') &&
+        official.photo.startsWith(photoPrefix()) &&
         !database()
           .prepare('SELECT id FROM photos WHERE id=?')
           .get(official.photo.split('/').at(-1)!)
@@ -77,6 +80,7 @@ export async function POST(request: Request) {
       );
     } else if (body.action === 'agency') {
       content.agency = agencySchema.parse(body.agency);
+      if (isSandbox()) content.agency.sandbox = true;
       changeDraft(
         revision,
         content,
@@ -97,6 +101,7 @@ export async function POST(request: Request) {
       const { map, skipped } = normalizeMap(
         body.map,
         String(body.field || 'district'),
+        isSandbox() ? 'arpeeville' : 'martinez',
       );
       const addresses = database()
         .prepare('SELECT id,label,lon,lat FROM addresses')
@@ -159,6 +164,8 @@ export async function POST(request: Request) {
           'Each district needs one official record or a marked vacancy.',
         );
       content.officials.forEach((o) => officialSchema.parse(o));
+      if (content.officials.some((o) => !photoInScope(o.photo)))
+        throw new HttpError(422, 'A photo belongs to another agency.');
       publish(revision, s.admin.email);
     } else if (body.action === 'discard') {
       changeDraft(

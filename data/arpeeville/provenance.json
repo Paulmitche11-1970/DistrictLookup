@@ -1,0 +1,27 @@
+{
+  "purpose": "Fictional combined geography for testing only. Not a real election district map.",
+  "sourceFiles": [
+    "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of San Mateo\\Final Plan Folder\\City of San Mateo Final Plan From Parcels.shp",
+    "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Foster City\\Final Submission Folder\\FosterCity FINAL VERSION FROM COUNTY.zip :: City_FosterCity_2025_01.shp"
+  ],
+  "sourceDistrictFields": [
+    "DISTRICT",
+    "district"
+  ],
+  "processing": "Reproject to UTM 10N; union city footprints; close 20m seams; keep main continuous polygon; simplify 12m; split into five north/south bands. Attach disconnected fragments to their contiguous neighbor. Not population balanced.",
+  "validation": {
+    "districts": 5,
+    "allSinglePolygons": true,
+    "pairwiseOverlapSquareMeters": 0,
+    "sampleAddresses": 25,
+    "allSamplesInsideAssignedDistrict": true
+  },
+  "portraits": {
+    "liz": "https://liberalarts.utexas.edu/lawanddemocracy/researchers/eas4477",
+    "paul": "https://redistrictingpartners.com/about/",
+    "gabriella": "User-supplied headshot",
+    "kimi": "User-supplied headshot",
+    "chris": "Initials; photo pending verification",
+    "jacob": "Initials; photo pending verification"
+  }
+}

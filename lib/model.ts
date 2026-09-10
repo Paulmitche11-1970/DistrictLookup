@@ -21,6 +21,7 @@ export type Official = {
   vacant: boolean;
 };
 export type Agency = {
+  sandbox?: boolean;
   name: string;
   shortName: string;
   state: string;
@@ -49,6 +50,7 @@ export type Content = {
   sourceUrl: string;
 };
 export type Address = {
+  city?: string;
   id: string;
   label: string;
   lon: number;
@@ -61,6 +63,7 @@ export const districtColors: Record<string, string> = {
   '2': '#c68b35',
   '3': '#7972b6',
   '4': '#4f91c9',
+  '5': '#b06580',
 };
 export function colorFor(id: string) {
   return districtColors[id] || '#64748b';
@@ -75,7 +78,7 @@ export function termLabel(value: string) {
 }
 
 export function fullAddress(address: Address) {
-  return `${address.label}, Martinez, California${address.zip ? ` ${address.zip}` : ''}`;
+  return `${address.label}, ${address.city || 'Martinez'}, California${address.zip ? ` ${address.zip}` : ''}`;
 }
 export function lookupIntro(agency: Agency) {
   return agency.intro.replace(

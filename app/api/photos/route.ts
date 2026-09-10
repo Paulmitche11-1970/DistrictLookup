@@ -11,6 +11,7 @@ import {
   rateLimit,
 } from '@/lib/security';
 import { dataDir, database } from '@/lib/store';
+import { photoPrefix } from '@/lib/agency-scope';
 export const runtime = 'nodejs';
 export async function POST(request: Request) {
   try {
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
     database()
       .prepare('INSERT INTO photos(id,mime,created_at) VALUES(?,?,?)')
       .run(id, 'image/webp', new Date().toISOString());
-    return Response.json({ url: '/api/photos/' + id });
+    return Response.json({ url: photoPrefix() + id });
   } catch (e) {
     return errorResponse(e);
   }

@@ -207,6 +207,24 @@ export default function InstanceDirectory({ content }: { content: Content }) {
             </section>
           );
         })}
+        <section className="sandbox-directory-card">
+          <div>
+            <span className="eyebrow">TEST AGENCY</span>
+            <h2>Arpeeville</h2>
+            <p>
+              Five districts, a citywide mayor, and an editable administration
+              workspace. Fictional data for trying changes.
+            </p>
+          </div>
+          <div className="row">
+            <a className="btn primary" href="/arpeeville">
+              Open test workspace
+            </a>
+            <a className="btn" href="/arpeeville/administration">
+              Administration
+            </a>
+          </div>
+        </section>
         <footer className="instances-footer">
           <span>RP Data · Agency workspace</span>
           <span>

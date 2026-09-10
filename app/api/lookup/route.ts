@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     const address = addressById(params.get('id') || '');
     if (!address)
       return Response.json(
-        { error: 'Choose a Martinez address from the search suggestions.' },
+        { error: 'Choose an address from this agency’s search suggestions.' },
         { status: 404 },
       );
     const district = locate(content.map, address);

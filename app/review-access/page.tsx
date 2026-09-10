@@ -10,7 +10,13 @@ export default async function Page({
   const scope = params.scope === 'rp' ? 'rp' : 'martinez';
   const next =
     scope === 'rp'
-      ? '/'
+      ? [
+          '/arpeeville',
+          '/arpeeville/administration',
+          '/arpeeville/preview',
+        ].includes(params.next || '')
+        ? params.next!
+        : '/'
       : params.next === '/martinez/administration'
         ? params.next
         : '/martinez';
@@ -28,7 +34,7 @@ export default async function Page({
         </h1>
         <p className="muted">
           {scope === 'rp'
-            ? 'Enter the RP team password to view your agency directory.'
+            ? 'Enter the RP team password to open your agency workspace and Arpeeville test administration.'
             : 'Enter your review password to explore the four designs and administration preview.'}
         </p>
         <input type="hidden" name="scope" value={scope} />

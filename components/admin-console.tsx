@@ -98,7 +98,8 @@ const navigation = [
   { id: 'security', label: 'Account security', icon: ShieldCheck },
   { id: 'activity', label: 'Change history', icon: History },
 ];
-async function api(url: string, body?: unknown) {
+async function api(url: string, body?: unknown, sandbox = false) {
+  if (sandbox) url = url.replace(/^\/api\//, '/api/arpeeville/');
   const r = await fetch(
     url,
     body
@@ -111,8 +112,12 @@ async function api(url: string, body?: unknown) {
   );
   const d = await r.json();
   if (!r.ok) {
-    if (r.status === 401 && url === '/api/admin')
-      location.assign('/admin/login');
+    if (r.status === 401)
+      location.assign(
+        sandbox
+          ? '/review-access?scope=rp&next=/arpeeville/administration'
+          : '/admin/login',
+      );
     throw Error(d.error || 'The request could not be completed.');
   }
   return d;
@@ -120,7 +125,12 @@ async function api(url: string, body?: unknown) {
 export default function AdminConsole({
   previewContent,
   previewAddressCount = 0,
-}: { previewContent?: Content; previewAddressCount?: number } = {}) {
+  sandbox = false,
+}: {
+  previewContent?: Content;
+  previewAddressCount?: number;
+  sandbox?: boolean;
+} = {}) {
   const previewMode = !!previewContent;
   const [data, setData] = useState<Dashboard | null>(() =>
     previewContent
@@ -145,21 +155,21 @@ export default function AdminConsole({
   const [discardOpen, setDiscardOpen] = useState(false);
   async function load() {
     if (previewMode) return;
-    setData(await api('/api/admin'));
+    setData(await api('/api/admin', undefined, sandbox));
   }
   useEffect(() => {
     if (!previewMode)
-      api('/api/admin')
+      api('/api/admin', undefined, sandbox)
         .then(setData)
         .catch((e) => setError(e.message));
-  }, [previewMode]);
+  }, [previewMode, sandbox]);
   async function mutate(body: Record<string, unknown>) {
     if (!data || previewMode) return false;
     setBusy(true);
     setError('');
     setSuccess('');
     try {
-      await api('/api/admin', { ...body, revision: data.revision });
+      await api('/api/admin', { ...body, revision: data.revision }, sandbox);
       await load();
       setSuccess(
         body.action === 'publish'
@@ -194,7 +204,7 @@ export default function AdminConsole({
             className="eyebrow"
             style={{ color: '#7e9cab', padding: '0 12px 14px' }}
           >
-            Martinez administration
+            {sandbox ? 'Arpeeville' : 'Martinez'} administration
           </div>
           <SidebarMenu>
             {navigation.map((item) => (
@@ -218,9 +228,11 @@ export default function AdminConsole({
           <footer>
             <div className="row" style={{ marginBottom: 8 }}>
               <ShieldCheck size={16} />
-              Two-factor protected
+              {sandbox ? 'RP review access · Sandbox' : 'Two-factor protected'}
             </div>
-            <div>City of Martinez</div>
+            <div>
+              {sandbox ? 'City of Arpeeville · Fictional' : 'City of Martinez'}
+            </div>
           </footer>
         </SidebarFooter>
       </Sidebar>
@@ -237,14 +249,14 @@ export default function AdminConsole({
           <div className="row">
             <a
               className="btn quiet"
-              href="/martinez"
+              href={sandbox ? '/arpeeville' : '/martinez'}
               target="_blank"
               rel="noreferrer"
             >
               <ExternalLink size={16} />
               View lookup designs
             </a>
-            {!previewMode && (
+            {!previewMode && !sandbox && (
               <button
                 className="icon-btn"
                 aria-label="Sign out"
@@ -264,6 +276,15 @@ export default function AdminConsole({
           </div>
         </header>
         <main className="admin-work">
+          {sandbox && (
+            <div className="notice admin-preview-notice">
+              <strong>Arpeeville is your editable test agency.</strong> Changes
+              and uploads stay here. Save a draft, preview it, then publish to
+              the fictional lookup. Shared RP review access is active;
+              individual accounts and two-factor enrollment are a separate next
+              step.
+            </div>
+          )}
           {previewMode && (
             <div className="notice admin-preview-notice">
               <strong>This is a read-only design preview.</strong> To edit
@@ -409,13 +430,29 @@ export default function AdminConsole({
                   )}
                   {section === 'embed' && (
                     <EmbedOptions
+                      sandbox={sandbox}
                       selected={data.content.agency.lookupDesign || 'classic'}
                       busy={busy || previewMode}
                       save={(design) => mutate({ action: 'design', design })}
                     />
                   )}
                   {section === 'security' &&
-                    (previewMode ? (
+                    (sandbox ? (
+                      <div className="panel stack">
+                        <ShieldCheck size={30} />
+                        <h3>Sandbox access</h3>
+                        <p>
+                          This test workspace uses the RP review password.
+                          Activity is recorded as a shared RP reviewer. Martinez
+                          continues to require its own account and two-factor
+                          authentication.
+                        </p>
+                        <p className="muted">
+                          Named users, invitations, and sandbox two-factor
+                          enrollment will come in the account-management phase.
+                        </p>
+                      </div>
+                    ) : previewMode ? (
                       <div className="panel stack">
                         <ShieldCheck size={30} />
                         <h3>Password and two-factor authentication</h3>
@@ -479,7 +516,13 @@ export default function AdminConsole({
                     </p>
                     <a
                       className="btn"
-                      href={previewMode ? '/martinez/lookup' : '/admin/preview'}
+                      href={
+                        sandbox
+                          ? '/arpeeville/preview'
+                          : previewMode
+                            ? '/martinez/lookup'
+                            : '/admin/preview'
+                      }
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -551,6 +594,7 @@ export default function AdminConsole({
         </main>
       </div>
       <OfficialEditor
+        sandbox={sandbox}
         official={editing}
         close={() => setEditing(null)}
         busy={busy}
@@ -612,11 +656,13 @@ export default function AdminConsole({
   );
 }
 function OfficialEditor({
+  sandbox = false,
   official,
   close,
   save,
   busy,
 }: {
+  sandbox?: boolean;
   official: Official | null;
   close: () => void;
   save: (official: Official) => Promise<unknown>;
@@ -644,7 +690,10 @@ function OfficialEditor({
     try {
       const f = new FormData();
       f.append('photo', file);
-      const r = await fetch('/api/photos', { method: 'POST', body: f });
+      const r = await fetch(
+        sandbox ? '/api/arpeeville/photos' : '/api/photos',
+        { method: 'POST', body: f },
+      );
       const d = await r.json();
       if (!r.ok) throw Error(d.error);
       field('photo', d.url);
@@ -1111,17 +1160,33 @@ function BoundaryEditor({
   const checked = useMemo(() => {
     if (!raw || !field) return { map: null, error: '' };
     try {
-      return { map: normalizeMap(raw, field).map, error: '' };
+      return {
+        map: normalizeMap(
+          raw,
+          field,
+          content.agency.sandbox ? 'arpeeville' : 'martinez',
+        ).map,
+        error: '',
+      };
     } catch (e) {
       return { map: null, error: (e as Error).message };
     }
-  }, [raw, field]);
+  }, [raw, field, content.agency.sandbox]);
   return (
     <div className="stack">
       <div className="panel">
         <div className="row space-between">
           <div>
             <div className="eyebrow">Saved draft map</div>
+            {content.agency.sandbox && (
+              <p className="small" style={{ marginTop: 10 }}>
+                <a href="/arpeeville-test-map.geojson" download>
+                  Download the original test map
+                </a>{' '}
+                to try uploading a map or restore the original geometry. Choose
+                the “district” field.
+              </p>
+            )}
             <h3 style={{ marginTop: 8 }}>{content.mapName}</h3>
             <p className="small muted" style={{ marginTop: 8 }}>
               Effective {content.mapEffectiveDate} ·{' '}
@@ -1274,10 +1339,12 @@ function BoundaryEditor({
   );
 }
 function EmbedOptions({
+  sandbox = false,
   selected,
   busy,
   save,
 }: {
+  sandbox?: boolean;
   selected: string;
   busy: boolean;
   save: (design: string) => Promise<unknown>;
@@ -1288,7 +1355,9 @@ function EmbedOptions({
   const [copied, setCopied] = useState(false);
   useEffect(() => setOrigin(location.origin), []);
   const current = designs.find((item) => item.id === design)!;
-  const code = `<iframe\n  src="${origin}/embed"\n  title="Find your Martinez councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
+  const basePath = sandbox ? '/arpeeville' : '/martinez';
+  const embedPath = sandbox ? '/arpeeville/embed' : '/embed';
+  const code = `<iframe\n  src="${origin}${embedPath}"\n  title="Find your ${sandbox ? 'Arpeeville' : 'Martinez'} councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
   return (
     <div className="panel stack">
       <div>
@@ -1327,7 +1396,12 @@ function EmbedOptions({
         >
           <Save size={16} /> Save design choice
         </button>
-        <a className="btn" href={current.path} target="_blank" rel="noreferrer">
+        <a
+          className="btn"
+          href={current.path.replace('/martinez', basePath)}
+          target="_blank"
+          rel="noreferrer"
+        >
           Preview this design <ExternalLink size={16} />
         </a>
       </div>
@@ -1343,7 +1417,7 @@ function EmbedOptions({
           {copied ? <Check size={16} /> : <Copy size={16} />}{' '}
           {copied ? 'Copied' : 'Copy embed code'}
         </button>
-        <a className="btn" href="/embed" target="_blank" rel="noreferrer">
+        <a className="btn" href={embedPath} target="_blank" rel="noreferrer">
           Preview embed <ExternalLink size={16} />
         </a>
       </div>
@@ -1355,7 +1429,7 @@ function EmbedOptions({
       </p>
       <code className="code-box">
         {origin}
-        /martinez/lookup
+        {basePath}/lookup
       </code>
       <p className="small muted">
         Your website administrator can adjust the frame height to fit the page.

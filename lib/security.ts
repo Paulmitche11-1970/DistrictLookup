@@ -9,6 +9,8 @@ import {
 import { cookies } from 'next/headers';
 import { TOTP, Secret } from 'otpauth';
 import { database } from './store';
+import { isSandbox } from './agency-scope';
+import { hasReviewAccess } from './review-access';
 export const SESSION_COOKIE = 'dl_session';
 export type Admin = {
   id: string;
@@ -117,6 +119,28 @@ export async function session(): Promise<Session | null> {
   return r ? { admin: r, stage: r.stage, tokenHash } : null;
 }
 export async function requireAdmin() {
+  if (isSandbox()) {
+    if (!(await hasReviewAccess('rp')))
+      throw new HttpError(
+        401,
+        'Sign in with RP review access to edit this test agency.',
+      );
+    // This review actor is valid only inside the isolated sandbox route scope.
+    // It is deliberately not an MFA session or an agency administrator.
+    return {
+      admin: {
+        id: 'sandbox-reviewer',
+        name: 'RP sandbox reviewer',
+        email: 'Shared RP review access',
+        password: '',
+        totp_secret: null,
+        totp_active: 0,
+        last_totp: -1,
+      },
+      stage: 'sandbox',
+      tokenHash: '',
+    };
+  }
   const s = await session();
   if (!s || s.stage !== 'full' || s.admin.totp_active !== 1)
     throw new HttpError(
