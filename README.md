@@ -70,7 +70,7 @@ The root directory is an internal RP Data workspace with 31 cities and 14 counti
 
 Address results display a persistent red location pin and full city/state/ZIP. ZIP codes were joined by exact street/coordinate identity to all 13,882 existing records from the original county snapshot; `data/address-postal-codes.json` enriches the existing database without replacing coordinates, records or agency edits. Browsing a representative clears the address; address results hide district buttons and disable polygon selection until reset. Required background-map attribution remains visible.
 
-The internal cards use 15 visually checked agency brand assets from official websites. Thirty cards currently use initial placeholders while logo verification is pending. Only registered, reviewed agencies receive working lookup links. Client review passwords do not provide an RP staff impersonation capability.
+The internal cards use 16 visually checked agency brand assets from official websites. Twenty-nine cards currently use initial placeholders while logo verification is pending. Only registered, reviewed agencies receive working lookup links. Client review passwords do not provide an RP staff impersonation capability.
 
 
 ## Registered agencies and separation
