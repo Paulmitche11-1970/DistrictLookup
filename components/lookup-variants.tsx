@@ -2,7 +2,13 @@
 import { useEffect, useRef } from 'react';
 import { ArrowRight, Compass, MapPin } from 'lucide-react';
 import type { Content } from '@/lib/model';
+import { ManagementProfiles } from './management-profiles';
 import { colorFor } from '@/lib/model';
+import {
+  atLargeOfficials,
+  constituencyLabel,
+  titleLabel,
+} from '@/lib/representation';
 import type { DesignId } from '@/lib/designs';
 import DistrictMapView from './district-map';
 import { LookupHeader } from './lookup-header';
@@ -28,15 +34,29 @@ export default function LookupVariant({
 }) {
   const lookup = useDistrictLookup(content, preview);
   const answer = useRef<HTMLDivElement>(null);
-  const officials = content.officials.filter(
-    (official) => official.district !== null,
-  );
+  const officials = [
+    ...atLargeOfficials(content),
+    ...content.officials.filter(
+      (o) =>
+        o.district !== null &&
+        content.districtElections?.[o.district]?.status !== 'transition',
+    ),
+  ];
   useEffect(() => {
-    if (lookup.selected && (design === 'directory' || design === 'concierge')) {
+    if (
+      lookup.hasResult &&
+      (design === 'directory' || design === 'concierge')
+    ) {
       answer.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
       answer.current?.focus({ preventScroll: true });
     }
-  }, [lookup.selected, lookup.address?.id, design]);
+  }, [
+    lookup.hasResult,
+    lookup.profileId,
+    lookup.selected,
+    lookup.address?.id,
+    design,
+  ]);
   const map = (
     <DistrictMapView
       geo={content.map}
@@ -54,7 +74,7 @@ export default function LookupVariant({
 
   return (
     <div
-      className={`design-page design-${design} ${lookup.selected ? 'has-result' : ''} ${embedded ? 'embedded' : ''}`}
+      className={`design-page design-${design} ${lookup.hasResult ? 'has-result' : ''} ${embedded ? 'embedded' : ''}`}
       style={{ '--primary': content.agency.accent } as React.CSSProperties}
     >
       <a className="skip-link" href="#address-search">
@@ -83,7 +103,7 @@ export default function LookupVariant({
               tabIndex={-1}
             >
               {search}
-              {lookup.selected ? (
+              {lookup.hasResult ? (
                 result
               ) : (
                 <div className="concierge-explainer">
@@ -109,14 +129,18 @@ export default function LookupVariant({
               {officials.map((official) => (
                 <button
                   key={official.id}
-                  onClick={() => lookup.selectDistrict(official.district!)}
-                  aria-pressed={lookup.selected === official.district}
+                  onClick={() => lookup.selectOfficial(official)}
+                  aria-pressed={
+                    official.district !== null
+                      ? lookup.selected === official.district
+                      : lookup.profileId === official.id
+                  }
                 >
                   {content.agency.showPhotos && (
                     <Portrait official={official} className="avatar" />
                   )}
                   <span>
-                    <small>District {official.district}</small>
+                    <small>{constituencyLabel(official)}</small>
                     <strong>
                       {official.vacant ? 'Vacant seat' : official.name}
                     </strong>
@@ -126,6 +150,7 @@ export default function LookupVariant({
               ))}
             </div>
           </section>
+          {!lookup.hasResult && <ManagementProfiles content={content} />}
           <LookupFooter content={content} />
         </main>
       )}
@@ -152,7 +177,7 @@ export default function LookupVariant({
             {map}
             <aside className="explorer-answer" aria-label="District details">
               <div className="explorer-search">{search}</div>
-              {lookup.selected ? (
+              {lookup.hasResult ? (
                 result
               ) : (
                 <>
@@ -172,6 +197,7 @@ export default function LookupVariant({
               )}
             </aside>
           </div>
+          {!lookup.hasResult && <ManagementProfiles content={content} />}
           <LookupFooter content={content} />
         </main>
       )}
@@ -200,7 +226,7 @@ export default function LookupVariant({
                 <MapPin size={18} /> Find your district
               </span>
               {search}
-              {lookup.selected && (
+              {lookup.hasResult && (
                 <button className="council-search-reset" onClick={lookup.clear}>
                   Search for an address <ArrowRight size={16} />
                 </button>
@@ -215,11 +241,15 @@ export default function LookupVariant({
               <button
                 className="council-person"
                 key={official.id}
-                onClick={() => lookup.selectDistrict(official.district!)}
-                aria-pressed={lookup.selected === official.district}
+                onClick={() => lookup.selectOfficial(official)}
+                aria-pressed={
+                  official.district !== null
+                    ? lookup.selected === official.district
+                    : lookup.profileId === official.id
+                }
                 style={
                   {
-                    '--district-color': colorFor(official.district!),
+                    '--district-color': colorFor(official.district || ''),
                   } as React.CSSProperties
                 }
               >
@@ -232,16 +262,16 @@ export default function LookupVariant({
                     </span>
                   )}
                   <span className="council-district-number">
-                    0{official.district}
+                    {official.district ? '0' + official.district : 'AL'}
                   </span>
                   <span className="council-open">
                     <ArrowRight size={21} />
                   </span>
                 </div>
                 <div className="council-person-text">
-                  <span>District {official.district}</span>
+                  <span>{constituencyLabel(official)}</span>
                   <h2>{official.vacant ? 'Vacant seat' : official.name}</h2>
-                  <small>{official.title}</small>
+                  <small>{titleLabel(official)}</small>
                 </div>
               </button>
             ))}
@@ -253,7 +283,7 @@ export default function LookupVariant({
             tabIndex={-1}
           >
             <div className="council-detail-copy">
-              {lookup.selected ? (
+              {lookup.hasResult ? (
                 result
               ) : (
                 <>
@@ -277,6 +307,7 @@ export default function LookupVariant({
             </div>
             {map}
           </section>
+          {!lookup.hasResult && <ManagementProfiles content={content} />}
           <LookupFooter content={content} />
         </main>
       )}

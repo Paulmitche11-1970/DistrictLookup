@@ -1,0 +1,322 @@
+[
+  {
+    "id": "arpeeville-joke-99-luft-balloons-way",
+    "label": "99 Luft Balloons Way",
+    "city": "Arpeeville",
+    "lon": -122.308325475663,
+    "lat": 37.531166652306,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-99-bottles-of-beer-on-the-wall-drive",
+    "label": "99 Bottles of Beer on the Wall Drive",
+    "city": "Arpeeville",
+    "lon": -122.308170715181,
+    "lat": 37.5311706579,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-1-amendment-drive",
+    "label": "1 Amendment Drive",
+    "city": "Arpeeville",
+    "lon": -122.307975954707,
+    "lat": 37.531174663249,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-2-legit-to-quit-way",
+    "label": "2 Legit to Quit Way",
+    "city": "Arpeeville",
+    "lon": -122.307841194241,
+    "lat": 37.531178668354,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-42-answer-to-everything-avenue",
+    "label": "42 Answer to Everything Avenue",
+    "city": "Arpeeville",
+    "lon": -122.307626433783,
+    "lat": 37.531182673215,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-404-street-not-found-road",
+    "label": "404 Street Not Found Road",
+    "city": "Arpeeville",
+    "lon": -122.308360475663,
+    "lat": 37.531191652306,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-8675309-jenny-lane",
+    "label": "8675309 Jenny Lane",
+    "city": "Arpeeville",
+    "lon": -122.308125715181,
+    "lat": 37.5311956579,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-1-more-thing-court",
+    "label": "1 More Thing Court",
+    "city": "Arpeeville",
+    "lon": -122.308030954707,
+    "lat": 37.531199663249,
+    "district": "1"
+  },
+  {
+    "id": "arpeeville-joke-10-forward-avenue",
+    "label": "10 Forward Avenue",
+    "city": "Arpeeville",
+    "lon": -122.290121527875,
+    "lat": 37.556482167322,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-21-great-scott-drive",
+    "label": "21 Great Scott Drive",
+    "city": "Arpeeville",
+    "lon": -122.289966710619,
+    "lat": 37.556476146165,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-88-miles-per-hour-parkway",
+    "label": "88 Miles Per Hour Parkway",
+    "city": "Arpeeville",
+    "lon": -122.289771893372,
+    "lat": 37.556470124764,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-121-gigawatts-way",
+    "label": "121 Gigawatts Way",
+    "city": "Arpeeville",
+    "lon": -122.289637076133,
+    "lat": 37.556464103119,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-7-degrees-of-kevin-bacon-boulevard",
+    "label": "7 Degrees of Kevin Bacon Boulevard",
+    "city": "Arpeeville",
+    "lon": -122.289422258903,
+    "lat": 37.55645808123,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-2001-space-odyssey-lane",
+    "label": "2001 Space Odyssey Lane",
+    "city": "Arpeeville",
+    "lon": -122.290156527875,
+    "lat": 37.556457167322,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-3-third-time-lucky-terrace",
+    "label": "3 Third Time Lucky Terrace",
+    "city": "Arpeeville",
+    "lon": -122.289921710619,
+    "lat": 37.556451146165,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-6-of-one-circle",
+    "label": "6 Of One Circle",
+    "city": "Arpeeville",
+    "lon": -122.289826893372,
+    "lat": 37.556445124764,
+    "district": "2"
+  },
+  {
+    "id": "arpeeville-joke-101-dalmatian-drive",
+    "label": "101 Dalmatian Drive",
+    "city": "Arpeeville",
+    "lon": -122.17038911598,
+    "lat": 37.564684757422,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-20-thousand-leagues-lane",
+    "label": "20 Thousand Leagues Lane",
+    "city": "Arpeeville",
+    "lon": -122.170234284911,
+    "lat": 37.564688563841,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-3-little-birds-boulevard",
+    "label": "3 Little Birds Boulevard",
+    "city": "Arpeeville",
+    "lon": -122.170039453851,
+    "lat": 37.564692370016,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-4-score-and-seven-years-avenue",
+    "label": "4 Score and Seven Years Avenue",
+    "city": "Arpeeville",
+    "lon": -122.169904622802,
+    "lat": 37.564696175946,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-8-days-a-week-way",
+    "label": "8 Days a Week Way",
+    "city": "Arpeeville",
+    "lon": -122.169689791763,
+    "lat": 37.564699981632,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-9-lives-lane",
+    "label": "9 Lives Lane",
+    "city": "Arpeeville",
+    "lon": -122.17042411598,
+    "lat": 37.564709757422,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-50-shades-of-beige-boulevard",
+    "label": "50 Shades of Beige Boulevard",
+    "city": "Arpeeville",
+    "lon": -122.170189284911,
+    "lat": 37.564713563841,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-12-angry-zoning-commissioners-court",
+    "label": "12 Angry Zoning Commissioners Court",
+    "city": "Arpeeville",
+    "lon": -122.170094453851,
+    "lat": 37.564717370016,
+    "district": "3"
+  },
+  {
+    "id": "arpeeville-joke-8-bit-boulevard",
+    "label": "8 Bit Boulevard",
+    "city": "Arpeeville",
+    "lon": -122.255684238197,
+    "lat": 37.58432442302,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-256-cache-me-if-you-can-court",
+    "label": "256 Cache Me If You Can Court",
+    "city": "Arpeeville",
+    "lon": -122.255529359015,
+    "lat": 37.584318351663,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-127-loopback-lane",
+    "label": "127 Loopback Lane",
+    "city": "Arpeeville",
+    "lon": -122.255334479842,
+    "lat": 37.58431228006,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-418-teapot-terrace",
+    "label": "418 Teapot Terrace",
+    "city": "Arpeeville",
+    "lon": -122.255199600677,
+    "lat": 37.584306208214,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-500-internal-server-road",
+    "label": "500 Internal Server Road",
+    "city": "Arpeeville",
+    "lon": -122.254984721522,
+    "lat": 37.584300136123,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-1024-byte-me-boulevard",
+    "label": "1024 Byte Me Boulevard",
+    "city": "Arpeeville",
+    "lon": -122.255719238197,
+    "lat": 37.58429942302,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-0-null-pointer-place",
+    "label": "0 Null Pointer Place",
+    "city": "Arpeeville",
+    "lon": -122.255484359015,
+    "lat": 37.584293351663,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-2-factor-avenue",
+    "label": "2 Factor Avenue",
+    "city": "Arpeeville",
+    "lon": -122.255389479842,
+    "lat": 37.58428728006,
+    "district": "4"
+  },
+  {
+    "id": "arpeeville-joke-1-motion-to-adjourn-avenue",
+    "label": "1 Motion to Adjourn Avenue",
+    "city": "Arpeeville",
+    "lon": -122.250381432638,
+    "lat": 37.598741262352,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-2-second-the-motion-street",
+    "label": "2 Second the Motion Street",
+    "city": "Arpeeville",
+    "lon": -122.250226520911,
+    "lat": 37.598745183013,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-5-quorum-court",
+    "label": "5 Quorum Court",
+    "city": "Arpeeville",
+    "lon": -122.250031609194,
+    "lat": 37.59874910343,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-30-public-comment-place",
+    "label": "30 Public Comment Place",
+    "city": "Arpeeville",
+    "lon": -122.249896697485,
+    "lat": 37.598753023601,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-60-minutes-later-lane",
+    "label": "60 Minutes Later Lane",
+    "city": "Arpeeville",
+    "lon": -122.249681785786,
+    "lat": 37.598756943528,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-100-percent-contiguous-court",
+    "label": "100 Percent Contiguous Court",
+    "city": "Arpeeville",
+    "lon": -122.250416432638,
+    "lat": 37.598766262352,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-360-full-circle",
+    "label": "360 Full Circle",
+    "city": "Arpeeville",
+    "lon": -122.250181520911,
+    "lat": 37.598770183013,
+    "district": "5"
+  },
+  {
+    "id": "arpeeville-joke-270-map-happens-drive",
+    "label": "270 Map Happens Drive",
+    "city": "Arpeeville",
+    "lon": -122.250086609194,
+    "lat": 37.59877410343,
+    "district": "5"
+  }
+]

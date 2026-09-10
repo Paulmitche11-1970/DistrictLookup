@@ -4,6 +4,7 @@ import { gunzipSync } from 'node:zlib';
 import path from 'node:path';
 import type { Content, Address } from './model';
 import { currentAgencyId, currentInstance } from './agency-scope';
+import { visibleOfficial } from './representation';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
 function withPostalCode(address: Address): Address {
@@ -143,6 +144,61 @@ export function database() {
       throw error;
     }
   }
+  if (
+    currentAgencyId() === 'arpeeville' &&
+    !conn
+      .prepare('SELECT id FROM app_migrations WHERE id=?')
+      .get('arpeeville-jokes-and-mayor-v1')
+  ) {
+    const jokes = JSON.parse(
+      readFileSync(path.join(seedDir, 'joke-addresses.json'), 'utf8'),
+    ) as Address[];
+    const insert = conn.prepare(
+      'INSERT OR IGNORE INTO addresses (id,label,search,lon,lat,city,zip) VALUES (?,?,?,?,?,?,?)',
+    );
+    conn.exec('BEGIN');
+    try {
+      for (const address of jokes)
+        insert.run(
+          address.id,
+          address.label,
+          normalizeSearch(
+            [address.label, 'Arpeeville California CA USA United States'].join(
+              ' ',
+            ),
+          ),
+          address.lon,
+          address.lat,
+          'Arpeeville',
+          null,
+        );
+      // Apply this default once so a later administrative choice stays authoritative.
+      const row = conn
+        .prepare('SELECT draft,published FROM app_state WHERE id=1')
+        .get() as { draft: string; published: string };
+      const markMayor = (raw: string) => {
+        const content = JSON.parse(raw) as Content;
+        for (const official of content.officials)
+          if (
+            official.district === null &&
+            official.name === 'Liz Stitt' &&
+            official.selectionMethod === undefined
+          )
+            official.selectionMethod = 'elected';
+        return JSON.stringify(content);
+      };
+      conn
+        .prepare('UPDATE app_state SET draft=?,published=? WHERE id=1')
+        .run(markMayor(row.draft), markMayor(row.published));
+      conn
+        .prepare('INSERT INTO app_migrations(id) VALUES(?)')
+        .run('arpeeville-jokes-and-mayor-v1');
+      conn.exec('COMMIT');
+    } catch (error) {
+      conn.exec('ROLLBACK');
+      throw error;
+    }
+  }
   databases.set(dir, conn);
   return conn;
 }
@@ -192,6 +248,13 @@ export function state() {
 }
 function withInstance(content: Content): Content {
   const instance = currentInstance();
+  if (content.management === undefined && instance.id === 'martinez')
+    content.management = JSON.parse(
+      readFileSync(
+        path.join(process.cwd(), 'data/management-seed.json'),
+        'utf8',
+      ),
+    );
   if (instance.sandbox) {
     // Normalize the original placeholder copy while preserving subsequent custom edits.
     if (
@@ -241,7 +304,7 @@ export function visibleContent(content: Content): Content {
   return {
     ...content,
     officials: content.officials
-      .filter((o) => o.district !== null || a.showMayor)
+      .filter((o) => visibleOfficial(content, o))
       .map((o) => ({
         ...o,
         photo: a.showPhotos ? o.photo : '',
@@ -254,6 +317,19 @@ export function visibleContent(content: Content): Content {
         staffEmail: a.showStaff ? o.staffEmail : '',
         staffPhone: a.showStaff ? o.staffPhone : '',
       })),
+    management:
+      a.showManagement === false
+        ? []
+        : (content.management || [])
+            .filter((p) => p.visible)
+            .map((p) => ({
+              ...p,
+              photo: a.showPhotos ? p.photo : '',
+              email: a.showEmail ? p.email : '',
+              phone: a.showPhone ? p.phone : '',
+              phoneLabel: a.showPhone ? p.phoneLabel : '',
+              website: a.showWebsite ? p.website : '',
+            })),
   };
 }
 export function audit(actor: string, action: string, detail: string) {

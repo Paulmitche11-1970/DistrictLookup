@@ -14,6 +14,8 @@ export const officialSchema = z
     district: z.union([text(20), z.null()]),
     name: text(120),
     title: text(100),
+    additionalTitles: z.array(text(100).min(1)).max(5).optional(),
+    selectionMethod: z.enum(['elected', 'appointed']).optional(),
     email,
     phone: text(40),
     phoneLabel: text(80),
@@ -55,6 +57,7 @@ export const agencySchema = z.object({
   contactPhone: text(40),
   accent: z.string().regex(/^#[0-9a-fA-F]{6}$/),
   showMayor: z.boolean(),
+  showManagement: z.boolean().optional(),
   showPhotos: z.boolean(),
   showEmail: z.boolean(),
   showPhone: z.boolean(),
@@ -64,6 +67,24 @@ export const agencySchema = z.object({
   lookupDesign: z
     .enum(['classic', 'concierge', 'explorer', 'directory'])
     .optional(),
+});
+export const districtElectionSchema = z.object({
+  status: z.enum(['district', 'transition']),
+  firstElection: z
+    .union([z.literal(''), z.string().regex(/^20\d{2}-(0[1-9]|1[0-2])$/)])
+    .optional(),
+});
+export const managementSchema = z.object({
+  id: text(30).min(1),
+  name: text(120).min(2),
+  title: text(100).min(2),
+  email,
+  phone: text(40),
+  phoneLabel: text(80).optional(),
+  website: url,
+  photo: officialSchema.shape.photo,
+  bio: text(3000),
+  visible: z.boolean(),
 });
 export const credentialsSchema = z.object({
   email: z

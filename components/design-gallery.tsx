@@ -2,6 +2,7 @@ import { ArrowRight, Check, LockKeyhole } from 'lucide-react';
 import type { Content } from '@/lib/model';
 import { instanceFor, adminPath } from '@/lib/instances';
 import { designs } from '@/lib/designs';
+import { ManagementProfiles } from './management-profiles';
 
 export default function DesignGallery({
   content,
@@ -184,6 +185,7 @@ export default function DesignGallery({
             </div>
           </article>
         </section>
+        <ManagementProfiles content={content} />
         <footer className="gallery-footer">
           <span>
             Screenshots show the initial designs. Open a design to see the

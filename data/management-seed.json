@@ -1,0 +1,26 @@
+[
+  {
+    "id": "city-manager",
+    "name": "Michael Chandler",
+    "title": "City Manager",
+    "email": "mchandler@cityofmartinez.org",
+    "phone": "(925) 372-3500",
+    "website": "https://www.cityofmartinez.org/government/city-manager",
+    "photo": "/portraits/martinez/michael-chandler.jpg",
+    "bio": "",
+    "visible": true,
+    "phoneLabel": "City Hall"
+  },
+  {
+    "id": "assistant-city-manager",
+    "name": "Lauren Sugayan",
+    "title": "Assistant City Manager",
+    "email": "lsugayan@cityofmartinez.org",
+    "phone": "(925) 372-3500",
+    "website": "https://www.cityofmartinez.org/departments/administrative-services",
+    "photo": "",
+    "bio": "",
+    "visible": true,
+    "phoneLabel": "City Hall"
+  }
+]

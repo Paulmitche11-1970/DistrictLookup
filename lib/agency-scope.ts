@@ -20,7 +20,7 @@ export function photoInScope(value: string) {
   if (!value) return true;
   const seed =
     currentAgencyId() === 'martinez'
-      ? /^\/portraits\/(1|2|3|4|mayor)\.jpg$/
+      ? /^\/portraits\/((1|2|3|4|mayor)\.jpg|martinez\/[a-zA-Z0-9_-]+\.(jpg|webp|png))$/
       : new RegExp(
           '^/portraits/' +
             currentAgencyId() +

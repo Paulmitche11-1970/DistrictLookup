@@ -1,5 +1,6 @@
 'use client';
 import type { Content } from '@/lib/model';
+import { ManagementProfiles } from './management-profiles';
 import DistrictMapView from './district-map';
 import {
   AddressSearch,
@@ -26,7 +27,7 @@ export default function Lookup({
       className={[
         'lookup',
         embedded ? 'embedded' : '',
-        lookup.selected ? 'has-result' : '',
+        lookup.hasResult ? 'has-result' : '',
       ].join(' ')}
       style={{ '--primary': content.agency.accent } as React.CSSProperties}
     >
@@ -52,6 +53,7 @@ export default function Lookup({
           <AddressSearch lookup={lookup} />
           <RepresentativeResult content={content} lookup={lookup} />
           <CouncilList content={content} lookup={lookup} />
+          {!lookup.hasResult && <ManagementProfiles content={content} />}
           <LookupFooter content={content} />
         </section>
         <DistrictMapView

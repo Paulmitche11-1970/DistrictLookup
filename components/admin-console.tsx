@@ -21,6 +21,9 @@ import {
   LockKeyhole,
   Copy,
   MapPin,
+  Plus,
+  Trash2,
+  Building2,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -69,8 +72,12 @@ import { Switch } from '@/components/ui/switch';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import DistrictMapView from './district-map';
+import { TitlePicker } from './office-title-picker';
+import { RepresentationEditor } from './representation-editor';
+import { ManagementEditor } from './management-editor';
 import type { Content, Official, Agency } from '@/lib/model';
 import { colorFor, termLabel } from '@/lib/model';
+import { constituencyLabel, titleLabel } from '@/lib/representation';
 import { normalizeMap } from '@/lib/geo';
 import { apiPath, adminPath, instanceFor } from '@/lib/instances';
 import { designs } from '@/lib/designs';
@@ -93,6 +100,8 @@ type Dashboard = {
 };
 const navigation = [
   { id: 'officials', label: 'Elected officials', icon: Users },
+  { id: 'representation', label: 'Districts & representation', icon: MapPin },
+  { id: 'management', label: 'Agency administration', icon: Building2 },
   { id: 'display', label: 'Display & contact options', icon: Settings2 },
   { id: 'map', label: 'District map', icon: Map },
   { id: 'embed', label: 'Add to your website', icon: Code },
@@ -158,6 +167,9 @@ export default function AdminConsole({
   const [success, setSuccess] = useState('');
   const [busy, setBusy] = useState(false);
   const [editing, setEditing] = useState<Official | null>(null);
+  const [removingOfficial, setRemovingOfficial] = useState<Official | null>(
+    null,
+  );
   const [publishOpen, setPublishOpen] = useState(false);
   const [discardOpen, setDiscardOpen] = useState(false);
   async function load() {
@@ -194,6 +206,40 @@ export default function AdminConsole({
     }
   }
   const a = data?.content.agency;
+  function addAtLargeOfficial() {
+    if (!data || previewMode || busy || data.content.officials.length >= 100)
+      return;
+    const kind = data.content.agency.kind;
+    setEditing({
+      id: 'off-' + crypto.randomUUID().replaceAll('-', '').slice(0, 24),
+      district: null,
+      name: '',
+      title:
+        kind === 'county'
+          ? 'Supervisor'
+          : kind === 'college'
+            ? 'Trustee'
+            : kind === 'school'
+              ? 'Board Member'
+              : kind === 'special'
+                ? 'Director'
+                : 'Councilmember',
+      additionalTitles: [],
+      email: '',
+      phone: '',
+      phoneLabel: '',
+      website: '',
+      termEnd: '',
+      photo: '',
+      bio: '',
+      staffName: '',
+      staffEmail: '',
+      staffPhone: '',
+      vacant: false,
+    });
+    setError('');
+    setSuccess('');
+  }
   return (
     <SidebarProvider className="admin-shell">
       <Sidebar className="admin-nav">
@@ -324,15 +370,19 @@ export default function AdminConsole({
                   <p className="muted">
                     {section === 'officials'
                       ? 'Keep the people behind each district up to date.'
-                      : section === 'display'
-                        ? 'Choose what residents see when they find their representative.'
-                        : section === 'map'
-                          ? 'Review your boundaries before replacing the public map.'
-                          : section === 'embed'
-                            ? 'A simple lookup that fits into your existing website.'
-                            : section === 'security'
-                              ? 'Manage your password and account recovery.'
-                              : 'A record of edits and publication.'}
+                      : section === 'representation'
+                        ? 'Manage district seats, at-large representation and election transitions.'
+                        : section === 'management'
+                          ? 'Update the agency managers and administrative leaders residents can contact.'
+                          : section === 'display'
+                            ? 'Choose what residents see when they find their representative.'
+                            : section === 'map'
+                              ? 'Review your boundaries before replacing the public map.'
+                              : section === 'embed'
+                                ? 'A simple lookup that fits into your existing website.'
+                                : section === 'security'
+                                  ? 'Manage your password and account recovery.'
+                                  : 'A record of edits and publication.'}
                   </p>
                 </div>
                 <span className="pill">
@@ -349,67 +399,120 @@ export default function AdminConsole({
                   className="admin-preview-fields"
                 >
                   {section === 'officials' && (
-                    <div className="official-grid">
-                      {data.content.officials.map((o) => (
-                        <article className="official-tile" key={o.id}>
-                          <div
-                            className="tile-district"
-                            style={{ color: colorFor(o.district || '') }}
-                          >
-                            {o.district
-                              ? `DISTRICT ${o.district}`
-                              : 'CITYWIDE MAYOR'}
-                          </div>
-                          <div className="row">
-                            {o.photo ? (
-                              <img
-                                src={o.photo}
-                                alt={o.name}
-                                className="avatar"
-                              />
-                            ) : (
-                              <div
-                                className="avatar"
-                                style={{
-                                  display: 'grid',
-                                  placeItems: 'center',
+                    <div className="stack">
+                      <div
+                        className="row space-between"
+                        style={{ flexWrap: 'wrap', gap: 14 }}
+                      >
+                        <p className="small muted">
+                          Add an at-large profile here. Assign its district in
+                          Districts & representation when needed.
+                        </p>
+                        <button
+                          className="btn"
+                          type="button"
+                          disabled={
+                            busy ||
+                            previewMode ||
+                            data.content.officials.length >= 100
+                          }
+                          onClick={addAtLargeOfficial}
+                        >
+                          <Plus size={16} /> Add at-large official
+                        </button>
+                      </div>
+                      <div className="official-grid">
+                        {data.content.officials.map((o) => (
+                          <article className="official-tile" key={o.id}>
+                            <div
+                              className="tile-district"
+                              style={{ color: colorFor(o.district || '') }}
+                            >
+                              {constituencyLabel(o)}
+                            </div>
+                            <div className="row">
+                              {o.photo ? (
+                                <img
+                                  src={o.photo}
+                                  alt={o.name}
+                                  className="avatar"
+                                />
+                              ) : (
+                                <div
+                                  className="avatar"
+                                  style={{
+                                    display: 'grid',
+                                    placeItems: 'center',
+                                  }}
+                                >
+                                  <Users size={24} />
+                                </div>
+                              )}
+                              <div>
+                                <div className="small muted">
+                                  {titleLabel(o)}
+                                </div>
+                                <h3>{o.vacant ? 'Vacant seat' : o.name}</h3>
+                                <span className="small muted">
+                                  {o.termEnd
+                                    ? 'Term ends ' + termLabel(o.termEnd)
+                                    : 'Term not entered'}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="tile-meta">
+                              <div className="row">
+                                <Mail size={14} />
+                                <span style={{ overflowWrap: 'anywhere' }}>
+                                  {o.email || 'No email added'}
+                                </span>
+                              </div>
+                              <div className="row">
+                                <Phone size={14} />
+                                {o.phone || 'No phone added'}
+                              </div>
+                            </div>
+                            <button
+                              className="btn"
+                              type="button"
+                              disabled={busy || previewMode}
+                              onClick={() => setEditing({ ...o })}
+                            >
+                              <Pencil size={15} />
+                              Edit official
+                            </button>
+                            {o.district === null && (
+                              <button
+                                className="btn quiet"
+                                type="button"
+                                disabled={busy || previewMode}
+                                onClick={() => {
+                                  setError('');
+                                  setRemovingOfficial(o);
                                 }}
                               >
-                                <Users size={24} />
-                              </div>
+                                <Trash2 size={15} /> Remove at-large profile
+                              </button>
                             )}
-                            <div>
-                              <div className="small muted">{o.title}</div>
-                              <h3>{o.vacant ? 'Vacant seat' : o.name}</h3>
-                              <span className="small muted">
-                                {o.termEnd
-                                  ? 'Term ends ' + termLabel(o.termEnd)
-                                  : 'Term not entered'}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="tile-meta">
-                            <div className="row">
-                              <Mail size={14} />
-                              <span style={{ overflowWrap: 'anywhere' }}>
-                                {o.email || 'No email added'}
-                              </span>
-                            </div>
-                            <div className="row">
-                              <Phone size={14} />
-                              {o.phone || 'No phone added'}
-                            </div>
-                          </div>
-                          <button
-                            className="btn"
-                            onClick={() => setEditing({ ...o })}
-                          >
-                            <Pencil size={15} />
-                            Edit official
-                          </button>
-                        </article>
-                      ))}
+                          </article>
+                        ))}
+                      </div>
                     </div>
+                  )}
+                  {section === 'representation' && (
+                    <RepresentationEditor
+                      content={data.content}
+                      busy={busy || previewMode}
+                      save={mutate}
+                    />
+                  )}
+                  {section === 'management' && (
+                    <ManagementEditor
+                      content={data.content}
+                      busy={busy || previewMode}
+                      agencyId={agencyId}
+                      save={mutate}
+                    />
                   )}
                   {section === 'display' && (
                     <DisplayOptions
@@ -574,7 +677,7 @@ export default function AdminConsole({
                       </li>
                       <li>
                         {data.content.officials.filter((o) => !o.vacant).length}{' '}
-                        elected officials
+                        current officials
                       </li>
                       <li>Street and satellite map views</li>
                     </ul>
@@ -592,15 +695,66 @@ export default function AdminConsole({
       </div>
       <OfficialEditor
         agencyId={agencyId}
+        kind={a?.kind}
+        isNew={
+          !!editing && !data?.content.officials.some((o) => o.id === editing.id)
+        }
         official={editing}
         close={() => setEditing(null)}
-        busy={busy}
+        busy={busy || previewMode}
         save={async (official) => {
-          const done = await mutate({ action: 'official', official });
+          const exists = data?.content.officials.some(
+            (o) => o.id === official.id,
+          );
+          const done = await mutate({
+            action: exists ? 'official' : 'official-add',
+            official,
+          });
           if (done) setEditing(null);
           return done;
         }}
       />
+      <AlertDialog
+        open={!!removingOfficial}
+        onOpenChange={(open) => {
+          if (!open && !busy) setRemovingOfficial(null);
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Remove this at-large profile?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {removingOfficial?.name || 'This vacant seat'} will be removed
+              from your draft. The public lookup changes after you publish. You
+              can discard the draft to restore the published version.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          {error && (
+            <div className="notice error" role="alert">
+              {error}
+            </div>
+          )}
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={busy}>Keep profile</AlertDialogCancel>
+            <AlertDialogAction
+              disabled={busy || previewMode}
+              onClick={async () => {
+                if (!removingOfficial || removingOfficial.district !== null)
+                  return;
+                if (
+                  await mutate({
+                    action: 'official-remove',
+                    id: removingOfficial.id,
+                  })
+                )
+                  setRemovingOfficial(null);
+              }}
+            >
+              {busy ? 'Removing…' : 'Remove from draft'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
       <Dialog open={publishOpen} onOpenChange={setPublishOpen}>
         <DialogContent style={{ maxWidth: 470, padding: 28 }}>
           <DialogHeader>
@@ -654,12 +808,16 @@ export default function AdminConsole({
 }
 function OfficialEditor({
   agencyId = 'martinez',
+  kind,
+  isNew = false,
   official,
   close,
   save,
   busy,
 }: {
   agencyId?: string;
+  kind?: Agency['kind'];
+  isNew?: boolean;
   official: Official | null;
   close: () => void;
   save: (official: Official) => Promise<unknown>;
@@ -673,7 +831,7 @@ function OfficialEditor({
     setDraft(official ? { ...official } : null);
     setError('');
   }, [official]);
-  function field(key: keyof Official, value: string | boolean) {
+  function field<K extends keyof Official>(key: K, value: Official[K]) {
     setDraft((d) => (d ? { ...d, [key]: value } : d));
   }
   function requestClose() {
@@ -711,7 +869,9 @@ function OfficialEditor({
         <SheetContent className="editor-sheet">
           <SheetHeader style={{ padding: '27px 28px 8px' }}>
             <SheetTitle>
-              Edit {draft?.district ? 'District ' + draft.district : 'mayor'}
+              {isNew
+                ? 'Add at-large official'
+                : `Edit ${draft ? constituencyLabel(draft) : 'official'}`}
             </SheetTitle>
             <SheetDescription>
               Update this official’s details. Save a draft, then publish when
@@ -728,7 +888,14 @@ function OfficialEditor({
               }}
               onSubmit={async (e) => {
                 e.preventDefault();
-                if (!(await save(draft)))
+                if (busy || uploading) return;
+                const official = {
+                  ...draft,
+                  additionalTitles: draft.additionalTitles
+                    ?.map((title) => title.trim())
+                    .filter(Boolean),
+                };
+                if (!(await save(official)))
                   setError(
                     'The draft could not be saved. Check your entries. If someone else saved an edit, close this form and reload the page.',
                   );
@@ -813,14 +980,12 @@ function OfficialEditor({
                           onChange={(e) => field('name', e.target.value)}
                         />
                       </label>
-                      <label className="field">
-                        Title
-                        <input
-                          value={draft.title}
-                          maxLength={100}
-                          onChange={(e) => field('title', e.target.value)}
-                        />
-                      </label>
+                      <TitlePicker
+                        value={draft.title}
+                        onChange={(value) => field('title', value)}
+                        kind={kind}
+                        disabled={busy || uploading}
+                      />
                       <label className="field">
                         Term ends
                         <input
@@ -828,6 +993,96 @@ function OfficialEditor({
                           value={draft.termEnd}
                           onChange={(e) => field('termEnd', e.target.value)}
                         />
+                      </label>
+                      <div className="wide stack">
+                        <div>
+                          <strong className="small">Additional titles</strong>
+                          <p className="small muted" style={{ marginTop: 6 }}>
+                            Add other roles held by this same person, such as
+                            Trustee and Board President. Titles do not change
+                            the seat’s district.
+                          </p>
+                        </div>
+                        {(draft.additionalTitles || []).map((title, index) => (
+                          <div
+                            key={index}
+                            className="row"
+                            style={{ alignItems: 'flex-end' }}
+                          >
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <TitlePicker
+                                value={title}
+                                onChange={(value) =>
+                                  field(
+                                    'additionalTitles',
+                                    (draft.additionalTitles || []).map(
+                                      (item, position) =>
+                                        position === index ? value : item,
+                                    ),
+                                  )
+                                }
+                                kind={kind}
+                                label={`Additional title ${index + 1}`}
+                                disabled={busy || uploading}
+                              />
+                            </div>
+                            <button
+                              className="icon-btn"
+                              type="button"
+                              aria-label={`Remove additional title ${index + 1}`}
+                              disabled={busy || uploading}
+                              onClick={() =>
+                                field(
+                                  'additionalTitles',
+                                  (draft.additionalTitles || []).filter(
+                                    (_, position) => position !== index,
+                                  ),
+                                )
+                              }
+                            >
+                              <Trash2 size={17} />
+                            </button>
+                          </div>
+                        ))}
+                        <button
+                          className="btn"
+                          type="button"
+                          style={{ alignSelf: 'flex-start' }}
+                          disabled={
+                            busy ||
+                            uploading ||
+                            (draft.additionalTitles?.length || 0) >= 5
+                          }
+                          onClick={() =>
+                            field('additionalTitles', [
+                              ...(draft.additionalTitles || []),
+                              '',
+                            ])
+                          }
+                        >
+                          <Plus size={16} /> Add title
+                          {(draft.additionalTitles?.length || 0) >= 5
+                            ? ' (maximum 5)'
+                            : ''}
+                        </button>
+                      </div>
+                      <label className="field wide">
+                        How the seat was filled
+                        <select
+                          value={draft.selectionMethod || ''}
+                          disabled={busy || uploading || draft.vacant}
+                          onChange={(e) =>
+                            field(
+                              'selectionMethod',
+                              (e.target.value ||
+                                undefined) as Official['selectionMethod'],
+                            )
+                          }
+                        >
+                          <option value="">Not recorded</option>
+                          <option value="elected">Elected</option>
+                          <option value="appointed">Appointed</option>
+                        </select>
                       </label>
                       <label className="field wide">
                         Public email
@@ -1005,8 +1260,13 @@ function DisplayOptions({
     ],
     [
       'showMayor',
-      'Citywide mayor',
-      'Show the mayor alongside the district representative.',
+      'At-large mayor',
+      'Show an at-large mayor alongside the district representative.',
+    ],
+    [
+      'showManagement',
+      'Agency administration',
+      'Show the agency managers and administrative leaders whose profiles are enabled.',
     ],
   ];
   return (
@@ -1019,7 +1279,10 @@ function DisplayOptions({
     >
       <h3>Representative information</h3>
       {options
-        .filter(([key]) => key !== 'showMayor' || draft.kind !== 'county')
+        .filter(
+          ([key]) =>
+            key !== 'showMayor' || !draft.kind || draft.kind === 'city',
+        )
         .map(([key, title, desc]) => (
           <div className="toggle-row" key={key}>
             <div>
@@ -1028,7 +1291,11 @@ function DisplayOptions({
             </div>
             <Switch
               disabled={busy}
-              checked={!!draft[key]}
+              checked={
+                key === 'showManagement'
+                  ? draft.showManagement !== false
+                  : !!draft[key]
+              }
               onCheckedChange={(v) => setDraft({ ...draft, [key]: v })}
               aria-label={title}
             />

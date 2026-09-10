@@ -1,0 +1,51 @@
+{
+  "agencySlug": "martinez",
+  "reviewedAt": "2026-09-10",
+  "scope": "Optional appointed city-management profiles on the Martinez landing page only. These are citywide administrators, not district elected officials.",
+  "profiles": [
+    {
+      "id": "city-manager",
+      "name": "Michael Chandler",
+      "title": "City Manager",
+      "email": "mchandler@cityofmartinez.org",
+      "profileUrl": "https://www.cityofmartinez.org/government/city-manager",
+      "phone": "(925) 372-3500",
+      "phoneLabel": "City Hall",
+      "officeAddress": "525 Henrietta Street, Martinez, CA 94553-2395",
+      "photoSourceUrl": "https://www.cityofmartinez.org/home/showpublishedimage/2239/638558968804670000",
+      "photoAlt": "Michael Chandler, City Manager",
+      "verification": "Live official City Manager page explicitly names Michael Chandler and his email, beside image alt Mike Chandler Headshot. General phone and office address are explicitly shown in the official page footer. No direct individual office number verified.",
+      "sources": [
+        "https://www.cityofmartinez.org/government/city-manager",
+        "https://www.cityofmartinez.org/our-city/contact-us"
+      ],
+      "photoFile": "downloads/michael-chandler.jpg",
+      "photoVerified": true
+    },
+    {
+      "id": "assistant-city-manager",
+      "name": "Lauren Sugayan",
+      "title": "Assistant City Manager",
+      "email": "lsugayan@cityofmartinez.org",
+      "profileUrl": "https://www.cityofmartinez.org/departments/administrative-services",
+      "profileLabel": "Administrative Services",
+      "phone": "(925) 372-3500",
+      "phoneLabel": "City Hall",
+      "officeAddress": "525 Henrietta Street, Martinez, CA 94553-2395",
+      "photoAlt": "Lauren Sugayan, Assistant City Manager",
+      "verification": "Live official Administrative Services page identifies Staff Contact: Assistant City Manager Lauren Sugayan and lists her email. Exact Assistant title verified. Current page has no portrait. Indexed city budget presentation has a labeled photo page, but direct PDF download returned 403 and supported browser pageAssets exposed no exportable PDF asset. No photo ready for publication.",
+      "sources": [
+        "https://www.cityofmartinez.org/departments/administrative-services",
+        "https://www.cityofmartinez.org/our-city/contact-us"
+      ],
+      "photoFile": "",
+      "photoVerified": false,
+      "photoStatus": "pending"
+    }
+  ],
+  "sourceNotes": [
+    "Search/web fetch sometimes returned 403, but the normal public city pages loaded in the supported browser and names/emails were confirmed directly from the rendered DOM. No authentication or access-control workaround was used.",
+    "The 2023 appointment-news URL remains indexed but the live page now says This news has expired. Use current Administrative Services page as Lauren Sugayan's public profile link.",
+    "No professional biography, district, term date, or electoral claim is needed for these appointed management cards."
+  ]
+}

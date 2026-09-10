@@ -11,6 +11,7 @@ import { TOTP, Secret } from 'otpauth';
 import { database } from './store';
 import { isSandbox, currentAgencyId, currentInstance } from './agency-scope';
 import { hasReviewAccess } from './review-access';
+import { acceptedRequestOrigin } from './app-origins';
 export const SESSION_COOKIE = 'dl_session';
 export const sessionCookie = () =>
   currentAgencyId() === 'martinez'
@@ -194,12 +195,10 @@ export async function logout() {
   jar.delete(sessionCookie());
 }
 export function checkOrigin(request: Request) {
-  const expected = process.env.APP_URL
-    ? new URL(process.env.APP_URL).origin
-    : new URL(request.url).origin;
-  const origin = request.headers.get('origin');
-  if (origin !== expected)
+  const origin = acceptedRequestOrigin(request);
+  if (!origin)
     throw new HttpError(403, 'This request did not come from the application.');
+  return origin;
 }
 export function rateLimit(key: string, max = 8, seconds = 900) {
   const db = database();

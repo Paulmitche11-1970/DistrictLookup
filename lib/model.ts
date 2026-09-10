@@ -8,6 +8,8 @@ export type Official = {
   district: string | null;
   name: string;
   title: string;
+  additionalTitles?: string[];
+  selectionMethod?: 'elected' | 'appointed';
   email: string;
   phone: string;
   phoneLabel: string;
@@ -19,6 +21,22 @@ export type Official = {
   staffEmail: string;
   staffPhone: string;
   vacant: boolean;
+};
+export type ManagementProfile = {
+  id: string;
+  name: string;
+  title: string;
+  email: string;
+  phone: string;
+  phoneLabel?: string;
+  website: string;
+  photo: string;
+  bio: string;
+  visible: boolean;
+};
+export type DistrictElection = {
+  status: 'district' | 'transition';
+  firstElection?: string;
 };
 export type Agency = {
   instanceId?: string;
@@ -39,6 +57,7 @@ export type Agency = {
   contactPhone: string;
   accent: string;
   showMayor: boolean;
+  showManagement?: boolean;
   showPhotos: boolean;
   showEmail: boolean;
   showPhone: boolean;
@@ -50,6 +69,8 @@ export type Agency = {
 export type Content = {
   agency: Agency;
   officials: Official[];
+  management?: ManagementProfile[];
+  districtElections?: Record<string, DistrictElection>;
   map: DistrictMap;
   mapName: string;
   mapEffectiveDate: string;

@@ -20,6 +20,14 @@ import {
 import type { Content, Address, Official } from '@/lib/model';
 import { apiPath, instanceFor } from '@/lib/instances';
 import {
+  atLargeOfficials,
+  districtOfficial,
+  representativesFor,
+  titleLabel,
+  constituencyLabel,
+  hasTitle,
+} from '@/lib/representation';
+import {
   colorFor,
   termLabel,
   fullAddress,
@@ -128,6 +136,7 @@ export function useDistrictLookup(content: Content, preview = false) {
   const lookupRequest = useRef(0);
   const [results, setResults] = useState<Address[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
+  const [profileId, setProfileId] = useState<string | null>(null);
   const [address, setAddress] = useState<Address | null>(null);
   // Keep the chosen combobox value immediately, while the server resolves its
   // district. Otherwise closing a slow lookup can clear the input and cancel it.
@@ -135,8 +144,11 @@ export function useDistrictLookup(content: Content, preview = false) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
-  const official = content.officials.find((o) => o.district === selected);
-  const mayor = content.officials.find((o) => o.district === null);
+  const official = profileId
+    ? content.officials.find((o) => o.id === profileId)
+    : districtOfficial(content, selected);
+  const mayor = atLargeOfficials(content).find((o) => hasTitle(o, 'Mayor'));
+  const hasResult = !!selected || !!profileId;
   const a = content.agency;
   const apiRoot = apiPath(
     a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
@@ -195,6 +207,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       if (!r.ok)
         throw Error(data.error || 'We could not identify this district.');
       setAddress(data.address);
+      setProfileId(null);
       setSelected(data.district);
       setQuery(value.label);
     } catch (e) {
@@ -208,6 +221,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     }
   }
   function selectDistrict(id: string) {
+    setProfileId(null);
     lookupRequest.current++;
     setBusy(false);
     setSelected(id);
@@ -220,6 +234,7 @@ export function useDistrictLookup(content: Content, preview = false) {
   }
 
   function clear() {
+    setProfileId(null);
     lookupRequest.current++;
     setBusy(false);
     setSelected(null);
@@ -231,6 +246,15 @@ export function useDistrictLookup(content: Content, preview = false) {
     setSearchOpen(false);
   }
   return {
+    profileId,
+    hasResult,
+    selectOfficial: (value: Official) => {
+      if (value.district !== null) selectDistrict(value.district);
+      else {
+        clear();
+        setProfileId(value.id);
+      }
+    },
     query,
     setQuery,
     lookupRequest,
@@ -271,7 +295,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
     selected,
     message,
   } = lookup;
-  if (selected) return null;
+  if (lookup.hasResult) return null;
   if (lookup.a.addressMode === 'pending')
     return (
       <p className="notice">
@@ -372,6 +396,75 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
   );
 }
 
+export function OfficialDetails({
+  official,
+  a,
+}: {
+  official: Official;
+  a: Content['agency'];
+}) {
+  return (
+    <section className="representative-profile" aria-label={official.name}>
+      <div className="official-heading">
+        {a.showPhotos && (
+          <Portrait official={official} className="result-photo" />
+        )}
+        <div>
+          <div className="eyebrow">{titleLabel(official)}</div>
+          <h2>{official.name}</h2>
+          {official.district === null && (
+            <p className="small muted">{constituencyLabel(official)}</p>
+          )}
+          {a.showTerm && official.termEnd && (
+            <p className="term">Term ends {termLabel(official.termEnd)}</p>
+          )}
+        </div>
+      </div>
+      <div className="contact-list">
+        {a.showEmail && official.email && (
+          <a href={'mailto:' + official.email}>
+            <Mail size={18} />
+            <span>{official.email}</span>
+          </a>
+        )}
+        {a.showPhone && official.phone && (
+          <a href={phoneHref(official.phone)}>
+            <Phone size={18} />
+            <span>
+              {official.phone}
+              <small>{official.phoneLabel}</small>
+            </span>
+          </a>
+        )}
+        {a.showWebsite && official.website && (
+          <a href={official.website} target="_blank" rel="noreferrer">
+            <Globe size={18} />
+            <span>About {official.name.split(' ')[0]}</span>
+            <ArrowUpRight size={15} style={{ marginLeft: 'auto' }} />
+          </a>
+        )}
+      </div>
+      {official.bio && (
+        <p
+          className="small muted"
+          style={{ marginTop: 18, whiteSpace: 'pre-line' }}
+        >
+          {official.bio}
+        </p>
+      )}
+      {a.showStaff && official.staffName && (
+        <div className="notice" style={{ marginTop: 18 }}>
+          <strong>{official.staffName}</strong>
+          <div className="small">Office contact</div>
+          {official.staffEmail && (
+            <a href={'mailto:' + official.staffEmail}>{official.staffEmail}</a>
+          )}
+          {official.staffPhone && <p>{official.staffPhone}</p>}
+        </div>
+      )}
+    </section>
+  );
+}
 export function RepresentativeResult({
   content,
   lookup,
@@ -379,131 +472,84 @@ export function RepresentativeResult({
   content: Content;
   lookup: LookupState;
 }) {
-  const { selected, address, official, mayor, clear } = lookup;
+  const { selected, address, official, profileId, hasResult, clear } = lookup;
   const a = content.agency;
+  const transition = selected
+    ? content.districtElections?.[selected]
+    : undefined;
+  const people = profileId
+    ? official && !official.vacant
+      ? [official]
+      : []
+    : selected
+      ? representativesFor(content, selected)
+      : [];
+  if (!hasResult) return null;
   return (
-    <>
-      {' '}
-      {selected && (
-        <div className="result-card" aria-live="polite">
-          <div className="row space-between" style={{ marginBottom: 18 }}>
-            <div
-              className="result-district"
-              style={{ color: colorFor(selected), margin: 0 }}
-            >
-              <MapPin size={17} />
-              District {selected}
-            </div>
-          </div>
-          {address ? (
-            <p className="small muted" style={{ marginBottom: 18 }}>
-              {fullAddress(address)}
+    <div className="result-card" aria-live="polite">
+      <div
+        className="result-district"
+        style={{ color: colorFor(selected || '') }}
+      >
+        <MapPin size={17} />
+        {selected
+          ? 'District ' + selected
+          : official
+            ? constituencyLabel(official)
+            : 'At Large'}
+      </div>
+      <p className="small muted" style={{ margin: '16px 0' }}>
+        {address
+          ? fullAddress(address)
+          : profileId
+            ? 'Represents the entire agency.'
+            : 'Exploring this district. Search your address to confirm yours.'}
+      </p>
+      <button className="clear-result result-reset" onClick={clear}>
+        <ArrowLeft size={14} />
+        {address ? 'Start again' : 'Search for an address'}
+      </button>
+      {address && a.addressNote && (
+        <p className="small muted address-note">{a.addressNote}</p>
+      )}
+      {selected && transition?.status === 'transition' ? (
+        <div className="notice transition-notice">
+          <strong>At-large representation during the transition</strong>
+          <p>
+            {address ? 'Your location is in' : 'You are exploring'} District{' '}
+            {selected}. This district does not yet have a serving district
+            representative. The at-large members below currently represent you.
+          </p>
+          {transition.firstElection && (
+            <p>
+              First district election: {termLabel(transition.firstElection)}.
             </p>
-          ) : (
-            <p className="small muted" style={{ marginBottom: 18 }}>
-              Exploring this district. Search your address to confirm yours.
-            </p>
-          )}
-          <button className="clear-result result-reset" onClick={clear}>
-            <ArrowLeft size={14} />
-            {address ? 'Start again' : 'Search for an address'}
-          </button>
-          {address && a.addressNote && (
-            <p className="small muted address-note">{a.addressNote}</p>
-          )}
-          {official && !official.vacant ? (
-            <>
-              <div className="official-heading">
-                {a.showPhotos && (
-                  <Portrait official={official} className="result-photo" />
-                )}
-                <div>
-                  <div className="eyebrow">{official.title}</div>
-                  <h2>{official.name}</h2>
-                  {a.showTerm && official.termEnd && (
-                    <p className="term">
-                      Term ends {termLabel(official.termEnd)}
-                    </p>
-                  )}
-                </div>
-              </div>
-              <div className="contact-list">
-                {a.showEmail && official.email && (
-                  <a href={`mailto:${official.email}`}>
-                    <Mail size={18} />
-                    <span>{official.email}</span>
-                  </a>
-                )}
-                {a.showPhone && official.phone && (
-                  <a href={phoneHref(official.phone)}>
-                    <Phone size={18} />
-                    <span>
-                      {official.phone}
-                      <small>{official.phoneLabel}</small>
-                    </span>
-                  </a>
-                )}
-                {a.showWebsite && official.website && (
-                  <a href={official.website} target="_blank" rel="noreferrer">
-                    <Globe size={18} />
-                    <span>About {official.name.split(' ')[0]}</span>
-                    <ArrowUpRight size={15} style={{ marginLeft: 'auto' }} />
-                  </a>
-                )}
-              </div>
-              {official.bio && (
-                <p
-                  className="small muted"
-                  style={{ marginTop: 18, whiteSpace: 'pre-line' }}
-                >
-                  {official.bio}
-                </p>
-              )}
-              {a.showStaff && official.staffName && (
-                <div className="notice" style={{ marginTop: 18 }}>
-                  <strong>{official.staffName}</strong>
-                  <div className="small">Office contact</div>
-                  {official.staffEmail && (
-                    <a href={`mailto:${official.staffEmail}`}>
-                      {official.staffEmail}
-                    </a>
-                  )}
-                  {official.staffPhone && <p>{official.staffPhone}</p>}
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="notice">
-              <h3>District {selected}</h3>
-              <p style={{ marginTop: 8 }}>
-                This seat is currently vacant. Contact the agency for
-                assistance.
-              </p>
-              <a href={phoneHref(a.contactPhone)}>{a.contactPhone}</a>
-            </div>
-          )}
-          {a.showMayor && mayor && !mayor.vacant && (
-            <div className="mayor-line">
-              {a.showPhotos && <Portrait official={mayor} className="avatar" />}
-              <div>
-                <small>Also represents you citywide</small>
-                <strong>
-                  {mayor.title} {mayor.name}
-                </strong>
-                {a.showEmail && mayor.email && (
-                  <small>
-                    <a href={`mailto:${mayor.email}`}>Contact the mayor</a>
-                  </small>
-                )}
-              </div>
-            </div>
           )}
         </div>
-      )}
-    </>
+      ) : selected && (!official || official.vacant) ? (
+        <div className="notice">
+          <h3>District {selected}</h3>
+          <p>
+            {official?.vacant
+              ? 'This seat is currently vacant. Contact the agency for assistance.'
+              : 'District representative information is not yet available. Contact the agency for assistance.'}
+          </p>
+          {a.contactPhone && (
+            <a href={phoneHref(a.contactPhone)}>{a.contactPhone}</a>
+          )}
+        </div>
+      ) : null}
+      {people.map((person) => (
+        <div className="representative-result-person" key={person.id}>
+          {selected && person.district === null && (
+            <p className="eyebrow">Also represents you at large</p>
+          )}
+          <OfficialDetails official={person} a={a} />
+        </div>
+      ))}
+    </div>
   );
 }
-
 export function CouncilList({
   content,
   lookup,
@@ -511,45 +557,54 @@ export function CouncilList({
   content: Content;
   lookup: LookupState;
 }) {
-  const { selected, a, selectDistrict } = lookup;
+  if (lookup.hasResult) return null;
+  const officials = [
+    ...atLargeOfficials(content),
+    ...content.officials.filter(
+      (o) =>
+        o.district !== null &&
+        content.districtElections?.[o.district]?.status !== 'transition',
+    ),
+  ];
   return (
-    <>
-      {' '}
-      {!selected && (
-        <div className="district-list">
-          <div className="row space-between list-heading">
-            <span className="eyebrow">
-              {a.kind === 'county'
-                ? 'Explore the board'
-                : 'Explore the council'}
-            </span>
-            <span className="small muted">
-              {content.map.features.length} districts
-            </span>
+    <div className="district-list">
+      <div className="row space-between list-heading">
+        <span className="eyebrow">
+          {lookup.a.kind === 'county'
+            ? 'Explore the board'
+            : 'Explore the council'}
+        </span>
+        <span className="small muted">
+          {content.map.features.length} districts
+        </span>
+      </div>
+      {officials.map((o) => (
+        <button
+          className={
+            'district-choice' + (o.district === null ? ' at-large-choice' : '')
+          }
+          key={o.id}
+          onClick={() => lookup.selectOfficial(o)}
+        >
+          {lookup.a.showPhotos && <Portrait official={o} className="avatar" />}
+          <div>
+            <strong>
+              {o.vacant
+                ? 'Vacant seat'
+                : (hasTitle(o, 'Mayor') ? 'Mayor ' : '') + o.name}
+            </strong>
+            <span>{constituencyLabel(o)}</span>
           </div>
-          {content.officials
-            .filter((o) => o.district)
-            .map((o) => (
-              <button
-                className="district-choice"
-                key={o.id}
-                onClick={() => selectDistrict(o.district!)}
-              >
-                {a.showPhotos && <Portrait official={o} className="avatar" />}
-                <div>
-                  <strong>{o.vacant ? 'Vacant seat' : o.name}</strong>
-                  <span>District {o.district}</span>
-                </div>
-                <i
-                  className="district-dot"
-                  style={{ background: colorFor(o.district!) }}
-                />
-                <ChevronRight size={17} className="chevron" />
-              </button>
-            ))}
-        </div>
-      )}
-    </>
+          {o.district !== null && (
+            <i
+              className="district-dot"
+              style={{ background: colorFor(o.district) }}
+            />
+          )}
+          <ChevronRight size={17} className="chevron" />
+        </button>
+      ))}
+    </div>
   );
 }
 

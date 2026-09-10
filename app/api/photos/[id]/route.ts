@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { dataDir, state } from '@/lib/store';
+import { dataDir, publicContent } from '@/lib/store';
 import { requireAdmin } from '@/lib/security';
 import { photoPrefix } from '@/lib/agency-scope';
 export const runtime = 'nodejs';
@@ -12,14 +12,11 @@ export async function GET(
   const { id } = await params;
   if (!/^[a-f0-9]{32}$/.test(id))
     return new Response('Not found', { status: 404 });
-  const { published } = state();
+  const published = publicContent();
   const visible =
     published.agency.showPhotos &&
-    published.officials.some(
-      (o) =>
-        o.photo === photoPrefix() + id &&
-        (o.district !== null || published.agency.showMayor),
-    );
+    (published.officials.some((o) => o.photo === photoPrefix() + id) ||
+      published.management?.some((p) => p.photo === photoPrefix() + id));
   if (!visible) {
     try {
       await requireAdmin();

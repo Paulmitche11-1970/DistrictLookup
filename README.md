@@ -15,7 +15,7 @@ An RP Data representative lookup and administration portal. The current review b
 
 ## Agency administration
 
-Martinez `/admin` and Solano County `/solano-county/admin` require a password and authenticator TOTP. Initial setup requires a random deployment setup token. Passwords use salted scrypt, TOTP secrets are encrypted with AES-256-GCM, sessions are hashed and stored server-side, and recovery codes work once. Mutations validate same-origin requests and credential attempts are rate-limited.
+Martinez `/admin` and Solano County `/solano-county/admin` require a password and authenticator TOTP. Initial setup requires a random deployment setup token. Passwords use salted scrypt, TOTP secrets are encrypted with AES-256-GCM, sessions are hashed and stored server-side, and recovery codes work once. Mutations require an exact configured trusted origin and credential attempts are rate-limited.
 
 Edit official names, titles, photos, contact information, staff contacts, term dates and vacancies. Switch optional public fields on or off, edit introductory text and copy website embed code. Upload JPG, PNG or GIF portraits; images are decoded, stripped of metadata and stored as WebP. Animated GIFs use the first frame.
 
@@ -37,9 +37,23 @@ Deploy the included Dockerfile to the user's DistrictLookup Railway project. Att
 | ------------------- | ---------------------------------------------- |
 | `DATA_DIR`          | `/data`                                        |
 | `APP_URL`           | The exact HTTPS origin, with no path           |
+| `ADDITIONAL_APP_ORIGINS` | Optional comma-separated additional exact HTTPS origins |
 | `APP_SECRET`        | At least 32 random characters; retain securely |
 | `ADMIN_SETUP_TOKEN` | A separate random setup token                  |
 | `PORT`              | `3000` (match the domain target port)          |
+
+For the custom domain, use these production settings after both custom hostnames have been attached to the Railway service and their DNS/TLS configuration is ready:
+
+```dotenv
+APP_URL=https://wheresmydistrict.com
+ADDITIONAL_APP_ORIGINS=https://www.wheresmydistrict.com,https://district-lookup-production.up.railway.app
+```
+
+`APP_URL` is the canonical origin. `ADDITIONAL_APP_ORIGINS` explicitly trusts only the listed aliases for review sign-in, authentication, uploads and administrative writes. This setting does not configure DNS, attach Railway domains, grant CORS access, or trust other subdomains. Origins use their serialized URL form: lowercase scheme/hostname, no path or trailing slash, no query/fragment, no credentials, no wildcard and no explicit default port. Separate entries with commas; surrounding whitespace is allowed, but empty entries or malformed values fail closed. Remove an alias from this setting when it should stop accepting writes.
+
+Cookies remain host-only. Review-login redirects stay on the verified origin where the form was submitted, so signing in through `www` or Railway does not lose the newly set cookie by jumping to the canonical domain. Sign in separately when switching hostnames. Redirect destinations remain the existing approved relative routes; proxy `Host`/`X-Forwarded-Host` headers cannot grant origin trust.
+
+For local development, use `APP_URL=http://localhost:3000` and leave aliases empty. If `APP_URL` is unset, the existing same-origin fallback remains available only on `localhost`, `127.0.0.1`, or `[::1]`, with the exact request port. Configuring aliases requires a canonical `APP_URL`. Public hosts require HTTPS and explicit configuration.
 
 The database and uploaded photos live on the volume. Container redeployment preserves them. The health endpoint is `/api/health`. Seeds initialize only an empty database, so deploying new code does not reset agency edits. Use Railway volume backups and retain the encryption key separately; a recovery needs both the data and key. Do not run several application replicas against this SQLite volume. Multiple administrators, organization provisioning, SSO, billing and fleet-wide operations are future scope.
 

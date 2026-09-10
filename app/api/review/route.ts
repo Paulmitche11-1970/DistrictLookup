@@ -14,13 +14,12 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export async function POST(request: Request) {
   try {
-    checkOrigin(request);
+    const base = checkOrigin(request);
     const body = new URLSearchParams(
       (await boundedBody(request, 3000)).toString('utf8'),
     );
     const scope = body.get('scope') === 'rp' ? 'rp' : 'martinez';
     const next = reviewDestination(scope, body.get('next'));
-    const base = process.env.APP_URL || new URL(request.url).origin;
     const login = new URL('/review-access', base);
     login.searchParams.set('scope', scope);
     login.searchParams.set('next', next);

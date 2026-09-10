@@ -29,13 +29,10 @@ void test('Portrait paths cannot cross the agency boundary', () => {
     assert.equal(photoInScope('/api/arpeeville/photos/../photos/' + id), false);
   });
 });
-void test('Arpeeville has five valid single polygons, a citywide mayor, and 25 uniquely assigned fictional addresses', () => {
+void test('Arpeeville has five valid single polygons and a citywide mayor', () => {
   const content = JSON.parse(
     readFileSync('data/arpeeville/seed.json', 'utf8'),
   ) as Content;
-  const addresses = JSON.parse(
-    readFileSync('data/arpeeville/addresses.json', 'utf8'),
-  ) as Address[];
   assert.throws(() => normalizeMap(content.map, 'district'), /Martinez/);
   const { map } = normalizeMap(content.map, 'district', 'arpeeville');
   assert.equal(map.features.length, 5);
@@ -44,7 +41,54 @@ void test('Arpeeville has five valid single polygons, a citywide mayor, and 25 u
     content.officials.filter((o) => o.district === null)[0].name,
     'Liz Stitt',
   );
-  assert.equal(addresses.length, 25);
-  for (const a of addresses) assert.equal(locate(map, a), a.id.split('-')[1]);
   assert.equal(locate(map, { lon: -122.133, lat: 38.019 }), null);
+});
+void test('All 65 fictional addresses have unique IDs and coordinates, with eight jokes strictly inside each district', () => {
+  const content = JSON.parse(
+    readFileSync('data/arpeeville/seed.json', 'utf8'),
+  ) as Content;
+  const original = JSON.parse(
+    readFileSync('data/arpeeville/addresses.json', 'utf8'),
+  ) as Address[];
+  const jokes = JSON.parse(
+    readFileSync('data/arpeeville/joke-addresses.json', 'utf8'),
+  ) as Address[];
+  const addresses = [...original, ...jokes];
+  const { map } = normalizeMap(content.map, 'district', 'arpeeville');
+  assert.equal(original.length, 25);
+  assert.equal(jokes.length, 40);
+  assert.equal(addresses.length, 65);
+  assert.equal(new Set(addresses.map((a) => a.id)).size, addresses.length);
+  assert.equal(
+    new Set(addresses.map((a) => `${a.lon},${a.lat}`)).size,
+    addresses.length,
+  );
+  assert.equal(
+    new Set(addresses.map((a) => a.label.toLowerCase())).size,
+    addresses.length,
+  );
+  for (const address of addresses) {
+    assert.equal(address.city, 'Arpeeville');
+    assert.ok(Number.isFinite(address.lon) && Number.isFinite(address.lat));
+  }
+  for (const address of original)
+    assert.equal(locate(map, address), address.id.split('-')[1], address.label);
+  for (const address of jokes) {
+    assert.match(address.id, /^arpeeville-joke-/);
+    assert.match(address.district || '', /^[1-5]$/);
+    // locate rejects shared boundaries and any point touching multiple districts.
+    assert.equal(locate(map, address), address.district, address.label);
+  }
+  for (const district of ['1', '2', '3', '4', '5'])
+    assert.equal(jokes.filter((a) => a.district === district).length, 8);
+  for (const label of [
+    '99 Luft Balloons Way',
+    '99 Bottles of Beer on the Wall Drive',
+    '1 Amendment Drive',
+    '2 Legit to Quit Way',
+  ]) {
+    const address = jokes.find((a) => a.label === label);
+    assert.ok(address, `Missing requested fictional address: ${label}`);
+    assert.equal(locate(map, address), address.district, label);
+  }
 });

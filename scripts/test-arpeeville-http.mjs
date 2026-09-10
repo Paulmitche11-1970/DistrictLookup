@@ -7,6 +7,16 @@ const config = JSON.parse(readFileSync('.test-build/http-config.json', 'utf8'));
 const origin = config.origin;
 if (!/^http:\/\/localhost:3001$/.test(origin))
   throw Error('Local test server required');
+const originalAddresses = JSON.parse(
+  readFileSync('data/arpeeville/addresses.json', 'utf8'),
+);
+const jokeAddresses = JSON.parse(
+  readFileSync('data/arpeeville/joke-addresses.json', 'utf8'),
+);
+const allAddresses = [...originalAddresses, ...jokeAddresses];
+assert.equal(originalAddresses.length, 25);
+assert.equal(jokeAddresses.length, 40);
+assert.equal(allAddresses.length, 65);
 const db = new DatabaseSync(
   path.join(config.dataDir, 'district-lookup.sqlite'),
   { readOnly: true },
@@ -69,7 +79,28 @@ await call('/api/admin', { cookie, status: 401 });
 await call('/api/arpeeville/auth/setup', { cookie, body: {}, status: 404 });
 let dashboard = await call('/api/arpeeville/admin', { cookie });
 assert.equal(dashboard.content.agency.sandbox, true);
-assert.equal(dashboard.addressCount, 25);
+assert.equal(dashboard.addressCount, 65);
+const sandboxDb = new DatabaseSync(
+  path.join(config.dataDir, 'arpeeville', 'district-lookup.sqlite'),
+  { readOnly: true },
+);
+try {
+  const stored = sandboxDb
+    .prepare('SELECT id,label,lon,lat,city FROM addresses')
+    .all();
+  assert.equal(stored.length, 65);
+  assert.equal(new Set(stored.map((a) => a.id)).size, 65);
+  assert.equal(new Set(stored.map((a) => `${a.lon},${a.lat}`)).size, 65);
+  const byId = new Map(stored.map((a) => [a.id, a]));
+  for (const { id, label, lon, lat, city } of allAddresses)
+    assert.deepEqual(
+      { ...byId.get(id) },
+      { id, label, lon, lat, city },
+      `Imported joke or preserved original address changed: ${id}`,
+    );
+} finally {
+  sandboxDb.close();
+}
 const seed = structuredClone(dashboard.content);
 const mutate = async (body, status = 200) => {
   await call('/api/arpeeville/admin', {
@@ -89,6 +120,40 @@ assert.equal(
 );
 await call('/api/lookup?id=' + address.id, { status: 404 });
 assert.equal((await call('/api/addresses?q=Democracy')).addresses.length, 0);
+for (const [label, partialQuery] of [
+  ['99 Luft Balloons Way', 'Luft'],
+  ['99 Bottles of Beer on the Wall Drive', 'Bottles of Beer'],
+  ['1 Amendment Drive', 'Amendment'],
+  ['2 Legit to Quit Way', 'Legit to Quit'],
+]) {
+  const expected = jokeAddresses.find((a) => a.label === label);
+  assert.ok(expected, `Missing requested fictional address: ${label}`);
+  for (const query of [partialQuery, label]) {
+    const suggestions = await call(
+      '/api/arpeeville/addresses?q=' + encodeURIComponent(query),
+    );
+    const found = suggestions.addresses.find((a) => a.id === expected.id);
+    assert.ok(found, `Fictional address is not searchable: ${query}`);
+    assert.equal(found.label, expected.label);
+    assert.equal(found.city, 'Arpeeville');
+  }
+  const found = await call(
+    '/api/arpeeville/lookup?id=' + encodeURIComponent(expected.id),
+  );
+  assert.equal(found.district, expected.district, label);
+  assert.equal(found.address.id, expected.id);
+  assert.equal(found.address.lon, expected.lon);
+  assert.equal(found.address.lat, expected.lat);
+  assert.equal(
+    (await call('/api/addresses?q=' + encodeURIComponent(label))).addresses
+      .length,
+    0,
+    `Fictional address leaked into Martinez search: ${label}`,
+  );
+  await call('/api/lookup?id=' + encodeURIComponent(expected.id), {
+    status: 404,
+  });
+}
 const martinezAddress = (await call('/api/addresses?q=Henrietta')).addresses[0];
 await call('/api/arpeeville/lookup?id=' + martinezAddress.id, { status: 404 });
 await call('/api/arpeeville/lookup?id=' + address.id + '&preview=1', {
@@ -196,6 +261,6 @@ assert.equal(
 );
 assert.ok(dashboard.activity.length >= 10);
 console.log(
-  `${calls} Arpeeville checks passed: review auth, CSRF, draft privacy, photos, publish, design, map validation, address and storage isolation.`,
+  `${calls} Arpeeville checks passed: 65 preserved/imported addresses, four requested joke searches and district lookups, review auth, CSRF, draft privacy, photos, publish, design, map validation, address and storage isolation.`,
 );
 db.close();
