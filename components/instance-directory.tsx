@@ -56,6 +56,65 @@ export default function InstanceDirectory({ content }: { content: Content }) {
           <h1>RP Data Voter Lookup Instances</h1>
           <p>Your agencies, from first draft to launch.</p>
         </div>
+        <section
+          className="instance-section"
+          id="active-agencies"
+          aria-labelledby="active-agencies-heading"
+        >
+          <div className="instance-section-title">
+            <Building2 size={21} />
+            <h2 id="active-agencies-heading">Active Agencies</h2>
+            <span>2 agencies</span>
+          </div>
+          <div className="agency-card-grid">
+            {[
+              {
+                name: 'Martinez',
+                path: '/martinez',
+                admin: '/admin',
+                logo: '/branding/martinez-logo.svg',
+                detail: `${content.map.features.length} districts · 4 lookup designs`,
+                status: 'Design review',
+              },
+              {
+                name: 'Arpeeville',
+                path: '/arpeeville',
+                admin: '/arpeeville/administration',
+                logo: '',
+                detail: 'Fictional city · Editable test workspace',
+                status: 'Test agency',
+              },
+            ].map((agency) => (
+              <article className="compact-agency-card" key={agency.path}>
+                <a href={agency.path} className="compact-agency-main">
+                  <div className="compact-agency-brand">
+                    {agency.logo ? (
+                      <img src={agency.logo} alt="City of Martinez" />
+                    ) : (
+                      <span className="agency-initials" aria-hidden="true">
+                        AV
+                      </span>
+                    )}
+                  </div>
+                  <h3>{agency.name}</h3>
+                  <p className="agency-card-meta">{agency.detail}</p>
+                  <span className="agency-build-note">
+                    Open agency workspace
+                  </span>
+                  <ArrowRight className="card-open-arrow" size={16} />
+                </a>
+                <div className="agency-card-bottom">
+                  <a href={agency.admin}>
+                    <ShieldCheck size={13} /> RP admin
+                  </a>
+                  <span className="agency-status status-in-progress">
+                    {agency.status}
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
         <div className="directory-controls">
           <label className="directory-search">
             <Search size={18} />
@@ -207,24 +266,6 @@ export default function InstanceDirectory({ content }: { content: Content }) {
             </section>
           );
         })}
-        <section className="sandbox-directory-card">
-          <div>
-            <span className="eyebrow">TEST AGENCY</span>
-            <h2>Arpeeville</h2>
-            <p>
-              Five districts, a citywide mayor, and an editable administration
-              workspace. Fictional data for trying changes.
-            </p>
-          </div>
-          <div className="row">
-            <a className="btn primary" href="/arpeeville">
-              Open test workspace
-            </a>
-            <a className="btn" href="/arpeeville/administration">
-              Administration
-            </a>
-          </div>
-        </section>
         <footer className="instances-footer">
           <span>RP Data · Agency workspace</span>
           <span>
