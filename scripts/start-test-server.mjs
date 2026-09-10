@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 // A fresh disposable database, with independent credentials, never .data or a Railway volume.
 const dataDir = mkdtempSync(path.join(tmpdir(), 'district-lookup-http-'));
 const setupToken = randomBytes(24).toString('hex');
+const solanoSetupToken = randomBytes(24).toString('hex');
 const reviewPassword = randomBytes(16).toString('hex');
 const reviewSalt = randomBytes(16).toString('hex');
 const reviewHash = `scrypt:${reviewSalt}:${scryptSync(reviewPassword, reviewSalt, 64).toString('hex')}`;
@@ -14,6 +15,7 @@ writeFileSync(
   JSON.stringify({
     dataDir,
     setupToken,
+    solanoSetupToken,
     reviewPassword,
     origin: 'http://localhost:3001',
   }),
@@ -35,6 +37,7 @@ const child = spawn(
       DATA_DIR: dataDir,
       APP_SECRET: randomBytes(32).toString('hex'),
       ADMIN_SETUP_TOKEN: setupToken,
+      ADMIN_SETUP_TOKEN_SOLANO_COUNTY: solanoSetupToken,
       APP_URL: 'http://localhost:3001',
       RP_REVIEW_PASSWORD_HASH: reviewHash,
       MARTINEZ_REVIEW_PASSWORD_HASH: reviewHash,

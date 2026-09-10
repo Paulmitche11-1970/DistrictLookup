@@ -1,0 +1,58 @@
+[
+  {
+    "id": "martinez",
+    "name": "City of Martinez",
+    "shortName": "Martinez",
+    "kind": "city",
+    "seedDirectory": "",
+    "bounds": [
+      -122.5,
+      37.6,
+      -121.7,
+      38.4
+    ],
+    "logo": "/branding/martinez-logo.svg",
+    "slogan": "The Bay Area’s Hidden Gem",
+    "addressMode": "local",
+    "sampleAddress": "525 Henrietta Street",
+    "previewDirectory": "/design-previews"
+  },
+  {
+    "id": "arpeeville",
+    "name": "City of Arpeeville",
+    "shortName": "Arpeeville",
+    "kind": "city",
+    "seedDirectory": "arpeeville",
+    "bounds": [
+      -122.6,
+      37.3,
+      -122.0,
+      37.8
+    ],
+    "logo": "/branding/arpeeville-logo.svg",
+    "slogan": "Good neighbors. Great lines.",
+    "addressMode": "local",
+    "sampleAddress": "100 Democracy Way",
+    "previewDirectory": "/design-previews/arpeeville",
+    "sandbox": true
+  },
+  {
+    "id": "solano-county",
+    "name": "Solano County",
+    "shortName": "Solano County",
+    "kind": "county",
+    "seedDirectory": "agencies/solano-county",
+    "bounds": [
+      -122.5,
+      37.95,
+      -121.5,
+      38.65
+    ],
+    "logo": "/branding/agencies/solano-county.webp",
+    "addressMode": "local",
+    "sampleAddress": "675 Texas Street",
+    "previewDirectory": "/design-previews/solano-county",
+    "districtCount": 5,
+    "officialCount": 5
+  }
+]

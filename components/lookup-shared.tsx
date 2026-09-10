@@ -18,23 +18,48 @@ import {
   ComboboxEmpty,
 } from '@/components/ui/combobox';
 import type { Content, Address, Official } from '@/lib/model';
+import { apiPath, instanceFor } from '@/lib/instances';
 import { colorFor, termLabel, fullAddress, lookupIntro } from '@/lib/model';
 export function Brand({
   name = 'Martinez',
   sandbox = false,
+  agencyId,
 }: {
   name?: string;
   sandbox?: boolean;
+  agencyId?: string;
 }) {
-  if (!sandbox && name.toLowerCase() === 'martinez') {
+  const instance = instanceFor(
+    agencyId || (sandbox ? 'arpeeville' : name.toLowerCase()),
+  );
+  if (instance?.kind === 'county') {
+    return (
+      <a
+        className="wordmark county-wordmark"
+        href={'/' + instance.id}
+        aria-label={instance.shortName + ' district lookup'}
+      >
+        <img src={instance.logo} alt="" width={68} height={68} />
+        <div>
+          <span>District lookup</span>
+          <strong>{instance.shortName}</strong>
+        </div>
+      </a>
+    );
+  }
+  if (instance?.logo) {
     return (
       <a
         className="wordmark wordmark-city-logo"
-        href="https://www.cityofmartinez.org/"
+        href={
+          instance.id === 'martinez'
+            ? 'https://www.cityofmartinez.org/'
+            : '/' + instance.id
+        }
       >
         <img
-          src="/branding/martinez-logo.svg"
-          alt="City of Martinez, CA — The Bay Area’s Hidden Gem"
+          src={instance.logo}
+          alt={instance.name + (instance.slogan ? ' — ' + instance.slogan : '')}
           width={470}
           height={104}
           className="city-logo"
@@ -105,7 +130,9 @@ export function useDistrictLookup(content: Content, preview = false) {
   const official = content.officials.find((o) => o.district === selected);
   const mayor = content.officials.find((o) => o.district === null);
   const a = content.agency;
-  const apiRoot = a.sandbox ? '/api/arpeeville' : '/api';
+  const apiRoot = apiPath(
+    a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
+  );
   useEffect(() => {
     if (query.trim().length < 2) {
       setResults([]);
@@ -113,6 +140,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       return;
     }
     const controller = new AbortController();
+    setBusy(true);
     const delay = setTimeout(async () => {
       setBusy(true);
       try {
@@ -236,6 +264,13 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
     message,
   } = lookup;
   if (selected) return null;
+  if (lookup.a.addressMode === 'pending')
+    return (
+      <p className="notice">
+        Address search is being prepared. Select a district or representative
+        below to explore the map.
+      </p>
+    );
   return (
     <>
       <div className="address-search">
@@ -276,7 +311,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
                 ? `Searching ${lookup.a.shortName} addresses…`
                 : query.trim().length < 2
                   ? 'Type at least two characters.'
-                  : 'No matching city address. Try the street number and name.'}
+                  : 'No matching address within this agency. Try the street number and name.'}
             </ComboboxEmpty>
             <ComboboxList>
               {(item: Address) => (
@@ -286,8 +321,8 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
                     <div>
                       {item.label}
                       <small>
-                        {lookup.a.shortName}, California
-                        {lookup.a.sandbox ? ' · Test address' : ''}
+                        {item.city || lookup.a.shortName}, {lookup.a.state}
+                        {item.zip ? ' ' + item.zip : ''}
                       </small>
                     </div>
                   </div>
@@ -296,18 +331,18 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
             </ComboboxList>
           </ComboboxContent>
         </Combobox>
-        {!selected && (
+        {!selected && (lookup.a.sampleAddress || !lookup.a.instanceId) && (
           <p className="small muted" style={{ marginTop: 14 }}>
             Try{' '}
             <button
               className="example-link"
               onClick={() => {
                 lookupRequest.current++;
-                setQuery(lookup.a.sandbox ? '100 Democracy' : '525 Henrietta');
+                setQuery(lookup.a.sampleAddress || '525 Henrietta');
                 setSearchOpen(true);
               }}
             >
-              {lookup.a.sandbox ? '100 Democracy Way' : '525 Henrietta Street'}
+              {lookup.a.sampleAddress || '525 Henrietta Street'}
             </button>
           </p>
         )}
@@ -427,7 +462,8 @@ export function RepresentativeResult({
             <div className="notice">
               <h3>District {selected}</h3>
               <p style={{ marginTop: 8 }}>
-                This seat is currently vacant. Contact the city for assistance.
+                This seat is currently vacant. Contact the agency for
+                assistance.
               </p>
               <a href={`tel:${a.contactPhone.replace(/[^+0-9]/g, '')}`}>
                 {a.contactPhone}
@@ -470,7 +506,11 @@ export function CouncilList({
       {!selected && (
         <div className="district-list">
           <div className="row space-between list-heading">
-            <span className="eyebrow">Explore the council</span>
+            <span className="eyebrow">
+              {a.kind === 'county'
+                ? 'Explore the board'
+                : 'Explore the council'}
+            </span>
             <span className="small muted">
               {content.map.features.length} districts
             </span>

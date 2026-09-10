@@ -29,10 +29,10 @@ export const officialSchema = z
         (v) =>
           !v ||
           /^\/portraits\/(1|2|3|4|mayor)\.jpg$/.test(v) ||
-          /^\/portraits\/arpeeville\/(liz|gabriella|kimi|paul|chris|jacob)\.jpg$/.test(
+          /^\/portraits\/[a-z0-9-]+\/[a-zA-Z0-9_-]+\.(jpg|webp|png)$/.test(v) ||
+          /^\/api\/(arpeeville\/|agencies\/[a-z0-9-]+\/)?photos\/[a-f0-9]{32}$/.test(
             v,
-          ) ||
-          /^\/api\/(arpeeville\/)?photos\/[a-f0-9]{32}$/.test(v),
+          ),
       ),
     bio: text(3000),
     staffName: text(120),

@@ -1,13 +1,13 @@
-# District Lookup — Martinez pilot
+# District Lookup — agency lookup and administration
 
-A working RP Data demonstration of an agency-owned representative lookup and administration portal. This pilot uses Martinez; it does not create or manage multiple agency accounts.
+An RP Data representative lookup and administration portal. The current review build includes Martinez, Arpeeville and Solano County. Each instance has its own published content, drafts, address inventory and uploads. The automated fleet provisioning interface remains future work.
 
 ## Resident experience
 
-- Address suggestions from 13,882 county address points inside the district polygons; outside-city postal addresses are excluded.
+- Martinez address suggestions from 13,882 county address points inside the district polygons; outside-city postal addresses are excluded.
 - Server-side point-in-polygon assignment, address marker, district highlight, portrait, official email, shared council office phone, biography link and term end.
 - Street and satellite map views, district browsing, citywide mayor, responsive layout, keyboard-operated search and a text answer alongside the map.
-- `/` is the password-protected **RP Data Voter Lookup Instances** directory, grouped by agency type and project status. Martinez is the only working instance; other client cards are queued.
+- `/` is the password-protected **RP Data Voter Lookup Instances** directory, grouped by agency type and project status. Martinez and Arpeeville appear in Active Agencies. Solano County is available under Counties; other client cards remain queued until their sources pass review.
 - `/martinez` (also `/Martinez`) presents four working designs with actual page screenshots, plus an administration preview.
 - `/martinez/classic` keeps the original side-by-side layout; `/martinez/concierge` emphasizes the address and answer; `/martinez/explorer` uses a full map and floating detail card; `/martinez/council` integrates a portrait directory.
 - All four use the same lookup hook, representative/contact components, published data and map. `/martinez/lookup` and `/embed` follow the published design choice. `/embed?design=classic|concierge|explorer|directory` provides explicit overrides.
@@ -15,11 +15,11 @@ A working RP Data demonstration of an agency-owned representative lookup and adm
 
 ## Agency administration
 
-`/admin` requires a password and authenticator TOTP. Initial setup requires a random deployment setup token. Passwords use salted scrypt, TOTP secrets are encrypted with AES-256-GCM, sessions are hashed and stored server-side, and recovery codes work once. Mutations validate same-origin requests and credential attempts are rate-limited.
+Martinez `/admin` and Solano County `/solano-county/admin` require a password and authenticator TOTP. Initial setup requires a random deployment setup token. Passwords use salted scrypt, TOTP secrets are encrypted with AES-256-GCM, sessions are hashed and stored server-side, and recovery codes work once. Mutations validate same-origin requests and credential attempts are rate-limited.
 
 Edit official names, titles, photos, contact information, staff contacts, term dates and vacancies. Switch optional public fields on or off, edit introductory text and copy website embed code. Upload JPG, PNG or GIF portraits; images are decoded, stripped of metadata and stored as WebP. Animated GIFs use the first frame.
 
-Upload zipped shapefiles or polygon GeoJSON, explicitly select the district field, review the preview and save a draft. The server validates coordinate ranges, rings, self-intersections, duplicate district labels and overlapping districts. A replacement must retain coverage of at least 99.5% of the pilot address inventory. Duplicate feature rows must first be dissolved by district; multipart polygons and holes are supported. City annexations or significant coverage changes require a GIS/address-data refresh outside this pilot UI.
+Upload zipped shapefiles or polygon GeoJSON, explicitly select the district field, review the preview and save a draft. The server validates coordinate ranges, rings, self-intersections, duplicate district labels and overlapping districts. A replacement must retain coverage of at least 99.5% of the agency address inventory. Duplicate feature rows must first be dissolved by district; multipart polygons and holes are supported. City annexations or significant coverage changes require a GIS/address-data refresh outside this pilot UI.
 
 Saved edits remain drafts until **Publish changes**. Draft preview is authenticated and supports `?design=classic|concierge|explorer|directory`. Concurrent edits return a conflict instead of overwriting newer changes. The history records edits, publication and security events. Unpublished uploaded portraits are only served to an authenticated administrator. Display-hidden contact fields are omitted from the public page payload.
 
@@ -64,10 +64,29 @@ The business offering under discussion remains free agency use until July 1, 202
 
 ## September 9 review update
 
-The root directory is an internal RP Data workspace with 31 cities and 14 counties. Review passwords are checked on the server using the `RP_REVIEW_PASSWORD_HASH` and `MARTINEZ_REVIEW_PASSWORD_HASH` configuration values (salted scrypt in the same format as admin passwords). No plaintext review password is bundled with the app. Review sessions expire after 24 hours, are scoped, and grant no administrative rights. `/martinez` and `/martinez/administration` require agency or RP review access. Resident lookup routes and embeds remain public.
+The root directory is an internal RP Data workspace with 31 cities and 14 counties. Review passwords are checked on the server using the `RP_REVIEW_PASSWORD_HASH` and `MARTINEZ_REVIEW_PASSWORD_HASH` configuration values (salted scrypt in the same format as admin passwords). No plaintext review password is bundled with the app. Review sessions expire after 24 hours and are scoped. They grant no real-agency administrative rights; RP review access can edit the isolated Arpeeville workspace. `/martinez` and `/martinez/administration` require agency or RP review access. Resident lookup routes and embeds remain public.
 
 `/martinez/lookup` and `/embed` now follow the published `agency.lookupDesign` setting. The agency saves its selection in Add to your website, previews the draft, and publishes to switch its stable public link. Individual design URLs and explicit embed design overrides remain available.
 
 Address results display a persistent red location pin and full city/state/ZIP. ZIP codes were joined by exact street/coordinate identity to all 13,882 existing records from the original county snapshot; `data/address-postal-codes.json` enriches the existing database without replacing coordinates, records or agency edits. Browsing a representative clears the address; address results hide district buttons and disable polygon selection until reset. Required background-map attribution remains visible.
 
-The internal cards use 15 visually checked agency brand assets from official websites. Thirty cards currently use initial placeholders while logo verification is pending. No other agency is represented as a working lookup. Client review passwords do not provide an RP staff impersonation capability.
+The internal cards use 15 visually checked agency brand assets from official websites. Thirty cards currently use initial placeholders while logo verification is pending. Only registered, reviewed agencies receive working lookup links. Client review passwords do not provide an RP staff impersonation capability.
+
+
+## Registered agencies and separation
+
+`data/instances.json` is a reviewed allowlist, not an end-user provisioning API. Real candidates stay in `data/candidates` until map, roster and address validation are complete. Only promoted `data/agencies/<id>` packages are deployed.
+
+Each `/<id>` gallery has four agency-specific screenshots and an administration card. Public routes `/<id>/{classic,concierge,explorer,council,lookup,embed}` use that agency's published content. `/<id>/administration` is a protected read-only review for real agencies. `/<id>/preview` requires the agency's full MFA session.
+
+The server selects the agency through a validated route and AsyncLocalStorage. No header, query string or editable content field can switch its data scope. Martinez retains its original database location and session cookie. Other agencies have separate volume subdirectories and cookies, and uploaded/seed portraits cannot be assigned across agencies.
+
+New real agencies use a distinct setup token named `ADMIN_SETUP_TOKEN_<UPPERCASE_SLUG_WITH_UNDERSCORES>`. For Solano, configure `ADMIN_SETUP_TOKEN_SOLANO_COUNTY` and enroll at `/solano-county/admin/setup`; the Martinez setup token is rejected there. There is no default real-agency password. No client account invitations have been sent.
+
+Arpeeville is the user's isolated administrative test city, presented with normal civic branding, a logo and “Good neighbors. Great lines.” Its offices, addresses and contacts remain fictional. Original default demo copy is normalized for presentation; custom agency edits are preserved. RP review access permits its editing workflow without granting any Martinez or Solano permissions.
+
+Solano uses current county-published 2021 supervisorial polygons and 181,255 public address points, five verified supervisors, official headshots, phone/email and profile links. The archived RP final map is preserved for audit: the county's current lines correct 14 address assignments. Missing ZIPs and unverified term dates are left blank. Full details and source URLs are in `data/agencies/solano-county/provenance.json`.
+
+Compressed address snapshots are expanded server-side on first initialization. Search indexes include the street, locality, state and ZIP; a one-time migration also updates existing databases. Public suggestion responses contain at most 40 local addresses. Lookup never falls back to an unrestricted geocoder.
+
+Additional checks: `node scripts/test-arpeeville-http.mjs` verifies sandbox publishing and separation; `node scripts/test-instances-http.mjs` verifies independent real-agency setup tokens/MFA, county address search, full-address inputs and draft/publication separation. Run after the baseline HTTP suite against the disposable server. `npm test` validates all 181,255 Solano and 13,882 Martinez addresses with the production geometry engine.

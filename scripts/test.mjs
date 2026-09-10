@@ -2,6 +2,11 @@ import ts from 'typescript';
 import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const files = readdirSync('tests').filter((f) => f.endsWith('.test.ts'));
+mkdirSync('.test-build/data', { recursive: true });
+writeFileSync(
+  '.test-build/data/instances.json',
+  readFileSync('data/instances.json'),
+);
 for (const folder of ['lib', 'tests']) {
   mkdirSync('.test-build/' + folder, { recursive: true });
   for (const file of readdirSync(folder).filter((f) => f.endsWith('.ts'))) {

@@ -1119,3 +1119,33 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+.gallery-city-logo {
+  width: min(100%, 340px);
+  height: auto;
+  margin-bottom: 26px;
+}
+.county-wordmark img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  flex: 0 0 68px;
+}
+.county-wordmark strong {
+  text-transform: none;
+}
+.gallery-city-logo {
+  max-height: 105px;
+  object-fit: contain;
+  object-position: left;
+}
+@media (max-width: 600px) {
+  .county-wordmark img {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+  .county-wordmark strong {
+    font-size: 19px;
+  }
+}

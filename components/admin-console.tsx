@@ -72,6 +72,7 @@ import DistrictMapView from './district-map';
 import type { Content, Official, Agency } from '@/lib/model';
 import { colorFor, termLabel } from '@/lib/model';
 import { normalizeMap } from '@/lib/geo';
+import { apiPath, adminPath, instanceFor } from '@/lib/instances';
 import { designs } from '@/lib/designs';
 type Activity = {
   id: number;
@@ -98,8 +99,8 @@ const navigation = [
   { id: 'security', label: 'Account security', icon: ShieldCheck },
   { id: 'activity', label: 'Change history', icon: History },
 ];
-async function api(url: string, body?: unknown, sandbox = false) {
-  if (sandbox) url = url.replace(/^\/api\//, '/api/arpeeville/');
+async function api(url: string, body?: unknown, agencyId = 'martinez') {
+  url = url.replace(/^\/api(?=\/)/, apiPath(agencyId));
   const r = await fetch(
     url,
     body
@@ -114,23 +115,29 @@ async function api(url: string, body?: unknown, sandbox = false) {
   if (!r.ok) {
     if (r.status === 401)
       location.assign(
-        sandbox
+        agencyId === 'arpeeville'
           ? '/review-access?scope=rp&next=/arpeeville/administration'
-          : '/admin/login',
+          : adminPath(agencyId) + '/login',
       );
     throw Error(d.error || 'The request could not be completed.');
   }
   return d;
 }
 export default function AdminConsole({
+  sandbox: sandboxProp = false,
   previewContent,
   previewAddressCount = 0,
-  sandbox = false,
+  agencyId = 'martinez',
 }: {
+  sandbox?: boolean;
   previewContent?: Content;
   previewAddressCount?: number;
-  sandbox?: boolean;
+  agencyId?: string;
 } = {}) {
+  if (sandboxProp) agencyId = 'arpeeville';
+  const instance = instanceFor(agencyId)!;
+  const sandbox = !!instance.sandbox;
+  const base = '/' + agencyId;
   const previewMode = !!previewContent;
   const [data, setData] = useState<Dashboard | null>(() =>
     previewContent
@@ -155,21 +162,21 @@ export default function AdminConsole({
   const [discardOpen, setDiscardOpen] = useState(false);
   async function load() {
     if (previewMode) return;
-    setData(await api('/api/admin', undefined, sandbox));
+    setData(await api('/api/admin', undefined, agencyId));
   }
   useEffect(() => {
     if (!previewMode)
-      api('/api/admin', undefined, sandbox)
+      api('/api/admin', undefined, agencyId)
         .then(setData)
         .catch((e) => setError(e.message));
-  }, [previewMode, sandbox]);
+  }, [previewMode, agencyId]);
   async function mutate(body: Record<string, unknown>) {
     if (!data || previewMode) return false;
     setBusy(true);
     setError('');
     setSuccess('');
     try {
-      await api('/api/admin', { ...body, revision: data.revision }, sandbox);
+      await api('/api/admin', { ...body, revision: data.revision }, agencyId);
       await load();
       setSuccess(
         body.action === 'publish'
@@ -204,7 +211,7 @@ export default function AdminConsole({
             className="eyebrow"
             style={{ color: '#7e9cab', padding: '0 12px 14px' }}
           >
-            {sandbox ? 'Arpeeville' : 'Martinez'} administration
+            {instance.shortName} administration
           </div>
           <SidebarMenu>
             {navigation.map((item) => (
@@ -230,9 +237,7 @@ export default function AdminConsole({
               <ShieldCheck size={16} />
               {sandbox ? 'RP review access · Sandbox' : 'Two-factor protected'}
             </div>
-            <div>
-              {sandbox ? 'City of Arpeeville · Fictional' : 'City of Martinez'}
-            </div>
+            <div>{instance.name}</div>
           </footer>
         </SidebarFooter>
       </Sidebar>
@@ -249,7 +254,7 @@ export default function AdminConsole({
           <div className="row">
             <a
               className="btn quiet"
-              href={sandbox ? '/arpeeville' : '/martinez'}
+              href={base}
               target="_blank"
               rel="noreferrer"
             >
@@ -261,37 +266,29 @@ export default function AdminConsole({
                 className="icon-btn"
                 aria-label="Sign out"
                 onClick={async () => {
-                  await api('/api/auth/logout', {});
-                  location.assign('/admin/login');
+                  await api('/api/auth/logout', {}, agencyId);
+                  location.assign(adminPath(agencyId) + '/login');
                 }}
               >
                 <LogOut size={17} />
               </button>
             )}
             {previewMode && (
-              <a className="btn quiet" href="/admin">
+              <a className="btn quiet" href={adminPath(agencyId)}>
                 Agency sign in
               </a>
             )}
           </div>
         </header>
         <main className="admin-work">
-          {sandbox && (
-            <div className="notice admin-preview-notice">
-              <strong>Arpeeville is your editable test agency.</strong> Changes
-              and uploads stay here. Save a draft, preview it, then publish to
-              the fictional lookup. Shared RP review access is active;
-              individual accounts and two-factor enrollment are a separate next
-              step.
-            </div>
-          )}
           {previewMode && (
             <div className="notice admin-preview-notice">
               <strong>This is a read-only design preview.</strong> To edit
               officials, upload photos or publish changes,{' '}
-              <a href="/admin">sign in to administration</a>. This preview uses
-              public Martinez information. Editing, uploads, publishing, and
-              account changes are available after agency sign-in.
+              <a href={adminPath(agencyId)}>sign in to administration</a>. This
+              preview uses published agency information. Editing, uploads,
+              publishing, and account changes are available after agency
+              sign-in.
             </div>
           )}
           {error && (
@@ -430,7 +427,7 @@ export default function AdminConsole({
                   )}
                   {section === 'embed' && (
                     <EmbedOptions
-                      sandbox={sandbox}
+                      agencyId={agencyId}
                       selected={data.content.agency.lookupDesign || 'classic'}
                       busy={busy || previewMode}
                       save={(design) => mutate({ action: 'design', design })}
@@ -463,7 +460,7 @@ export default function AdminConsole({
                         </p>
                       </div>
                     ) : (
-                      <SecurityOptions admin={data.admin} />
+                      <SecurityOptions admin={data.admin} agencyId={agencyId} />
                     ))}
                   {section === 'activity' && (
                     <div className="panel">
@@ -520,8 +517,10 @@ export default function AdminConsole({
                         sandbox
                           ? '/arpeeville/preview'
                           : previewMode
-                            ? '/martinez/lookup'
-                            : '/admin/preview'
+                            ? base + '/lookup'
+                            : agencyId === 'martinez'
+                              ? '/admin/preview'
+                              : base + '/preview'
                       }
                       target="_blank"
                       rel="noreferrer"
@@ -569,11 +568,9 @@ export default function AdminConsole({
                   <div className="panel review-notes">
                     <h3>At a glance</h3>
                     <ul style={{ paddingLeft: 19 }}>
+                      <li>{data.content.map.features.length} districts</li>
                       <li>
-                        {data.content.map.features.length} council districts
-                      </li>
-                      <li>
-                        {data.addressCount.toLocaleString()} city addresses
+                        {data.addressCount.toLocaleString()} local addresses
                       </li>
                       <li>
                         {data.content.officials.filter((o) => !o.vacant).length}{' '}
@@ -594,7 +591,7 @@ export default function AdminConsole({
         </main>
       </div>
       <OfficialEditor
-        sandbox={sandbox}
+        agencyId={agencyId}
         official={editing}
         close={() => setEditing(null)}
         busy={busy}
@@ -656,13 +653,13 @@ export default function AdminConsole({
   );
 }
 function OfficialEditor({
-  sandbox = false,
+  agencyId = 'martinez',
   official,
   close,
   save,
   busy,
 }: {
-  sandbox?: boolean;
+  agencyId?: string;
   official: Official | null;
   close: () => void;
   save: (official: Official) => Promise<unknown>;
@@ -690,10 +687,10 @@ function OfficialEditor({
     try {
       const f = new FormData();
       f.append('photo', file);
-      const r = await fetch(
-        sandbox ? '/api/arpeeville/photos' : '/api/photos',
-        { method: 'POST', body: f },
-      );
+      const r = await fetch(apiPath(agencyId) + '/photos', {
+        method: 'POST',
+        body: f,
+      });
       const d = await r.json();
       if (!r.ok) throw Error(d.error);
       field('photo', d.url);
@@ -1164,14 +1161,15 @@ function BoundaryEditor({
         map: normalizeMap(
           raw,
           field,
-          content.agency.sandbox ? 'arpeeville' : 'martinez',
+          content.agency.instanceId ||
+            (content.agency.sandbox ? 'arpeeville' : 'martinez'),
         ).map,
         error: '',
       };
     } catch (e) {
       return { map: null, error: (e as Error).message };
     }
-  }, [raw, field, content.agency.sandbox]);
+  }, [raw, field, content.agency.instanceId, content.agency.sandbox]);
   return (
     <div className="stack">
       <div className="panel">
@@ -1339,12 +1337,12 @@ function BoundaryEditor({
   );
 }
 function EmbedOptions({
-  sandbox = false,
+  agencyId = 'martinez',
   selected,
   busy,
   save,
 }: {
-  sandbox?: boolean;
+  agencyId?: string;
   selected: string;
   busy: boolean;
   save: (design: string) => Promise<unknown>;
@@ -1355,9 +1353,9 @@ function EmbedOptions({
   const [copied, setCopied] = useState(false);
   useEffect(() => setOrigin(location.origin), []);
   const current = designs.find((item) => item.id === design)!;
-  const basePath = sandbox ? '/arpeeville' : '/martinez';
-  const embedPath = sandbox ? '/arpeeville/embed' : '/embed';
-  const code = `<iframe\n  src="${origin}${embedPath}"\n  title="Find your ${sandbox ? 'Arpeeville' : 'Martinez'} councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
+  const basePath = '/' + agencyId;
+  const embedPath = agencyId === 'martinez' ? '/embed' : basePath + '/embed';
+  const code = `<iframe\n  src="${origin}${embedPath}"\n  title="Find your ${instanceFor(agencyId)!.shortName} representative"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
   return (
     <div className="panel stack">
       <div>
@@ -1440,8 +1438,10 @@ function EmbedOptions({
 }
 function SecurityOptions({
   admin,
+  agencyId = 'martinez',
 }: {
   admin: { name: string; email: string };
+  agencyId?: string;
 }) {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -1457,7 +1457,7 @@ function SecurityOptions({
       const body = Object.fromEntries(new FormData(form));
       if (action === 'password' && body.password !== body.confirm)
         throw Error('The new passwords do not match.');
-      const r = await api('/api/auth/' + action, body);
+      const r = await api('/api/auth/' + action, body, agencyId);
       if (r.recoveryCodes) setCodes(r.recoveryCodes);
       setMessage(
         action === 'password'

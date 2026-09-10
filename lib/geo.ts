@@ -1,3 +1,4 @@
+import { instanceFor } from './instances';
 import { booleanPointInPolygon } from '@turf/boolean-point-in-polygon';
 import { area } from '@turf/area';
 import { kinks } from '@turf/kinks';
@@ -19,8 +20,11 @@ export function locate(
 export function normalizeMap(
   input: unknown,
   field: string,
-  region: 'martinez' | 'arpeeville' = 'martinez',
+  region: string = 'martinez',
 ): { map: DistrictMap; skipped: number } {
+  const instance = instanceFor(region);
+  if (!instance) throw Error('Unknown agency map region.');
+  const bounds = instance.bounds;
   if (!input || typeof input !== 'object')
     throw Error('Choose a polygon GeoJSON or a zipped shapefile.');
   const raw = input as { type?: string; features?: Feature[] };
@@ -76,19 +80,13 @@ export function normalizeMap(
             throw Error(
               'Coordinates must use longitude/latitude (WGS84). Include the .prj with a shapefile.',
             );
-          const bounds =
-            region === 'arpeeville'
-              ? [-122.6, 37.3, -122.0, 37.8]
-              : [-122.5, 37.6, -121.7, 38.4];
           if (
             p[0] < bounds[0] ||
             p[0] > bounds[2] ||
             p[1] < bounds[1] ||
             p[1] > bounds[3]
           )
-            throw Error(
-              `This map is outside the ${region === 'arpeeville' ? 'Arpeeville test' : 'Martinez'} area.`,
-            );
+            throw Error(`This map is outside the ${instance.shortName} area.`);
         }
       }
     }

@@ -9,7 +9,7 @@ import AdminConsole from '@/components/admin-console';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 export const metadata = {
-  title: 'Arpeeville · Fictional test agency | RP Data',
+  title: 'Arpeeville | RP Data',
   robots: { index: false, follow: false },
 };
 export default async function Page({
@@ -22,7 +22,7 @@ export default async function Page({
   const { design } = await params;
   if (design === 'administration') {
     await requireReviewAccess('rp', '/arpeeville/administration');
-    return <AdminConsole sandbox />;
+    return <AdminConsole sandbox agencyId="arpeeville" />;
   }
   const preview = design === 'preview';
   if (preview) await requireReviewAccess('rp', '/arpeeville/preview');

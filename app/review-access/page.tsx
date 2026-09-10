@@ -1,3 +1,4 @@
+import { reviewDestination } from '@/lib/review-destination';
 import { LockKeyhole } from 'lucide-react';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Review access | RP Data' };
@@ -8,18 +9,7 @@ export default async function Page({
 }) {
   const params = await searchParams;
   const scope = params.scope === 'rp' ? 'rp' : 'martinez';
-  const next =
-    scope === 'rp'
-      ? [
-          '/arpeeville',
-          '/arpeeville/administration',
-          '/arpeeville/preview',
-        ].includes(params.next || '')
-        ? params.next!
-        : '/'
-      : params.next === '/martinez/administration'
-        ? params.next
-        : '/martinez';
+  const next = reviewDestination(scope, params.next);
   return (
     <main className="review-access-page">
       <form
@@ -34,7 +24,7 @@ export default async function Page({
         </h1>
         <p className="muted">
           {scope === 'rp'
-            ? 'Enter the RP team password to open your agency workspace and Arpeeville test administration.'
+            ? 'Enter the RP team password to open your agency workspace.'
             : 'Enter your review password to explore the four designs and administration preview.'}
         </p>
         <input type="hidden" name="scope" value={scope} />

@@ -10,7 +10,13 @@ import {
 import { officialSchema, agencySchema } from '@/lib/validation';
 import { normalizeMap, locate } from '@/lib/geo';
 import type { Address, Official } from '@/lib/model';
-import { isSandbox, photoInScope, photoPrefix } from '@/lib/agency-scope';
+import {
+  isSandbox,
+  currentAgencyId,
+  currentInstance,
+  photoInScope,
+  photoPrefix,
+} from '@/lib/agency-scope';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export async function GET() {
@@ -101,7 +107,7 @@ export async function POST(request: Request) {
       const { map, skipped } = normalizeMap(
         body.map,
         String(body.field || 'district'),
-        isSandbox() ? 'arpeeville' : 'martinez',
+        currentAgencyId(),
       );
       const addresses = database()
         .prepare('SELECT id,label,lon,lat FROM addresses')
@@ -110,7 +116,7 @@ export async function POST(request: Request) {
       if (matched < addresses.length * 0.995)
         throw new HttpError(
           422,
-          `The map leaves ${addresses.length - matched} existing city addresses unmatched or overlapping. Check the district field and city coverage.`,
+          `The map leaves ${addresses.length - matched} existing agency addresses unmatched or overlapping. Check the district field and agency coverage.`,
         );
       content.map = map;
       content.mapName = z.string().trim().min(1).max(120).parse(body.mapName);
@@ -129,7 +135,10 @@ export async function POST(request: Request) {
               id: 'district-' + f.properties.district,
               district: f.properties.district,
               name: '',
-              title: 'Councilmember',
+              title:
+                currentInstance().kind === 'county'
+                  ? 'Supervisor'
+                  : 'Councilmember',
               email: '',
               phone: '',
               phoneLabel: '',

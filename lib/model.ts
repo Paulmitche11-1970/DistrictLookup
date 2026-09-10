@@ -21,6 +21,12 @@ export type Official = {
   vacant: boolean;
 };
 export type Agency = {
+  instanceId?: string;
+  kind?: 'city' | 'county' | 'school' | 'college' | 'special';
+  logo?: string;
+  slogan?: string;
+  addressMode?: 'local' | 'pending';
+  sampleAddress?: string;
   sandbox?: boolean;
   name: string;
   shortName: string;
@@ -81,6 +87,8 @@ export function fullAddress(address: Address) {
   return `${address.label}, ${address.city || 'Martinez'}, California${address.zip ? ` ${address.zip}` : ''}`;
 }
 export function lookupIntro(agency: Agency) {
+  if (agency.sandbox && /fictional|test address/i.test(agency.intro))
+    return 'Enter your street address to find your district and connect with your councilmember.';
   return agency.intro.replace(
     'Enter your Martinez street address to find your district',
     'Enter your street address to find your council district',

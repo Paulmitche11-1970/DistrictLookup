@@ -1,0 +1,14 @@
+{
+  "agency": "Solano County",
+  "slug": "solano-county",
+  "status": "review-candidate",
+  "districtCount": 5,
+  "rosterVerified": true,
+  "sourceMapFound": true,
+  "currentBoundaryComparison": "current-official-county-geometry-used",
+  "portraitCount": 5,
+  "officialCount": 5,
+  "addressCount": 181255,
+  "lookupReady": true,
+  "pending": []
+}

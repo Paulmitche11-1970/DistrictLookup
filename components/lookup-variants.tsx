@@ -88,8 +88,7 @@ export default function LookupVariant({
                   <p>
                     Your address connects you to one of{' '}
                     {content.agency.shortName}’s {content.map.features.length}{' '}
-                    council districts. Your councilmember’s details will appear
-                    here.
+                    districts. Your representative’s details will appear here.
                   </p>
                 </div>
               )}
@@ -98,11 +97,11 @@ export default function LookupVariant({
               {map}
             </section>
           </div>
-          <section
-            className="concierge-roster"
-            aria-label="Browse council districts"
-          >
-            <div className="concierge-roster-label">Or browse your council</div>
+          <section className="concierge-roster" aria-label="Browse districts">
+            <div className="concierge-roster-label">
+              Or browse your{' '}
+              {content.agency.kind === 'county' ? 'board' : 'council'}
+            </div>
             <div className="concierge-roster-items">
               {officials.map((official) => (
                 <button
@@ -155,11 +154,14 @@ export default function LookupVariant({
               ) : (
                 <>
                   <span className="eyebrow">
-                    A city. {content.map.features.length} districts.
+                    {content.agency.kind === 'county'
+                      ? 'One county.'
+                      : 'One city.'}{' '}
+                    {content.map.features.length} districts.
                   </span>
                   <h2>Where do you fit in?</h2>
                   <p>
-                    Search your address for your councilmember, or choose a
+                    Search your address for your representative, or choose a
                     district to explore.
                   </p>
                   <CouncilList content={content} lookup={lookup} />
@@ -182,7 +184,11 @@ export default function LookupVariant({
               <h1>
                 Meet your
                 <br />
-                <em>City Council.</em>
+                <em>
+                  {content.agency.kind === 'county'
+                    ? 'Supervisors.'
+                    : 'City Council.'}
+                </em>
               </h1>
               <p>{lookup.intro}</p>
             </div>
@@ -200,7 +206,7 @@ export default function LookupVariant({
           </section>
           <section
             className="council-portraits"
-            aria-label="Councilmembers by district"
+            aria-label="Representatives by district"
           >
             {officials.map((official) => (
               <button
@@ -256,8 +262,8 @@ export default function LookupVariant({
                   </h2>
                   <p>
                     Every {content.agency.shortName} address belongs to a
-                    council district. Find yours above, or select a
-                    councilmember to see their district and contact information.
+                    district. Find yours above, or select a representative to
+                    see their district and contact information.
                   </p>
                   <span className="council-detail-note">
                     <Compass size={21} /> {content.map.features.length}{' '}

@@ -7,8 +7,17 @@ import {
   InputOTPSlot,
 } from '@/components/ui/input-otp';
 import { Brand } from './lookup';
+import { apiPath, adminPath, instanceFor } from '@/lib/instances';
 type Mode = 'login' | 'setup' | 'enroll' | 'verify';
-export default function AuthForm({ mode }: { mode: Mode }) {
+export default function AuthForm({
+  mode,
+  agencyId = 'martinez',
+}: {
+  mode: Mode;
+  agencyId?: string;
+}) {
+  const base = adminPath(agencyId);
+  const apiRoot = apiPath(agencyId);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [setupRequired, setSetupRequired] = useState(false);
@@ -20,7 +29,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
   const [setupToken, setSetupToken] = useState('');
   useEffect(() => {
     if (mode === 'login')
-      fetch('/api/auth/status')
+      fetch(apiRoot + '/auth/status')
         .then((r) => r.json())
         .then((d) => setSetupRequired(d.setupRequired))
         .catch(() =>
@@ -34,7 +43,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
       }
     }
     if (mode === 'enroll')
-      fetch('/api/auth/enroll')
+      fetch(apiRoot + '/auth/enroll')
         .then(async (r) => {
           const d = await r.json();
           if (!r.ok) throw Error(d.error);
@@ -42,7 +51,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
           setSecret(d.secret);
         })
         .catch((e) => setError(e.message));
-  }, [mode]);
+  }, [mode, apiRoot]);
   async function submit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     setBusy(true);
@@ -51,7 +60,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
     try {
       if (mode === 'setup' && body.password !== body.confirm)
         throw Error('The passwords do not match.');
-      const r = await fetch('/api/auth/' + mode, {
+      const r = await fetch(apiRoot + '/auth/' + mode, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...body, code, recovery, setupToken }),
@@ -60,7 +69,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
       if (!r.ok) throw Error(d.error);
       if (d.recoveryCodes) {
         setCodes(d.recoveryCodes);
-      } else location.assign(d.next || '/admin');
+      } else location.assign(d.next || base);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -76,7 +85,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
   return (
     <main className="auth-page">
       <section className="auth-card">
-        <Brand />
+        <Brand name={instanceFor(agencyId)?.shortName} agencyId={agencyId} />
         {codes.length ? (
           <>
             <h1>Save your recovery codes</h1>
@@ -104,7 +113,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
             </a>
             <a
               className="btn primary"
-              href="/admin"
+              href={base}
               style={{ display: 'flex', marginTop: 14 }}
             >
               Continue to administration <ArrowRight size={16} />
@@ -285,7 +294,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
               </button>
               {mode === 'login' && setupRequired && (
                 <a
-                  href="/admin/setup"
+                  href={base + '/setup'}
                   className="small"
                   style={{ textAlign: 'center' }}
                 >
@@ -293,7 +302,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
                 </a>
               )}
               <a
-                href="/martinez/classic"
+                href={'/' + agencyId + '/lookup'}
                 className="row small muted"
                 style={{ textDecoration: 'none', justifyContent: 'center' }}
               >

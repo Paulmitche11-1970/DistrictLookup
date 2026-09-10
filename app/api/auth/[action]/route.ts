@@ -1,3 +1,6 @@
+import { currentAgencyId } from '@/lib/agency-scope';
+import { adminPath } from '@/lib/instances';
+import { setupToken } from '@/lib/security';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import QRCode from 'qrcode';
@@ -87,10 +90,7 @@ export async function POST(
           setupToken: z.string().min(20).max(200),
         })
         .parse(body);
-      if (
-        !process.env.ADMIN_SETUP_TOKEN ||
-        !equalsSecret(input.setupToken, process.env.ADMIN_SETUP_TOKEN)
-      )
+      if (!setupToken() || !equalsSecret(input.setupToken, setupToken()!))
         throw new HttpError(403, 'The setup code is incorrect.');
       if (
         (db.prepare('SELECT COUNT(*) AS n FROM admins').get() as { n: number })
@@ -126,7 +126,7 @@ export async function POST(
         throw e;
       }
       await createSession(id, 'enroll');
-      return Response.json({ next: '/admin/enroll' });
+      return Response.json({ next: adminPath(currentAgencyId()) + '/enroll' });
     }
     if (action === 'login') {
       const input = credentialsSchema.parse(body);
@@ -143,7 +143,9 @@ export async function POST(
         throw new HttpError(401, 'Email or password is incorrect.');
       await createSession(admin.id, admin.totp_active ? 'challenge' : 'enroll');
       return Response.json({
-        next: admin.totp_active ? '/admin/verify' : '/admin/enroll',
+        next: admin.totp_active
+          ? adminPath(currentAgencyId()) + '/verify'
+          : adminPath(currentAgencyId()) + '/enroll',
       });
     }
     if (action === 'verify' || action === 'enroll') {
@@ -175,7 +177,10 @@ export async function POST(
       }
       await createSession(s.admin.id, 'full');
       audit(s.admin.email, 'Signed in', 'Password and second factor verified');
-      return Response.json({ next: '/admin', recoveryCodes: codes });
+      return Response.json({
+        next: adminPath(currentAgencyId()),
+        recoveryCodes: codes,
+      });
     }
     if (action === 'logout') {
       await logout();

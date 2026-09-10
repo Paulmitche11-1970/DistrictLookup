@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import type { Content } from '@/lib/model';
+import { instanceFor, adminPath } from '@/lib/instances';
 import clientAgencies from '@/data/agency-directory.json';
 const categories = [
   { id: 'cities', name: 'Cities', icon: Building2 },
@@ -80,16 +81,16 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                 name: 'Arpeeville',
                 path: '/arpeeville',
                 admin: '/arpeeville/administration',
-                logo: '',
-                detail: 'Fictional city · Editable test workspace',
-                status: 'Test agency',
+                logo: '/branding/arpeeville-logo.svg',
+                detail: '5 districts · 4 lookup designs',
+                status: 'Design review',
               },
             ].map((agency) => (
               <article className="compact-agency-card" key={agency.path}>
                 <a href={agency.path} className="compact-agency-main">
                   <div className="compact-agency-brand">
                     {agency.logo ? (
-                      <img src={agency.logo} alt="City of Martinez" />
+                      <img src={agency.logo} alt={'City of ' + agency.name} />
                     ) : (
                       <span className="agency-initials" aria-hidden="true">
                         AV
@@ -180,7 +181,8 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               </div>
               <div className="agency-card-grid">
                 {rows.map((a) => {
-                  const built = a.id === 'martinez';
+                  const instance = instanceFor(a.id);
+                  const built = !!instance;
                   const name =
                     a.type === 'cities' && a.name !== 'New York City'
                       ? 'City of ' + a.name
@@ -214,11 +216,16 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                         {a.state}
                         {built
                           ? ' · ' +
-                            content.map.features.length +
+                            (instance?.districtCount ||
+                              content.map.features.length) +
                             ' districts · ' +
-                            content.officials.filter((o) => o.district !== null)
-                              .length +
-                            ' councilmembers'
+                            (instance?.officialCount ||
+                              content.officials.filter(
+                                (o) => o.district !== null,
+                              ).length) +
+                            (instance?.kind === 'county'
+                              ? ' supervisors'
+                              : ' councilmembers')
                           : ''}
                       </p>
                       <span className="agency-build-note">
@@ -231,7 +238,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                   return (
                     <article className="compact-agency-card" key={a.id}>
                       {built ? (
-                        <a href="/martinez" className="compact-agency-main">
+                        <a href={'/' + a.id} className="compact-agency-main">
                           {body}
                           <ArrowRight className="card-open-arrow" size={16} />
                         </a>
@@ -240,7 +247,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                       )}
                       <div className="agency-card-bottom">
                         {built ? (
-                          <a href="/admin">
+                          <a href={adminPath(a.id)}>
                             <ShieldCheck size={13} /> RP admin
                           </a>
                         ) : (
@@ -269,7 +276,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
         <footer className="instances-footer">
           <span>RP Data · Agency workspace</span>
           <span>
-            Martinez is in design review. Other listed agencies are queued.
+            Open an available agency to review its four lookup designs.
           </span>
         </footer>
       </main>

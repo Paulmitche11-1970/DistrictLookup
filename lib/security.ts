@@ -9,9 +9,21 @@ import {
 import { cookies } from 'next/headers';
 import { TOTP, Secret } from 'otpauth';
 import { database } from './store';
-import { isSandbox } from './agency-scope';
+import { isSandbox, currentAgencyId, currentInstance } from './agency-scope';
 import { hasReviewAccess } from './review-access';
 export const SESSION_COOKIE = 'dl_session';
+export const sessionCookie = () =>
+  currentAgencyId() === 'martinez'
+    ? SESSION_COOKIE
+    : SESSION_COOKIE + '_' + currentAgencyId();
+export function setupToken() {
+  return process.env[
+    currentAgencyId() === 'martinez'
+      ? 'ADMIN_SETUP_TOKEN'
+      : 'ADMIN_SETUP_TOKEN_' +
+        currentAgencyId().replaceAll('-', '_').toUpperCase()
+  ];
+}
 export type Admin = {
   id: string;
   email: string;
@@ -78,7 +90,7 @@ export function decrypt(value: string) {
 }
 export function totp(secret: string, email: string) {
   return new TOTP({
-    issuer: 'District Lookup · Martinez',
+    issuer: 'District Lookup · ' + currentInstance().shortName,
     label: email,
     algorithm: 'SHA1',
     digits: 6,
@@ -108,7 +120,7 @@ export function confirmTotp(admin: Admin, code: string) {
   );
 }
 export async function session(): Promise<Session | null> {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
+  const token = (await cookies()).get(sessionCookie())?.value;
   if (!token) return null;
   const tokenHash = digest(token);
   const r = database()
@@ -151,7 +163,7 @@ export async function requireAdmin() {
 }
 export async function createSession(adminId: string, stage: string) {
   const jar = await cookies();
-  const old = jar.get(SESSION_COOKIE)?.value;
+  const old = jar.get(sessionCookie())?.value;
   if (old)
     database()
       .prepare('DELETE FROM sessions WHERE token_hash=?')
@@ -164,7 +176,7 @@ export async function createSession(adminId: string, stage: string) {
     )
     .run(digest(token), adminId, stage, Date.now() + seconds * 1000);
   database().prepare('DELETE FROM sessions WHERE expires_at<?').run(Date.now());
-  jar.set(SESSION_COOKIE, token, {
+  jar.set(sessionCookie(), token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
@@ -174,12 +186,12 @@ export async function createSession(adminId: string, stage: string) {
 }
 export async function logout() {
   const jar = await cookies();
-  const token = jar.get(SESSION_COOKIE)?.value;
+  const token = jar.get(sessionCookie())?.value;
   if (token)
     database()
       .prepare('DELETE FROM sessions WHERE token_hash=?')
       .run(digest(token));
-  jar.delete(SESSION_COOKIE);
+  jar.delete(sessionCookie());
 }
 export function checkOrigin(request: Request) {
   const expected = process.env.APP_URL

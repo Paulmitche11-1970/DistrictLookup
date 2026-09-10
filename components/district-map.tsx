@@ -46,7 +46,7 @@ export default function DistrictMapView({
           zoomSnap: 0.25,
           zoomDelta: 0.25,
           wheelPxPerZoomLevel: 160,
-          minZoom: 10,
+          minZoom: 3,
           maxZoom: 19,
         });
         map.current = m;
@@ -61,7 +61,7 @@ export default function DistrictMapView({
       })
       .catch(() =>
         setError(
-          'The map could not load. You can still search for your councilmember.',
+          'The map could not load. You can still search for your representative.',
         ),
       );
     return () => {
@@ -221,7 +221,7 @@ export default function DistrictMapView({
     };
   }, [address, ready]);
   return (
-    <section className="map-surface" aria-label="Council district map">
+    <section className="map-surface" aria-label="District map">
       <div
         ref={ref}
         className="leaflet-map"
@@ -268,7 +268,7 @@ export default function DistrictMapView({
         </button>
         <button
           className="icon-btn"
-          aria-label="Show entire city"
+          aria-label="Show all districts"
           onClick={() => {
             if (layers.current)
               map.current?.fitBounds(layers.current.getBounds(), {
@@ -281,7 +281,7 @@ export default function DistrictMapView({
       </div>
       {!address && (
         <div className="map-legend">
-          <div className="eyebrow">Council districts</div>
+          <div className="eyebrow">Districts</div>
           <div className="legend-items">
             {geo.features.map((f) => (
               <button
