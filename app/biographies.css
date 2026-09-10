@@ -1,0 +1,314 @@
+.biography-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  color: var(--primary, #276b60);
+  font-size: 0.83rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.biography-link:hover {
+  text-decoration: underline;
+}
+.biography-page {
+  min-height: 100vh;
+  background: #f8faf9;
+  color: #193449;
+}
+.biography-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 18px max(5%, calc((100vw - 1160px) / 2));
+  background: white;
+  border-bottom: 1px solid #dfe7e5;
+}
+.biography-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #295f62;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.biography-back:hover {
+  text-decoration: underline;
+}
+.biography-page main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 46px 30px 64px;
+}
+.biography-preview {
+  padding: 14px 24px;
+  text-align: center;
+  background: #fff1d2;
+  color: #6b521e;
+  font-size: 0.85rem;
+}
+.biography-hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid #d9e3e0;
+}
+.biography-portrait {
+  width: 210px;
+  height: 258px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 12px;
+}
+.biography-office {
+  margin: 18px 0 10px;
+  color: #4f706e;
+}
+.biography-hero h1 {
+  font:
+    400 clamp(2rem, 4vw, 3.8rem)/1.12 Georgia,
+    serif;
+  margin: 0 0 20px;
+}
+.biography-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 65px;
+  padding-top: 42px;
+  align-items: start;
+}
+.biography-article > h2 {
+  font:
+    400 2rem Georgia,
+    serif;
+  margin: 0 0 25px;
+}
+.biography-contact {
+  padding: 24px;
+  background: white;
+  border: 1px solid #dce5e1;
+  border-radius: 12px;
+}
+.biography-contact h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.biography-contact .contact-list {
+  margin: 20px 0;
+}
+.biography-contact .contact-list a {
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #e6edeb;
+  overflow-wrap: anywhere;
+}
+.biography-contact .contact-list svg {
+  flex-shrink: 0;
+}
+.biography-staff {
+  display: grid;
+  gap: 8px;
+  padding: 5px 0 24px;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.biography-page > .public-footer {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 30px;
+  border-top: 1px solid #e0e8e5;
+}
+.biography-content {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+  color: #304b58;
+}
+.biography-content p {
+  margin: 0 0 1em;
+}
+.biography-content h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 1.4em 0 0.65em;
+}
+.biography-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.25em 0 0.6em;
+}
+.biography-content ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+.biography-content ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+.biography-content li {
+  padding-left: 0.25em;
+  margin: 0.35em 0;
+}
+.biography-content li p {
+  margin: 0;
+}
+.biography-content blockquote {
+  border-left: 3px solid #79a49e;
+  padding: 8px 0 8px 20px;
+  margin: 1.5em 0;
+  color: #58716e;
+}
+.biography-content a {
+  color: #21696f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.biography-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 24px auto;
+}
+.biography-content hr {
+  border: 0;
+  border-top: 1px solid #d6e2df;
+  margin: 1.5em 0;
+}
+.biography-editor {
+  min-width: 0;
+}
+.biography-editor-modes {
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  background: #eef3f5;
+  border-radius: 8px;
+  width: fit-content;
+  margin: 14px 0;
+}
+.biography-editor-modes button {
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+}
+.biography-editor-modes button[aria-pressed='true'] {
+  background: white;
+  color: #225e65;
+  box-shadow: 0 1px 3px #183a491a;
+}
+.biography-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  padding: 8px;
+  border: 1px solid #cddce1;
+  border-radius: 8px 8px 0 0;
+  background: #f3f7f8;
+}
+.biography-toolbar button {
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  border: 0;
+  border-radius: 5px;
+  color: #395663;
+  background: transparent;
+}
+.biography-toolbar button:hover,
+.biography-toolbar button[aria-pressed='true'] {
+  background: #daeae9;
+  color: #1c6864;
+}
+.biography-toolbar button:disabled {
+  opacity: 0.4;
+}
+.biography-toolbar select {
+  width: 130px;
+  height: 33px;
+  font-size: 0.78rem;
+  padding: 4px 7px;
+  margin-right: 4px;
+  border: 1px solid #cfdee3;
+  background: white;
+  border-radius: 5px;
+}
+.biography-writing,
+.biography-source {
+  min-height: 290px;
+  max-height: 480px;
+  overflow-y: auto;
+  padding: 18px;
+  border: 1px solid #cddce1;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background: white;
+  outline: none;
+  font-size: 0.92rem;
+}
+.biography-writing:focus {
+  box-shadow: inset 0 0 0 2px #468a8b;
+}
+.biography-writing .ProseMirror-selectednode {
+  outline: 3px solid #2d7e84;
+}
+.biography-source {
+  width: 100%;
+  resize: vertical;
+  font:
+    0.82rem/1.6 Consolas,
+    monospace;
+}
+.biography-image-tools,
+.biography-editor-link {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin: 16px 0 9px;
+}
+.biography-image-tools .field,
+.biography-editor-link .field {
+  flex: 1;
+  min-width: 0;
+}
+.biography-image-tools .btn,
+.biography-editor-link .btn {
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  .biography-header {
+    padding: 16px 22px;
+    flex-wrap: wrap;
+  }
+  .biography-page main {
+    padding: 32px 23px 40px;
+  }
+  .biography-hero {
+    gap: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .biography-portrait {
+    width: 170px;
+    height: 210px;
+  }
+  .biography-columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 30px;
+  }
+  .biography-image-tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

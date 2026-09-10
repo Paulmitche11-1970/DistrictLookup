@@ -16,6 +16,7 @@ import {
 import { validateRepresentation } from '@/lib/representation';
 import { normalizeMap, locate } from '@/lib/geo';
 import type { Address, Official } from '@/lib/model';
+import { sanitizeBiography, biographyImages } from '@/lib/biography-html';
 import {
   isSandbox,
   currentAgencyId,
@@ -44,6 +45,11 @@ function checkPhoto(photo: string) {
       .get(photo.split('/').at(-1)!)
   )
     throw new HttpError(400, 'Please upload that photo again.');
+}
+function prepareBiography(official: Official) {
+  if (official.bioFormat === 'html')
+    official.bio = sanitizeBiography(official.bio);
+  biographyImages(official).forEach(checkPhoto);
 }
 export async function GET() {
   try {
@@ -88,6 +94,7 @@ export async function POST(request: Request) {
     const content = current.draft;
     if (body.action === 'official') {
       const official = officialSchema.parse(body.official);
+      prepareBiography(official);
       if (!photoInScope(official.photo))
         throw new HttpError(400, 'Use a photo uploaded for this agency.');
       const index = content.officials.findIndex((o) => o.id === official.id);
@@ -112,6 +119,7 @@ export async function POST(request: Request) {
       );
     } else if (body.action === 'official-add') {
       const official = officialSchema.parse(body.official);
+      prepareBiography(official);
       if (official.district !== null)
         throw new HttpError(
           400,

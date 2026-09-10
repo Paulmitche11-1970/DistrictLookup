@@ -5,6 +5,7 @@ import path from 'node:path';
 import type { Content, Address } from './model';
 import { currentAgencyId, currentInstance } from './agency-scope';
 import { visibleOfficial } from './representation';
+import { sanitizeBiography } from './biography-html';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
 function withPostalCode(address: Address): Address {
@@ -338,6 +339,12 @@ export function visibleContent(content: Content): Content {
         phoneLabel: a.showPhone ? o.phoneLabel : '',
         website: a.showWebsite ? o.website : '',
         termEnd: a.showTerm ? o.termEnd : '',
+        bio:
+          a.showBiographies === false || o.vacant
+            ? ''
+            : o.bioFormat === 'html'
+              ? sanitizeBiography(o.bio, a.showPhotos)
+              : o.bio,
         staffName: a.showStaff ? o.staffName : '',
         staffEmail: a.showStaff ? o.staffEmail : '',
         staffPhone: a.showStaff ? o.staffPhone : '',

@@ -81,6 +81,8 @@ import { constituencyLabel, titleLabel } from '@/lib/representation';
 import { normalizeMap } from '@/lib/geo';
 import { apiPath, adminPath, instanceFor } from '@/lib/instances';
 import { designs } from '@/lib/designs';
+import { BiographyEditor } from './biography-editor';
+import { biographyPath, hasBiography } from '@/lib/biography';
 type Activity = {
   id: number;
   actor: string;
@@ -967,6 +969,7 @@ function OfficialEditor({
                 <Tabs defaultValue="details">
                   <TabsList style={{ marginBottom: 20 }}>
                     <TabsTrigger value="details">Official details</TabsTrigger>
+                    <TabsTrigger value="biography">Biography</TabsTrigger>
                     <TabsTrigger value="staff">Staff contact</TabsTrigger>
                   </TabsList>
                   <TabsContent value="details">
@@ -1111,20 +1114,12 @@ function OfficialEditor({
                         />
                       </label>
                       <label className="field wide">
-                        Official website or biography link
+                        Official website
                         <input
                           type="url"
                           value={draft.website}
                           placeholder="https://"
                           onChange={(e) => field('website', e.target.value)}
-                        />
-                      </label>
-                      <label className="field wide">
-                        Short biography
-                        <textarea
-                          value={draft.bio}
-                          maxLength={3000}
-                          onChange={(e) => field('bio', e.target.value)}
                         />
                       </label>
                     </div>
@@ -1142,6 +1137,43 @@ function OfficialEditor({
                         aria-label="Seat is vacant"
                       />
                     </div>
+                  </TabsContent>
+                  <TabsContent value="biography">
+                    <h3>Biography</h3>
+                    <p
+                      className="small muted"
+                      style={{ margin: '10px 0 18px' }}
+                    >
+                      Add the full biography here. Residents open it from a
+                      Biography link, keeping the district result and other
+                      representatives in view.
+                    </p>
+                    <BiographyEditor
+                      key={draft.id}
+                      official={draft}
+                      agencyId={agencyId}
+                      disabled={busy || uploading}
+                      onUploading={setUploading}
+                      onChange={(html) =>
+                        setDraft((d) =>
+                          d ? { ...d, bio: html, bioFormat: 'html' } : d,
+                        )
+                      }
+                    />
+                    <p className="small muted" style={{ marginTop: 18 }}>
+                      Save the draft, then preview it. Publishing updates the
+                      biography in all four layouts.
+                    </p>
+                    {!isNew && official && hasBiography(official) && (
+                      <a
+                        className="btn"
+                        href={biographyPath(agencyId, official.id, true)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Preview saved biography <ArrowUpRight size={15} />
+                      </a>
+                    )}
                   </TabsContent>
                   <TabsContent value="staff">
                     <p className="small muted" style={{ marginBottom: 20 }}>
@@ -1249,10 +1281,15 @@ function DisplayOptions({
     ],
     [
       'showWebsite',
-      'Website and biography links',
+      'Official website links',
       'Link to the official’s agency profile.',
     ],
     ['showTerm', 'Term-end dates', 'Show when the current term ends.'],
+    [
+      'showBiographies',
+      'Biography pages',
+      'Show a Biography link when an official has a biography. The full text opens on its own page.',
+    ],
     [
       'showStaff',
       'Staff contacts',
@@ -1292,8 +1329,8 @@ function DisplayOptions({
             <Switch
               disabled={busy}
               checked={
-                key === 'showManagement'
-                  ? draft.showManagement !== false
+                key === 'showManagement' || key === 'showBiographies'
+                  ? draft[key] !== false
                   : !!draft[key]
               }
               onCheckedChange={(v) => setDraft({ ...draft, [key]: v })}

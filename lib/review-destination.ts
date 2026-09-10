@@ -5,6 +5,7 @@ export function reviewDestination(scope: ReviewScope, value?: string | null) {
     scope === 'rp'
       ? [
           '/',
+          '/logs',
           ...instances.flatMap((i) => [
             '/' + i.id,
             '/' + i.id + '/administration',

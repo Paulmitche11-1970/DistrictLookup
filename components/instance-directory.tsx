@@ -48,6 +48,9 @@ export default function InstanceDirectory({ content }: { content: Content }) {
         </a>
         <nav aria-label="Site navigation">
           <span className="small muted">Internal team workspace</span>
+          <a href="/logs">
+            Activity logs <ArrowRight size={15} />
+          </a>
           <a href="/admin">
             RP administration <ArrowRight size={15} />
           </a>

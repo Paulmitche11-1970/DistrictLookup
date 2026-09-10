@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import { ActivityTracker } from '@/components/activity-tracker';
 import './globals.css';
 import './designs.css';
+import './biographies.css';
+import './logs.css';
 export const metadata: Metadata = {
   title: 'Martinez | Find your councilmember',
   description:
@@ -14,7 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Suspense fallback={null}>
+          <ActivityTracker />
+        </Suspense>
+      </body>
     </html>
   );
 }

@@ -18,6 +18,9 @@ import {
   ComboboxEmpty,
 } from '@/components/ui/combobox';
 import type { Content, Address, Official } from '@/lib/model';
+import type { DesignId } from '@/lib/designs';
+import { BiographyLink } from './biography-link';
+import { trackActivity } from '@/lib/activity-client';
 import { apiPath, instanceFor } from '@/lib/instances';
 import {
   atLargeOfficials,
@@ -155,6 +158,23 @@ export function useDistrictLookup(content: Content, preview = false) {
   );
   const minSearchLength = apiRoot === '/api/arpeeville' ? 1 : 2;
   useEffect(() => {
+    if (
+      preview ||
+      busy ||
+      message ||
+      searchChoice ||
+      results.length ||
+      query.trim().length < 2
+    )
+      return;
+    const timer = setTimeout(
+      () =>
+        trackActivity('search_no_match', { query: query.trim().slice(0, 120) }),
+      2000,
+    );
+    return () => clearTimeout(timer);
+  }, [preview, busy, message, searchChoice, results, query]);
+  useEffect(() => {
     if (query.trim().length < minSearchLength) {
       setResults([]);
       setBusy(false);
@@ -211,17 +231,20 @@ export function useDistrictLookup(content: Content, preview = false) {
       setProfileId(null);
       setSelected(data.district);
       setQuery(value.label);
+      if (!preview) trackActivity('address_lookup', { addressId: value.id });
     } catch (e) {
       if (request !== lookupRequest.current) return;
       setSelected(null);
       setAddress(null);
       setSearchChoice(null);
       setMessage((e as Error).message);
+      if (!preview) trackActivity('lookup_error', { addressId: value.id });
     } finally {
       if (request === lookupRequest.current) setBusy(false);
     }
   }
   function selectDistrict(id: string) {
+    if (!preview) trackActivity('district_open', { target: id });
     setProfileId(null);
     lookupRequest.current++;
     setBusy(false);
@@ -254,6 +277,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       else {
         clear();
         setProfileId(value.id);
+        if (!preview) trackActivity('official_open', { target: value.id });
       }
     },
     query,
@@ -261,6 +285,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     lookupRequest,
     results,
     minSearchLength,
+    preview,
     selected,
     setSelected,
     address,
@@ -403,9 +428,13 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
 export function OfficialDetails({
   official,
   a,
+  preview = false,
+  design = 'classic',
 }: {
   official: Official;
   a: Content['agency'];
+  preview?: boolean;
+  design?: DesignId;
 }) {
   return (
     <section className="representative-profile" aria-label={official.name}>
@@ -419,6 +448,12 @@ export function OfficialDetails({
           {a.showTerm && official.termEnd && (
             <p className="term">Term ends {termLabel(official.termEnd)}</p>
           )}
+          <BiographyLink
+            official={official}
+            agency={a}
+            preview={preview}
+            design={design}
+          />
         </div>
       </div>
       <div className="contact-list">
@@ -445,14 +480,6 @@ export function OfficialDetails({
           </a>
         )}
       </div>
-      {official.bio && (
-        <p
-          className="small muted"
-          style={{ marginTop: 18, whiteSpace: 'pre-line' }}
-        >
-          {official.bio}
-        </p>
-      )}
       {a.showStaff && official.staffName && (
         <div className="notice" style={{ marginTop: 18 }}>
           <strong>{official.staffName}</strong>
@@ -469,9 +496,11 @@ export function OfficialDetails({
 export function RepresentativeResult({
   content,
   lookup,
+  design = 'classic',
 }: {
   content: Content;
   lookup: LookupState;
+  design?: DesignId;
 }) {
   const { selected, address, official, profileId, hasResult, clear } = lookup;
   const a = content.agency;
@@ -545,7 +574,12 @@ export function RepresentativeResult({
           {selected && person.district === null && (
             <p className="eyebrow">Also represents you at large</p>
           )}
-          <OfficialDetails official={person} a={a} />
+          <OfficialDetails
+            official={person}
+            a={a}
+            preview={lookup.preview}
+            design={design}
+          />
         </div>
       ))}
     </div>

@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/logs/:path*',
+        headers: [
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'none'" },
+          { key: 'Cache-Control', value: 'no-store' },
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+        ],
+      },
+      {
         source: '/arpeeville/administration',
         headers: [
           { key: 'X-Frame-Options', value: 'DENY' },

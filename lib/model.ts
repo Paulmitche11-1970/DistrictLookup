@@ -17,6 +17,7 @@ export type Official = {
   termEnd: string;
   photo: string;
   bio: string;
+  bioFormat?: 'text' | 'html';
   staffName: string;
   staffEmail: string;
   staffPhone: string;
@@ -63,6 +64,7 @@ export type Agency = {
   showPhone: boolean;
   showWebsite: boolean;
   showTerm: boolean;
+  showBiographies?: boolean;
   showStaff: boolean;
   lookupDesign?: 'classic' | 'concierge' | 'explorer' | 'directory';
 };

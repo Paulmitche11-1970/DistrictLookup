@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { BIOGRAPHY_MAX_LENGTH } from './biography';
 const text = (max = 200) => z.string().trim().max(max);
 const email = z.union([z.literal(''), z.email().max(254)]);
 const url = z.union([
@@ -36,7 +37,8 @@ export const officialSchema = z
             v,
           ),
       ),
-    bio: text(3000),
+    bio: text(BIOGRAPHY_MAX_LENGTH),
+    bioFormat: z.enum(['text', 'html']).optional(),
     staffName: text(120),
     staffEmail: email,
     staffPhone: text(40),
@@ -63,6 +65,7 @@ export const agencySchema = z.object({
   showPhone: z.boolean(),
   showWebsite: z.boolean(),
   showTerm: z.boolean(),
+  showBiographies: z.boolean().optional(),
   showStaff: z.boolean(),
   lookupDesign: z
     .enum(['classic', 'concierge', 'explorer', 'directory'])

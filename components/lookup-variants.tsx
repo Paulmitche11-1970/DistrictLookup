@@ -70,11 +70,14 @@ export default function LookupVariant({
       insetLeft={design === 'explorer' ? 370 : 0}
     />
   );
-  const result = <RepresentativeResult content={content} lookup={lookup} />;
+  const result = (
+    <RepresentativeResult content={content} lookup={lookup} design={design} />
+  );
   const search = <AddressSearch lookup={lookup} />;
 
   return (
     <div
+      data-lookup-design={design}
       className={`design-page design-${design} ${lookup.hasResult ? 'has-result' : ''} ${embedded ? 'embedded' : ''}`}
       style={{ '--primary': content.agency.accent } as React.CSSProperties}
     >

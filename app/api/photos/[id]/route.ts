@@ -3,6 +3,7 @@ import path from 'node:path';
 import { dataDir, publicContent } from '@/lib/store';
 import { requireAdmin } from '@/lib/security';
 import { photoPrefix } from '@/lib/agency-scope';
+import { biographyImages } from '@/lib/biography-html';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export async function GET(
@@ -15,7 +16,11 @@ export async function GET(
   const published = publicContent();
   const visible =
     published.agency.showPhotos &&
-    (published.officials.some((o) => o.photo === photoPrefix() + id) ||
+    (published.officials.some(
+      (o) =>
+        o.photo === photoPrefix() + id ||
+        (!o.vacant && biographyImages(o).includes(photoPrefix() + id)),
+    ) ||
       published.management?.some((p) => p.photo === photoPrefix() + id));
   if (!visible) {
     try {

@@ -1,0 +1,25 @@
+import { OfficialBiographyPage } from '@/components/official-biography-page';
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+export const metadata = {
+  title: 'Official biography | District Lookup',
+  robots: { index: false, follow: false },
+};
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ agency: string; officialId: string }>;
+  searchParams: Promise<{ preview?: string; design?: string }>;
+}) {
+  const { agency, officialId } = await params;
+  const query = await searchParams;
+  return (
+    <OfficialBiographyPage
+      agencyId={agency}
+      officialId={officialId}
+      preview={query.preview === '1'}
+      design={query.design}
+    />
+  );
+}

@@ -24,6 +24,7 @@ export default function Lookup({
   const lookup = useDistrictLookup(content, preview);
   return (
     <div
+      data-lookup-design="classic"
       className={[
         'lookup',
         embedded ? 'embedded' : '',
