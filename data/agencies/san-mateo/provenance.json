@@ -1,0 +1,139 @@
+{
+  "verifiedAt": "2026-09-09",
+  "sourceType": "Local RP final map and public parcel situs data; current official agency roster and public contact pages",
+  "geography": {
+    "agency": "City of San Mateo",
+    "map": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of San Mateo\\Final Plan Folder\\City of San Mateo Draft Plan 3b with Numbers.shp",
+      "districtField": "DISTRICT",
+      "sourceCrs": "EPSG:4269",
+      "outputCrs": "EPSG:4326",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "sourceRecords": 5,
+      "sha256": "b8ad3613f805c5c172c174878c4c152e675dbef80268f457d1f6a452f2fec5c6",
+      "districtParts": {
+        "4": 1,
+        "2": 1,
+        "5": 1,
+        "3": 1,
+        "1": 1
+      },
+      "validation": "All original districts valid; reprojected without simplification; no overlapping interiors. Multipart topology preserved.",
+      "labelCrosswalk": {
+        "4-OR-5": "4",
+        "5-OR-4": "5",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "labelEvidence": {
+        "officialFinalMapUrl": "https://www.cityofsanmateo.org/DocumentCenter/View/86447/District-Elections-Map---Final",
+        "linkedFrom": "https://www.cityofsanmateo.org/4537/District-Elections",
+        "localFinalPdf": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of San Mateo\\Final Plan Folder\\City of San Mateo Final Plan.pdf",
+        "verification": "Current official final PDF p1 labels District4 east and District5 southwest; p2 district table, p6 District4 profile and p7 District5 profile list populations19873 and21709, exactly matching local PPA_POPULA of original4-OR-5 and5-OR-4 records. Original clean line geography visually checked against final PDF; no topology modification. All retained parcel points revalidated.",
+        "sourceDemographicDifference": "Original Map3b attributes list District1 population21574; final PDF lists21572. Demographic attributes are not imported; final numbering validated using district4/5 exact tables and map geography."
+      }
+    },
+    "addresses": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of San Mateo\\Final Plan Folder\\City of San Mateo Final Plan Parcels.shp",
+      "sourceCrs": "EPSG:2227",
+      "sourceRecords": 31943,
+      "acceptedUnique": 27832,
+      "countsByDistrict": {
+        "2": 5257,
+        "1": 6113,
+        "5": 5886,
+        "3": 5350,
+        "4": 5226
+      },
+      "excluded": {
+        "not_matching_city": 660,
+        "address_range_not_single_location": 188,
+        "no_number_or_street": 119,
+        "geometry_assignment_mismatch": 1
+      },
+      "method": "Approximate interior parcel points from public situs addresses in RP final boundary package. Not rooftop geocodes. Exact city match and single-district geometry assignment required. Address ranges and cross-district duplicate labels excluded. No owner, voter, demographic, parcel identifier or private residential profile data retained.",
+      "coverage": "Historical parcel-address coverage; new construction, address ranges and unit-specific addresses may be absent."
+    }
+  },
+  "roster": {
+    "localFiles": [
+      "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Fourth Pass Matches.xlsx"
+    ],
+    "localFieldsUsed": [
+      "Off_Full Name",
+      "Off_Agency",
+      "Off_District",
+      "Off_Title",
+      "Off_Email",
+      "Off_Term Expires"
+    ],
+    "officialRosterUrl": "https://www.cityofsanmateo.org/166/Meet-Your-Council",
+    "officialProfileUrls": [
+      "https://www.cityofsanmateo.org/2940/Council-Member-Lisa-Diaz-Nash",
+      "https://www.cityofsanmateo.org/4160/Deputy-Mayor-Nicole-Fernandez",
+      "https://www.cityofsanmateo.org/2849/Council-Member-Rob-Newsom-Jr",
+      "https://www.cityofsanmateo.org/3762/Council-Member-Danielle-Cwirko-Godycki",
+      "https://www.cityofsanmateo.org/3121/Mayor-Adam-Loraine"
+    ],
+    "mapAdoptionSource": "https://law.cityofsanmateo.org/us/ca/cities/san-mateo/ordinances/2021/22",
+    "notes": [
+      "Nicole Fernandez District 2 was absent from the local extracted roster; verified and added from official city roster and individual profile.",
+      "Final parcel-aligned district export was rejected because it contains small pre-existing overlapping slivers. Used adopted Map 3b original line geometry and applied an explicit final-numbering crosswalk verified against the current official final map PDF: 4-OR-5 becomes 4 (east, population 19,873); 5-OR-4 becomes 5 (southwest, population 21,709). Final PDF title, district geography and numbered population tables agree. Original ambiguous values are preserved in provenance. No polygons were trimmed, combined, forced contiguous or synthetically modified.",
+      "Contact, name, district and term fields verified from current individual profiles via web browser retrieval. Direct profile HTTP downloads returned 404."
+    ]
+  },
+  "portraits": [
+    {
+      "agency": "san-mateo",
+      "district": "1",
+      "name": "Lisa Diaz Nash",
+      "sourceUrl": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=93182",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\san-mateo\\1.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "san-mateo",
+      "district": "2",
+      "name": "Nicole Fernandez",
+      "sourceUrl": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=96289",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\san-mateo\\2.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "san-mateo",
+      "district": "3",
+      "name": "Rob Newsom Jr.",
+      "sourceUrl": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=89974",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\san-mateo\\3.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "san-mateo",
+      "district": "4",
+      "name": "Danielle Cwirko-Godycki",
+      "sourceUrl": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=96290",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\san-mateo\\4.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "san-mateo",
+      "district": "5",
+      "name": "Adam Loraine",
+      "sourceUrl": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=89975",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\san-mateo\\5.webp",
+      "httpStatus": 404
+    }
+  ],
+  "notIncluded": [
+    "No private voter records, ages, household profiles, party affiliations or residential voter matches.",
+    "No biographies copied; profile links provided.",
+    "No staff-contact or term-limit claims invented."
+  ]
+}

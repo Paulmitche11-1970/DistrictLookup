@@ -1,0 +1,21 @@
+{
+  "slug": "diamond-bar",
+  "stage": "ready-for-review",
+  "geometryValid": true,
+  "districtCount": 5,
+  "rosterVerified": true,
+  "portraitCount": 5,
+  "portraitDownloadsPending": false,
+  "portraitsInspected": true,
+  "addressCount": 17975,
+  "addressLookupReady": true,
+  "sourceSnapshotComplete": true,
+  "currentOfficialBoundaryVerified": true,
+  "publishReady": true,
+  "pending": [],
+  "notes": [
+    "Current city GIS geometry is used after explicit district-ID and topology checks against RP final shapefile. Original shapefile source and measured differences are retained in provenance.",
+    "Official council roster and all five headshots checked on current city website.",
+    "All imported public address points fall strictly inside exactly one current district. Source dataset coverage can differ from all real-world addresses."
+  ]
+}

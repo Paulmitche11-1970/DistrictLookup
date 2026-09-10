@@ -1,0 +1,30 @@
+{
+  "sourceURL": "https://gis.yolocounty.gov/ext/rest/services/Public/Districts/MapServer/13",
+  "districtField": "District",
+  "retrievedAt": "2026-09-10",
+  "outputCRS": "EPSG:4326",
+  "geometryRepairs": [],
+  "positiveAreaOverlaps": [],
+  "sourceMapName": "Yolo County Draft Plan 5",
+  "assignmentComparison": {
+    "slug": "yolo-county",
+    "sourceAddressCount": 102821,
+    "rpMapName": "Yolo County Draft Plan 5",
+    "officialBoundarySourceFile": "yolo-county-current-boundary.geojson",
+    "districtField": "District",
+    "districtAssignmentsDiffer": 2,
+    "sameDistrict": 102800,
+    "newlyInsideOfficialMap": 19,
+    "outsideOfficialMap": 0,
+    "assignmentPairs": {
+      "0 -> 2": 19,
+      "1 -> 1": 22234,
+      "2 -> 2": 21221,
+      "2 -> 4": 2,
+      "3 -> 3": 20705,
+      "4 -> 4": 20229,
+      "5 -> 5": 18411
+    }
+  },
+  "decision": "Use current county GIS district boundaries for lookup and display. Archived RP final-submission shapefile geometry preserved in rp-source-map.geojson."
+}

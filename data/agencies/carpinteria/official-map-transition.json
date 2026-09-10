@@ -1,0 +1,17 @@
+{
+  "officialGeometryValid": true,
+  "officialDistricts": 5,
+  "overlaps": [],
+  "previousAddressCount": 4953,
+  "changedAssignments": [],
+  "nowUnassigned": [
+    {
+      "id": "sb-address-702366",
+      "oldDistrict": "2",
+      "currentMatches": []
+    }
+  ],
+  "changedAssignmentCount": 0,
+  "nowUnassignedCount": 1,
+  "note": "Use current authoritative district geometry linked from the official council page. Difference cause is not asserted. Reimport full address snapshot against current geometry before activation."
+}

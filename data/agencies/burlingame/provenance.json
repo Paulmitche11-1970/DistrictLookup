@@ -1,0 +1,119 @@
+{
+  "verifiedAt": "2026-09-09",
+  "sourceType": "Local RP final map and public parcel situs data; current official agency roster and public contact pages",
+  "geography": {
+    "agency": "City of Burlingame",
+    "map": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Burlingame\\Burlingame Final 2022 Submission Folder\\City of Burlingame Final Plan.shp",
+      "districtField": "DISTRICT",
+      "sourceCrs": "EPSG:4269",
+      "outputCrs": "EPSG:4326",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "sourceRecords": 5,
+      "sha256": "6ecaf1b0553a91e3cd60059842c199ac53e0d2398a45e4473775d24ad26f9e41",
+      "districtParts": {
+        "4": 1,
+        "1": 1,
+        "3": 1,
+        "2": 1,
+        "5": 1
+      },
+      "validation": "All original districts valid; reprojected without simplification; no overlapping interiors. Multipart topology preserved."
+    },
+    "addresses": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Burlingame\\Burlingame Final 2022 Submission Folder\\Burlingame Final Plan Parcels.shp",
+      "sourceCrs": "EPSG:3857",
+      "sourceRecords": 9207,
+      "acceptedUnique": 8215,
+      "countsByDistrict": {
+        "2": 1839,
+        "1": 1635,
+        "4": 1270,
+        "5": 1606,
+        "3": 1865
+      },
+      "excluded": {
+        "no_number_or_street": 80,
+        "not_matching_city": 217,
+        "address_range_not_single_location": 91,
+        "geometry_assignment_mismatch": 8
+      },
+      "method": "Approximate interior parcel points from public situs addresses in RP final boundary package. Not rooftop geocodes. Exact city match and single-district geometry assignment required. Address ranges and cross-district duplicate labels excluded. No owner, voter, demographic, parcel identifier or private residential profile data retained.",
+      "coverage": "Historical parcel-address coverage; new construction, address ranges and unit-specific addresses may be absent."
+    }
+  },
+  "roster": {
+    "localFiles": [
+      "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+    ],
+    "localFieldsUsed": [
+      "Off_Full Name",
+      "Off_Agency",
+      "Off_District",
+      "Off_Title",
+      "Off_Email",
+      "Off_Term Expires"
+    ],
+    "officialRosterUrl": "https://www.burlingame.org/Directory.aspx?did=123",
+    "officialProfileUrls": [
+      "https://www.burlingame.org/directory.aspx?EID=226",
+      "https://www.burlingame.org/directory.aspx?EID=229",
+      "https://www.burlingame.org/directory.aspx?EID=223",
+      "https://www.burlingame.org/directory.aspx?EID=224",
+      "https://www.burlingame.org/directory.aspx?EID=225"
+    ],
+    "mapAdoptionSource": "https://burlingame.org/220/District-Elections",
+    "notes": [
+      "Current official staff directory and Michael Brownrigg profile establish Brownrigg as Mayor in 2026 and Pappajohn as Vice Mayor. Peter Stevenson profile biography still has stale mayor text; current role heading/directory takes precedence.",
+      "Andrea Pappajohn term corrected from local workbook 2028 to official profile December 2026.",
+      "Donna Colson profile contains stale At-Large text. District 4 agrees with local roster and her official city-hosted Form 460 (https://burlingame.org/DocumentCenter/View/5179). May 4, 2026 council report confirms transition completed with Districts 2 and 4 in November 2024 (https://www.burlingame.org/DocumentCenter/View/8754/May-4-Regular-Agenda-Packet?bidId=).",
+      "Original numbered final line export used; alternate parcel-aligned map has overlapping slivers and was rejected. City confirms adoption January 18, 2022 of Draft Map D and A-E to numbered 1-5 crosswalk. Exact legal effective date not verified, so mapEffectiveDate remains blank.",
+      "Desiree Thayer official page provides no portrait; retain initials."
+    ]
+  },
+  "portraits": [
+    {
+      "agency": "burlingame",
+      "district": "1",
+      "name": "Andrea Pappajohn",
+      "sourceUrl": "https://www.burlingame.org/ImageRepository/Document?documentID=4609",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\burlingame\\1.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "burlingame",
+      "district": "3",
+      "name": "Michael Brownrigg",
+      "sourceUrl": "https://burlingame.org/ImageRepository/Document?documentID=163",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\burlingame\\3.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "burlingame",
+      "district": "4",
+      "name": "Donna Colson",
+      "sourceUrl": "https://www.burlingame.org/ImageRepository/Document?documentID=166",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\burlingame\\4.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "burlingame",
+      "district": "5",
+      "name": "Peter Stevenson",
+      "sourceUrl": "https://www.burlingame.org/ImageRepository/Document?documentID=165",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\burlingame\\5.webp",
+      "httpStatus": 404
+    }
+  ],
+  "notIncluded": [
+    "No private voter records, ages, household profiles, party affiliations or residential voter matches.",
+    "No biographies copied; profile links provided.",
+    "No staff-contact or term-limit claims invented."
+  ]
+}

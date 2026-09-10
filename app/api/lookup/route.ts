@@ -20,7 +20,7 @@ export async function GET(request: Request) {
       return Response.json(
         {
           error:
-            'This address cannot be assigned confidently to a city district. Please contact the city.',
+            'This address cannot be assigned confidently to a district. Please contact the agency.',
         },
         { status: 422 },
       );

@@ -1,0 +1,243 @@
+{
+  "reviewedAt": "2026-09-09",
+  "geometry": {
+    "agency": "City of Carpinteria",
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Carpinteria\\Carpinteria Final Plan Submission Folder\\City of Carpinteria Final Plan from A2.shp",
+    "districtField": "DISTRICT",
+    "sourceCRS": "EPSG:4269",
+    "outputCRS": "EPSG:4326",
+    "skipped": [
+      {
+        "record": 0,
+        "reason": "blank district field: background/unassigned features excluded"
+      }
+    ],
+    "validityRepairs": [],
+    "districts": [
+      {
+        "district": "1",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -119.539907,
+          34.385734,
+          -119.510622,
+          34.405868
+        ],
+        "valid": true
+      },
+      {
+        "district": "2",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -119.542703,
+          34.402295,
+          -119.518862,
+          34.411412
+        ],
+        "valid": true
+      },
+      {
+        "district": "3",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -119.525851,
+          34.399092,
+          -119.505463,
+          34.413613
+        ],
+        "valid": true
+      },
+      {
+        "district": "4",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -119.51646,
+          34.382374,
+          -119.480095,
+          34.402576
+        ],
+        "valid": true
+      },
+      {
+        "district": "5",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -119.522741,
+          34.381459,
+          -119.482732,
+          34.402295
+        ],
+        "valid": true
+      }
+    ],
+    "overlaps": [],
+    "note": "Original multipart districts preserved; only explicit district field is used; blank/background features excluded. Adoption/currentness still requires official-page check."
+  },
+  "adoptionUrl": "https://carpinteriaca.gov/city-hall/city-clerk/2022-district-elections/process-mapping-tools/",
+  "incumbentSourceFile": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\CA Cities all completes.txt",
+  "rpIncumbents": [
+    {
+      "Agency": "CARPINTERIA",
+      "Full Name": "Natalia Alarcon",
+      "Title": "Mayor",
+      "Email": "NataliaAlarcon@carpinteriaca.gov",
+      "District": "2",
+      "Term Expires": "December 2028",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "CARPINTERIA",
+      "Full Name": "Mónica J. Solórzano",
+      "Title": "Vice Mayor",
+      "Email": "MonicaSolorzano@carpinteriaca.gov",
+      "District": "1",
+      "Term Expires": "December 2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "CARPINTERIA",
+      "Full Name": "Al Clark",
+      "Title": "Council Member",
+      "Email": "AlClark@carpinteriaca.gov",
+      "District": "5",
+      "Term Expires": "December 2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "CARPINTERIA",
+      "Full Name": "Julia Mayer",
+      "Title": "Council Member",
+      "Email": "JuliaMayer@carpinteriaca.gov",
+      "District": "3",
+      "Term Expires": "December 2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "CARPINTERIA",
+      "Full Name": "Wade T. Nomura",
+      "Title": "Council Member",
+      "Email": "WadeNomura@carpinteriaca.gov",
+      "District": "4",
+      "Term Expires": "December 2028",
+      "Source URL": "",
+      "Source Notes": ""
+    }
+  ],
+  "officials": [
+    {
+      "district": "1",
+      "name": "Mónica J. Solórzano",
+      "rosterUrl": "https://carpinteriaca.gov/city-hall/citycouncil/",
+      "photoUrl": "https://carpinteriaca.gov/wp-content/uploads/2022/12/Monica-Solorzano.jpg",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "2",
+      "name": "Natalia Alarcon",
+      "rosterUrl": "https://carpinteriaca.gov/city-hall/citycouncil/",
+      "photoUrl": "https://carpinteriaca.gov/wp-content/uploads/2020/12/Natalia-Alarcon.jpg",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "3",
+      "name": "Julia Mayer",
+      "rosterUrl": "https://carpinteriaca.gov/city-hall/citycouncil/",
+      "photoUrl": "https://carpinteriaca.gov/wp-content/uploads/2024/12/Julia-Mayer_1.jpeg",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "4",
+      "name": "Wade T. Nomura",
+      "rosterUrl": "https://carpinteriaca.gov/city-hall/citycouncil/",
+      "photoUrl": "https://carpinteriaca.gov/wp-content/uploads/2025/11/Wade-Nomura-Portrait-for-Posting-on-Web.jpg",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "5",
+      "name": "Al Clark",
+      "rosterUrl": "https://carpinteriaca.gov/city-hall/citycouncil/",
+      "photoUrl": "https://carpinteriaca.gov/wp-content/uploads/2020/01/Al-Clark.jpg",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    }
+  ],
+  "notes": [
+    "Official page confirms Map A2 adopted March 28, 2022; local final filename identifies A2.",
+    "Mayor Natalia Alarcon represents District 2, not a separate citywide seat.",
+    "Telephone is the general City Hall number shown in the official council-page footer, labeled City Hall; no member-direct phone asserted.",
+    "Current official geometry validated and selected after comparing all five district IDs against local RP final shapefile. Difference cause is not asserted."
+  ],
+  "finishedResultsPublicColumns": [
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx",
+      "modifiedAt": 1771683211.3876932,
+      "official": {
+        "Off_Full Name": "Natalia Alarcon",
+        "Off_Title": "Mayor, Representing District 2",
+        "Off_Agency": "CARPINTERIA",
+        "Off_District": "2",
+        "Off_Email": "NataliaAlarcon@carpinteriaca.gov",
+        "Off_Term Expires": "2028"
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx",
+      "modifiedAt": 1771683211.3876932,
+      "official": {
+        "Off_Full Name": "Al Clark",
+        "Off_Title": "Councilmember, Representing District 5",
+        "Off_Agency": "CARPINTERIA",
+        "Off_District": "5",
+        "Off_Email": "AlClark@carpinteriaca.gov",
+        "Off_Term Expires": "2026"
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx",
+      "modifiedAt": 1771683211.3876932,
+      "official": {
+        "Off_Full Name": "Julia Mayer",
+        "Off_Title": "Councilmember, Representing District 3",
+        "Off_Agency": "CARPINTERIA",
+        "Off_District": "3",
+        "Off_Email": "JuliaMayer@carpinteriaca.gov",
+        "Off_Term Expires": "2026"
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx",
+      "modifiedAt": 1771683211.3876932,
+      "official": {
+        "Off_Full Name": "Wade T. Nomura",
+        "Off_Title": "Councilmember, Representing District 4",
+        "Off_Agency": "CARPINTERIA",
+        "Off_District": "4",
+        "Off_Email": "WadeNomura@carpinteriaca.gov",
+        "Off_Term Expires": "2028"
+      }
+    }
+  ],
+  "activeGeometry": {
+    "sourceUrl": "https://services3.arcgis.com/ehLaGZNdQUxXpQo3/arcgis/rest/services/Administration_EB/FeatureServer/7",
+    "sourceDiscovery": "Linked official council page -> official district lookup application -> webmap operational district layer",
+    "districtField": "DISTRICT",
+    "outputCRS": "EPSG:4326",
+    "retrievedAt": "2026-09-09",
+    "validityRepairs": 0,
+    "overlapPairs": 0,
+    "relationshipToLocalFinal": "Local RP final map was used to locate the agency and check district labels, count, and shape. Small differences measured against current city GIS geometry; current official geometry used for lookup. Local shapefile provenance retained."
+  }
+}

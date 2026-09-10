@@ -59,6 +59,9 @@ export default function Lookup({
           selected={lookup.selected}
           onSelect={lookup.selectDistrict}
           address={lookup.address}
+          approximateAddress={
+            !!content.agency.addressNote?.includes('approximate parcel')
+          }
         />
       </main>
     </div>

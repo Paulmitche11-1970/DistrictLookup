@@ -1134,6 +1134,16 @@ svg {
 .county-wordmark strong {
   text-transform: none;
 }
+.address-note {
+  margin: 14px 0;
+  line-height: 1.5;
+}
+.gallery-agency-name {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--primary);
+}
 .gallery-city-logo {
   max-height: 105px;
   object-fit: contain;

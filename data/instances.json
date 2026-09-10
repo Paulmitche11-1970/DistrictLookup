@@ -5,12 +5,7 @@
     "shortName": "Martinez",
     "kind": "city",
     "seedDirectory": "",
-    "bounds": [
-      -122.5,
-      37.6,
-      -121.7,
-      38.4
-    ],
+    "bounds": [-122.5, 37.6, -121.7, 38.4],
     "logo": "/branding/martinez-logo.svg",
     "slogan": "The Bay Area’s Hidden Gem",
     "addressMode": "local",
@@ -23,12 +18,7 @@
     "shortName": "Arpeeville",
     "kind": "city",
     "seedDirectory": "arpeeville",
-    "bounds": [
-      -122.6,
-      37.3,
-      -122.0,
-      37.8
-    ],
+    "bounds": [-122.6, 37.3, -122.0, 37.8],
     "logo": "/branding/arpeeville-logo.svg",
     "slogan": "Good neighbors. Great lines.",
     "addressMode": "local",
@@ -42,17 +32,129 @@
     "shortName": "Solano County",
     "kind": "county",
     "seedDirectory": "agencies/solano-county",
-    "bounds": [
-      -122.5,
-      37.95,
-      -121.5,
-      38.65
-    ],
+    "bounds": [-122.5, 37.95, -121.5, 38.65],
     "logo": "/branding/agencies/solano-county.webp",
     "addressMode": "local",
     "sampleAddress": "675 Texas Street",
     "previewDirectory": "/design-previews/solano-county",
     "districtCount": 5,
     "officialCount": 5
+  },
+  {
+    "id": "san-mateo",
+    "name": "City of San Mateo",
+    "shortName": "San Mateo",
+    "kind": "city",
+    "seedDirectory": "agencies/san-mateo",
+    "bounds": [
+      -122.404999, 37.462587000000006, -122.224974, 37.652134999999994
+    ],
+    "logo": "",
+    "addressMode": "local",
+    "sampleAddress": "330 W 20th Ave",
+    "previewDirectory": "/design-previews/san-mateo",
+    "districtCount": 5,
+    "officialCount": 5,
+    "addressNote": "Map pins show approximate parcel locations. This address list may omit newer buildings or individual units."
+  },
+  {
+    "id": "burlingame",
+    "name": "City of Burlingame",
+    "shortName": "Burlingame",
+    "kind": "city",
+    "seedDirectory": "agencies/burlingame",
+    "bounds": [-122.45361799999999, 37.518273, -122.280827, 37.657534999999996],
+    "logo": "",
+    "addressMode": "local",
+    "sampleAddress": "500 Primrose Rd",
+    "previewDirectory": "/design-previews/burlingame",
+    "districtCount": 5,
+    "officialCount": 5,
+    "addressNote": "Map pins show approximate parcel locations. This address list may omit newer buildings or individual units."
+  },
+  {
+    "id": "millbrae",
+    "name": "City of Millbrae",
+    "shortName": "Millbrae",
+    "kind": "city",
+    "seedDirectory": "agencies/millbrae",
+    "bounds": [-122.474944, 37.531612, -122.322503, 37.664981999999995],
+    "logo": "",
+    "addressMode": "local",
+    "sampleAddress": "621 Magnolia Ave",
+    "previewDirectory": "/design-previews/millbrae",
+    "districtCount": 5,
+    "officialCount": 4,
+    "addressNote": "Map pins show approximate parcel locations. This address list may omit newer buildings or individual units."
+  },
+  {
+    "id": "carpinteria",
+    "name": "City of Carpinteria",
+    "shortName": "Carpinteria",
+    "kind": "city",
+    "seedDirectory": "agencies/carpinteria",
+    "bounds": [
+      -119.59271542129599, 34.3314638727106, -119.430107408399,
+      34.463617874043095
+    ],
+    "logo": "/branding/agencies/carpinteria.webp",
+    "addressMode": "local",
+    "sampleAddress": "5775 Carpinteria Av",
+    "previewDirectory": "/design-previews/carpinteria",
+    "districtCount": 5,
+    "officialCount": 5
+  },
+  {
+    "id": "diamond-bar",
+    "name": "City of Diamond Bar",
+    "shortName": "Diamond Bar",
+    "kind": "city",
+    "seedDirectory": "agencies/diamond-bar",
+    "bounds": [
+      -117.91384311859599, 33.910663867700706, -117.717058103362,
+      34.092880879933496
+    ],
+    "logo": "/branding/agencies/diamond-bar.webp",
+    "addressMode": "local",
+    "sampleAddress": "21810 Copley Drive",
+    "previewDirectory": "/design-previews/diamond-bar",
+    "districtCount": 5,
+    "officialCount": 5
+  },
+  {
+    "id": "butte-county",
+    "name": "Butte County",
+    "shortName": "Butte County",
+    "kind": "county",
+    "seedDirectory": "agencies/butte-county",
+    "bounds": [
+      -122.11944442312425, 39.245626128879124, -121.0267082354855,
+      40.20202921195558
+    ],
+    "logo": "/branding/agencies/butte-county.webp",
+    "addressMode": "local",
+    "sampleAddress": "25 County Center Dr",
+    "previewDirectory": "/design-previews/butte-county",
+    "districtCount": 5,
+    "officialCount": 5,
+    "addressNote": "Map pins show approximate parcel locations."
+  },
+  {
+    "id": "yolo-county",
+    "name": "Yolo County",
+    "shortName": "Yolo County",
+    "kind": "county",
+    "seedDirectory": "agencies/yolo-county",
+    "bounds": [
+      -122.47292951246702, 38.26325827719524, -121.4511196582913,
+      38.97595623293529
+    ],
+    "logo": "",
+    "addressMode": "local",
+    "sampleAddress": "625 Court St",
+    "previewDirectory": "/design-previews/yolo-county",
+    "districtCount": 5,
+    "officialCount": 5,
+    "addressNote": "This public address list is informational and may not include every address."
   }
 ]

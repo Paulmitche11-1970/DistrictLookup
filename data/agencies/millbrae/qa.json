@@ -1,0 +1,16 @@
+{
+  "slug": "millbrae",
+  "errors": [],
+  "overlaps": [],
+  "vertices": 1470,
+  "addressCount": 6485,
+  "matchedAddresses": 6485,
+  "officials": 5,
+  "areaSquareMeters": 8515882.827413242,
+  "bounds": [
+    -122.424944,
+    37.581612,
+    -122.372503,
+    37.614982
+  ]
+}

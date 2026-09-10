@@ -1,0 +1,250 @@
+{
+  "reviewedAt": "2026-09-09",
+  "geometry": {
+    "agency": "City of Diamond Bar",
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Diamond Bar\\Final Districting Materials\\City of Diamond Bar 2022 Districting\\Diamond Bar Final Districted Map.shp",
+    "districtField": "DISTRICT",
+    "sourceCRS": "EPSG:4269",
+    "outputCRS": "EPSG:4326",
+    "skipped": [],
+    "validityRepairs": [],
+    "districts": [
+      {
+        "district": "1",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -117.814352,
+          34.004694,
+          -117.767046,
+          34.042876
+        ],
+        "valid": true
+      },
+      {
+        "district": "2",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -117.823368,
+          33.994672,
+          -117.779152,
+          34.034422
+        ],
+        "valid": true
+      },
+      {
+        "district": "3",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -117.836701,
+          33.982943,
+          -117.790477,
+          34.012191
+        ],
+        "valid": true
+      },
+      {
+        "district": "4",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -117.854974,
+          33.960659,
+          -117.79111,
+          33.997297
+        ],
+        "valid": true
+      },
+      {
+        "district": "5",
+        "sourceRecords": 1,
+        "geometryType": "Polygon",
+        "parts": 1,
+        "bounds": [
+          -117.863831,
+          33.960939,
+          -117.828787,
+          34.009518
+        ],
+        "valid": true
+      }
+    ],
+    "overlaps": [],
+    "note": "Original multipart districts preserved; only explicit district field is used; blank/background features excluded. Adoption/currentness still requires official-page check."
+  },
+  "adoptionUrl": "https://www.diamondbarca.gov/DocumentCenter/View/10542/October-2022-Diamond-Bar-Connection-Newsletter",
+  "incumbentSourceFile": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\CA Cities all completes.txt",
+  "rpIncumbents": [
+    {
+      "Agency": "DIAMOND BAR",
+      "Full Name": "Chia Yu Teng",
+      "Title": "Mayor",
+      "Email": "CTeng@diamondbarca.gov",
+      "District": "4",
+      "Term Expires": "2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "DIAMOND BAR",
+      "Full Name": "Steve Tye",
+      "Title": "Mayor Pro Tem",
+      "Email": "STye@diamondbarca.gov",
+      "District": "1",
+      "Term Expires": "2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "DIAMOND BAR",
+      "Full Name": "Andrew Chou",
+      "Title": "Council Member",
+      "Email": "AChou@diamondbarca.gov",
+      "District": "3",
+      "Term Expires": "2026",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "DIAMOND BAR",
+      "Full Name": "Ruth M. Low",
+      "Title": "Council Member",
+      "Email": "RLow@diamondbarca.gov",
+      "District": "2",
+      "Term Expires": "2028",
+      "Source URL": "",
+      "Source Notes": ""
+    },
+    {
+      "Agency": "DIAMOND BAR",
+      "Full Name": "Stan Liu",
+      "Title": "Council Member",
+      "Email": "SLiu@diamondbarca.gov",
+      "District": "5",
+      "Term Expires": "2028",
+      "Source URL": "",
+      "Source Notes": ""
+    }
+  ],
+  "officials": [
+    {
+      "district": "1",
+      "name": "Steve Tye",
+      "rosterUrl": "https://www.diamondbarca.gov/262/City-Council",
+      "photoUrl": "https://www.diamondbarca.gov/ImageRepository/Document?documentID=6670",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading.",
+      "photoPageUrl": "https://www.diamondbarca.gov/717/Mayor-Steve-Tye"
+    },
+    {
+      "district": "2",
+      "name": "Ruth M. Low",
+      "rosterUrl": "https://www.diamondbarca.gov/262/City-Council",
+      "photoUrl": "https://www.diamondbarca.gov/ImageRepository/Document?documentID=261",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "3",
+      "name": "Andrew Chou",
+      "rosterUrl": "https://www.diamondbarca.gov/262/City-Council",
+      "photoUrl": "https://www.diamondbarca.gov/ImageRepository/Document?documentID=5865",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "4",
+      "name": "Chia Yu Teng",
+      "rosterUrl": "https://www.diamondbarca.gov/262/City-Council",
+      "photoUrl": "https://www.diamondbarca.gov/ImageRepository/Document?documentID=8236",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    },
+    {
+      "district": "5",
+      "name": "Stan Liu",
+      "rosterUrl": "https://www.diamondbarca.gov/262/City-Council",
+      "photoUrl": "https://www.diamondbarca.gov/ImageRepository/Document?documentID=7336",
+      "photoVerification": "Official page identifies image by name or enclosing councilmember heading."
+    }
+  ],
+  "notes": [
+    "Official 2026 council page supersedes RP roster mayoral roles: Steve Tye is Mayor; Ruth M. Low is Mayor Pro Tem; Chia Yu Teng is Council Member.",
+    "District assignments cross-checked against official staff directory and five individual member pages.",
+    "Current official geometry validated and selected after comparing all five district IDs against local RP final shapefile. Difference cause is not asserted."
+  ],
+  "finishedResultsPublicColumns": [
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Second Pass Matches.xlsx",
+      "modifiedAt": 1771561030.5659554,
+      "official": {
+        "Off_Full Name": "Steve Tye",
+        "Off_Title": "Mayor, District 1",
+        "Off_Agency": "DIAMOND BAR",
+        "Off_District": "1",
+        "Off_Email": "citycouncil@diamondbarca.gov",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Second Pass Matches.xlsx",
+      "modifiedAt": 1771561030.5659554,
+      "official": {
+        "Off_Full Name": "Ruth M. Low",
+        "Off_Title": "Mayor Pro Tem, District 2",
+        "Off_Agency": "DIAMOND BAR",
+        "Off_District": "2",
+        "Off_Email": "citycouncil@diamondbarca.gov",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Second Pass Matches.xlsx",
+      "modifiedAt": 1771561030.5659554,
+      "official": {
+        "Off_Full Name": "Andrew Chou",
+        "Off_Title": "Council Member, District 3",
+        "Off_Agency": "DIAMOND BAR",
+        "Off_District": "3",
+        "Off_Email": "citycouncil@diamondbarca.gov",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Second Pass Matches.xlsx",
+      "modifiedAt": 1771561030.5659554,
+      "official": {
+        "Off_Full Name": "Chia Yu Teng",
+        "Off_Title": "Council Member, District 4",
+        "Off_Agency": "DIAMOND BAR",
+        "Off_District": "4",
+        "Off_Email": "citycouncil@diamondbarca.gov",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Second Pass Matches.xlsx",
+      "modifiedAt": 1771561030.5659554,
+      "official": {
+        "Off_Full Name": "Stan Liu",
+        "Off_Title": "Council Member, District 5",
+        "Off_Agency": "DIAMOND BAR",
+        "Off_District": "5",
+        "Off_Email": "citycouncil@diamondbarca.gov",
+        "Off_Term Expires": null
+      }
+    }
+  ],
+  "activeGeometry": {
+    "sourceUrl": "https://services1.arcgis.com/yvWpR6DCcpIEETDL/arcgis/rest/services/Districts/FeatureServer/0",
+    "sourceDiscovery": "Linked official council page -> official district lookup application -> webmap operational district layer",
+    "districtField": "DISTRICT",
+    "outputCRS": "EPSG:4326",
+    "retrievedAt": "2026-09-09",
+    "validityRepairs": 0,
+    "overlapPairs": 0,
+    "relationshipToLocalFinal": "Local RP final map was used to locate the agency and check district labels, count, and shape. Small differences measured against current city GIS geometry; current official geometry used for lookup. Local shapefile provenance retained."
+  }
+}

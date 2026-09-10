@@ -1,0 +1,119 @@
+{
+  "verifiedAt": "2026-09-09",
+  "sourceType": "Local RP final map and public parcel situs data; current official agency roster and public contact pages",
+  "geography": {
+    "agency": "City of Millbrae",
+    "map": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Millbrae\\Millbrae Final Map Submission 2022\\Millbrae Draft Plan G - Adopted 3.8.2022.shp",
+      "districtField": "DISTRICT",
+      "sourceCrs": "EPSG:4269",
+      "outputCrs": "EPSG:4326",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "sourceRecords": 5,
+      "sha256": "70e6ea9ea48eb82f4aaf1bbb0cd891a66b7d37605a3f14492acde7e19b0b9748",
+      "districtParts": {
+        "1": 1,
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "2": 1
+      },
+      "validation": "All original districts valid; reprojected without simplification; no overlapping interiors. Multipart topology preserved."
+    },
+    "addresses": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Millbrae\\Millbrae Final Map Submission 2022\\City of Millbrae Final Plan Parcels.shp",
+      "sourceCrs": "EPSG:3857",
+      "sourceRecords": 6945,
+      "acceptedUnique": 6485,
+      "countsByDistrict": {
+        "2": 1005,
+        "1": 1581,
+        "4": 1478,
+        "3": 949,
+        "5": 1472
+      },
+      "excluded": {
+        "not_matching_city": 130,
+        "no_number_or_street": 45,
+        "address_range_not_single_location": 30,
+        "geometry_assignment_mismatch": 1
+      },
+      "method": "Approximate interior parcel points from public situs addresses in RP final boundary package. Not rooftop geocodes. Exact city match and single-district geometry assignment required. Address ranges and cross-district duplicate labels excluded. No owner, voter, demographic, parcel identifier or private residential profile data retained.",
+      "coverage": "Historical parcel-address coverage; new construction, address ranges and unit-specific addresses may be absent."
+    }
+  },
+  "roster": {
+    "localFiles": [
+      "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Fourth Pass extras matched.xlsx",
+      "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Fourth Pass Matches.xlsx"
+    ],
+    "localFieldsUsed": [
+      "Off_Full Name",
+      "Off_Agency",
+      "Off_District",
+      "Off_Title",
+      "Off_Email",
+      "Off_Term Expires"
+    ],
+    "officialRosterUrl": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "officialProfileUrls": [
+      "https://www.ci.millbrae.ca.us/610/Mayor-Stephen-Rainaldi",
+      "https://www.ci.millbrae.ca.us/604/Councilmember-Sissy-Riley",
+      "https://www.ci.millbrae.ca.us/380/City-Council",
+      "https://www.ci.millbrae.ca.us/603/Councilmember-Bob-Nguyen",
+      "https://www.ci.millbrae.ca.us/450/Vice-Mayor-Anders-Fung"
+    ],
+    "mapAdoptionSource": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "notes": [
+      "Current official city page lists District 3 Vacant; local workbook listed Reuben D. Holober. Removed former incumbent rather than retaining stale officeholder.",
+      "Mayor Stephen Rainaldi and Vice Mayor Anders Fung titles updated from current official city pages.",
+      "Original explicitly adopted March 8, 2022 export used. Alternate parcel-aligned district export has pre-existing overlap slivers and was rejected. Public parcel situs points rechecked against the original adopted lines.",
+      "Terms verified on individual profiles; public role emails verified in official city staff directory. Main City Clerk council contact phone used with office label; no personal campaign phone used."
+    ]
+  },
+  "portraits": [
+    {
+      "agency": "millbrae",
+      "district": "1",
+      "name": "Stephen Rainaldi",
+      "sourceUrl": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2365",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\millbrae\\1.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "millbrae",
+      "district": "2",
+      "name": "Sissy Riley",
+      "sourceUrl": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2364",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\millbrae\\2.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "millbrae",
+      "district": "4",
+      "name": "Bob Nguyen",
+      "sourceUrl": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2283",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\millbrae\\4.webp",
+      "httpStatus": 404
+    },
+    {
+      "agency": "millbrae",
+      "district": "5",
+      "name": "Anders Fung",
+      "sourceUrl": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=1093",
+      "destination": "C:\\Users\\Paul\\Documents\\Codex\\2026-09-08\\c-pdi-redistricting-dropbox-projects-rp\\elected-lookup\\public\\portraits\\millbrae\\5.webp",
+      "httpStatus": 404
+    }
+  ],
+  "notIncluded": [
+    "No private voter records, ages, household profiles, party affiliations or residential voter matches.",
+    "No biographies copied; profile links provided.",
+    "No staff-contact or term-limit claims invented."
+  ]
+}

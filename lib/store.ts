@@ -150,6 +150,7 @@ export function normalizeSearch(value: string) {
   const synonyms: Record<string, string> = {
     street: 'st',
     avenue: 'ave',
+    av: 'ave',
     boulevard: 'blvd',
     drive: 'dr',
     road: 'rd',
@@ -226,6 +227,7 @@ function withInstance(content: Content): Content {
       slogan: instance.slogan,
       addressMode: instance.addressMode,
       sampleAddress: instance.sampleAddress,
+      addressNote: instance.addressNote,
       ...(instance.sandbox ? { sandbox: true } : {}),
     },
   };

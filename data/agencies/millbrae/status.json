@@ -1,0 +1,20 @@
+{
+  "slug": "millbrae",
+  "agency": "City of Millbrae",
+  "readyForReview": true,
+  "readyForPromotion": true,
+  "stage": "verified-preview-ready",
+  "districts": 5,
+  "officials": 5,
+  "vacancies": 1,
+  "verifiedPortraits": 0,
+  "addressCount": 6485,
+  "addressMethod": "parcel-interior",
+  "pending": [
+    "4 occupied official portraits missing; use initials until verified public download succeeds.",
+    "Historical parcel address coverage is approximate, not a complete current rooftop-address dataset; new construction, address ranges and unit-specific addresses may be absent."
+  ],
+  "mapStatus": "valid-no-overlap",
+  "rosterStatus": "verified-current-official-website",
+  "sourceCheckedAt": "2026-09-09"
+}

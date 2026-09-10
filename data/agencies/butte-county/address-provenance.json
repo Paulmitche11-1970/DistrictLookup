@@ -1,0 +1,38 @@
+{
+  "slug": "butte-county",
+  "source": "https://gisportal.buttecounty.net/arcgis/rest/services/Addresses/FeatureServer/1",
+  "provenance": "Butte County GIS public Addresses point layer. County documentation states points are relative positions within the associated parcel, not exact rooftop locations.",
+  "retrievedAt": "2026-09-10",
+  "count": 123888,
+  "pageCount": 248,
+  "fields": [
+    "OBJECTID",
+    "HOUSE_NUM",
+    "PRE_DIR",
+    "STREET_NAM",
+    "STREET_TYP",
+    "SUF_DIR",
+    "UNIT",
+    "CITY",
+    "STATE",
+    "ZIP",
+    "LABEL",
+    "AddrLong",
+    "Supervisor"
+  ],
+  "sourceCount": 123905,
+  "validationCounts": {
+    "district:2": 22153,
+    "district:3": 23081,
+    "district:5": 36355,
+    "district:4": 20007,
+    "district:1": 22292,
+    "outsideOrAmbiguous": 2,
+    "sourceDistrictAttributeConflict": 4,
+    "exactDuplicates": 11,
+    "missingZIP": 1
+  },
+  "status": "public-points-imported",
+  "districtJoin": "Point contained by exactly one dissolved district polygon; boundary or ambiguous points excluded. Excludes points whose county address-layer Supervisor attribute conflicts with the current polygon assignment; the conflicting attribute is not substituted as truth.",
+  "knownLimitations": "Data reflects the published county address-point snapshot; new or unassigned addresses may not be present. Butte County describes these public address points as relative positions within associated parcels, not exact rooftops."
+}

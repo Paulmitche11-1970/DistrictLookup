@@ -12,12 +12,14 @@ export default function DistrictMapView({
   onSelect,
   address,
   insetLeft = 0,
+  approximateAddress = false,
 }: {
   geo: DistrictMap;
   selected: string | null;
   onSelect: (id: string) => void;
   address: Address | null;
   insetLeft?: number;
+  approximateAddress?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
@@ -200,7 +202,9 @@ export default function DistrictMapView({
           }).addTo(map.current);
           const text = document.createElement('span');
           const title = document.createElement('strong');
-          title.textContent = 'You are here';
+          title.textContent = approximateAddress
+            ? 'Approximate address location'
+            : 'You are here';
           text.append(title, document.createTextNode(fullAddress(address)));
           pin.current.bindTooltip(text, {
             permanent: true,
@@ -219,7 +223,7 @@ export default function DistrictMapView({
     return () => {
       cancelled = true;
     };
-  }, [address, ready]);
+  }, [address, ready, approximateAddress]);
   return (
     <section className="map-surface" aria-label="District map">
       <div

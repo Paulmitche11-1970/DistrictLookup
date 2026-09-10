@@ -1,0 +1,30 @@
+{
+  "url": "https://services.arcgis.com/KkJhFbLnXVqahKz2/arcgis/rest/services/Address_Points/FeatureServer/0",
+  "itemUrl": "https://www.arcgis.com/home/item.html?id=8f91c915bdcb46dcb9b606b4a8fce893",
+  "sourceUpdatedAt": "2026-09-01",
+  "retrievedAt": "2026-09-09",
+  "query": "Spatial envelope of current official city GIS districts, then strict polygon containment locally. No voter data, resident names, owner names, or parcel ownership fields.",
+  "bounds": [
+    -119.542715421296,
+    34.3814638727106,
+    -119.480107408399,
+    34.4136178740431
+  ],
+  "candidates": 5353,
+  "sourceRowsRetrieved": 5353,
+  "snapshotCompletenessVerified": true,
+  "accepted": 4953,
+  "rejected": {
+    "outsideOrBoundaryAmbiguous": 334,
+    "duplicate": 66
+  },
+  "districtCounts": {
+    "5": 962,
+    "1": 1119,
+    "4": 1164,
+    "3": 887,
+    "2": 821
+  },
+  "fields": "Public site address, geometry, postal ZIP, city and public source edit date only.",
+  "activeBoundarySource": "https://services3.arcgis.com/ehLaGZNdQUxXpQo3/arcgis/rest/services/Administration_EB/FeatureServer/7"
+}

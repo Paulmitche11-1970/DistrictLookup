@@ -1,0 +1,27 @@
+{
+  "url": "https://arcgis.gis.lacounty.gov/arcgis/rest/services/LACounty_Dynamic/CAMS/MapServer/1",
+  "retrievedAt": "2026-09-09",
+  "query": "Spatial envelope of current official city GIS districts, then strict polygon containment locally. No voter data, resident names, owner names, or parcel ownership fields.",
+  "bounds": [
+    -117.863843118596,
+    33.9606638677007,
+    -117.767058103362,
+    34.0428808799335
+  ],
+  "candidates": 25785,
+  "sourceRowsRetrieved": 25785,
+  "snapshotCompletenessVerified": true,
+  "accepted": 17975,
+  "rejected": {
+    "outsideOrBoundaryAmbiguous": 7810
+  },
+  "districtCounts": {
+    "5": 3548,
+    "3": 3555,
+    "2": 3616,
+    "1": 3742,
+    "4": 3514
+  },
+  "fields": "Public site address, geometry, postal ZIP, city and public source metadata only.",
+  "activeBoundarySource": "https://services1.arcgis.com/yvWpR6DCcpIEETDL/arcgis/rest/services/Districts/FeatureServer/0"
+}

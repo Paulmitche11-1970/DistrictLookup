@@ -1,0 +1,16 @@
+{
+  "slug": "san-mateo",
+  "errors": [],
+  "overlaps": [],
+  "vertices": 2370,
+  "addressCount": 27832,
+  "matchedAddresses": 27832,
+  "officials": 5,
+  "areaSquareMeters": 41028226.701099545,
+  "bounds": [
+    -122.354999,
+    37.512587,
+    -122.274974,
+    37.602135
+  ]
+}

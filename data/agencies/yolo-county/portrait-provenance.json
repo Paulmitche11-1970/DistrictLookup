@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-09-09",
+  "source": "Yolo IHSS Public Authority governing board",
+  "portraits": [
+    {
+      "agency": "yolo-county",
+      "kind": "portrait",
+      "district": "1",
+      "name": "Oscar Villegas",
+      "url": "https://images.squarespace-cdn.com/content/v1/60b69c47d8734e266aac8130/e8c2a4a0-a0f8-467e-b108-c11d93221092/BOS_Oscar_Villegas.jpg",
+      "sourcePage": "https://www.yoloihsspa.org/governing-board",
+      "evidence": "Official IHSS public-authority governing-board page: heading Oscar Villegas District 1; enclosing figure caption identifies Oscar Villegas and links to his county supervisor page. Read live image src from that figure.",
+      "suggestedPublicPath": "/portraits/yolo-county/1.webp",
+      "output": "yolo-county-1.webp"
+    },
+    {
+      "agency": "yolo-county",
+      "kind": "portrait",
+      "district": "2",
+      "name": "Lucas Frerichs",
+      "url": "https://images.squarespace-cdn.com/content/v1/60b69c47d8734e266aac8130/11bf0dc4-deac-4427-a001-ef1f58ef7f7d/Supervisor+Lucas+Frerichs.jpg",
+      "sourcePage": "https://www.yoloihsspa.org/governing-board",
+      "evidence": "Governing-board heading says Lucas Frerichs District 2. Enclosing image filename identifies Supervisor Lucas Frerichs and links to the exact county district-2-lucas-frerichs page. The figure caption misspells the surname Fredrichs; use official county spelling Frerichs, already verified in candidate roster.",
+      "suggestedPublicPath": "/portraits/yolo-county/2.webp",
+      "output": "yolo-county-2.webp"
+    },
+    {
+      "agency": "yolo-county",
+      "kind": "portrait",
+      "district": "3",
+      "name": "Mary Vixie Sandy",
+      "url": "https://images.squarespace-cdn.com/content/v1/60b69c47d8734e266aac8130/a2fe9e9b-9aa8-4614-98da-c29432c57e5c/MVS+Jpeg+2.jpg",
+      "sourcePage": "https://www.yoloihsspa.org/governing-board",
+      "evidence": "Governing-board heading says Mary Vixie Sandy District 3; the enclosing image figure caption identifies Mary Vixie Sandy and links to official district-3-mary-sandy county page.",
+      "suggestedPublicPath": "/portraits/yolo-county/3.webp",
+      "output": "yolo-county-3.webp"
+    },
+    {
+      "agency": "yolo-county",
+      "kind": "portrait",
+      "district": "4",
+      "name": "Sheila Allen",
+      "url": "https://images.squarespace-cdn.com/content/v1/60b69c47d8734e266aac8130/4843fc46-865f-472f-a3a5-bd36d584841a/Sheila+Allen.jpg",
+      "sourcePage": "https://www.yoloihsspa.org/governing-board",
+      "evidence": "Governing-board heading says Sheila Allen District 4; enclosing image figure caption identifies Sheila Allen and links to official district-4-sheila-allen county page.",
+      "suggestedPublicPath": "/portraits/yolo-county/4.webp",
+      "output": "yolo-county-4.webp"
+    },
+    {
+      "agency": "yolo-county",
+      "kind": "portrait",
+      "district": "5",
+      "name": "Angel Barajas",
+      "url": "https://images.squarespace-cdn.com/content/v1/60b69c47d8734e266aac8130/0859b86e-f0b6-4bac-88de-82baf79dcb7c/BOS_Angel_Barajas.jpg",
+      "sourcePage": "https://www.yoloihsspa.org/governing-board",
+      "evidence": "Governing-board heading says Angel Barajas District 5; enclosing image figure caption identifies Angel Barajas and links to official district-5-angel-barajas county page.",
+      "suggestedPublicPath": "/portraits/yolo-county/5.webp",
+      "output": "yolo-county-5.webp",
+      "alternateOfficialPhotoUrl": "https://www.yolocounty.gov/home/showpublishedimage/22823/638793671468170000"
+    }
+  ]
+}

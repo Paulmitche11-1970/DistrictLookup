@@ -43,13 +43,17 @@ export default function DesignGallery({
       <main className="gallery-main">
         <div className="gallery-intro">
           <div>
-            <img
-              className="gallery-city-logo"
-              src={instance.logo}
-              alt={content.agency.name}
-              width={490}
-              height={112}
-            />
+            {instance.logo ? (
+              <img
+                className="gallery-city-logo"
+                src={instance.logo}
+                alt={content.agency.name}
+                width={490}
+                height={112}
+              />
+            ) : (
+              <p className="gallery-agency-name">{content.agency.name}</p>
+            )}
             <h1>
               One {instance.kind === 'county' ? 'county' : 'city'}.
               <br />
@@ -110,8 +114,16 @@ export default function DesignGallery({
                     <ArrowRight size={22} />
                   </a>
                 </div>
-                <h3>{design.label}</h3>
-                <p>{design.description}</p>
+                <h3>
+                  {instance.kind === 'county'
+                    ? design.label.replace('city', 'county')
+                    : design.label}
+                </h3>
+                <p>
+                  {instance.kind === 'county'
+                    ? design.description.replace('council', 'board')
+                    : design.description}
+                </p>
                 <div className="design-fit">
                   <strong>Best fit</strong>
                   <p>{design.bestFor}</p>

@@ -10,6 +10,7 @@ export type AgencyInstance = {
   slogan?: string;
   addressMode: 'local' | 'pending';
   sampleAddress?: string;
+  addressNote?: string;
   previewDirectory?: string;
   sandbox?: boolean;
   districtCount?: number;

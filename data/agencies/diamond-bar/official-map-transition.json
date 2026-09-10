@@ -1,0 +1,11 @@
+{
+  "officialGeometryValid": true,
+  "officialDistricts": 5,
+  "overlaps": [],
+  "previousAddressCount": 17975,
+  "changedAssignments": [],
+  "nowUnassigned": [],
+  "changedAssignmentCount": 0,
+  "nowUnassignedCount": 0,
+  "note": "Use current authoritative district geometry linked from the official council page. Difference cause is not asserted. Reimport full address snapshot against current geometry before activation."
+}

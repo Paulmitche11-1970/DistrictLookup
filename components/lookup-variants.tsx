@@ -43,6 +43,9 @@ export default function LookupVariant({
       selected={lookup.selected}
       onSelect={lookup.selectDistrict}
       address={lookup.address}
+      approximateAddress={
+        !!content.agency.addressNote?.includes('approximate parcel')
+      }
       insetLeft={design === 'explorer' ? 370 : 0}
     />
   );

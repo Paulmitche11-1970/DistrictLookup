@@ -1,0 +1,32 @@
+{
+  "slug": "yolo-county",
+  "source": "https://services2.arcgis.com/RETsakmE0SJfZXCd/ArcGIS/rest/services/YoloCounty_OpenData_AddressPoints/FeatureServer/3",
+  "provenance": "Yolo County GIS Cooperative public open address points, contributed by county/cities/UC Davis; county describes data as informational, not an authoritative or comprehensive address list.",
+  "retrievedAt": "2026-09-10",
+  "count": 102817,
+  "pageCount": 206,
+  "fields": [
+    "OBJECTID",
+    "FULLADDRESS",
+    "Post_Comm",
+    "Post_Code",
+    "Inc_Muni",
+    "UNIT",
+    "UNITTYPE",
+    "Add_Number",
+    "ADDR_SN",
+    "ADDRESSTYPE"
+  ],
+  "sourceCount": 102821,
+  "validationCounts": {
+    "district:3": 20703,
+    "district:2": 21240,
+    "district:4": 20231,
+    "district:5": 18411,
+    "district:1": 22232,
+    "exactDuplicates": 4
+  },
+  "status": "public-points-imported",
+  "districtJoin": "Point contained by exactly one dissolved district polygon; boundary or ambiguous points excluded.",
+  "knownLimitations": "Data reflects the published county address-point snapshot; new or unassigned addresses may not be present. Yolo County GIS Cooperative describes this layer as informational and not an authoritative or comprehensive list of county addresses."
+}

@@ -19,7 +19,13 @@ import {
 } from '@/components/ui/combobox';
 import type { Content, Address, Official } from '@/lib/model';
 import { apiPath, instanceFor } from '@/lib/instances';
-import { colorFor, termLabel, fullAddress, lookupIntro } from '@/lib/model';
+import {
+  colorFor,
+  termLabel,
+  fullAddress,
+  lookupIntro,
+  phoneHref,
+} from '@/lib/model';
 export function Brand({
   name = 'Martinez',
   sandbox = false,
@@ -32,14 +38,16 @@ export function Brand({
   const instance = instanceFor(
     agencyId || (sandbox ? 'arpeeville' : name.toLowerCase()),
   );
-  if (instance?.kind === 'county') {
+  if (instance && !['martinez', 'arpeeville'].includes(instance.id)) {
     return (
       <a
         className="wordmark county-wordmark"
         href={'/' + instance.id}
         aria-label={instance.shortName + ' district lookup'}
       >
-        <img src={instance.logo} alt="" width={68} height={68} />
+        {instance.logo && (
+          <img src={instance.logo} alt="" width={68} height={68} />
+        )}
         <div>
           <span>District lookup</span>
           <strong>{instance.shortName}</strong>
@@ -346,6 +354,9 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
             </button>
           </p>
         )}
+        {lookup.a.addressNote && (
+          <p className="small muted address-note">{lookup.a.addressNote}</p>
+        )}
       </div>
       {message && (
         <div className="notice error" role="alert">
@@ -397,6 +408,9 @@ export function RepresentativeResult({
             <ArrowLeft size={14} />
             {address ? 'Start again' : 'Search for an address'}
           </button>
+          {address && a.addressNote && (
+            <p className="small muted address-note">{a.addressNote}</p>
+          )}
           {official && !official.vacant ? (
             <>
               <div className="official-heading">
@@ -421,7 +435,7 @@ export function RepresentativeResult({
                   </a>
                 )}
                 {a.showPhone && official.phone && (
-                  <a href={`tel:${official.phone.replace(/[^+0-9]/g, '')}`}>
+                  <a href={phoneHref(official.phone)}>
                     <Phone size={18} />
                     <span>
                       {official.phone}
@@ -465,9 +479,7 @@ export function RepresentativeResult({
                 This seat is currently vacant. Contact the agency for
                 assistance.
               </p>
-              <a href={`tel:${a.contactPhone.replace(/[^+0-9]/g, '')}`}>
-                {a.contactPhone}
-              </a>
+              <a href={phoneHref(a.contactPhone)}>{a.contactPhone}</a>
             </div>
           )}
           {a.showMayor && mayor && !mayor.vacant && (

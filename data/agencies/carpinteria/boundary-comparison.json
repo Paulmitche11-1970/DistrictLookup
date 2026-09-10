@@ -1,0 +1,49 @@
+{
+  "officialLayerUrl": "https://services3.arcgis.com/ehLaGZNdQUxXpQo3/arcgis/rest/services/Administration_EB/FeatureServer/7",
+  "reviewedAt": "2026-09-09",
+  "comparisonCRS": "EPSG:3310",
+  "districtComparisons": [
+    {
+      "district": "1",
+      "rpAreaSquareMeters": 1154275.6557213126,
+      "officialAreaSquareMeters": 1154275.9780986118,
+      "symmetricDifferenceSquareMeters": 3653.602080245014,
+      "differenceFraction": 0.003165276909493391,
+      "iou": 0.9968397251044004
+    },
+    {
+      "district": "2",
+      "rpAreaSquareMeters": 721671.8910671731,
+      "officialAreaSquareMeters": 721672.0574301201,
+      "symmetricDifferenceSquareMeters": 4958.978581186195,
+      "differenceFraction": 0.0068715141085141885,
+      "iou": 0.9931520146946198
+    },
+    {
+      "district": "3",
+      "rpAreaSquareMeters": 1222558.2128645452,
+      "officialAreaSquareMeters": 1222558.4928824583,
+      "symmetricDifferenceSquareMeters": 5530.121498461259,
+      "differenceFraction": 0.004523401372850599,
+      "iou": 0.9954868066365348
+    },
+    {
+      "district": "4",
+      "rpAreaSquareMeters": 1385764.7164936315,
+      "officialAreaSquareMeters": 1385765.006281051,
+      "symmetricDifferenceSquareMeters": 5887.097473808926,
+      "differenceFraction": 0.004248266248764735,
+      "iou": 0.9957607389493078
+    },
+    {
+      "district": "5",
+      "rpAreaSquareMeters": 2462000.920314781,
+      "officialAreaSquareMeters": 2462001.3923062095,
+      "symmetricDifferenceSquareMeters": 3954.381824543244,
+      "differenceFraction": 0.0016061658596121294,
+      "iou": 0.9983951231434333
+    }
+  ],
+  "maxDifferenceFraction": 0.0068715141085141885,
+  "matchesAtRoundingTolerance": false
+}

@@ -27,6 +27,7 @@ export type Agency = {
   slogan?: string;
   addressMode?: 'local' | 'pending';
   sampleAddress?: string;
+  addressNote?: string;
   sandbox?: boolean;
   name: string;
   shortName: string;
@@ -73,6 +74,13 @@ export const districtColors: Record<string, string> = {
 };
 export function colorFor(id: string) {
   return districtColors[id] || '#64748b';
+}
+export function phoneHref(value: string) {
+  const match = value.match(
+    /^(.*?)(?:\s*(?:ext\.?|extension|x|#)\s*(\d+))?\s*$/i,
+  );
+  const number = (match?.[1] || value).replace(/[^+0-9]/g, '');
+  return 'tel:' + number + (match?.[2] ? ';ext=' + match[2] : '');
 }
 export function termLabel(value: string) {
   if (!/^\d{4}-\d{2}$/.test(value)) return value;

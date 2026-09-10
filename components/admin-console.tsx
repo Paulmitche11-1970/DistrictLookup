@@ -606,9 +606,9 @@ export default function AdminConsole({
           <DialogHeader>
             <DialogTitle>Publish your changes?</DialogTitle>
             <DialogDescription>
-              The saved council information, display options and district map
-              will become the public version. Check that district assignments
-              and contact details are correct.
+              The saved representative information, display options and district
+              map will become the public version. Check that district
+              assignments and contact details are correct.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
@@ -877,7 +877,8 @@ function OfficialEditor({
                       <div>
                         <strong>Seat is vacant</strong>
                         <p>
-                          Show a vacancy message and the city’s contact details.
+                          Show a vacancy message and the agency’s contact
+                          details.
                         </p>
                       </div>
                       <Switch
@@ -1017,21 +1018,23 @@ function DisplayOptions({
       }}
     >
       <h3>Representative information</h3>
-      {options.map(([key, title, desc]) => (
-        <div className="toggle-row" key={key}>
-          <div>
-            <strong>{title}</strong>
-            <p>{desc}</p>
+      {options
+        .filter(([key]) => key !== 'showMayor' || draft.kind !== 'county')
+        .map(([key, title, desc]) => (
+          <div className="toggle-row" key={key}>
+            <div>
+              <strong>{title}</strong>
+              <p>{desc}</p>
+            </div>
+            <Switch
+              disabled={busy}
+              checked={!!draft[key]}
+              onCheckedChange={(v) => setDraft({ ...draft, [key]: v })}
+              aria-label={title}
+            />
           </div>
-          <Switch
-            disabled={busy}
-            checked={!!draft[key]}
-            onCheckedChange={(v) => setDraft({ ...draft, [key]: v })}
-            aria-label={title}
-          />
-        </div>
-      ))}
-      <h3 style={{ margin: '28px 0 20px' }}>Page text and city contact</h3>
+        ))}
+      <h3 style={{ margin: '28px 0 20px' }}>Page text and agency contact</h3>
       <div className="form-grid">
         <label className="field wide">
           Page heading
@@ -1051,7 +1054,7 @@ function DisplayOptions({
           />
         </label>
         <label className="field">
-          City contact email
+          Agency contact email
           <input
             type="email"
             value={draft.contactEmail}
@@ -1061,7 +1064,7 @@ function DisplayOptions({
           />
         </label>
         <label className="field">
-          City contact phone
+          Agency contact phone
           <input
             type="tel"
             value={draft.contactPhone}
@@ -1071,7 +1074,7 @@ function DisplayOptions({
           />
         </label>
         <label className="field wide">
-          City website
+          Agency website
           <input
             type="url"
             value={draft.website}
@@ -1219,8 +1222,7 @@ function BoundaryEditor({
         <h3>Upload replacement boundaries</h3>
         <p className="small muted" style={{ marginTop: 10 }}>
           Use a zipped shapefile with its .shp, .shx, .dbf and .prj files, or
-          polygon GeoJSON. Then choose the field that identifies each council
-          district.
+          polygon GeoJSON. Then choose the field that identifies each district.
         </p>
         <div className="upload-box">
           <Upload size={28} />
@@ -1313,7 +1315,7 @@ function BoundaryEditor({
               <div>
                 <strong>I reviewed the district labels</strong>
                 <p>
-                  These are the city’s adopted boundaries. I will verify the
+                  These are the agency’s adopted boundaries. I will verify the
                   official assigned to each district before publishing.
                 </p>
               </div>
@@ -1361,7 +1363,7 @@ function EmbedOptions({
       <div>
         <h3>Embed the lookup</h3>
         <p className="muted small" style={{ marginTop: 12 }}>
-          Paste this into an HTML or embed block in your city website. It
+          Paste this into an HTML or embed block in your agency website. It
           displays the published lookup and follows your display settings.
         </p>
       </div>
@@ -1422,7 +1424,7 @@ function EmbedOptions({
       <hr />
       <h3>Use a direct link</h3>
       <p className="small muted">
-        Add a “Find your councilmember” button that opens the lookup in its own
+        Add a “Find your representative” button that opens the lookup in its own
         page.
       </p>
       <code className="code-box">

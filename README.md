@@ -1,13 +1,13 @@
 # District Lookup — agency lookup and administration
 
-An RP Data representative lookup and administration portal. The current review build includes Martinez, Arpeeville and Solano County. Each instance has its own published content, drafts, address inventory and uploads. The automated fleet provisioning interface remains future work.
+An RP Data representative lookup and administration portal. The current review build includes Martinez, Arpeeville and eight additional client agencies. Each instance has its own published content, drafts, address inventory and uploads. The automated fleet provisioning interface remains future work.
 
 ## Resident experience
 
 - Martinez address suggestions from 13,882 county address points inside the district polygons; outside-city postal addresses are excluded.
 - Server-side point-in-polygon assignment, address marker, district highlight, portrait, official email, shared council office phone, biography link and term end.
 - Street and satellite map views, district browsing, citywide mayor, responsive layout, keyboard-operated search and a text answer alongside the map.
-- `/` is the password-protected **RP Data Voter Lookup Instances** directory, grouped by agency type and project status. Martinez and Arpeeville appear in Active Agencies. Solano County is available under Counties; other client cards remain queued until their sources pass review.
+- `/` is the password-protected **RP Data Voter Lookup Instances** directory, grouped by agency type and project status. Martinez and Arpeeville appear in Active Agencies. Additional reviewed instances are available in Cities and Counties; other client cards remain queued until their sources pass review.
 - `/martinez` (also `/Martinez`) presents four working designs with actual page screenshots, plus an administration preview.
 - `/martinez/classic` keeps the original side-by-side layout; `/martinez/concierge` emphasizes the address and answer; `/martinez/explorer` uses a full map and floating detail card; `/martinez/council` integrates a portrait directory.
 - All four use the same lookup hook, representative/contact components, published data and map. `/martinez/lookup` and `/embed` follow the published design choice. `/embed?design=classic|concierge|explorer|directory` provides explicit overrides.
@@ -89,4 +89,24 @@ Solano uses current county-published 2021 supervisorial polygons and 181,255 pub
 
 Compressed address snapshots are expanded server-side on first initialization. Search indexes include the street, locality, state and ZIP; a one-time migration also updates existing databases. Public suggestion responses contain at most 40 local addresses. Lookup never falls back to an unrestricted geocoder.
 
-Additional checks: `node scripts/test-arpeeville-http.mjs` verifies sandbox publishing and separation; `node scripts/test-instances-http.mjs` verifies independent real-agency setup tokens/MFA, county address search, full-address inputs and draft/publication separation. Run after the baseline HTTP suite against the disposable server. `npm test` validates all 181,255 Solano and 13,882 Martinez addresses with the production geometry engine.
+Additional checks: `node scripts/test-arpeeville-http.mjs` verifies sandbox publishing and separation; `node scripts/test-instances-http.mjs` verifies independent real-agency setup tokens/MFA, county address search, full-address inputs and draft/publication separation. `node scripts/test-agency-expansion-http.mjs` verifies the seven additional routes, all four designs, local search and real-agency authorization. Run after the baseline HTTP suite against the disposable server. `npm test` validates all 487,302 real-agency addresses with the production geometry engine, plus the separate 25 fictional Arpeeville addresses.
+
+### Reviewed client coverage
+
+| Agency | Public address points | Districts | Occupied seats | Verified portraits |
+| --- | ---: | ---: | ---: | ---: |
+| Martinez | 13,882 | 4 | 4, plus citywide mayor | 5 |
+| San Mateo | 27,832 | 5 | 5 | 0 |
+| Burlingame | 8,215 | 5 | 5 | 0 |
+| Millbrae | 6,485 | 5 | 4; District 3 vacant | 0 |
+| Carpinteria | 4,953 | 5 | 5 | 5 |
+| Diamond Bar | 17,975 | 5 | 5 | 5 |
+| Solano County | 181,255 | 5 | 5 | 5 |
+| Butte County | 123,888 | 5 | 5 | 5 |
+| Yolo County | 102,817 | 5 | 5 | 5 |
+
+San Mateo, Burlingame and Millbrae use historical public parcel situs addresses: pins are approximate, and newer buildings or individual units may be absent. Butte's source points also represent approximate parcel positions. These instances show that limitation beside the search/result and on the pin. Yolo shows its source's informational coverage note. Northern city portraits remain initials until verified downloads are available; no substitute portraits or logos are invented.
+
+Current official GIS boundaries are used for Carpinteria, Diamond Bar, Butte, Yolo and Solano after an explicit comparison with the archived RP final map. Source geometry and measured changes are recorded with each package. San Mateo's documented final-plan district crosswalk comes from official final-map labels and population tables. Map conflicts such as Napa's overlapping current districts remain outside the live registry.
+
+All seven newly promoted agencies have distinct first-administrator setup tokens configured in deployment. Account enrollment and MFA remain required; no client invitation or live client account was created by the import. The password-protected administration cards provide published-content previews for RP review.

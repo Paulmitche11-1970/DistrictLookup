@@ -1,0 +1,16 @@
+{
+  "slug": "burlingame",
+  "errors": [],
+  "overlaps": [],
+  "vertices": 1779,
+  "addressCount": 8215,
+  "matchedAddresses": 8215,
+  "officials": 5,
+  "areaSquareMeters": 15631838.174304184,
+  "bounds": [
+    -122.403618,
+    37.568273,
+    -122.330827,
+    37.607535
+  ]
+}
