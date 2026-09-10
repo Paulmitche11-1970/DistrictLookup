@@ -1,16 +1,16 @@
 # District Lookup — Martinez pilot
 
-A working Redistricting Partners demonstration of an agency-owned representative lookup and administration portal. This pilot uses Martinez; it does not create or manage multiple agency accounts.
+A working RP Data demonstration of an agency-owned representative lookup and administration portal. This pilot uses Martinez; it does not create or manage multiple agency accounts.
 
 ## Resident experience
 
 - Address suggestions from 13,882 county address points inside the district polygons; outside-city postal addresses are excluded.
 - Server-side point-in-polygon assignment, address marker, district highlight, portrait, official email, shared council office phone, biography link and term end.
 - Street and satellite map views, district browsing, citywide mayor, responsive layout, keyboard-operated search and a text answer alongside the map.
-- `/` is **RP Data Voter Lookup Instances**, grouped by agency type. Martinez is the only published instance; empty categories do not imply other agencies are ready.
+- `/` is the password-protected **RP Data Voter Lookup Instances** directory, grouped by agency type and project status. Martinez is the only working instance; other client cards are queued.
 - `/martinez` (also `/Martinez`) presents four working designs with actual page screenshots, plus an administration preview.
 - `/martinez/classic` keeps the original side-by-side layout; `/martinez/concierge` emphasizes the address and answer; `/martinez/explorer` uses a full map and floating detail card; `/martinez/council` integrates a portrait directory.
-- All four use the same lookup hook, representative/contact components, published data and map. `/embed?design=classic|concierge|explorer|directory` supports each layout; `/embed` defaults to Classic. The admin embed panel supplies design-specific links and iframe code.
+- All four use the same lookup hook, representative/contact components, published data and map. `/martinez/lookup` and `/embed` follow the published design choice. `/embed?design=classic|concierge|explorer|directory` provides explicit overrides.
 - `/martinez/administration` is a read-only version of the actual administration component. It receives only `publicContent()` and an aggregate address count. It does not load private account data, activity or drafts, and cannot upload, save, publish or change security settings. `/admin` remains protected by password and TOTP.
 
 ## Agency administration
@@ -61,3 +61,13 @@ The app is marked as an RP demonstration and excluded from search indexing. Depl
 For HTTP integration testing after building: run `npm test` to create the test output directory, run `node scripts/start-test-server.mjs` in one terminal, and `node scripts/test-http.mjs` in another. The runner creates a fresh temporary database on localhost port 3001. It verifies setup/MFA, protected routes, CSRF, lookup, photos, draft isolation, publishing, conflicts, map replacement, recovery and password changes without touching the local or deployed administrator. Stop the test server afterwards. Never point these tests at production.
 
 The business offering under discussion remains free agency use until July 1, 2027, followed by $1,200/year for the basic service and separately scoped advanced offerings starting around $2,500/year. Billing and agency agreement flows are intentionally not implemented in this pilot.
+
+## September 9 review update
+
+The root directory is an internal RP Data workspace with 31 cities and 14 counties. Review passwords are checked on the server using the `RP_REVIEW_PASSWORD_HASH` and `MARTINEZ_REVIEW_PASSWORD_HASH` configuration values (salted scrypt in the same format as admin passwords). No plaintext review password is bundled with the app. Review sessions expire after 24 hours, are scoped, and grant no administrative rights. `/martinez` and `/martinez/administration` require agency or RP review access. Resident lookup routes and embeds remain public.
+
+`/martinez/lookup` and `/embed` now follow the published `agency.lookupDesign` setting. The agency saves its selection in Add to your website, previews the draft, and publishes to switch its stable public link. Individual design URLs and explicit embed design overrides remain available.
+
+Address results display a persistent red location pin and full city/state/ZIP. ZIP codes were joined by exact street/coordinate identity to all 13,882 existing records from the original county snapshot; `data/address-postal-codes.json` enriches the existing database without replacing coordinates, records or agency edits. Browsing a representative clears the address; address results hide district buttons and disable polygon selection until reset. Required background-map attribution remains visible.
+
+The internal cards use 15 visually checked agency brand assets from official websites. Thirty cards currently use initial placeholders while logo verification is pending. No other agency is represented as a working lookup. Client review passwords do not provide an RP staff impersonation capability.

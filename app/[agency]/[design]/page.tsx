@@ -1,3 +1,4 @@
+import { requireReviewAccess } from '@/lib/review-access';
 import { notFound } from 'next/navigation';
 import Lookup from '@/components/lookup';
 import LookupVariant from '@/components/lookup-variants';
@@ -18,6 +19,7 @@ export default async function Page({ params }: Params) {
   const { agency, design } = await params;
   if (agency.toLowerCase() !== 'martinez') notFound();
   if (design === 'administration') {
+    await requireReviewAccess('martinez', '/martinez/administration');
     const count = database()
       .prepare('SELECT COUNT(*) AS n FROM addresses')
       .get() as { n: number };
@@ -28,9 +30,12 @@ export default async function Page({ params }: Params) {
       />
     );
   }
-  const current = designs.find((d) => d.path.endsWith('/' + design));
-  if (!current) notFound();
   const content = publicContent();
+  const current =
+    design === 'lookup'
+      ? designs.find((d) => d.id === (content.agency.lookupDesign || 'classic'))
+      : designs.find((d) => d.path.endsWith('/' + design));
+  if (!current) notFound();
   return current.id === 'classic' ? (
     <Lookup content={content} />
   ) : (

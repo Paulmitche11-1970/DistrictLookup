@@ -12,11 +12,14 @@ const token =
   JSON.parse(readFileSync('.test-build/http-config.json', 'utf8')).setupToken;
 if (!token) throw Error('Set TEST_SETUP_TOKEN for the isolated test server.');
 let cookie = '';
+let reviewCookie = '';
 let calls = 0;
 async function call(url, body, status = 200, options = {}) {
   const headers = {
     Origin: options.origin || origin,
-    ...(options.anonymous ? {} : { Cookie: cookie }),
+    Cookie: [reviewCookie, ...(options.anonymous ? [] : [cookie])]
+      .filter(Boolean)
+      .join('; '),
   };
   if (body && !(body instanceof FormData))
     headers['Content-Type'] = 'application/json';
@@ -49,6 +52,37 @@ async function call(url, body, status = 200, options = {}) {
 const password = 'Integration-test-only-37!';
 const email = 'qa@example.invalid';
 assert.equal((await call('/api/health')).status, 'ok');
+await call('/', null, 307);
+await call('/martinez', null, 307);
+await call('/martinez/administration', null, 307);
+const reviewPassword = JSON.parse(
+  readFileSync('.test-build/http-config.json', 'utf8'),
+).reviewPassword;
+async function reviewLogin(scope, password, expected) {
+  const response = await fetch(origin + '/api/review', {
+    method: 'POST',
+    redirect: 'manual',
+    headers: {
+      Origin: origin,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({ scope, password }),
+  });
+  assert.equal(response.status, 303);
+  assert.ok(response.headers.get('location').includes(expected));
+  calls++;
+  return response.headers.get('set-cookie')?.split(';')[0] || '';
+}
+assert.equal(
+  await reviewLogin('martinez', 'incorrect-review-password', 'error=incorrect'),
+  '',
+);
+reviewCookie = await reviewLogin('martinez', reviewPassword, '/martinez');
+await call('/', null, 307);
+await call('/api/admin', null, 401);
+await call('/api/admin', { action: 'publish', revision: 1 }, 401);
+assert.ok((await call('/martinez')).includes('/design-previews/classic.webp'));
+reviewCookie = await reviewLogin('rp', reviewPassword, origin + '/');
 assert.ok((await call('/')).includes('RP Data Voter'));
 assert.ok(
   (await call('/martinez')).includes('/design-previews/administration.webp'),
@@ -106,6 +140,7 @@ assert.equal(recoveryCodes.length, 10);
 let admin = await call('/api/admin');
 assert.equal(admin.content.map.features.length, 4);
 const address = (await call('/api/addresses?q=525%20Henrietta')).addresses[0];
+assert.equal(address.zip, '94553');
 assert.equal((await call('/api/lookup?id=' + address.id)).district, '1');
 assert.equal(
   (await call('/api/addresses?q=1600%20Pennsylvania')).addresses.length,
@@ -186,6 +221,39 @@ await call('/api/admin', {
 });
 admin = await call('/api/admin');
 await call('/api/admin', { action: 'discard', revision: admin.revision });
+admin = await call('/api/admin');
+await call('/api/admin', {
+  action: 'design',
+  design: 'concierge',
+  revision: admin.revision,
+});
+assert.ok(
+  !(await call('/martinez/lookup')).includes('design-page design-concierge'),
+);
+assert.ok(!(await call('/embed')).includes('design-page design-concierge'));
+assert.ok(
+  (await call('/admin/preview')).includes('design-page design-concierge'),
+);
+admin = await call('/api/admin');
+await call('/api/admin', { action: 'publish', revision: admin.revision });
+assert.ok(
+  (await call('/martinez/lookup')).includes('design-page design-concierge'),
+);
+assert.ok((await call('/embed')).includes('design-page design-concierge'));
+assert.ok(
+  (await call('/martinez/classic')).includes('Find your councilmember'),
+);
+assert.ok(
+  (await call('/embed?design=explorer')).includes(
+    'design-page design-explorer',
+  ),
+);
+admin = await call('/api/admin');
+await call(
+  '/api/admin',
+  { action: 'design', design: 'unsupported-design', revision: admin.revision },
+  400,
+);
 await call('/api/auth/logout', {});
 await call('/api/admin', null, 401);
 await call('/api/auth/login', { email, password: 'incorrect-password' }, 401);

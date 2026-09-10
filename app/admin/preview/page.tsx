@@ -15,8 +15,11 @@ export default async function Page({
   if (!s || s.stage !== 'full' || !s.admin.totp_active)
     redirect('/admin/login');
   const requested = (await searchParams).design;
-  const design = designs.find((item) => item.id === requested)?.id || 'classic';
   const content = state().draft;
+  const design =
+    designs.find((item) => item.id === requested)?.id ||
+    content.agency.lookupDesign ||
+    'classic';
   return design === 'classic' ? (
     <Lookup content={content} preview />
   ) : (

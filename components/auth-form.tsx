@@ -143,9 +143,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
                       autoComplete="off"
                       type="password"
                     />
-                    <small>
-                      Provided by Redistricting Partners during setup.
-                    </small>
+                    <small>Provided by RP Data during setup.</small>
                   </label>
                   <label className="field">
                     Your name

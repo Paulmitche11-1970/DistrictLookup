@@ -3,6 +3,19 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Content, Address } from './model';
 let db: DatabaseSync | undefined;
+let postalCodes: Record<string, string> | undefined;
+function withPostalCode(address: Address): Address {
+  postalCodes ||= JSON.parse(
+    readFileSync(
+      path.join(process.cwd(), 'data/address-postal-codes.json'),
+      'utf8',
+    ),
+  );
+  return {
+    ...address,
+    ...(postalCodes?.[address.id] ? { zip: postalCodes[address.id] } : {}),
+  };
+}
 export function dataDir() {
   return process.env.DATA_DIR || path.join(process.cwd(), '.data');
 }
@@ -154,18 +167,20 @@ export function publish(revision: number, actor: string) {
   return state();
 }
 export function addressById(id: string) {
-  return database()
+  const address = database()
     .prepare('SELECT id,label,lon,lat FROM addresses WHERE id=?')
     .get(id) as Address | undefined;
+  return address ? withPostalCode(address) : undefined;
 }
 export function addressSearch(query: string) {
   const q = normalizeSearch(query);
   if (q.length < 2) return [];
   const tokens = q.split(' ').slice(0, 8);
   const clauses = tokens.map(() => `(' '||search) LIKE ?`).join(' AND ');
-  return database()
+  const addresses = database()
     .prepare(
       `SELECT id,label,lon,lat FROM addresses WHERE ${clauses} ORDER BY CASE WHEN search LIKE ? THEN 0 ELSE 1 END,label LIMIT 40`,
     )
     .all(...tokens.map((t) => '% ' + t + '%'), q + '%') as Address[];
+  return addresses.map(withPostalCode);
 }

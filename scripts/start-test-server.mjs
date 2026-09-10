@@ -1,14 +1,22 @@
 import { spawn } from 'node:child_process';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, scryptSync } from 'node:crypto';
 import { tmpdir } from 'node:os';
 // A fresh disposable database, with independent credentials, never .data or a Railway volume.
 const dataDir = mkdtempSync(path.join(tmpdir(), 'district-lookup-http-'));
 const setupToken = randomBytes(24).toString('hex');
+const reviewPassword = randomBytes(16).toString('hex');
+const reviewSalt = randomBytes(16).toString('hex');
+const reviewHash = `scrypt:${reviewSalt}:${scryptSync(reviewPassword, reviewSalt, 64).toString('hex')}`;
 writeFileSync(
   '.test-build/http-config.json',
-  JSON.stringify({ dataDir, setupToken, origin: 'http://localhost:3001' }),
+  JSON.stringify({
+    dataDir,
+    setupToken,
+    reviewPassword,
+    origin: 'http://localhost:3001',
+  }),
 );
 const child = spawn(
   process.execPath,
@@ -28,7 +36,9 @@ const child = spawn(
       APP_SECRET: randomBytes(32).toString('hex'),
       ADMIN_SETUP_TOKEN: setupToken,
       APP_URL: 'http://localhost:3001',
-      ...(process.argv.includes('--dev') ? {NEXT_DIST_DIR:'.next-qa'} : {}),
+      RP_REVIEW_PASSWORD_HASH: reviewHash,
+      MARTINEZ_REVIEW_PASSWORD_HASH: reviewHash,
+      ...(process.argv.includes('--dev') ? { NEXT_DIST_DIR: '.next-qa' } : {}),
     },
   },
 );

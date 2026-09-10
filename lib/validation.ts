@@ -58,6 +58,9 @@ export const agencySchema = z.object({
   showWebsite: z.boolean(),
   showTerm: z.boolean(),
   showStaff: z.boolean(),
+  lookupDesign: z
+    .enum(['classic', 'concierge', 'explorer', 'directory'])
+    .optional(),
 });
 export const credentialsSchema = z.object({
   email: z

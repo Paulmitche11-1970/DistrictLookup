@@ -1,16 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import {
-  Map as MapIcon,
-  Satellite,
-  Maximize,
-  Plus,
-  Minus,
-  MapPin,
-} from 'lucide-react';
+import { Map as MapIcon, Satellite, Maximize, Plus, Minus } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { DistrictMap, Address } from '@/lib/model';
-import { colorFor } from '@/lib/model';
+import { colorFor, fullAddress } from '@/lib/model';
 import type L from 'leaflet';
 import { pointOnFeature } from '@turf/point-on-feature';
 export default function DistrictMapView({
@@ -18,11 +11,13 @@ export default function DistrictMapView({
   selected,
   onSelect,
   address,
+  insetLeft = 0,
 }: {
   geo: DistrictMap;
   selected: string | null;
   onSelect: (id: string) => void;
   address: Address | null;
+  insetLeft?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
@@ -31,9 +26,12 @@ export default function DistrictMapView({
   const pin = useRef<L.Marker | null>(null);
   const labels = useRef<L.LayerGroup | null>(null);
   const selectRef = useRef(onSelect);
+  const fitRef = useRef<() => void>(() => {});
   useEffect(() => {
-    selectRef.current = onSelect;
-  }, [onSelect]);
+    selectRef.current = (id) => {
+      if (!address) onSelect(id);
+    };
+  }, [onSelect, address]);
   const [mode, setMode] = useState('street');
   const [ready, setReady] = useState(false);
   const [error, setError] = useState('');
@@ -44,14 +42,20 @@ export default function DistrictMapView({
         if (cancelled || !ref.current) return;
         const m = L.map(ref.current, {
           zoomControl: false,
-          scrollWheelZoom: false,
+          scrollWheelZoom: true,
+          zoomSnap: 0.25,
+          zoomDelta: 0.25,
+          wheelPxPerZoomLevel: 160,
           minZoom: 10,
           maxZoom: 19,
         });
         map.current = m;
         labels.current = L.layerGroup().addTo(m);
         setReady(true);
-        const ro = new ResizeObserver(() => m.invalidateSize());
+        const ro = new ResizeObserver(() => {
+          m.invalidateSize();
+          fitRef.current();
+        });
         ro.observe(ref.current);
         (m as L.Map & { _ro?: ResizeObserver })._ro = ro;
       })
@@ -135,6 +139,7 @@ export default function DistrictMapView({
             const center: [number, number] = [lat, lon];
             L.marker(center, {
               interactive: false,
+              keyboard: false,
               icon: L.divIcon({
                 className: 'district-label',
                 html: `<span>${f.properties.district.replace(/[^0-9A-Za-z -]/g, '')}</span>`,
@@ -145,16 +150,26 @@ export default function DistrictMapView({
         }).addTo(map.current);
         layers.current = g;
         map.current.setMaxBounds(g.getBounds().pad(0.5));
-        if (selected) {
-          const f = geo.features.find(
+        fitRef.current = () => {
+          const m = map.current;
+          if (!m) return;
+          const feature = geo.features.find(
             (f) => f.properties.district === selected,
           );
-          if (f)
-            map.current.fitBounds(L.geoJSON(f).getBounds(), {
-              padding: [60, 90],
-              maxZoom: 15,
-            });
-        } else map.current.fitBounds(g.getBounds(), { padding: [35, 70] });
+          const bounds = feature
+            ? L.geoJSON(feature).getBounds()
+            : g.getBounds();
+          // The Explorer card occupies the left edge on desktop; frame the geometry in the visible map.
+          const left = m.getSize().x > 800 ? insetLeft : 0;
+          m.stop();
+          m.fitBounds(bounds, {
+            paddingTopLeft: [left + 24, address ? 85 : 30],
+            paddingBottomRight: [35, 35],
+            maxZoom: 16,
+            animate: false,
+          });
+        };
+        fitRef.current();
       })
       .catch(() =>
         setError(
@@ -164,7 +179,7 @@ export default function DistrictMapView({
     return () => {
       cancelled = true;
     };
-  }, [geo, selected, ready]);
+  }, [geo, selected, address, ready, insetLeft]);
   useEffect(() => {
     if (!ready || !map.current) return;
     let cancelled = false;
@@ -175,15 +190,25 @@ export default function DistrictMapView({
         if (address) {
           pin.current = L.marker([address.lat, address.lon], {
             icon: L.divIcon({
-              className: '',
-              html: '<div class="address-marker"></div>',
-              iconSize: [21, 21],
-              iconAnchor: [10, 10],
+              className: 'address-pin',
+              html: '<svg width="38" height="48" viewBox="0 0 38 48" aria-hidden="true"><path d="M19 46S2 27 2 19a17 17 0 1 1 34 0c0 8-17 27-17 27Z" fill="#d72f40" stroke="white" stroke-width="2.5"/><circle cx="19" cy="19" r="6" fill="white"/></svg>',
+              iconSize: [38, 48],
+              iconAnchor: [19, 47],
             }),
+            zIndexOffset: 1000,
+            title: fullAddress(address),
           }).addTo(map.current);
           const text = document.createElement('span');
-          text.textContent = address.label;
-          pin.current.bindTooltip(text);
+          const title = document.createElement('strong');
+          title.textContent = 'You are here';
+          text.append(title, document.createTextNode(fullAddress(address)));
+          pin.current.bindTooltip(text, {
+            permanent: true,
+            direction: 'top',
+            offset: [0, -46],
+            className: 'address-tooltip',
+            opacity: 1,
+          });
         }
       })
       .catch(() =>
@@ -220,10 +245,6 @@ export default function DistrictMapView({
             </TabsTrigger>
           </TabsList>
         </Tabs>
-        <div className="map-badge">
-          <MapPin size={16} />
-          {selected ? `Council District ${selected}` : 'Martinez, California'}
-        </div>
       </div>
       {error && (
         <div className="notice map-error" role="status">
@@ -258,21 +279,23 @@ export default function DistrictMapView({
           <Maximize size={17} />
         </button>
       </div>
-      <div className="map-legend">
-        <div className="eyebrow">Council districts</div>
-        <div className="legend-items">
-          {geo.features.map((f) => (
-            <button
-              key={f.properties.district}
-              onClick={() => onSelect(f.properties.district)}
-              aria-pressed={selected === f.properties.district}
-            >
-              <i style={{ background: colorFor(f.properties.district) }} />
-              District {f.properties.district}
-            </button>
-          ))}
+      {!address && (
+        <div className="map-legend">
+          <div className="eyebrow">Council districts</div>
+          <div className="legend-items">
+            {geo.features.map((f) => (
+              <button
+                key={f.properties.district}
+                onClick={() => onSelect(f.properties.district)}
+                aria-pressed={selected === f.properties.district}
+              >
+                <i style={{ background: colorFor(f.properties.district) }} />
+                District {f.properties.district}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

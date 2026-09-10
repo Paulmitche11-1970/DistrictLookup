@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowRight, Compass, MapPin, Search } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { ArrowRight, Compass, MapPin } from 'lucide-react';
 import type { Content } from '@/lib/model';
 import { colorFor } from '@/lib/model';
 import type { DesignId } from '@/lib/designs';
@@ -27,7 +27,6 @@ export default function LookupVariant({
   preview?: boolean;
 }) {
   const lookup = useDistrictLookup(content, preview);
-  const [showMap, setShowMap] = useState(false);
   const answer = useRef<HTMLDivElement>(null);
   const officials = content.officials.filter(
     (official) => official.district !== null,
@@ -44,6 +43,7 @@ export default function LookupVariant({
       selected={lookup.selected}
       onSelect={lookup.selectDistrict}
       address={lookup.address}
+      insetLeft={design === 'explorer' ? 370 : 0}
     />
   );
   const result = <RepresentativeResult content={content} lookup={lookup} />;
@@ -67,58 +67,36 @@ export default function LookupVariant({
       {design === 'concierge' && (
         <main className="concierge-main">
           <div className="concierge-intro">
-            <span className="concierge-kicker">
-              <span /> MARTINEZ, CALIFORNIA
-            </span>
             <h1>
-              Your city.
-              <br />
-              <em>Your voice.</em>
+              Your address. <em>Your district.</em>
             </h1>
-            <p>{content.agency.intro}</p>
+            <p>{lookup.intro}</p>
           </div>
-          <section
-            className="concierge-card"
-            aria-label="Find your elected representative"
-            ref={answer}
-            tabIndex={-1}
-          >
-            <div className="concierge-card-title">
-              <span className="concierge-step">
-                <Search size={19} />
-              </span>
-              <h2>Who represents you?</h2>
-            </div>
-            {search}
-            {lookup.selected ? (
-              result
-            ) : (
-              <div className="concierge-explainer">
-                <MapPin size={21} />
-                <p>
-                  Your address connects you to one of Martinez’s{' '}
-                  {content.map.features.length} council districts. Your
-                  councilmember’s details will appear here.
-                </p>
-              </div>
-            )}
-          </section>
-          <div className="concierge-map-toggle">
-            <button
-              onClick={() => setShowMap(!showMap)}
-              aria-expanded={showMap}
-              aria-controls="concierge-map"
+          <div className="concierge-workspace">
+            <section
+              className="concierge-card"
+              aria-label="Find your elected representative"
+              ref={answer}
+              tabIndex={-1}
             >
-              <Compass size={18} />
-              {showMap ? 'Close district map' : 'Explore the district map'}
-              <ArrowDown size={16} className={showMap ? 'turned' : ''} />
-            </button>
-          </div>
-          {showMap && (
-            <section id="concierge-map" className="concierge-map">
+              {search}
+              {lookup.selected ? (
+                result
+              ) : (
+                <div className="concierge-explainer">
+                  <MapPin size={21} />
+                  <p>
+                    Your address connects you to one of Martinez’s{' '}
+                    {content.map.features.length} council districts. Your
+                    councilmember’s details will appear here.
+                  </p>
+                </div>
+              )}
+            </section>
+            <section className="concierge-map" aria-label="District map">
               {map}
             </section>
-          )}
+          </div>
           <section
             className="concierge-roster"
             aria-label="Browse council districts"
@@ -164,11 +142,11 @@ export default function LookupVariant({
                 <h1>Find your district.</h1>
               </div>
             </div>
-            <div className="explorer-search">{search}</div>
           </section>
           <div className="explorer-workspace">
             {map}
             <aside className="explorer-answer" aria-label="District details">
+              <div className="explorer-search">{search}</div>
               {lookup.selected ? (
                 result
               ) : (
@@ -176,8 +154,8 @@ export default function LookupVariant({
                   <span className="eyebrow">A city. Four districts.</span>
                   <h2>Where do you fit in?</h2>
                   <p>
-                    Search your address above for your councilmember, or choose
-                    a district to explore.
+                    Search your address for your councilmember, or choose a
+                    district to explore.
                   </p>
                   <CouncilList content={content} lookup={lookup} />
                 </>
@@ -201,13 +179,18 @@ export default function LookupVariant({
                 <br />
                 <em>City Council.</em>
               </h1>
-              <p>{content.agency.intro}</p>
+              <p>{lookup.intro}</p>
             </div>
             <div className="council-search">
               <span className="council-search-caption">
-                <MapPin size={18} /> Find your connection
+                <MapPin size={18} /> Find your district
               </span>
               {search}
+              {lookup.selected && (
+                <button className="council-search-reset" onClick={lookup.clear}>
+                  Search for an address <ArrowRight size={16} />
+                </button>
+              )}
             </div>
           </section>
           <section

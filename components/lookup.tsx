@@ -47,7 +47,7 @@ export default function Lookup({
           <div>
             <div className="eyebrow">Your address. Your district.</div>
             <h1>{content.agency.heading}</h1>
-            <p className="intro">{content.agency.intro}</p>
+            <p className="intro">{lookup.intro}</p>
           </div>
           <AddressSearch lookup={lookup} />
           <RepresentativeResult content={content} lookup={lookup} />

@@ -8,7 +8,6 @@ import {
   Phone,
   Globe,
   ArrowLeft,
-  ShieldCheck,
 } from 'lucide-react';
 import {
   Combobox,
@@ -19,11 +18,14 @@ import {
   ComboboxEmpty,
 } from '@/components/ui/combobox';
 import type { Content, Address, Official } from '@/lib/model';
-import { colorFor, termLabel } from '@/lib/model';
+import { colorFor, termLabel, fullAddress, lookupIntro } from '@/lib/model';
 export function Brand({ name = 'Martinez' }: { name?: string }) {
   if (name.toLowerCase() === 'martinez') {
     return (
-      <a className="wordmark wordmark-city-logo" href="/martinez">
+      <a
+        className="wordmark wordmark-city-logo"
+        href="https://www.cityofmartinez.org/"
+      >
         <img
           src="/branding/martinez-logo.svg"
           alt="City of Martinez, CA — The Bay Area’s Hidden Gem"
@@ -35,7 +37,7 @@ export function Brand({ name = 'Martinez' }: { name?: string }) {
     );
   }
   return (
-    <a className="wordmark" href="/martinez">
+    <a className="wordmark" href="https://www.cityofmartinez.org/">
       <div className="wordmark-icon">
         <MapPin size={24} />
       </div>
@@ -159,6 +161,9 @@ export function useDistrictLookup(content: Content, preview = false) {
     setBusy(false);
     setSelected(id);
     setAddress(null);
+    setQuery('');
+    setResults([]);
+    setSearchOpen(false);
     setMessage('');
   }
 
@@ -188,6 +193,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     official,
     mayor,
     a,
+    intro: lookupIntro(a),
     choose,
     selectDistrict,
     clear,
@@ -209,9 +215,9 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
     selected,
     message,
   } = lookup;
+  if (selected) return null;
   return (
     <>
-      {' '}
       <div className="address-search">
         <label className="search-label" htmlFor="address-search">
           Your street address
@@ -266,10 +272,6 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
             </ComboboxList>
           </ComboboxContent>
         </Combobox>
-        <div className="search-helper">
-          <ShieldCheck size={14} />
-          Only addresses inside Martinez city limits
-        </div>
         {!selected && (
           <p className="small muted" style={{ marginTop: 14 }}>
             Try{' '}
@@ -322,20 +324,20 @@ export function RepresentativeResult({
               <MapPin size={17} />
               District {selected}
             </div>
-            <button className="clear-result" onClick={clear}>
-              <ArrowLeft size={14} />
-              Start again
-            </button>
           </div>
           {address ? (
             <p className="small muted" style={{ marginBottom: 18 }}>
-              {address.label}
+              {fullAddress(address)}
             </p>
           ) : (
             <p className="small muted" style={{ marginBottom: 18 }}>
               Exploring this district. Search your address to confirm yours.
             </p>
           )}
+          <button className="clear-result result-reset" onClick={clear}>
+            <ArrowLeft size={14} />
+            {address ? 'Start again' : 'Search for an address'}
+          </button>
           {official && !official.vacant ? (
             <>
               <div className="official-heading">
@@ -475,7 +477,7 @@ export function CouncilList({
   );
 }
 
-export function LookupFooter({ content }: { content: Content }) {
+export function LookupFooter(_props: { content: Content }) {
   return (
     <footer className="public-footer">
       <span>
@@ -485,12 +487,9 @@ export function LookupFooter({ content }: { content: Content }) {
           target="_blank"
           rel="noreferrer"
         >
-          Redistricting Partners
+          RP Data
         </a>
       </span>
-      <a href={content.sourceUrl} target="_blank" rel="noreferrer">
-        Sources
-      </a>
     </footer>
   );
 }

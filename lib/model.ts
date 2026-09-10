@@ -37,6 +37,7 @@ export type Agency = {
   showWebsite: boolean;
   showTerm: boolean;
   showStaff: boolean;
+  lookupDesign?: 'classic' | 'concierge' | 'explorer' | 'directory';
 };
 export type Content = {
   agency: Agency;
@@ -53,6 +54,7 @@ export type Address = {
   lon: number;
   lat: number;
   district?: string;
+  zip?: string;
 };
 export const districtColors: Record<string, string> = {
   '1': '#2a808b',
@@ -70,4 +72,14 @@ export function termLabel(value: string) {
     year: 'numeric',
     timeZone: 'UTC',
   }).format(new Date(value + '-01T12:00:00Z'));
+}
+
+export function fullAddress(address: Address) {
+  return `${address.label}, Martinez, California${address.zip ? ` ${address.zip}` : ''}`;
+}
+export function lookupIntro(agency: Agency) {
+  return agency.intro.replace(
+    'Enter your Martinez street address to find your district',
+    'Enter your street address to find your council district',
+  );
 }

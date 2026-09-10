@@ -10,8 +10,11 @@ export default async function Page({
   searchParams: Promise<{ design?: string }>;
 }) {
   const requested = (await searchParams).design;
-  const design = designs.find((item) => item.id === requested)?.id || 'classic';
   const content = publicContent();
+  const design =
+    designs.find((item) => item.id === requested)?.id ||
+    content.agency.lookupDesign ||
+    'classic';
   return design === 'classic' ? (
     <Lookup content={content} embedded />
   ) : (

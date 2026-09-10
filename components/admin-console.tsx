@@ -186,7 +186,7 @@ export default function AdminConsole({
               <MapPin size={27} />
               <strong style={{ fontSize: 19 }}>District Lookup</strong>
             </div>
-            <small>REDISTRICTING PARTNERS</small>
+            <small>RP DATA</small>
           </div>
         </SidebarHeader>
         <SidebarContent style={{ padding: '0 14px' }}>
@@ -266,10 +266,11 @@ export default function AdminConsole({
         <main className="admin-work">
           {previewMode && (
             <div className="notice admin-preview-notice">
-              <strong>Explore the administration workspace.</strong> This
-              preview uses public Martinez information. Editing, uploads,
-              publishing, and account changes are available after agency
-              sign-in.
+              <strong>This is a read-only design preview.</strong> To edit
+              officials, upload photos or publish changes,{' '}
+              <a href="/admin">sign in to administration</a>. This preview uses
+              public Martinez information. Editing, uploads, publishing, and
+              account changes are available after agency sign-in.
             </div>
           )}
           {error && (
@@ -406,7 +407,13 @@ export default function AdminConsole({
                       save={(input) => mutate({ action: 'map', ...input })}
                     />
                   )}
-                  {section === 'embed' && <EmbedOptions />}
+                  {section === 'embed' && (
+                    <EmbedOptions
+                      selected={data.content.agency.lookupDesign || 'classic'}
+                      busy={busy || previewMode}
+                      save={(design) => mutate({ action: 'design', design })}
+                    />
+                  )}
                   {section === 'security' &&
                     (previewMode ? (
                       <div className="panel stack">
@@ -472,9 +479,7 @@ export default function AdminConsole({
                     </p>
                     <a
                       className="btn"
-                      href={
-                        previewMode ? '/martinez/classic' : '/admin/preview'
-                      }
+                      href={previewMode ? '/martinez/lookup' : '/admin/preview'}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -1268,13 +1273,22 @@ function BoundaryEditor({
     </div>
   );
 }
-function EmbedOptions() {
+function EmbedOptions({
+  selected,
+  busy,
+  save,
+}: {
+  selected: string;
+  busy: boolean;
+  save: (design: string) => Promise<unknown>;
+}) {
   const [origin, setOrigin] = useState('');
-  const [design, setDesign] = useState('classic');
+  const [design, setDesign] = useState(selected);
+  useEffect(() => setDesign(selected), [selected]);
   const [copied, setCopied] = useState(false);
   useEffect(() => setOrigin(location.origin), []);
   const current = designs.find((item) => item.id === design)!;
-  const code = `<iframe\n  src="${origin}/embed?design=${design}"\n  title="Find your Martinez councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
+  const code = `<iframe\n  src="${origin}/embed"\n  title="Find your Martinez councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
   return (
     <div className="panel stack">
       <div>
@@ -1301,6 +1315,22 @@ function EmbedOptions() {
           ))}
         </select>
       </label>
+      <p className="small muted">
+        Your public link stays the same when you change designs. Save the
+        design, review your draft, then publish it.
+      </p>
+      <div className="row">
+        <button
+          className="btn primary"
+          disabled={busy || design === selected}
+          onClick={() => save(design)}
+        >
+          <Save size={16} /> Save design choice
+        </button>
+        <a className="btn" href={current.path} target="_blank" rel="noreferrer">
+          Preview this design <ExternalLink size={16} />
+        </a>
+      </div>
       <pre className="code-box">{code}</pre>
       <div className="row">
         <button
@@ -1313,12 +1343,7 @@ function EmbedOptions() {
           {copied ? <Check size={16} /> : <Copy size={16} />}{' '}
           {copied ? 'Copied' : 'Copy embed code'}
         </button>
-        <a
-          className="btn"
-          href={'/embed?design=' + design}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="btn" href="/embed" target="_blank" rel="noreferrer">
           Preview embed <ExternalLink size={16} />
         </a>
       </div>
@@ -1330,7 +1355,7 @@ function EmbedOptions() {
       </p>
       <code className="code-box">
         {origin}
-        {current.path}
+        /martinez/lookup
       </code>
       <p className="small muted">
         Your website administrator can adjust the frame height to fit the page.

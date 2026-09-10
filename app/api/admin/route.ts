@@ -83,6 +83,16 @@ export async function POST(request: Request) {
         s.admin.email,
         'Updated display options and agency information',
       );
+    } else if (body.action === 'design') {
+      content.agency.lookupDesign = z
+        .enum(['classic', 'concierge', 'explorer', 'directory'])
+        .parse(body.design);
+      changeDraft(
+        revision,
+        content,
+        s.admin.email,
+        'Changed lookup design to ' + content.agency.lookupDesign,
+      );
     } else if (body.action === 'map') {
       const { map, skipped } = normalizeMap(
         body.map,

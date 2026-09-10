@@ -2,17 +2,29 @@ import { ArrowRight, Check, LockKeyhole } from 'lucide-react';
 import type { Content } from '@/lib/model';
 import { designs } from '@/lib/designs';
 
-export default function DesignGallery({ content }: { content: Content }) {
+export default function DesignGallery({
+  content,
+  staff = false,
+}: {
+  content: Content;
+  staff?: boolean;
+}) {
   return (
     <div className="design-gallery">
       <header className="gallery-header">
-        <a href="/" className="rp-gallery-brand">
-          <span>RP</span> Redistricting Partners
+        <a href={staff ? '/' : '/martinez'} className="rp-gallery-brand">
+          <span>RP</span> RP Data
         </a>
         <span className="gallery-review-label">MARTINEZ · DESIGN REVIEW</span>
-        <a href="/">
-          All agencies <ArrowRight size={15} />
-        </a>
+        {staff ? (
+          <a href="/">
+            All agencies <ArrowRight size={15} />
+          </a>
+        ) : (
+          <a href="/admin">
+            Agency sign in <ArrowRight size={15} />
+          </a>
+        )}
       </header>
       <main className="gallery-main">
         <div className="gallery-intro">
@@ -25,9 +37,9 @@ export default function DesignGallery({ content }: { content: Content }) {
             </h1>
           </div>
           <p>
-            Explore four working designs for Martinez. Try an address, meet the
-            council, and choose your preferred experience. Then take a look
-            inside the administration workspace.
+            Explore four lookup designs for the City of Martinez. Try an address
+            and choose your preferred experience. Then take a look inside the
+            administration workspace.
           </p>
         </div>
         <div className="gallery-shared">

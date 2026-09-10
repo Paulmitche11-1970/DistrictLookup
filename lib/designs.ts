@@ -19,7 +19,7 @@ export const designs = [
     path: '/martinez/concierge',
     label: 'One address. A clear answer.',
     description:
-      'A calm, welcoming search page. The representative takes priority, with geography available when the resident wants it.',
+      'A calm, welcoming search page. A rounded contact card sits beside the district map, with a compact council roster below.',
     bestFor:
       'Agencies that want a simple, approachable lookup on their existing website.',
     lesson:
