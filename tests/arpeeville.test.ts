@@ -81,6 +81,18 @@ void test('All 65 fictional addresses have unique IDs and coordinates, with eigh
   }
   for (const district of ['1', '2', '3', '4', '5'])
     assert.equal(jokes.filter((a) => a.district === district).length, 8);
+  for (const a of addresses)
+    for (const b of addresses) {
+      if (a.id === b.id || locate(map, a) !== locate(map, b)) continue;
+      const meters = Math.hypot(
+        (a.lon - b.lon) * 88000,
+        (a.lat - b.lat) * 111000,
+      );
+      assert.ok(
+        meters > 150,
+        `${a.label} and ${b.label} should not cluster at the same map location`,
+      );
+    }
   for (const label of [
     '99 Luft Balloons Way',
     '99 Bottles of Beer on the Wall Drive',

@@ -111,7 +111,10 @@ const mutate = async (body, status = 200) => {
   dashboard = await call('/api/arpeeville/admin', { cookie });
 };
 const results = await call('/api/arpeeville/addresses?q=Democracy');
-assert.equal(results.addresses.length, 5);
+assert.equal(results.addresses.length, 10);
+assert.ok(
+  results.addresses.slice(0, 5).every((a) => a.label.includes('Democracy')),
+);
 const address = results.addresses[0];
 assert.equal(address.city, 'Arpeeville');
 assert.equal(
@@ -136,6 +139,8 @@ for (const [label, partialQuery] of [
     assert.ok(found, `Fictional address is not searchable: ${query}`);
     assert.equal(found.label, expected.label);
     assert.equal(found.city, 'Arpeeville');
+    assert.equal(suggestions.addresses[0].id, expected.id);
+    assert.equal(suggestions.addresses.length, 6);
   }
   const found = await call(
     '/api/arpeeville/lookup?id=' + encodeURIComponent(expected.id),
@@ -154,6 +159,41 @@ for (const [label, partialQuery] of [
     status: 404,
   });
 }
+for (const query of ['99', '1', '2', '7', 'Main', 'no such street']) {
+  const suggestions = (
+    await call('/api/arpeeville/addresses?q=' + encodeURIComponent(query))
+  ).addresses;
+  assert.ok(suggestions.length >= 6);
+  assert.equal(new Set(suggestions.map((a) => a.id)).size, suggestions.length);
+  assert.ok(
+    suggestions.every((a) => allAddresses.some((known) => known.id === a.id)),
+  );
+  if (query === '99') {
+    assert.equal(suggestions.length, 7);
+    assert.ok(suggestions.slice(0, 2).every((a) => a.label.startsWith('99 ')));
+  }
+  if (query === 'Main' || query === 'no such street')
+    assert.equal(suggestions.length, 6);
+}
+for (const query of ['', ' ', '%', 'a'.repeat(121)])
+  assert.equal(
+    (await call('/api/arpeeville/addresses?q=' + encodeURIComponent(query)))
+      .addresses.length,
+    0,
+  );
+assert.equal((await call('/api/addresses?q=7')).addresses.length, 0);
+assert.equal(
+  (await call('/api/addresses?q=no%20such%20street')).addresses.length,
+  0,
+);
+const randomSets = new Set();
+for (let i = 0; i < 3; i++)
+  randomSets.add(
+    (await call('/api/arpeeville/addresses?q=no%20such%20street')).addresses
+      .map((a) => a.id)
+      .join(','),
+  );
+assert.ok(randomSets.size > 1, 'Demo suggestions should vary between searches');
 const martinezAddress = (await call('/api/addresses?q=Henrietta')).addresses[0];
 await call('/api/arpeeville/lookup?id=' + martinezAddress.id, { status: 404 });
 await call('/api/arpeeville/lookup?id=' + address.id + '&preview=1', {

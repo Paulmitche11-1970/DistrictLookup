@@ -153,8 +153,9 @@ export function useDistrictLookup(content: Content, preview = false) {
   const apiRoot = apiPath(
     a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
   );
+  const minSearchLength = apiRoot === '/api/arpeeville' ? 1 : 2;
   useEffect(() => {
-    if (query.trim().length < 2) {
+    if (query.trim().length < minSearchLength) {
       setResults([]);
       setBusy(false);
       return;
@@ -190,7 +191,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       clearTimeout(delay);
       controller.abort();
     };
-  }, [query, apiRoot]);
+  }, [query, apiRoot, minSearchLength]);
   async function choose(value: Address | null) {
     if (!value) return;
     setSearchChoice(value);
@@ -259,6 +260,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     setQuery,
     lookupRequest,
     results,
+    minSearchLength,
     selected,
     setSelected,
     address,
@@ -341,8 +343,10 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
             <ComboboxEmpty>
               {busy
                 ? `Searching ${lookup.a.shortName} addresses…`
-                : query.trim().length < 2
-                  ? 'Type at least two characters.'
+                : query.trim().length < lookup.minSearchLength
+                  ? lookup.minSearchLength === 1
+                    ? 'Type to explore an address.'
+                    : 'Type at least two characters.'
                   : 'No matching address within this agency. Try the street number and name.'}
             </ComboboxEmpty>
             <ComboboxList>
@@ -412,9 +416,6 @@ export function OfficialDetails({
         <div>
           <div className="eyebrow">{titleLabel(official)}</div>
           <h2>{official.name}</h2>
-          {official.district === null && (
-            <p className="small muted">{constituencyLabel(official)}</p>
-          )}
           {a.showTerm && official.termEnd && (
             <p className="term">Term ends {termLabel(official.termEnd)}</p>
           )}

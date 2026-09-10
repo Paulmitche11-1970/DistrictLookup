@@ -90,12 +90,12 @@ export default function DesignGallery({
               <a
                 className="design-screenshot-link"
                 href={designPath(design.path)}
-                aria-label={`View ${instance.kind === 'county' && design.id === 'directory' ? 'Board' : design.name} design`}
+                aria-label={`View ${design.name} design`}
               >
                 <img
                   className="design-screenshot"
                   src={`${preview}/${design.id}.webp`}
-                  alt={`Screenshot of the ${content.agency.shortName} ${instance.kind === 'county' && design.id === 'directory' ? 'Board' : design.name} lookup design`}
+                  alt={`Screenshot of the ${content.agency.shortName} ${design.name} lookup design`}
                   width={1280}
                   height={800}
                 />
@@ -103,14 +103,10 @@ export default function DesignGallery({
               <div className="design-option-copy">
                 <div className="design-option-title">
                   <span>{design.number}</span>
-                  <h2>
-                    {instance.kind === 'county' && design.id === 'directory'
-                      ? 'Board'
-                      : design.name}
-                  </h2>
+                  <h2>{design.name}</h2>
                   <a
                     href={designPath(design.path)}
-                    aria-label={`Open ${instance.kind === 'county' && design.id === 'directory' ? 'Board' : design.name} design`}
+                    aria-label={`Open ${design.name} design`}
                   >
                     <ArrowRight size={22} />
                   </a>
@@ -134,11 +130,7 @@ export default function DesignGallery({
                   <p>{design.lesson}</p>
                 </details>
                 <a className="design-open" href={designPath(design.path)}>
-                  Try{' '}
-                  {instance.kind === 'county' && design.id === 'directory'
-                    ? 'Board'
-                    : design.name}{' '}
-                  <ArrowRight size={17} />
+                  Try {design.name} <ArrowRight size={17} />
                 </a>
               </div>
             </article>

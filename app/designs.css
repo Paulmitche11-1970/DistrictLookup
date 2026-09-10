@@ -1034,17 +1034,22 @@
 }
 .council-portraits {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--portrait-columns, 4), minmax(0, 1fr));
   gap: 25px;
   padding: 34px 5% 38px;
 }
 .council-person {
   display: block;
+  align-self: start;
   text-align: left;
   padding: 0;
   border: 0;
   background: transparent;
   min-width: 0;
+}
+.council-portraits[data-count='6'] {
+  max-width: 1140px;
+  margin-inline: auto;
 }
 .council-photo-wrap {
   position: relative;
@@ -1070,15 +1075,12 @@
 .council-person:hover .council-photo {
   transform: scale(1.035);
 }
-.council-district-number {
-  position: absolute;
-  top: 10px;
-  left: 12px;
+.council-seat-label {
+  display: block;
+  margin-bottom: 12px;
   font-family: Georgia, serif;
   font-size: 1.35rem;
   color: #20364b;
-  background: #fffffff0;
-  padding: 2px 9px;
 }
 .council-open {
   position: absolute;
@@ -1422,11 +1424,9 @@
   .council-person-text h2 {
     font-size: 1.25rem;
   }
-  .council-district-number {
+  .council-seat-label {
     font-size: 1rem;
-    padding: 2px 6px;
-    left: 8px;
-    top: 8px;
+    margin-bottom: 9px;
   }
   .council-open {
     width: 34px;
@@ -1801,6 +1801,14 @@
 .status-in-progress {
   background: #fff4d9;
   color: #836726;
+}
+.status-beginning-soon {
+  background: #edf1f4;
+  color: #536875;
+}
+.status-design-review {
+  background: #e8f3ed;
+  color: #366e4d;
 }
 .status-ready {
   background: #e8f3ed;

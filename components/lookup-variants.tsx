@@ -7,6 +7,7 @@ import { colorFor } from '@/lib/model';
 import {
   atLargeOfficials,
   constituencyLabel,
+  hasTitle,
   titleLabel,
 } from '@/lib/representation';
 import type { DesignId } from '@/lib/designs';
@@ -236,6 +237,12 @@ export default function LookupVariant({
           <section
             className="council-portraits"
             aria-label="Representatives by district"
+            data-count={officials.length}
+            style={
+              {
+                '--portrait-columns': officials.length === 6 ? 3 : 4,
+              } as React.CSSProperties
+            }
           >
             {officials.map((official) => (
               <button
@@ -253,6 +260,13 @@ export default function LookupVariant({
                   } as React.CSSProperties
                 }
               >
+                <span className="council-seat-label">
+                  {official.district !== null
+                    ? `${!content.agency.kind || content.agency.kind === 'city' ? 'Council District' : 'District'} ${official.district}`
+                    : hasTitle(official, 'Mayor')
+                      ? 'Mayor'
+                      : 'At Large'}
+                </span>
                 <div className="council-photo-wrap">
                   {content.agency.showPhotos ? (
                     <Portrait official={official} className="council-photo" />
@@ -261,15 +275,14 @@ export default function LookupVariant({
                       {official.district}
                     </span>
                   )}
-                  <span className="council-district-number">
-                    {official.district ? '0' + official.district : 'AL'}
-                  </span>
                   <span className="council-open">
                     <ArrowRight size={21} />
                   </span>
                 </div>
                 <div className="council-person-text">
-                  <span>{constituencyLabel(official)}</span>
+                  {official.district === null && (
+                    <span>{constituencyLabel(official)}</span>
+                  )}
                   <h2>{official.vacant ? 'Vacant seat' : official.name}</h2>
                   <small>{titleLabel(official)}</small>
                 </div>

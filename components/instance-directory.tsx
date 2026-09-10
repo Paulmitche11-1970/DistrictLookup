@@ -13,6 +13,7 @@ import {
 import type { Content } from '@/lib/model';
 import { instanceFor, adminPath } from '@/lib/instances';
 import clientAgencies from '@/data/agency-directory.json';
+const directoryAgencies = clientAgencies.filter((a) => a.id !== 'martinez');
 const categories = [
   { id: 'cities', name: 'Cities', icon: Building2 },
   { id: 'counties', name: 'Counties', icon: Landmark },
@@ -26,6 +27,7 @@ const categories = [
 ];
 const statuses = [
   { id: 'in-progress', name: 'In progress' },
+  { id: 'beginning-soon', name: 'Beginning soon' },
   { id: 'ready', name: 'Ready' },
   { id: 'claimed', name: 'Claimed' },
   { id: 'paid', name: 'Paid' },
@@ -33,7 +35,7 @@ const statuses = [
 export default function InstanceDirectory({ content }: { content: Content }) {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('all');
-  const visible = clientAgencies.filter(
+  const visible = directoryAgencies.filter(
     (a) =>
       (status === 'all' || a.status === status) &&
       a.name.toLowerCase().includes(query.toLowerCase()),
@@ -64,7 +66,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
         >
           <div className="instance-section-title">
             <Building2 size={21} />
-            <h2 id="active-agencies-heading">Active Agencies</h2>
+            <h2 id="active-agencies-heading">Design Review</h2>
             <span>2 agencies</span>
           </div>
           <div className="agency-card-grid">
@@ -108,7 +110,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                   <a href={agency.admin}>
                     <ShieldCheck size={13} /> RP admin
                   </a>
-                  <span className="agency-status status-in-progress">
+                  <span className="agency-status status-design-review">
                     {agency.status}
                   </span>
                 </div>
@@ -131,7 +133,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               aria-pressed={status === 'all'}
               onClick={() => setStatus('all')}
             >
-              All <small>{clientAgencies.length}</small>
+              All <small>{directoryAgencies.length}</small>
             </button>
             {statuses.map((s) => (
               <button
@@ -141,7 +143,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               >
                 {s.name}{' '}
                 <small>
-                  {clientAgencies.filter((a) => a.status === s.id).length}
+                  {directoryAgencies.filter((a) => a.status === s.id).length}
                 </small>
               </button>
             ))}
@@ -153,7 +155,11 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               <c.icon size={17} />
               {c.name}
               <small>
-                {clientAgencies.filter((a) => a.type === c.id).length}
+                {
+                  directoryAgencies.filter(
+                    (a) => a.type === c.id && a.status !== 'in-progress',
+                  ).length
+                }
               </small>
             </a>
           ))}
@@ -163,9 +169,16 @@ export default function InstanceDirectory({ content }: { content: Content }) {
             No agencies match this search and status.
           </p>
         )}
-        {categories.map((c) => {
+        {[
+          { id: 'in-progress', name: 'In progress', icon: Building2 },
+          ...categories,
+        ].map((c) => {
           const rows = visible
-            .filter((a) => a.type === c.id)
+            .filter((a) =>
+              c.id === 'in-progress'
+                ? a.status === 'in-progress'
+                : a.type === c.id && a.status !== 'in-progress',
+            )
             .sort((a, b) => a.name.localeCompare(b.name));
           return (
             <section
@@ -231,7 +244,9 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                       <span className="agency-build-note">
                         {built
                           ? '4 designs · Review workspace'
-                          : 'Lookup preparation pending'}
+                          : a.status === 'in-progress'
+                            ? 'Lookup preparation underway'
+                            : 'Lookup preparation pending'}
                       </span>
                     </>
                   );
@@ -265,7 +280,11 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               </div>
               {!rows.length && (
                 <div className="instance-empty">
-                  {clientAgencies.some((a) => a.type === c.id)
+                  {directoryAgencies.some((a) =>
+                    c.id === 'in-progress'
+                      ? a.status === 'in-progress'
+                      : a.type === c.id && a.status !== 'in-progress',
+                  )
                     ? 'No agencies match the selected filters.'
                     : 'Agency inventory will be added here.'}
                 </div>

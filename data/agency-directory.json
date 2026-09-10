@@ -5,7 +5,7 @@
     "website": "https://lacity.gov/",
     "state": "CA",
     "id": "los-angeles",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/los-angeles.webp",
     "logoSource": "https://lacity.gov/sites/g/files/wph2451/themes/site/logo.svg",
     "logoAlt": "Home"
@@ -16,7 +16,7 @@
     "website": "https://council.nyc.gov/",
     "state": "NY",
     "id": "new-york-city",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -27,7 +27,7 @@
     "website": "https://www.longbeach.gov/",
     "state": "CA",
     "id": "long-beach",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "https://www.longbeach.gov/globalassets/common-content/home-page/lbtv-logo.png",
     "logoAlt": "lbtv logo",
@@ -39,7 +39,7 @@
     "website": "https://berkeleyca.gov/",
     "state": "CA",
     "id": "berkeley",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/berkeley.webp",
     "logoSource": "https://berkeleyca.gov/themes/custom/berkeley_zurb/logo.svg",
     "logoAlt": "City of Berkeley"
@@ -50,7 +50,7 @@
     "website": "https://www.oaklandca.gov/",
     "state": "CA",
     "id": "oakland",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "https://www.oaklandca.gov/files/sharedassets/city/v/3/photos/oakland-sunset.jpg?dimension=homepagefeaturecontent",
     "logoAlt": "",
@@ -62,7 +62,7 @@
     "website": "https://www.bakersfieldcity.us/",
     "state": "CA",
     "id": "bakersfield",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": ""
   },
@@ -105,7 +105,7 @@
     "website": "https://www.mesaaz.gov/",
     "state": "AZ",
     "id": "mesa",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "https://www.mesaaz.gov/files/assets/public/v/1/stock-images/proposed-taxes-fees.jpeg?dimension=homepagefeaturecontent&w=480&h=274",
     "logoAlt": "",
@@ -117,7 +117,7 @@
     "website": "https://www.cityofnapa.org/",
     "state": "CA",
     "id": "napa",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/napa.webp",
     "logoSource": "https://www.cityofnapa.org/ImageRepository/Document?documentID=9599",
     "logoAlt": "Home page"
@@ -128,7 +128,7 @@
     "website": "https://parlier.ca.us/",
     "state": "CA",
     "id": "parlier",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -139,7 +139,7 @@
     "website": "https://www.redwoodcity.org/",
     "state": "CA",
     "id": "redwood-city",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -150,7 +150,7 @@
     "website": "https://www.sanjoseca.gov/",
     "state": "CA",
     "id": "san-jose",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -161,7 +161,7 @@
     "website": "https://www.santa-ana.org/",
     "state": "CA",
     "id": "santa-ana",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": ""
   },
@@ -171,7 +171,7 @@
     "website": "https://www.cityofdavis.org/",
     "state": "CA",
     "id": "davis",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -182,7 +182,7 @@
     "website": "https://elkgrove.gov/",
     "state": "CA",
     "id": "elk-grove",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -193,7 +193,7 @@
     "website": "https://cityofpetaluma.org/",
     "state": "CA",
     "id": "petaluma",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -204,7 +204,7 @@
     "website": "https://www.riversideca.gov/",
     "state": "CA",
     "id": "riverside",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/riverside.webp",
     "logoSource": "https://www.riversideca.gov/sites/all/themes/city_of_riverside/images/cor-logo-30x30.png",
     "logoAlt": "City of Riverside Logo"
@@ -215,7 +215,7 @@
     "website": "https://monterey.gov/",
     "state": "CA",
     "id": "monterey",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/monterey.webp",
     "logoSource": "https://monterey.gov/_assets_/images/logo.png",
     "logoAlt": "City of Monterey Logo Homepage"
@@ -226,7 +226,7 @@
     "website": "https://www.modestogov.com/",
     "state": "CA",
     "id": "modesto",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -263,7 +263,7 @@
     "website": "https://ojai.ca.gov/",
     "state": "CA",
     "id": "ojai",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -274,7 +274,7 @@
     "website": "https://www.roseville.ca.gov/",
     "state": "CA",
     "id": "roseville",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/roseville.webp",
     "logoSource": "https://www.roseville.ca.gov/website_assets/logo.png?t=202603251117250",
     "logoAlt": "City of Roseville",
@@ -297,7 +297,7 @@
     "website": "https://www.victorvilleca.gov/",
     "state": "CA",
     "id": "victorville",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "https://www.victorvilleca.gov/files/content/city/v/6/government/city-departments/recreation/special-events/hallow-boo/untitled-design-3.png?dimension=homepagelisting&w=385&h=273",
     "logoAlt": "",
@@ -309,7 +309,7 @@
     "website": "https://www.cityofwestsacramento.org/",
     "state": "CA",
     "id": "west-sacramento",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -320,7 +320,7 @@
     "website": "https://www.srcity.org/",
     "state": "CA",
     "id": "santa-rosa",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/santa-rosa.webp",
     "logoSource": "https://www.srcity.org/ImageRepository/Document?documentID=42207",
     "logoAlt": "Santa Rosa CA Homepage"
@@ -331,7 +331,7 @@
     "website": "https://www.cityoflagunaniguel.org/",
     "state": "CA",
     "id": "laguna-niguel",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -353,7 +353,7 @@
     "website": "https://www.kerncounty.com/",
     "state": "CA",
     "id": "kern-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -364,7 +364,7 @@
     "website": "https://www.napacounty.gov/",
     "state": "CA",
     "id": "napa-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/napa-county.webp",
     "logoSource": "https://www.napacounty.gov/ImageRepository/Document?documentID=44833",
     "logoAlt": "Napa California Homepage"
@@ -375,7 +375,7 @@
     "website": "https://main.sbcounty.gov/",
     "state": "CA",
     "id": "san-bernardino-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "https://main.sbcounty.gov/wp-content/uploads/sites/80/2022/08/ie-connect-logo.png",
     "logoAlt": "Connect IE Logo",
@@ -387,7 +387,7 @@
     "website": "https://www.sjgov.org/",
     "state": "CA",
     "id": "san-joaquin-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": ""
   },
@@ -397,7 +397,7 @@
     "website": "https://www.slocounty.ca.gov/",
     "state": "CA",
     "id": "san-luis-obispo-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/san-luis-obispo-county.webp",
     "logoSource": "https://www.slocounty.ca.gov/images/optimized/logo_CSL.svg",
     "logoAlt": "County of San Luis Obispo home",
@@ -409,7 +409,7 @@
     "website": "https://www.santaclaracounty.gov/",
     "state": "CA",
     "id": "santa-clara-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -420,7 +420,7 @@
     "website": "https://www.siskiyoucounty.gov/",
     "state": "CA",
     "id": "siskiyou-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "ConnectionError"
@@ -442,7 +442,7 @@
     "website": "https://venturacounty.gov/",
     "state": "CA",
     "id": "ventura-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": ""
   },
@@ -474,7 +474,7 @@
     "website": "https://www.countyofglenn.net/",
     "state": "CA",
     "id": "glenn-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -485,7 +485,7 @@
     "website": "https://humboldtgov.org/",
     "state": "CA",
     "id": "humboldt-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "",
     "logoSource": "",
     "logoNote": "HTTPError"
@@ -496,7 +496,7 @@
     "website": "https://board.imperialcounty.org/",
     "state": "CA",
     "id": "imperial-county",
-    "status": "in-progress",
+    "status": "beginning-soon",
     "logo": "/branding/agencies/imperial-county.webp",
     "logoSource": "https://board.imperialcounty.org/wp-content/uploads/brizy/imgs/halflogoblue-570x283x0x0x570x283x1567723159.png",
     "logoAlt": ""

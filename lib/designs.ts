@@ -41,7 +41,7 @@ export const designs = [
   {
     id: 'directory',
     number: '04',
-    name: 'Council',
+    name: 'Presentation',
     path: '/martinez/council',
     label: 'People first',
     description:

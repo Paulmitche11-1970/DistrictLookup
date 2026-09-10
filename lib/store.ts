@@ -199,6 +199,31 @@ export function database() {
       throw error;
     }
   }
+  if (
+    currentAgencyId() === 'arpeeville' &&
+    !conn
+      .prepare('SELECT id FROM app_migrations WHERE id=?')
+      .get('arpeeville-spread-addresses-v2')
+  ) {
+    // Reposition only the known fictional addresses; preserve all client drafts and settings.
+    const records = ['addresses.json', 'joke-addresses.json'].flatMap(
+      (file) =>
+        JSON.parse(readFileSync(path.join(seedDir, file), 'utf8')) as Address[],
+    );
+    const update = conn.prepare('UPDATE addresses SET lon=?,lat=? WHERE id=?');
+    conn.exec('BEGIN');
+    try {
+      for (const address of records)
+        update.run(address.lon, address.lat, address.id);
+      conn
+        .prepare('INSERT INTO app_migrations(id) VALUES(?)')
+        .run('arpeeville-spread-addresses-v2');
+      conn.exec('COMMIT');
+    } catch (error) {
+      conn.exec('ROLLBACK');
+      throw error;
+    }
+  }
   databases.set(dir, conn);
   return conn;
 }
@@ -374,7 +399,7 @@ export function addressById(id: string) {
 }
 export function addressSearch(query: string) {
   const q = normalizeSearch(query);
-  if (q.length < 2) return [];
+  if (q.length < (currentAgencyId() === 'arpeeville' ? 1 : 2)) return [];
   const tokens = q.split(' ').slice(0, 8);
   const clauses = tokens.map(() => `(' '||search) LIKE ?`).join(' AND ');
   const addresses = database()
@@ -383,4 +408,14 @@ export function addressSearch(query: string) {
     )
     .all(...tokens.map((t) => '% ' + t + '%'), q + '%') as Address[];
   return addresses.map(withPostalCode);
+}
+export function randomArpeevilleAddresses() {
+  if (currentAgencyId() !== 'arpeeville') return [];
+  return (
+    database()
+      .prepare(
+        'SELECT id,label,lon,lat,city,zip FROM addresses ORDER BY RANDOM()',
+      )
+      .all() as Address[]
+  ).map(withPostalCode);
 }
