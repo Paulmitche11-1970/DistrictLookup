@@ -49,6 +49,27 @@ async function call(url, body, status = 200, options = {}) {
 const password = 'Integration-test-only-37!';
 const email = 'qa@example.invalid';
 assert.equal((await call('/api/health')).status, 'ok');
+assert.ok((await call('/')).includes('RP Data Voter'));
+assert.ok(
+  (await call('/martinez')).includes('/design-previews/administration.webp'),
+);
+await call('/Martinez');
+await call('/unknown-agency', null, 404);
+await call('/martinez/unknown-design', null, 404);
+for (const design of ['classic', 'concierge', 'explorer', 'directory']) {
+  await call('/embed?design=' + design);
+}
+const publicDesigns = [
+  '/martinez/classic',
+  '/martinez/concierge',
+  '/martinez/explorer',
+  '/martinez/council',
+  '/martinez/administration',
+];
+const publicPreview = await call('/martinez/administration');
+assert.ok(publicPreview.includes('Read-only preview'));
+assert.ok(!publicPreview.includes('qa@example.invalid'));
+await call('/admin/preview?design=directory', null, 307);
 await call('/api/admin', null, 401);
 await call('/api/admin', { action: 'publish', revision: 1 }, 403, {
   origin: 'https://example.invalid',
@@ -117,19 +138,21 @@ await call(
   { action: 'official', official, revision: admin.revision },
   409,
 );
-assert.ok(
-  !(await call('/', null, 200, { anonymous: true })).includes(
-    'Integration test biography.',
-  ),
-);
+for (const route of publicDesigns) {
+  assert.ok(
+    !(await call(route, null, 200, { anonymous: true })).includes(official.bio),
+    'Draft leaked through ' + route,
+  );
+}
 admin = await call('/api/admin');
 assert.equal(admin.content.officials[0].bio, official.bio);
 await call('/api/admin', { action: 'publish', revision: admin.revision });
-assert.ok(
-  (await call('/', null, 200, { anonymous: true })).includes(
-    'Integration test biography.',
-  ),
-);
+for (const route of publicDesigns) {
+  assert.ok(
+    (await call(route, null, 200, { anonymous: true })).includes(official.bio),
+    'Published content missing from ' + route,
+  );
+}
 assert.ok(
   (await call(uploaded.url, null, 200, { anonymous: true })).bytes > 100,
 );

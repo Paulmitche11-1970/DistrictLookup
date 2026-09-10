@@ -1,0 +1,1462 @@
+/* Shared navigation and design review. */
+.admin-preview-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.admin-preview-fields:disabled button {
+  cursor: default;
+}
+.admin-preview-notice {
+  margin-bottom: 25px;
+}
+.embedded .wordmark-city-logo {
+  width: 250px;
+}
+.instance-directory {
+  min-height: 100dvh;
+  background: #f5f7f9;
+  color: #20384a;
+}
+.instances-header {
+  padding: 20px 5%;
+  background: #fff;
+  border-bottom: 1px solid #dce4ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 80px;
+}
+.instances-header a {
+  text-decoration: none;
+}
+.instances-header .rp-gallery-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.instances-header nav {
+  display: flex;
+  gap: 28px;
+  font-size: 0.8rem;
+}
+.instances-header nav a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.instances-main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 48px 5% 0;
+}
+.instances-intro {
+  position: relative;
+  padding-bottom: 35px;
+}
+.instances-intro h1 {
+  font-size: clamp(2.6rem, 4.5vw, 4.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin: 17px 0;
+  font-weight: 600;
+}
+.instances-intro > p {
+  font-size: 1rem;
+  color: #70818d;
+  max-width: 520px;
+  line-height: 1.7;
+}
+.instance-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e8f2ed;
+  color: #52765f;
+  font-size: 0.75rem;
+  padding: 8px 13px;
+  border-radius: 25px;
+  margin-top: 21px;
+}
+.instance-availability > span,
+.available-tag > span {
+  width: 6px;
+  height: 6px;
+  background: #56856b;
+  border-radius: 50%;
+}
+.instance-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid #dce4ea;
+  border-bottom: 1px solid #dce4ea;
+  padding: 22px 0;
+}
+.instance-types a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #dce4ea;
+  font-size: 0.75rem;
+  border-radius: 7px;
+  text-decoration: none;
+}
+.instance-types a:hover {
+  border-color: #719496;
+}
+.instance-types small {
+  background: #eff3f4;
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: #6e8391;
+}
+.instance-section {
+  padding: 32px 0;
+  border-bottom: 1px solid #dce4ea;
+  scroll-margin-top: 20px;
+}
+.instance-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 21px;
+}
+.instance-section-title > svg {
+  color: #6c8a96;
+}
+.instance-section-title h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.instance-section-title > span {
+  font-size: 0.73rem;
+  color: #81919b;
+  margin-left: auto;
+}
+.agency-instance-card {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  max-width: 850px;
+  border: 1px solid #dce4ea;
+  background: #fff;
+  border-radius: 11px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 5px 20px #1d3c4a05;
+}
+.agency-instance-card:hover {
+  border-color: #719496;
+  box-shadow: 0 5px 20px #1d3c4a10;
+}
+.agency-logo {
+  display: grid;
+  place-items: center;
+  background: #edf3f1;
+  padding: 35px;
+  border-right: 1px solid #e1e8e5;
+}
+.agency-logo img {
+  width: 100%;
+  height: auto;
+}
+.agency-instance-content {
+  padding: 24px 28px;
+}
+.available-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.65rem;
+  color: #52765f;
+  text-transform: uppercase;
+  letter-spacing: 0.065em;
+}
+.agency-instance-content h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 11px 0 6px;
+}
+.agency-instance-content > p {
+  color: #7a8b96;
+  font-size: 0.82rem;
+}
+.agency-instance-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 0.72rem;
+  color: #597886;
+}
+.agency-instance-stats > span {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.agency-instance-open {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e6ecee;
+  padding-top: 15px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #376d75;
+}
+.instance-empty {
+  padding: 20px 25px;
+  border: 1px dashed #d5dfe5;
+  border-radius: 8px;
+  color: #8897a0;
+  font-size: 0.83rem;
+}
+.instances-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 0;
+  color: #8897a0;
+  font-size: 0.75rem;
+}
+.design-screenshot-link {
+  display: block;
+  border-bottom: 1px solid #dce4ea;
+  background: #e5ebec;
+}
+.design-screenshot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  object-position: top;
+}
+.admin-design-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.admin-design-card .design-screenshot-link {
+  border-bottom: 0;
+  border-right: 1px solid #dce4ea;
+}
+.admin-design-card .design-screenshot {
+  height: 100%;
+}
+@media (max-width: 760px) {
+  .admin-topbar .btn {
+    white-space: nowrap;
+    font-size: 0.75rem;
+    padding: 10px 12px;
+  }
+  .instances-header {
+    padding: 19px 22px;
+  }
+  .instances-header nav {
+    gap: 12px;
+    font-size: 0.7rem;
+  }
+  .instances-header nav a:first-child {
+    display: none;
+  }
+  .instances-main {
+    padding: 30px 22px 0;
+  }
+  .instances-intro h1 {
+    font-size: 2.6rem;
+  }
+  .instances-intro > p {
+    font-size: 0.9rem;
+  }
+  .instance-types {
+    gap: 8px;
+  }
+  .instance-types a {
+    font-size: 0.7rem;
+    padding: 9px;
+  }
+  .instance-section-title h2 {
+    font-size: 1.1rem;
+  }
+  .instance-section-title > span {
+    white-space: nowrap;
+  }
+  .agency-instance-card {
+    grid-template-columns: 1fr;
+  }
+  .agency-logo {
+    padding: 28px;
+    border-right: 0;
+    border-bottom: 1px solid #e1e8e5;
+  }
+  .agency-logo img {
+    max-width: 280px;
+  }
+  .agency-instance-content {
+    padding: 25px;
+  }
+  .agency-instance-stats {
+    gap: 12px;
+  }
+  .instances-footer {
+    flex-direction: column;
+    gap: 9px;
+  }
+  .admin-design-card {
+    grid-template-columns: 1fr;
+  }
+  .admin-design-card .design-screenshot-link {
+    border-bottom: 1px solid #dce4ea;
+    border-right: 0;
+  }
+  .embedded .wordmark-city-logo {
+    width: 210px;
+  }
+}
+.design-return {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.design-current {
+  border-left: 1px solid #dbe2e7;
+  padding-left: 14px;
+  margin-left: 5px;
+  color: #74828c;
+  font-size: 0.75rem;
+}
+.design-page {
+  min-height: 100dvh;
+}
+.design-page .public-header {
+  background: #fff;
+  position: relative;
+  z-index: 5;
+}
+.design-page .public-footer {
+  padding: 26px 0;
+}
+.design-page .result-card {
+  min-width: 0;
+}
+.design-page .official-heading > div {
+  min-width: 0;
+}
+.design-page .contact-list a {
+  overflow-wrap: anywhere;
+}
+.design-page .contact-list a span {
+  min-width: 0;
+}
+.design-page .map-surface {
+  min-width: 0;
+}
+.design-page .district-list {
+  display: block;
+}
+.design-page .notice {
+  overflow-wrap: anywhere;
+}
+.design-page button[aria-pressed='true'] {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.design-page .map-legend button[aria-pressed='true'] {
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+.design-gallery {
+  background: #f5f5f0;
+  color: #203a38;
+  min-height: 100dvh;
+}
+.gallery-header {
+  min-height: 85px;
+  border-bottom: 1px solid #dce1db;
+  padding: 20px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  font-size: 0.8rem;
+}
+.gallery-header a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.rp-gallery-brand {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.rp-gallery-brand > span {
+  display: grid;
+  place-items: center;
+  height: 35px;
+  width: 35px;
+  background: #284c46;
+  color: white;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+.gallery-review-label {
+  letter-spacing: 0.16em;
+  color: #667670;
+  font-size: 0.65rem;
+}
+.gallery-main {
+  max-width: 1440px;
+  padding: 50px 4% 0;
+  margin: auto;
+}
+.gallery-intro {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 50px;
+  align-items: end;
+  margin-bottom: 32px;
+}
+.gallery-intro .eyebrow {
+  font-size: 0.7rem;
+  color: #67766f;
+}
+.gallery-intro h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.6rem, 4.1vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin: 18px 0 0;
+}
+.gallery-intro em {
+  color: #618473;
+  font-weight: 400;
+}
+.gallery-intro > p {
+  color: #637169;
+  max-width: 425px;
+  line-height: 1.8;
+  font-size: 0.98rem;
+  padding-bottom: 5px;
+}
+.gallery-shared {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 22px 0;
+  border-top: 1px solid #dce1db;
+  border-bottom: 1px solid #dce1db;
+  font-size: 0.75rem;
+  color: #526b60;
+  margin-bottom: 32px;
+}
+.gallery-shared span {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.design-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+.design-option {
+  border: 1px solid #dce1db;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.design-option-copy {
+  padding: 27px 28px;
+}
+.design-option-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.design-option-title > span {
+  font-size: 0.75rem;
+  color: #738078;
+}
+.design-option-title h2 {
+  font:
+    1.85rem Georgia,
+    serif;
+}
+.design-option-title > a {
+  margin-left: auto;
+  height: 37px;
+  width: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #dce1db;
+}
+.design-option-copy h3 {
+  font-size: 0.94rem;
+  margin-bottom: 9px;
+  letter-spacing: 0;
+}
+.design-option-copy p {
+  color: #65736c;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.design-fit {
+  margin: 18px 0;
+  padding-top: 15px;
+  border-top: 1px solid #e9ece7;
+}
+.design-fit strong {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 5px;
+}
+.design-option-copy details {
+  font-size: 0.77rem;
+  color: #536b5e;
+  margin-bottom: 18px;
+}
+.design-option-copy summary {
+  cursor: pointer;
+}
+.design-option-copy details p {
+  padding-top: 8px;
+}
+.design-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: #eaf0ea;
+  color: #2e5042;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.design-open:hover {
+  background: #dce8dc;
+}
+.gallery-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 0;
+  font-size: 0.72rem;
+  color: #6c7a70;
+}
+.gallery-footer a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+/* 02 — a quiet, answer-first service. */
+.design-concierge {
+  background: #f7f5ee;
+  color: #2d473d;
+}
+.design-concierge .public-header {
+  border-color: #e4e4dc;
+}
+.concierge-main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 44px 40px 0;
+}
+.concierge-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 27px;
+}
+.concierge-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  letter-spacing: 0.16em;
+  font-size: 0.65rem;
+  color: #657668;
+}
+.concierge-kicker > span {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #66947b;
+}
+.concierge-intro h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  margin: 21px 0 17px;
+}
+.concierge-intro h1 br {
+  display: none;
+}
+.concierge-intro em {
+  color: #718977;
+  font-weight: 400;
+  margin-left: 0.2em;
+}
+.concierge-intro > p {
+  font-size: 0.96rem;
+  color: #6a786e;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: auto;
+}
+.concierge-card {
+  max-width: 585px;
+  margin: auto;
+  padding: 26px 32px;
+  border: 1px solid #e0e5d8;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 45px #324e3710;
+}
+.concierge-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 23px;
+}
+.concierge-card-title h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.concierge-step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #edf3e9;
+  color: #627c60;
+  display: grid;
+  place-items: center;
+}
+.concierge-card .search-label {
+  font-weight: 500;
+  color: #687970;
+  font-size: 0.8rem;
+}
+.concierge-card .address-search [data-slot='input-group'] {
+  border-color: #bcc9b8;
+  border-radius: 7px;
+}
+.concierge-explainer {
+  display: flex;
+  gap: 13px;
+  margin-top: 21px;
+  padding-top: 20px;
+  border-top: 1px solid #edf0e9;
+  color: #809078;
+}
+.concierge-explainer p {
+  color: #708075;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.concierge-card .result-card {
+  border-top-color: #e3e9df;
+  margin-top: 24px;
+}
+.concierge-card .official-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.concierge-card .result-photo {
+  border-radius: 50% 50% 7px 7px;
+}
+.concierge-card .contact-list a {
+  background: #f9faf6;
+  border-color: #e5ebdf;
+}
+.concierge-map-toggle {
+  text-align: center;
+  padding: 19px 0 28px;
+}
+.concierge-map-toggle button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: #5c7766;
+  border: 0;
+  background: none;
+  padding: 8px 12px;
+}
+.turned {
+  transform: rotate(180deg);
+}
+.concierge-map {
+  border-radius: 13px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 1px solid #dbe4d7;
+}
+.concierge-map .map-surface {
+  min-height: 490px;
+}
+.concierge-roster {
+  padding-top: 24px;
+  border-top: 1px solid #dde3d8;
+}
+.concierge-roster-label {
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  color: #7a877a;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.concierge-roster-items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.concierge-roster-items button {
+  border: 0;
+  padding: 9px 5px;
+  display: flex;
+  text-align: left;
+  gap: 10px;
+  align-items: center;
+  background: transparent;
+  border-radius: 5px;
+}
+.concierge-roster-items button:hover {
+  background: #ecefe5;
+}
+.concierge-roster-items .avatar {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.concierge-roster-items small {
+  color: #7a877a;
+  display: block;
+  font-size: 0.65rem;
+  margin-bottom: 3px;
+}
+.concierge-roster-items strong {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.concierge-roster-items svg {
+  margin-left: auto;
+  color: #809078;
+}
+
+/* 03 — geography as the working surface. */
+.design-explorer {
+  background: #e5ecee;
+  color: #233d4e;
+}
+.explorer-toolbar {
+  background: #183746;
+  color: white;
+  padding: 22px 35px;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.7fr) minmax(300px, 1fr);
+  align-items: center;
+  gap: 35px;
+}
+.explorer-title {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+.explorer-symbol {
+  display: grid;
+  place-items: center;
+  height: 51px;
+  width: 51px;
+  border: 1px solid #537582;
+  color: #afd9d6;
+  border-radius: 50%;
+}
+.explorer-title .eyebrow {
+  font-size: 0.65rem;
+  color: #a4c8ca;
+}
+.explorer-title h1 {
+  font-size: 1.75rem;
+  margin-top: 7px;
+  font-weight: 500;
+}
+.explorer-search {
+  max-width: 650px;
+  width: 100%;
+  justify-self: end;
+}
+.explorer-search .address-search {
+  position: relative;
+}
+.explorer-search .search-label {
+  font-size: 0.7rem;
+  color: #b8d0d6;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.explorer-search .address-search input {
+  color: #233d4e;
+}
+.explorer-search .address-search [data-slot='input-group'] {
+  min-height: 46px;
+  border-radius: 5px;
+  border-color: white;
+}
+.explorer-search .search-helper {
+  color: #b8d0d6;
+  font-size: 0.68rem;
+  margin-top: 6px;
+}
+.explorer-search .address-search > p {
+  display: none;
+}
+.explorer-search > .muted {
+  color: #bed5d9;
+  margin-top: 6px;
+}
+.explorer-workspace {
+  position: relative;
+  min-height: max(620px, calc(100dvh - 268px));
+}
+.explorer-workspace > .map-surface {
+  height: 100%;
+  min-height: max(620px, calc(100dvh - 268px));
+}
+.explorer-answer {
+  position: absolute;
+  top: 96px;
+  left: 28px;
+  width: 340px;
+  max-height: calc(100% - 140px);
+  overflow: auto;
+  z-index: 501;
+  background: #fff;
+  border: 1px solid #d5e1e5;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 40px #12324326;
+}
+.explorer-answer > h2 {
+  margin: 12px 0;
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+.explorer-answer > p {
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: #6b7d88;
+}
+.explorer-answer .eyebrow {
+  font-size: 0.65rem;
+}
+.explorer-answer .district-list {
+  margin-top: 22px;
+  padding-top: 13px;
+}
+.explorer-answer .list-heading {
+  display: none;
+}
+.explorer-answer .district-choice {
+  padding: 10px 0;
+}
+.explorer-answer .avatar {
+  width: 36px;
+  height: 41px;
+}
+.explorer-answer .district-choice strong {
+  font-size: 0.8rem;
+}
+.explorer-answer .district-choice span {
+  font-size: 0.7rem;
+}
+.explorer-answer .result-card {
+  padding-top: 0;
+  border: 0;
+}
+.explorer-answer .official-heading {
+  display: block;
+}
+.explorer-answer .result-photo {
+  width: 74px;
+  height: 85px;
+  float: right;
+  margin-left: 10px;
+}
+.explorer-answer .official-heading h2 {
+  font-size: 1.7rem;
+  line-height: 1.1;
+  margin-top: 8px;
+}
+.explorer-answer .contact-list {
+  clear: both;
+  padding-top: 5px;
+}
+.explorer-answer .contact-list a {
+  font-size: 0.8rem;
+  padding: 9px;
+}
+.explorer-workspace .map-legend {
+  left: auto;
+  right: 25px;
+  bottom: auto;
+  top: 91px;
+  width: 175px;
+}
+.explorer-workspace .legend-items {
+  display: grid;
+  gap: 13px;
+}
+.explorer-main > .public-footer {
+  padding: 16px 35px;
+  background: #fff;
+  margin: 0;
+}
+
+/* 04 — a council directory with an integrated district finder. */
+.design-directory {
+  background: #fbfaf7;
+  color: #21354c;
+}
+.council-main {
+  max-width: 1600px;
+  margin: auto;
+}
+.council-masthead {
+  padding: 37px 5% 44px;
+  background: #192f48;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 8%;
+  border-bottom: 5px solid #bca57a;
+}
+.council-heading .eyebrow {
+  color: #d4c3a6;
+  font-size: 0.64rem;
+  letter-spacing: 0.17em;
+}
+.council-heading h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 4.2vw, 4.6rem);
+  font-weight: 400;
+  line-height: 0.98;
+  margin: 19px 0;
+}
+.council-heading h1 em {
+  font-weight: 400;
+  color: #e8ddc7;
+}
+.council-heading p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: #bdc8d5;
+  max-width: 370px;
+}
+.council-search {
+  border-left: 1px solid #516073;
+  padding-left: 40px;
+}
+.council-search-caption {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: #ead8b5;
+  font-size: 0.76rem;
+  margin-bottom: 24px;
+}
+.council-search .search-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.council-search .address-search [data-slot='input-group'] {
+  border: 0;
+  border-radius: 0;
+  min-height: 54px;
+}
+.council-search input {
+  color: #21354c;
+}
+.council-search .search-helper {
+  color: #c5cfdb;
+  font-size: 0.72rem;
+}
+.council-search .address-search > p {
+  color: #c5cfdb;
+  font-size: 0.72rem;
+}
+.council-search .example-link {
+  color: #e3cea3;
+  font-size: 0.72rem;
+}
+.council-search > .muted {
+  color: #c5cfdb;
+  padding-top: 8px;
+}
+.council-portraits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  padding: 34px 5% 38px;
+}
+.council-person {
+  display: block;
+  text-align: left;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  min-width: 0;
+}
+.council-photo-wrap {
+  position: relative;
+  height: 245px;
+  overflow: hidden;
+  background: #d7e0e4;
+}
+.council-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  transition: transform 0.3s ease;
+}
+.council-no-photo {
+  display: grid;
+  place-items: center;
+  font:
+    5rem Georgia,
+    serif;
+  color: #6f8496;
+}
+.council-person:hover .council-photo {
+  transform: scale(1.035);
+}
+.council-district-number {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  color: #20364b;
+  background: #fffffff0;
+  padding: 2px 9px;
+}
+.council-open {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: #21354c;
+}
+.council-person-text {
+  padding-top: 14px;
+  border-top: 4px solid var(--district-color);
+}
+.council-person-text > span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6f7b86;
+}
+.council-person-text h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-weight: 400;
+  margin: 6px 0;
+}
+.council-person-text small {
+  font-size: 0.72rem;
+  color: #788592;
+}
+.council-detail {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.75fr) minmax(0, 1.25fr);
+  border-top: 1px solid #e0e3e5;
+  border-bottom: 1px solid #e0e3e5;
+  scroll-margin-top: 18px;
+}
+.council-detail-copy {
+  padding: 36px 40px;
+  background: #f1f0e9;
+}
+.council-detail-copy > h2 {
+  font:
+    2.4rem/1.1 Georgia,
+    serif;
+  margin: 20px 0;
+}
+.council-detail-copy > p {
+  font-size: 0.87rem;
+  line-height: 1.8;
+  max-width: 340px;
+  color: #6d7a83;
+}
+.council-detail-note {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  margin-top: 29px;
+  padding-top: 25px;
+  border-top: 1px solid #d9ded9;
+  font-size: 0.75rem;
+  color: #657a84;
+}
+.council-detail .map-surface {
+  min-height: 535px;
+}
+.council-detail .result-card {
+  border: 0;
+  padding-top: 0;
+}
+.council-detail .result-photo {
+  border-radius: 0;
+  width: 95px;
+  height: 118px;
+}
+.council-detail .official-heading h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 2.1rem;
+}
+.council-detail .contact-list a {
+  border-radius: 0;
+  border-color: #d7dfd9;
+  background: #ffffff90;
+}
+.council-main > .public-footer {
+  padding: 25px 5%;
+}
+
+@media (max-width: 1100px) {
+  .design-current {
+    display: none;
+  }
+  .concierge-roster-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .explorer-toolbar {
+    padding: 20px 25px;
+    gap: 20px;
+  }
+  .explorer-workspace .map-legend {
+    width: 150px;
+    padding: 13px;
+  }
+  .explorer-answer {
+    width: 310px;
+    left: 24px;
+    padding: 20px;
+  }
+  .council-photo-wrap {
+    height: 215px;
+  }
+  .council-portraits {
+    gap: 18px;
+  }
+  .council-detail-copy {
+    padding: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .public-header .agency-sign-in {
+    display: none;
+  }
+  .public-header .wordmark-city-logo {
+    width: 210px;
+  }
+  .design-return {
+    gap: 6px;
+    font-size: 0.75rem;
+  }
+  .gallery-header {
+    min-height: 72px;
+    padding: 18px 22px;
+  }
+  .gallery-header > a:last-child {
+    font-size: 0.7rem;
+  }
+  .gallery-review-label {
+    display: none;
+  }
+  .rp-gallery-brand {
+    font-size: 0.72rem;
+  }
+  .gallery-main {
+    padding: 30px 22px 0;
+  }
+  .gallery-intro {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .gallery-intro h1 {
+    font-size: 2.6rem;
+  }
+  .gallery-intro > p {
+    font-size: 0.9rem;
+  }
+  .gallery-shared {
+    gap: 13px;
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 0.72rem;
+  }
+  .design-options {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .design-option-copy {
+    padding: 23px;
+  }
+  .gallery-footer {
+    flex-direction: column;
+    line-height: 1.6;
+  }
+  .concierge-main {
+    padding: 31px 20px 0;
+  }
+  .concierge-intro {
+    margin-bottom: 25px;
+  }
+  .concierge-intro h1 {
+    font-size: 3.2rem;
+    line-height: 0.98;
+  }
+  .concierge-intro h1 br {
+    display: block;
+  }
+  .concierge-intro em {
+    margin: 0;
+  }
+  .concierge-intro > p {
+    font-size: 0.86rem;
+  }
+  .concierge-card {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+  .concierge-card .official-heading {
+    gap: 13px;
+  }
+  .concierge-card .official-heading h2 {
+    font-size: 1.6rem;
+  }
+  .concierge-card .result-photo {
+    width: 80px;
+    height: 100px;
+  }
+  .concierge-roster-items {
+    gap: 12px;
+  }
+  .concierge-roster-items button {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background: #eef0e7;
+  }
+  .concierge-roster-items button svg {
+    display: none;
+  }
+  .concierge-roster-items strong {
+    font-size: 0.8rem;
+  }
+  .concierge-roster-items small {
+    font-size: 0.7rem;
+  }
+  .concierge-map .map-surface {
+    min-height: 470px;
+  }
+  .explorer-toolbar {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    gap: 20px;
+  }
+  .explorer-symbol {
+    width: 40px;
+    height: 40px;
+  }
+  .explorer-title h1 {
+    font-size: 1.5rem;
+    margin-top: 4px;
+  }
+  .explorer-search {
+    max-width: none;
+  }
+  .explorer-workspace {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .explorer-workspace > .map-surface {
+    order: 2;
+    min-height: 520px;
+    height: 520px;
+  }
+  .explorer-answer {
+    position: relative;
+    inset: auto;
+    width: auto;
+    max-height: none;
+    order: 1;
+    margin: 0;
+    padding: 24px 22px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .explorer-answer > h2 {
+    font-size: 1.35rem;
+    margin: 8px 0;
+  }
+  .explorer-answer > p {
+    font-size: 0.8rem;
+  }
+  .explorer-answer .district-list {
+    margin-top: 15px;
+  }
+  .explorer-answer .district-choice {
+    display: inline-flex;
+    width: calc(50% - 8px);
+    margin-right: 8px;
+    padding: 10px 3px;
+    gap: 7px;
+    vertical-align: top;
+  }
+  .explorer-answer .district-choice .avatar {
+    width: 29px;
+    height: 35px;
+  }
+  .explorer-answer .district-choice .chevron,
+  .explorer-answer .district-choice .district-dot {
+    display: none;
+  }
+  .explorer-answer .district-choice strong {
+    font-size: 0.7rem;
+  }
+  .explorer-answer .official-heading {
+    min-height: 90px;
+  }
+  .explorer-workspace .map-legend {
+    top: auto;
+    bottom: 35px;
+    left: 16px;
+    right: auto;
+    width: auto;
+  }
+  .explorer-workspace .legend-items {
+    display: flex;
+    gap: 12px;
+  }
+  .explorer-main > .public-footer {
+    padding: 20px 22px;
+  }
+  .council-masthead {
+    grid-template-columns: 1fr;
+    padding: 31px 23px;
+    gap: 28px;
+  }
+  .council-heading h1 {
+    font-size: 3.3rem;
+  }
+  .council-heading p {
+    font-size: 0.85rem;
+  }
+  .council-search {
+    padding: 24px 0 0;
+    border-left: 0;
+    border-top: 1px solid #516073;
+  }
+  .council-search-caption {
+    margin-bottom: 17px;
+  }
+  .council-portraits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 24px 22px 30px;
+    gap: 25px 15px;
+  }
+  .council-photo-wrap {
+    height: 190px;
+  }
+  .council-person-text h2 {
+    font-size: 1.25rem;
+  }
+  .council-district-number {
+    font-size: 1rem;
+    padding: 2px 6px;
+    left: 8px;
+    top: 8px;
+  }
+  .council-open {
+    width: 34px;
+    height: 34px;
+  }
+  .council-detail {
+    grid-template-columns: 1fr;
+    scroll-margin-top: 0;
+  }
+  .council-detail-copy {
+    padding: 30px 23px;
+  }
+  .council-detail-copy > h2 {
+    font-size: 2rem;
+  }
+  .council-detail .map-surface {
+    min-height: 470px;
+  }
+  .council-detail .official-heading h2 {
+    font-size: 1.8rem;
+  }
+  .council-main > .public-footer {
+    padding: 25px 22px;
+  }
+}
+@media (max-width: 360px) {
+  .public-header {
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 10px;
+  }
+  .public-header .wordmark-city-logo {
+    width: 180px;
+  }
+  .public-header .design-return svg {
+    display: none;
+  }
+  .gallery-header > a:last-child {
+    display: none;
+  }
+  .council-photo-wrap {
+    height: 155px;
+  }
+  .concierge-card {
+    padding: 22px 16px;
+  }
+  .concierge-card .result-photo {
+    width: 67px;
+    height: 87px;
+  }
+}

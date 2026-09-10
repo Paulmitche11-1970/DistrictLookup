@@ -72,6 +72,7 @@ import DistrictMapView from './district-map';
 import type { Content, Official, Agency } from '@/lib/model';
 import { colorFor, termLabel } from '@/lib/model';
 import { normalizeMap } from '@/lib/geo';
+import { designs } from '@/lib/designs';
 type Activity = {
   id: number;
   actor: string;
@@ -116,8 +117,25 @@ async function api(url: string, body?: unknown) {
   }
   return d;
 }
-export default function AdminConsole() {
-  const [data, setData] = useState<Dashboard | null>(null);
+export default function AdminConsole({
+  previewContent,
+  previewAddressCount = 0,
+}: { previewContent?: Content; previewAddressCount?: number } = {}) {
+  const previewMode = !!previewContent;
+  const [data, setData] = useState<Dashboard | null>(() =>
+    previewContent
+      ? {
+          content: previewContent,
+          revision: 0,
+          publishedRevision: 0,
+          publishedAt: '',
+          hasChanges: false,
+          admin: { name: 'Agency administrator', email: '' },
+          addressCount: previewAddressCount,
+          activity: [],
+        }
+      : null,
+  );
   const [section, setSection] = useState('officials');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -126,13 +144,17 @@ export default function AdminConsole() {
   const [publishOpen, setPublishOpen] = useState(false);
   const [discardOpen, setDiscardOpen] = useState(false);
   async function load() {
+    if (previewMode) return;
     setData(await api('/api/admin'));
   }
   useEffect(() => {
-    load().catch((e) => setError(e.message));
-  }, []);
+    if (!previewMode)
+      api('/api/admin')
+        .then(setData)
+        .catch((e) => setError(e.message));
+  }, [previewMode]);
   async function mutate(body: Record<string, unknown>) {
-    if (!data) return;
+    if (!data || previewMode) return false;
     setBusy(true);
     setError('');
     setSuccess('');
@@ -206,26 +228,50 @@ export default function AdminConsole() {
         <header className="admin-topbar">
           <div className="row">
             <SidebarTrigger />
-            <span className="small muted">Agency workspace</span>
+            <span className="small muted">
+              {previewMode
+                ? 'Administration preview · Read only'
+                : 'Agency workspace'}
+            </span>
           </div>
           <div className="row">
-            <a className="btn quiet" href="/" target="_blank" rel="noreferrer">
-              <ExternalLink size={16} />
-              View public lookup
-            </a>
-            <button
-              className="icon-btn"
-              aria-label="Sign out"
-              onClick={async () => {
-                await api('/api/auth/logout', {});
-                location.assign('/admin/login');
-              }}
+            <a
+              className="btn quiet"
+              href="/martinez"
+              target="_blank"
+              rel="noreferrer"
             >
-              <LogOut size={17} />
-            </button>
+              <ExternalLink size={16} />
+              View lookup designs
+            </a>
+            {!previewMode && (
+              <button
+                className="icon-btn"
+                aria-label="Sign out"
+                onClick={async () => {
+                  await api('/api/auth/logout', {});
+                  location.assign('/admin/login');
+                }}
+              >
+                <LogOut size={17} />
+              </button>
+            )}
+            {previewMode && (
+              <a className="btn quiet" href="/admin">
+                Agency sign in
+              </a>
+            )}
           </div>
         </header>
         <main className="admin-work">
+          {previewMode && (
+            <div className="notice admin-preview-notice">
+              <strong>Explore the administration workspace.</strong> This
+              preview uses public Martinez information. Editing, uploads,
+              publishing, and account changes are available after agency
+              sign-in.
+            </div>
+          )}
           {error && (
             <div
               className="notice error"
@@ -271,13 +317,18 @@ export default function AdminConsole() {
                   </p>
                 </div>
                 <span className="pill">
-                  {data.hasChanges
-                    ? 'Unpublished changes'
-                    : 'Published and up to date'}
+                  {previewMode
+                    ? 'Read-only preview'
+                    : data.hasChanges
+                      ? 'Unpublished changes'
+                      : 'Published and up to date'}
                 </span>
               </div>
               <div className="admin-grid">
-                <div>
+                <fieldset
+                  disabled={previewMode}
+                  className="admin-preview-fields"
+                >
                   {section === 'officials' && (
                     <div className="official-grid">
                       {data.content.officials.map((o) => (
@@ -344,7 +395,7 @@ export default function AdminConsole() {
                   {section === 'display' && (
                     <DisplayOptions
                       agency={data.content.agency}
-                      busy={busy}
+                      busy={busy || previewMode}
                       save={(agency) => mutate({ action: 'agency', agency })}
                     />
                   )}
@@ -356,9 +407,20 @@ export default function AdminConsole() {
                     />
                   )}
                   {section === 'embed' && <EmbedOptions />}
-                  {section === 'security' && (
-                    <SecurityOptions admin={data.admin} />
-                  )}
+                  {section === 'security' &&
+                    (previewMode ? (
+                      <div className="panel stack">
+                        <ShieldCheck size={30} />
+                        <h3>Password and two-factor authentication</h3>
+                        <p className="muted">
+                          The live workspace requires an agency account and an
+                          authenticator code. Signed-in administrators can
+                          manage their password and recovery codes here.
+                        </p>
+                      </div>
+                    ) : (
+                      <SecurityOptions admin={data.admin} />
+                    ))}
                   {section === 'activity' && (
                     <div className="panel">
                       <h3>Recent activity</h3>
@@ -382,12 +444,14 @@ export default function AdminConsole() {
                         ))
                       ) : (
                         <p className="muted small" style={{ marginTop: 18 }}>
-                          Saved edits and publications will appear here.
+                          {previewMode
+                            ? 'Private change history is available to signed-in administrators.'
+                            : 'Saved edits and publications will appear here.'}
                         </p>
                       )}
                     </div>
                   )}
-                </div>
+                </fieldset>
                 <aside className="admin-aside">
                   <div className="status-box">
                     <div
@@ -408,12 +472,14 @@ export default function AdminConsole() {
                     </p>
                     <a
                       className="btn"
-                      href="/admin/preview"
+                      href={
+                        previewMode ? '/martinez/classic' : '/admin/preview'
+                      }
                       target="_blank"
                       rel="noreferrer"
                     >
                       <Eye size={17} />
-                      Preview draft
+                      {previewMode ? 'View public lookup' : 'Preview draft'}
                       <ArrowUpRight size={15} />
                     </a>
                     <button
@@ -423,7 +489,7 @@ export default function AdminConsole() {
                         background: '#70d0c5',
                         color: '#123b43',
                       }}
-                      disabled={!data.hasChanges || busy}
+                      disabled={previewMode || !data.hasChanges || busy}
                       onClick={() => setPublishOpen(true)}
                     >
                       <Check size={17} />
@@ -442,8 +508,14 @@ export default function AdminConsole() {
                       className="small"
                       style={{ margin: '18px 0 0', fontSize: 12 }}
                     >
-                      Last published{' '}
-                      {new Date(data.publishedAt).toLocaleDateString()}
+                      {previewMode ? (
+                        'Preview uses published public content.'
+                      ) : (
+                        <>
+                          Last published{' '}
+                          {new Date(data.publishedAt).toLocaleDateString()}
+                        </>
+                      )}
                     </p>
                   </div>
                   <div className="panel review-notes">
@@ -462,7 +534,9 @@ export default function AdminConsole() {
                       <li>Street and satellite map views</li>
                     </ul>
                     <p className="small muted">
-                      Signed in as {data.admin.name}
+                      {previewMode
+                        ? 'Reviewing without administrator access'
+                        : `Signed in as ${data.admin.name}`}
                     </p>
                   </div>
                 </aside>
@@ -899,6 +973,7 @@ function DisplayOptions({
             <p>{desc}</p>
           </div>
           <Switch
+            disabled={busy}
             checked={!!draft[key]}
             onCheckedChange={(v) => setDraft({ ...draft, [key]: v })}
             aria-label={title}
@@ -1195,9 +1270,11 @@ function BoundaryEditor({
 }
 function EmbedOptions() {
   const [origin, setOrigin] = useState('');
+  const [design, setDesign] = useState('classic');
   const [copied, setCopied] = useState(false);
   useEffect(() => setOrigin(location.origin), []);
-  const code = `<iframe\n  src="${origin}/embed"\n  title="Find your Martinez councilmember"\n  width="100%" height="850"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
+  const current = designs.find((item) => item.id === design)!;
+  const code = `<iframe\n  src="${origin}/embed?design=${design}"\n  title="Find your Martinez councilmember"\n  width="100%" height="950"\n  style="border:0; border-radius:12px;"\n  loading="lazy">\n</iframe>`;
   return (
     <div className="panel stack">
       <div>
@@ -1207,6 +1284,23 @@ function EmbedOptions() {
           displays the published lookup and follows your display settings.
         </p>
       </div>
+      <label className="stack small">
+        Lookup design
+        <select
+          value={design}
+          onChange={(event) => {
+            setDesign(event.target.value);
+            setCopied(false);
+          }}
+          className="input"
+        >
+          {designs.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.number} — {item.name}
+            </option>
+          ))}
+        </select>
+      </label>
       <pre className="code-box">{code}</pre>
       <div className="row">
         <button
@@ -1219,7 +1313,12 @@ function EmbedOptions() {
           {copied ? <Check size={16} /> : <Copy size={16} />}{' '}
           {copied ? 'Copied' : 'Copy embed code'}
         </button>
-        <a className="btn" href="/embed" target="_blank" rel="noreferrer">
+        <a
+          className="btn"
+          href={'/embed?design=' + design}
+          target="_blank"
+          rel="noreferrer"
+        >
           Preview embed <ExternalLink size={16} />
         </a>
       </div>
@@ -1229,7 +1328,10 @@ function EmbedOptions() {
         Add a “Find your councilmember” button that opens the lookup in its own
         page.
       </p>
-      <code className="code-box">{origin}</code>
+      <code className="code-box">
+        {origin}
+        {current.path}
+      </code>
       <p className="small muted">
         Your website administrator can adjust the frame height to fit the page.
         The lookup adapts to smaller screens.

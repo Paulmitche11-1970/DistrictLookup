@@ -7,7 +7,11 @@ A working Redistricting Partners demonstration of an agency-owned representative
 - Address suggestions from 13,882 county address points inside the district polygons; outside-city postal addresses are excluded.
 - Server-side point-in-polygon assignment, address marker, district highlight, portrait, official email, shared council office phone, biography link and term end.
 - Street and satellite map views, district browsing, citywide mayor, responsive layout, keyboard-operated search and a text answer alongside the map.
-- `/embed` is the public iframe version. `/` works as a direct link.
+- `/` is **RP Data Voter Lookup Instances**, grouped by agency type. Martinez is the only published instance; empty categories do not imply other agencies are ready.
+- `/martinez` (also `/Martinez`) presents four working designs with actual page screenshots, plus an administration preview.
+- `/martinez/classic` keeps the original side-by-side layout; `/martinez/concierge` emphasizes the address and answer; `/martinez/explorer` uses a full map and floating detail card; `/martinez/council` integrates a portrait directory.
+- All four use the same lookup hook, representative/contact components, published data and map. `/embed?design=classic|concierge|explorer|directory` supports each layout; `/embed` defaults to Classic. The admin embed panel supplies design-specific links and iframe code.
+- `/martinez/administration` is a read-only version of the actual administration component. It receives only `publicContent()` and an aggregate address count. It does not load private account data, activity or drafts, and cannot upload, save, publish or change security settings. `/admin` remains protected by password and TOTP.
 
 ## Agency administration
 
@@ -17,7 +21,7 @@ Edit official names, titles, photos, contact information, staff contacts, term d
 
 Upload zipped shapefiles or polygon GeoJSON, explicitly select the district field, review the preview and save a draft. The server validates coordinate ranges, rings, self-intersections, duplicate district labels and overlapping districts. A replacement must retain coverage of at least 99.5% of the pilot address inventory. Duplicate feature rows must first be dissolved by district; multipart polygons and holes are supported. City annexations or significant coverage changes require a GIS/address-data refresh outside this pilot UI.
 
-Saved edits remain drafts until **Publish changes**. Preview is authenticated. Concurrent edits return a conflict instead of overwriting newer changes. The history records edits, publication and security events. Unpublished uploaded portraits are only served to an authenticated administrator. Display-hidden contact fields are omitted from the public page payload.
+Saved edits remain drafts until **Publish changes**. Draft preview is authenticated and supports `?design=classic|concierge|explorer|directory`. Concurrent edits return a conflict instead of overwriting newer changes. The history records edits, publication and security events. Unpublished uploaded portraits are only served to an authenticated administrator. Display-hidden contact fields are omitted from the public page payload.
 
 ## Run locally
 
@@ -29,13 +33,13 @@ Set up the first administrator at `/admin/setup`, enter the deployment setup cod
 
 Deploy the included Dockerfile to the user's DistrictLookup Railway project. Attach a persistent volume at `/data` and use exactly one replica. Required variables:
 
-| Variable | Value |
-| --- | --- |
-| `DATA_DIR` | `/data` |
-| `APP_URL` | The exact HTTPS origin, with no path |
-| `APP_SECRET` | At least 32 random characters; retain securely |
-| `ADMIN_SETUP_TOKEN` | A separate random setup token |
-| `PORT` | `3000` (match the domain target port) |
+| Variable            | Value                                          |
+| ------------------- | ---------------------------------------------- |
+| `DATA_DIR`          | `/data`                                        |
+| `APP_URL`           | The exact HTTPS origin, with no path           |
+| `APP_SECRET`        | At least 32 random characters; retain securely |
+| `ADMIN_SETUP_TOKEN` | A separate random setup token                  |
+| `PORT`              | `3000` (match the domain target port)          |
 
 The database and uploaded photos live on the volume. Container redeployment preserves them. The health endpoint is `/api/health`. Seeds initialize only an empty database, so deploying new code does not reset agency edits. Use Railway volume backups and retain the encryption key separately; a recovery needs both the data and key. Do not run several application replicas against this SQLite volume. Multiple administrators, organization provisioning, SSO, billing and fleet-wide operations are future scope.
 

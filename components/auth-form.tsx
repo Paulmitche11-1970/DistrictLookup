@@ -295,7 +295,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
                 </a>
               )}
               <a
-                href="/"
+                href="/martinez/classic"
                 className="row small muted"
                 style={{ textDecoration: 'none', justifyContent: 'center' }}
               >
