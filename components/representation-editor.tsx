@@ -3,6 +3,7 @@
 import { useId, useState } from 'react';
 import { Save } from 'lucide-react';
 import type { Content, DistrictElection, Official } from '@/lib/model';
+import { districtName } from '@/lib/agency-labels';
 
 type Assignment = Pick<Official, 'id' | 'district' | 'selectionMethod'>;
 type Draft = {
@@ -61,16 +62,16 @@ function problemsFor(content: Content, draft: Draft) {
     );
     if (election.status === 'transition' && occupied.length) {
       problems.push(
-        `District ${district} is in transition. Its current officials must remain at large until their district terms begin.`,
+        `${districtName(content.agency, district)} is in transition. Its current officials must remain at large until their district terms begin.`,
       );
     }
     if (seats.length > 1) {
       problems.push(
-        `District ${district} has ${seats.length} assigned records. Keep only one seat record for this district.`,
+        `${districtName(content.agency, district)} has ${seats.length} assigned records. Keep only one seat record for this district.`,
       );
     } else if (election.status === 'district' && seats.length === 0) {
       problems.push(
-        `District ${district} needs an official or a vacant seat record. Assign one below, or mark the district as in transition.`,
+        `${districtName(content.agency, district)} needs an official or a vacant seat record. Assign one below, or mark the district as in transition.`,
       );
     }
     if (
@@ -78,7 +79,7 @@ function problemsFor(content: Content, draft: Draft) {
       !/^20\d{2}-(0[1-9]|1[0-2])$/.test(election.firstElection)
     ) {
       problems.push(
-        `District ${district} needs a valid first-election month, or leave it blank.`,
+        `${districtName(content.agency, district)} needs a valid first-election month, or leave it blank.`,
       );
     }
   }
@@ -204,7 +205,9 @@ function RepresentationForm({ content, busy, save }: Props) {
               key={district}
               style={{ borderTop: '1px solid var(--border)', paddingTop: 18 }}
             >
-              <h3 style={{ marginBottom: 12 }}>District {district}</h3>
+              <h3 style={{ marginBottom: 12 }}>
+                {districtName(content.agency, district)}
+              </h3>
               <div className="form-grid">
                 <div className="field">
                   <label htmlFor={districtId}>Seat status</label>
@@ -301,7 +304,7 @@ function RepresentationForm({ content, busy, save }: Props) {
                       )}
                     {districts.map((district) => (
                       <option key={district} value={district}>
-                        District {district}
+                        {districtName(content.agency, district)}
                       </option>
                     ))}
                   </select>

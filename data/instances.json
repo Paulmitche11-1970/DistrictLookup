@@ -7,7 +7,7 @@
     "seedDirectory": "",
     "bounds": [-122.5, 37.6, -121.7, 38.4],
     "logo": "/branding/martinez-logo.svg",
-    "slogan": "The Bay Area’s Hidden Gem",
+    "slogan": "The Bay Area\u00e2\u20ac\u2122s Hidden Gem",
     "addressMode": "local",
     "sampleAddress": "525 Henrietta Street",
     "previewDirectory": "/design-previews"
@@ -64,7 +64,7 @@
     "kind": "city",
     "seedDirectory": "agencies/burlingame",
     "bounds": [-122.45361799999999, 37.518273, -122.280827, 37.657534999999996],
-    "logo": "",
+    "logo": "/branding/agencies/burlingame.webp",
     "addressMode": "local",
     "sampleAddress": "500 Primrose Rd",
     "previewDirectory": "/design-previews/burlingame",
@@ -79,7 +79,7 @@
     "kind": "city",
     "seedDirectory": "agencies/millbrae",
     "bounds": [-122.474944, 37.531612, -122.322503, 37.664981999999995],
-    "logo": "",
+    "logo": "/branding/agencies/millbrae.webp",
     "addressMode": "local",
     "sampleAddress": "621 Magnolia Ave",
     "previewDirectory": "/design-previews/millbrae",
@@ -156,5 +156,36 @@
     "districtCount": 5,
     "officialCount": 5,
     "addressNote": "This public address list is informational and may not include every address."
+  },
+  {
+    "id": "belmont",
+    "name": "City of Belmont",
+    "shortName": "Belmont",
+    "kind": "city",
+    "seedDirectory": "agencies/belmont",
+    "bounds": [-122.35, 37.48, -122.24, 37.55],
+    "logo": "/branding/agencies/belmont.svg",
+    "addressMode": "local",
+    "sampleAddress": "1 Aron Ct",
+    "previewDirectory": "/design-previews/belmont",
+    "districtCount": 4,
+    "officialCount": 5,
+    "addressNote": "Map pins show approximate parcel locations. This address list may omit newer buildings or individual units."
+  },
+  {
+    "id": "midpeninsula-water",
+    "name": "Mid-Peninsula Water District",
+    "shortName": "Mid-Peninsula Water",
+    "kind": "special",
+    "seedDirectory": "agencies/midpeninsula-water",
+    "bounds": [-122.35, 37.48, -122.23, 37.55],
+    "logo": "/branding/midpeninsula-water/logo.webp",
+    "addressMode": "local",
+    "sampleAddress": "1075 Old County Rd",
+    "previewDirectory": "/design-previews/midpeninsula-water",
+    "districtCount": 5,
+    "officialCount": 5,
+    "districtLabel": "Division",
+    "addressNote": "Map pins show approximate parcel locations. This historical address list may omit newer buildings, address ranges or individual units."
   }
 ]

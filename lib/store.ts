@@ -6,6 +6,7 @@ import type { Content, Address } from './model';
 import { currentAgencyId, currentInstance } from './agency-scope';
 import { visibleOfficial } from './representation';
 import { sanitizeBiography } from './biography-html';
+import { backfillOfficialPortraits } from './portrait-backfill';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
 function withPostalCode(address: Address): Address {
@@ -225,6 +226,7 @@ export function database() {
       throw error;
     }
   }
+  backfillOfficialPortraits(conn, currentAgencyId());
   databases.set(dir, conn);
   return conn;
 }
@@ -312,6 +314,7 @@ function withInstance(content: Content): Content {
       ...content.agency,
       instanceId: instance.id,
       kind: instance.kind,
+      districtLabel: instance.districtLabel || 'District',
       logo: instance.logo,
       slogan: instance.slogan,
       addressMode: instance.addressMode,

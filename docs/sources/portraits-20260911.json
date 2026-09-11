@@ -1,0 +1,378 @@
+[
+  {
+    "agency": "san-mateo",
+    "district": "1",
+    "name": "Lisa Diaz Nash",
+    "assetType": "portrait",
+    "publicPath": "/portraits/san-mateo/1.webp",
+    "file": "public/portraits/san-mateo/1.webp",
+    "sourcePage": "https://www.cityofsanmateo.org/2940/Council-Member-Lisa-Diaz-Nash",
+    "sourceImage": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=93182",
+    "sourceDimensions": [
+      190,
+      231
+    ],
+    "dimensions": [
+      190,
+      231
+    ],
+    "bytes": 8744,
+    "sha256": "1c5b4c89b6799eaf48fa1df9ec6b21f8d7201c07fe7deccfbbe86174fe01bbed",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "san-mateo",
+    "district": "2",
+    "name": "Nicole Fernandez",
+    "assetType": "portrait",
+    "publicPath": "/portraits/san-mateo/2.webp",
+    "file": "public/portraits/san-mateo/2.webp",
+    "sourcePage": "https://www.cityofsanmateo.org/4160/Deputy-Mayor-Nicole-Fernandez",
+    "sourceImage": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=96289",
+    "sourceDimensions": [
+      190,
+      231
+    ],
+    "dimensions": [
+      190,
+      231
+    ],
+    "bytes": 7542,
+    "sha256": "9ddd02a1ccc3c0c5bb41b4500cb07788ec1ba3a8174ed1d400376c3dd009542a",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "san-mateo",
+    "district": "3",
+    "name": "Rob Newsom Jr.",
+    "assetType": "portrait",
+    "publicPath": "/portraits/san-mateo/3.webp",
+    "file": "public/portraits/san-mateo/3.webp",
+    "sourcePage": "https://www.cityofsanmateo.org/2849/Council-Member-Rob-Newsom-Jr",
+    "sourceImage": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=89974",
+    "sourceDimensions": [
+      190,
+      231
+    ],
+    "dimensions": [
+      190,
+      231
+    ],
+    "bytes": 7480,
+    "sha256": "21c513fe85dad7eba6a9aedce61818182d016982b043333c447ae4c197ce697f",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "san-mateo",
+    "district": "4",
+    "name": "Danielle Cwirko-Godycki",
+    "assetType": "portrait",
+    "publicPath": "/portraits/san-mateo/4.webp",
+    "file": "public/portraits/san-mateo/4.webp",
+    "sourcePage": "https://www.cityofsanmateo.org/3762/Council-Member-Danielle-Cwirko-Godycki",
+    "sourceImage": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=96290",
+    "sourceDimensions": [
+      190,
+      231
+    ],
+    "dimensions": [
+      190,
+      231
+    ],
+    "bytes": 5886,
+    "sha256": "f0b6cf5e6c091a1cc5d20244238cb62aa455abca210206140bc7ce0d054ba4b4",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "san-mateo",
+    "district": "5",
+    "name": "Adam Loraine",
+    "assetType": "portrait",
+    "publicPath": "/portraits/san-mateo/5.webp",
+    "file": "public/portraits/san-mateo/5.webp",
+    "sourcePage": "https://www.cityofsanmateo.org/3121/Mayor-Adam-Loraine",
+    "sourceImage": "https://www.cityofsanmateo.org/ImageRepository/Document?documentID=89975",
+    "sourceDimensions": [
+      190,
+      231
+    ],
+    "dimensions": [
+      190,
+      231
+    ],
+    "bytes": 6516,
+    "sha256": "9ccf2645e46e9ac9a8e0a0920026bd4edfa093e536cb981ed3ab657b2de5da0e",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "millbrae",
+    "district": "1",
+    "name": "Stephen Rainaldi",
+    "assetType": "portrait",
+    "publicPath": "/portraits/millbrae/1.webp",
+    "file": "public/portraits/millbrae/1.webp",
+    "sourcePage": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "sourceImage": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2365",
+    "sourceDimensions": [
+      632,
+      949
+    ],
+    "dimensions": [
+      632,
+      949
+    ],
+    "bytes": 132026,
+    "sha256": "54977e0a152f16fe77271854069ed7d86ad473c8d81288ac5270c74aa5594768",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "millbrae",
+    "district": "2",
+    "name": "Sissy Riley",
+    "assetType": "portrait",
+    "publicPath": "/portraits/millbrae/2.webp",
+    "file": "public/portraits/millbrae/2.webp",
+    "sourcePage": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "sourceImage": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2364",
+    "sourceDimensions": [
+      632,
+      949
+    ],
+    "dimensions": [
+      632,
+      949
+    ],
+    "bytes": 65882,
+    "sha256": "96641f9fc01306d2f0ec2d8f0d0ac265ae47e92b44c8bdaada474a5500de4603",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "millbrae",
+    "district": "4",
+    "name": "Bob Nguyen",
+    "assetType": "portrait",
+    "publicPath": "/portraits/millbrae/4.webp",
+    "file": "public/portraits/millbrae/4.webp",
+    "sourcePage": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "sourceImage": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=2283",
+    "sourceDimensions": [
+      632,
+      949
+    ],
+    "dimensions": [
+      632,
+      949
+    ],
+    "bytes": 52156,
+    "sha256": "e6e037dd0344e4f379f54df758e003f23c1c81754ace0e91d228c738ecb70e4a",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "millbrae",
+    "district": "5",
+    "name": "Anders Fung",
+    "assetType": "portrait",
+    "publicPath": "/portraits/millbrae/5.webp",
+    "file": "public/portraits/millbrae/5.webp",
+    "sourcePage": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "sourceImage": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=1093",
+    "sourceDimensions": [
+      632,
+      949
+    ],
+    "dimensions": [
+      632,
+      949
+    ],
+    "bytes": 69178,
+    "sha256": "ff9eb1582d8497569d5a09cde0269315edcde63977753c53b2d3eac570e129af",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "millbrae",
+    "district": null,
+    "name": "City of Millbrae seal",
+    "assetType": "logo",
+    "publicPath": "/branding/agencies/millbrae.webp",
+    "file": "public/branding/agencies/millbrae.webp",
+    "sourcePage": "https://www.ci.millbrae.ca.us/380/City-Council",
+    "sourceImage": "https://www.ci.millbrae.ca.us/ImageRepository/Document?documentId=79",
+    "sourceDimensions": [
+      800,
+      800
+    ],
+    "dimensions": [
+      800,
+      800
+    ],
+    "bytes": 125540,
+    "sha256": "68947ee2faf901366126f65a9f8a2c76871b170207276a78cc33ecc2f043ff9e",
+    "verifiedAt": "2026-09-11",
+    "verification": "Official city website branding image; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": "1",
+    "name": "Andrea Pappajohn",
+    "assetType": "portrait",
+    "publicPath": "/portraits/burlingame/1.webp",
+    "file": "public/portraits/burlingame/1.webp",
+    "sourcePage": "https://www.burlingame.org/m/directory/employee?eid=226",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentID=4609",
+    "sourceDimensions": [
+      1386,
+      2080
+    ],
+    "dimensions": [
+      666,
+      1000
+    ],
+    "bytes": 93082,
+    "sha256": "2072a54a6bfeb3c06a4ad227f0b16251b0739187e0fbe5c95759256a85669431",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": null,
+    "name": "City of Burlingame seal",
+    "assetType": "logo",
+    "publicPath": "/branding/agencies/burlingame.webp",
+    "file": "public/branding/agencies/burlingame.webp",
+    "sourcePage": "https://www.burlingame.org/m/directory/employee?eid=226",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentId=75",
+    "sourceDimensions": [
+      200,
+      201
+    ],
+    "dimensions": [
+      200,
+      201
+    ],
+    "bytes": 16228,
+    "sha256": "91bbd6f1b72ec7a1cd14571fd9fdd48da45e84476ff614e0762eb3c33cac4f2b",
+    "verifiedAt": "2026-09-11",
+    "verification": "Official city website branding image; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": null,
+    "name": "City of Burlingame wordmark",
+    "assetType": "wordmark",
+    "publicPath": "/branding/agencies/burlingame-wordmark.webp",
+    "file": "public/branding/agencies/burlingame-wordmark.webp",
+    "sourcePage": "https://www.burlingame.org/m/directory/employee?eid=226",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentID=66",
+    "sourceDimensions": [
+      1007,
+      250
+    ],
+    "dimensions": [
+      1007,
+      250
+    ],
+    "bytes": 36422,
+    "sha256": "48a7b45a0975f14a351a73df5dc564b4d91920aca4627579a087a76414705e34",
+    "verifiedAt": "2026-09-11",
+    "verification": "Official city website branding image; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": "3",
+    "name": "Michael Brownrigg",
+    "assetType": "portrait",
+    "publicPath": "/portraits/burlingame/3.webp",
+    "file": "public/portraits/burlingame/3.webp",
+    "sourcePage": "https://www.burlingame.org/1111/Meet-the-Council",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentId=159",
+    "sourceDimensions": [
+      510,
+      534
+    ],
+    "dimensions": [
+      510,
+      534
+    ],
+    "bytes": 23262,
+    "sha256": "1ef9b895ff83c7a14046f09aa2577bab1ecb4dd10a998a2f763a7a751ef03ac5",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": "4",
+    "name": "Donna Colson",
+    "assetType": "portrait",
+    "publicPath": "/portraits/burlingame/4.webp",
+    "file": "public/portraits/burlingame/4.webp",
+    "sourcePage": "https://www.burlingame.org/1111/Meet-the-Council",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentId=7875",
+    "sourceDimensions": [
+      2080,
+      2080
+    ],
+    "dimensions": [
+      800,
+      800
+    ],
+    "bytes": 76650,
+    "sha256": "75fb3ecd7e2326a50dbaa28e8d84027762a4c874e3b4dd5104d75e0a66e514db",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset.",
+    "districtVerificationSource": "https://smcacre.gov/elections/city-offices",
+    "districtVerificationNote": "District 4 confirmed by county current roster and certified November 2024 election results; city biography contains stale At-Large text."
+  },
+  {
+    "agency": "burlingame",
+    "district": "5",
+    "name": "Peter Stevenson",
+    "assetType": "portrait",
+    "publicPath": "/portraits/burlingame/5.webp",
+    "file": "public/portraits/burlingame/5.webp",
+    "sourcePage": "https://www.burlingame.org/m/directory/department?did=123",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentID=165",
+    "sourceDimensions": [
+      200,
+      200
+    ],
+    "dimensions": [
+      200,
+      200
+    ],
+    "bytes": 6864,
+    "sha256": "abb6d6ead0fdeabdd57cb77a590687eff04970aa1e5fb537e0cc754a8dfef930",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  },
+  {
+    "agency": "burlingame",
+    "district": "2",
+    "name": "Desiree Thayer",
+    "assetType": "portrait",
+    "publicPath": "/portraits/burlingame/2.webp",
+    "file": "public/portraits/burlingame/2.webp",
+    "sourcePage": "https://www.burlingame.org/1111/Meet-the-Council",
+    "sourceImage": "https://www.burlingame.org/ImageRepository/Document?documentId=7876",
+    "sourceDimensions": [
+      1920,
+      1920
+    ],
+    "dimensions": [
+      800,
+      800
+    ],
+    "bytes": 52356,
+    "sha256": "dc6a16b1ec978af646b55c3508605e428f23e7597119520ce46a943eca6e4a5d",
+    "verifiedAt": "2026-09-11",
+    "verification": "Matched to the named official in the rendered official city profile or council page; exported the observed page asset."
+  }
+]

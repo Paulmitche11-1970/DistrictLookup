@@ -128,7 +128,7 @@ export default function AuthForm({
             <h1>{titles[mode]}</h1>
             <p className="muted small">
               {mode === 'login'
-                ? 'Sign in to keep your council information up to date.'
+                ? 'Sign in to keep your agency information up to date.'
                 : mode === 'setup'
                   ? 'Create your administrator account, then connect an authenticator app.'
                   : mode === 'enroll'

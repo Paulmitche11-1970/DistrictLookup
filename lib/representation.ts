@@ -1,4 +1,5 @@
-import type { Content, Official } from './model';
+import type { Agency, Content, Official } from './model';
+import { districtName } from './agency-labels';
 
 export function titlesFor(official: Official) {
   return [
@@ -15,9 +16,12 @@ export function hasTitle(official: Official, title: string) {
 export function titleLabel(official: Official) {
   return titlesFor(official).join(' · ');
 }
-export function constituencyLabel(official: Official) {
+export function constituencyLabel(
+  official: Official,
+  agency: Pick<Agency, 'kind' | 'districtLabel'> = {},
+) {
   return official.district !== null
-    ? 'District ' + official.district
+    ? districtName(agency, official.district)
     : official.selectionMethod === 'appointed'
       ? 'At Large · Appointed'
       : official.selectionMethod === 'elected'

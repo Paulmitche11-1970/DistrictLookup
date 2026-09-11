@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Map as MapIcon, Satellite, Maximize, Plus, Minus } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { DistrictMap, Address } from '@/lib/model';
+import type { DistrictMap, Address, DistrictLabel } from '@/lib/model';
+import { agencyLabels } from '@/lib/agency-labels';
 import { colorFor, fullAddress } from '@/lib/model';
 import type L from 'leaflet';
 import { pointOnFeature } from '@turf/point-on-feature';
@@ -13,6 +14,7 @@ export default function DistrictMapView({
   address,
   insetLeft = 0,
   approximateAddress = false,
+  districtLabel = 'District',
 }: {
   geo: DistrictMap;
   selected: string | null;
@@ -20,7 +22,9 @@ export default function DistrictMapView({
   address: Address | null;
   insetLeft?: number;
   approximateAddress?: boolean;
+  districtLabel?: DistrictLabel;
 }) {
+  const terminology = agencyLabels({ districtLabel });
   const ref = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layers = useRef<L.GeoJSON | null>(null);
@@ -99,7 +103,7 @@ export default function DistrictMapView({
         tile.on('tileerror', () => {
           if (++failures >= 3)
             setError(
-              'Background imagery is unavailable. District boundaries and address results remain available.',
+              `Background imagery is unavailable. ${districtLabel} boundaries and address results remain available.`,
             );
         });
         tiles.current = tile;
@@ -112,7 +116,7 @@ export default function DistrictMapView({
     return () => {
       cancelled = true;
     };
-  }, [mode, ready]);
+  }, [mode, ready, districtLabel]);
   useEffect(() => {
     if (!ready || !map.current) return;
     let cancelled = false;
@@ -134,7 +138,7 @@ export default function DistrictMapView({
           }),
           onEachFeature: (f, l) => {
             l.on('click', () => selectRef.current(f.properties.district));
-            l.bindTooltip(`District ${f.properties.district}`, {
+            l.bindTooltip(`${districtLabel} ${f.properties.district}`, {
               sticky: true,
             });
             const [lon, lat] = pointOnFeature(f).geometry.coordinates;
@@ -181,7 +185,7 @@ export default function DistrictMapView({
     return () => {
       cancelled = true;
     };
-  }, [geo, selected, address, ready, insetLeft]);
+  }, [geo, selected, address, ready, insetLeft, districtLabel]);
   useEffect(() => {
     if (!ready || !map.current) return;
     let cancelled = false;
@@ -225,12 +229,12 @@ export default function DistrictMapView({
     };
   }, [address, ready, approximateAddress]);
   return (
-    <section className="map-surface" aria-label="District map">
+    <section className="map-surface" aria-label={`${districtLabel} map`}>
       <div
         ref={ref}
         className="leaflet-map"
         role="region"
-        aria-label="Interactive map. Use the address search or district buttons for a text answer."
+        aria-label={`Interactive map. Use the address search or ${terminology.districtLower} buttons for a text answer.`}
       />
       <div className="map-tools">
         <Tabs
@@ -272,7 +276,7 @@ export default function DistrictMapView({
         </button>
         <button
           className="icon-btn"
-          aria-label="Show all districts"
+          aria-label={`Show all ${terminology.districtsLower}`}
           onClick={() => {
             if (layers.current)
               map.current?.fitBounds(layers.current.getBounds(), {
@@ -285,7 +289,7 @@ export default function DistrictMapView({
       </div>
       {!address && (
         <div className="map-legend">
-          <div className="eyebrow">Districts</div>
+          <div className="eyebrow">{terminology.districts}</div>
           <div className="legend-items">
             {geo.features.map((f) => (
               <button
@@ -294,7 +298,7 @@ export default function DistrictMapView({
                 aria-pressed={selected === f.properties.district}
               >
                 <i style={{ background: colorFor(f.properties.district) }} />
-                District {f.properties.district}
+                {districtLabel} {f.properties.district}
               </button>
             ))}
           </div>

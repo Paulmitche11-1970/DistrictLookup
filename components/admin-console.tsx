@@ -430,7 +430,7 @@ export default function AdminConsole({
                               className="tile-district"
                               style={{ color: colorFor(o.district || '') }}
                             >
-                              {constituencyLabel(o)}
+                              {constituencyLabel(o, data.content.agency)}
                             </div>
                             <div className="row">
                               {o.photo ? (
@@ -873,7 +873,7 @@ function OfficialEditor({
             <SheetTitle>
               {isNew
                 ? 'Add at-large official'
-                : `Edit ${draft ? constituencyLabel(draft) : 'official'}`}
+                : `Edit ${draft ? constituencyLabel(draft, instanceFor(agencyId)) : 'official'}`}
             </SheetTitle>
             <SheetDescription>
               Update this official’s details. Save a draft, then publish when

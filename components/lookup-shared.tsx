@@ -22,6 +22,7 @@ import type { DesignId } from '@/lib/designs';
 import { BiographyLink } from './biography-link';
 import { trackActivity } from '@/lib/activity-client';
 import { apiPath, instanceFor } from '@/lib/instances';
+import { agencyLabels, districtName } from '@/lib/agency-labels';
 import {
   atLargeOfficials,
   districtOfficial,
@@ -54,13 +55,18 @@ export function Brand({
       <a
         className="wordmark county-wordmark"
         href={'/' + instance.id}
-        aria-label={instance.shortName + ' district lookup'}
+        aria-label={
+          instance.shortName +
+          ' ' +
+          agencyLabels(instance).districtLower +
+          ' lookup'
+        }
       >
         {instance.logo && (
           <img src={instance.logo} alt="" width={68} height={68} />
         )}
         <div>
-          <span>District lookup</span>
+          <span>{agencyLabels(instance).district} lookup</span>
           <strong>{instance.shortName}</strong>
         </div>
       </a>
@@ -226,7 +232,10 @@ export function useDistrictLookup(content: Content, preview = false) {
       const data = await r.json();
       if (request !== lookupRequest.current) return;
       if (!r.ok)
-        throw Error(data.error || 'We could not identify this district.');
+        throw Error(
+          data.error ||
+            `We could not identify this ${agencyLabels(a).districtLower}.`,
+        );
       setAddress(data.address);
       setProfileId(null);
       setSelected(data.district);
@@ -326,8 +335,9 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
   if (lookup.a.addressMode === 'pending')
     return (
       <p className="notice">
-        Address search is being prepared. Select a district or representative
-        below to explore the map.
+        Address search is being prepared. Select a{' '}
+        {agencyLabels(lookup.a).districtLower} or representative below to
+        explore the map.
       </p>
     );
   return (
@@ -504,6 +514,7 @@ export function RepresentativeResult({
 }) {
   const { selected, address, official, profileId, hasResult, clear } = lookup;
   const a = content.agency;
+  const labels = agencyLabels(a);
   const transition = selected
     ? content.districtElections?.[selected]
     : undefined;
@@ -523,9 +534,9 @@ export function RepresentativeResult({
       >
         <MapPin size={17} />
         {selected
-          ? 'District ' + selected
+          ? districtName(a, selected)
           : official
-            ? constituencyLabel(official)
+            ? constituencyLabel(official, a)
             : 'At Large'}
       </div>
       <p className="small muted" style={{ margin: '16px 0' }}>
@@ -533,7 +544,7 @@ export function RepresentativeResult({
           ? fullAddress(address)
           : profileId
             ? 'Represents the entire agency.'
-            : 'Exploring this district. Search your address to confirm yours.'}
+            : `Exploring this ${labels.districtLower}. Search your address to confirm yours.`}
       </p>
       <button className="clear-result result-reset" onClick={clear}>
         <ArrowLeft size={14} />
@@ -546,23 +557,25 @@ export function RepresentativeResult({
         <div className="notice transition-notice">
           <strong>At-large representation during the transition</strong>
           <p>
-            {address ? 'Your location is in' : 'You are exploring'} District{' '}
-            {selected}. This district does not yet have a serving district
-            representative. The at-large members below currently represent you.
+            {address ? 'Your location is in' : 'You are exploring'}{' '}
+            {districtName(a, selected)}. This {labels.districtLower} does not
+            yet have a serving {labels.districtLower} representative. The
+            at-large members below currently represent you.
           </p>
           {transition.firstElection && (
             <p>
-              First district election: {termLabel(transition.firstElection)}.
+              First {labels.districtLower} election:{' '}
+              {termLabel(transition.firstElection)}.
             </p>
           )}
         </div>
       ) : selected && (!official || official.vacant) ? (
         <div className="notice">
-          <h3>District {selected}</h3>
+          <h3>{districtName(a, selected)}</h3>
           <p>
             {official?.vacant
               ? 'This seat is currently vacant. Contact the agency for assistance.'
-              : 'District representative information is not yet available. Contact the agency for assistance.'}
+              : `${labels.district} representative information is not yet available. Contact the agency for assistance.`}
           </p>
           {a.contactPhone && (
             <a href={phoneHref(a.contactPhone)}>{a.contactPhone}</a>
@@ -605,12 +618,10 @@ export function CouncilList({
     <div className="district-list">
       <div className="row space-between list-heading">
         <span className="eyebrow">
-          {lookup.a.kind === 'county'
-            ? 'Explore the board'
-            : 'Explore the council'}
+          Explore the {agencyLabels(lookup.a).bodyShort}
         </span>
         <span className="small muted">
-          {content.map.features.length} districts
+          {content.map.features.length} {agencyLabels(lookup.a).districtsLower}
         </span>
       </div>
       {officials.map((o) => (
@@ -628,7 +639,7 @@ export function CouncilList({
                 ? 'Vacant seat'
                 : (hasTitle(o, 'Mayor') ? 'Mayor ' : '') + o.name}
             </strong>
-            <span>{constituencyLabel(o)}</span>
+            <span>{constituencyLabel(o, lookup.a)}</span>
           </div>
           {o.district !== null && (
             <i

@@ -1,5 +1,6 @@
 'use client';
 import type { Content } from '@/lib/model';
+import { agencyLabels } from '@/lib/agency-labels';
 import { ManagementProfiles } from './management-profiles';
 import DistrictMapView from './district-map';
 import {
@@ -47,7 +48,9 @@ export default function Lookup({
           aria-label="Find your elected representative"
         >
           <div>
-            <div className="eyebrow">Your address. Your district.</div>
+            <div className="eyebrow">
+              Your address. Your {agencyLabels(content.agency).districtLower}.
+            </div>
             <h1>{content.agency.heading}</h1>
             <p className="intro">{lookup.intro}</p>
           </div>
@@ -59,6 +62,7 @@ export default function Lookup({
         </section>
         <DistrictMapView
           geo={content.map}
+          districtLabel={content.agency.districtLabel}
           selected={lookup.selected}
           onSelect={lookup.selectDistrict}
           address={lookup.address}

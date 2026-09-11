@@ -1,0 +1,148 @@
+{
+  "verifiedAt": "2026-09-11",
+  "geography": {
+    "map": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\Midpeninsula Water District\\Final Plan for Submission\\Mid Peninsula WD Final Plan from 2.shp",
+      "sha256": "d49acc912e38e062f3249fb9ab847da0f0751da17ce3b809783ff53c23e702c5",
+      "districtField": "DISTRICT",
+      "sourceCrs": "EPSG:4269",
+      "outputCrs": "EPSG:4326",
+      "sourceRecords": 5,
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtParts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "bounds": [
+        -122.328878,
+        37.497053,
+        -122.256045,
+        37.534388
+      ],
+      "validation": "All original and reprojected districts valid. No overlapping interiors. Original topology retained, no simplification, trimming, renumbering or parcel-dissolve geometry.",
+      "sourceLabelChecks": {
+        "1": {
+          "district": "1",
+          "population": 5598
+        },
+        "2": {
+          "district": "2",
+          "population": 5804
+        },
+        "3": {
+          "district": "3",
+          "population": 6137
+        },
+        "4": {
+          "district": "4",
+          "population": 5820
+        },
+        "5": {
+          "district": "5",
+          "population": 5730
+        }
+      }
+    },
+    "addresses": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\Midpeninsula Water District\\Final Plan for Submission\\Mid Peninsula WD Final Plan Parcels.shp",
+      "sha256": "f48a7a2472b275b77d107787fc2f6e4ddfe8a2d6b3ee4621611a364ced3780b5",
+      "sourceCrs": "EPSG:3857",
+      "sourceRecords": 9272,
+      "acceptedUnique": 7824,
+      "countsByDistrict": {
+        "4": 1521,
+        "1": 1633,
+        "5": 1359,
+        "2": 1162,
+        "3": 2149
+      },
+      "cities": {
+        "Belmont": 7597,
+        "San Carlos": 215,
+        "San Mateo": 11,
+        "Redwood City": 1
+      },
+      "excluded": {
+        "no_complete_street_address": 890,
+        "address_range": 43,
+        "map_parcel_assignment_disagreement": 26,
+        "unassigned": 2,
+        "duplicate_distant_locations": 2
+      },
+      "method": "Historical public situs addresses from final parcel shapefile; approximate interior parcel point. Only single-district agreement between source parcel field and original adopted line geometry retained. Public city name is preserved, so multi-city district service areas work. No owner, APN, voter, demographic or private profile data retained.",
+      "coverage": "Historical parcel coverage; new construction, unit-specific addresses, address ranges and ambiguous locations may be absent."
+    }
+  },
+  "roster": {
+    "localScan": "work/agency-expansion/peninsula-districts-sep11/local-roster-check.json",
+    "localMatches": 0,
+    "officialRosterUrl": "https://www.midpeninsulawater.org/board",
+    "countyRosterUrl": "https://smcacre.gov/elections/special-district-offices",
+    "notes": [
+      "Current official agency board page verifies all five directors, division assignments, roles, public office email and November term months. Neela Patel joined Division 3 in March 2026; no stale former incumbent used.",
+      "RP master and all eight Finished Results workbook public-office sheets were searched with normalized agency matching; no local incumbent records for this special district were found. The two local special-district CSV files are agency lists, not official rosters. Current official agency roster supplies the missing incumbent data.",
+      "Agency election page identifies Ordinance 122 adopted March 24, 2022 and explicitly selects Plan 2. The source DISTRICT field contains final numbers 1\u20135; NAME is not used. The rendered original shape geometry and numbered arrangement were visually compared with the current official division map image and agree: 1 west, 2 south/center, 3 northwest/center, 4 east/center, 5 northeast. Street descriptions in the current official PDF corroborate this arrangement.",
+      "The alternative From Parcels map has pre-existing boundary overlap slivers and an unassigned polygon; it is rejected without altering original geometry. Public parcel points are rechecked against the clean adopted line map."
+    ]
+  },
+  "mapOfficialSource": "https://www.midpeninsulawater.org/elections",
+  "assets": [
+    {
+      "path": "/portraits/midpeninsula-water/1.jpg",
+      "url": "https://storage.googleapis.com/midpeninsulawater-org/uploads/Headshots-2024-Vella2.jpg",
+      "sha256": "ddde6008d214ef074f955a1a764fa12009e43681436e4bbe499705b9718cfe68",
+      "bytes": 6889
+    },
+    {
+      "path": "/portraits/midpeninsula-water/2.jpg",
+      "url": "https://storage.googleapis.com/midpeninsulawater-org/uploads/MPWD_HEADSHOTS_Zucca.jpg",
+      "sha256": "aa15898e252a47515a944d9c02bc85b5519c9bc2b048100725aed1d0382732ba",
+      "bytes": 21918
+    },
+    {
+      "path": "/portraits/midpeninsula-water/5.jpg",
+      "url": "https://storage.googleapis.com/midpeninsulawater-org/uploads/chuck_cotten_hs2.jpg",
+      "sha256": "95b99f90f3955838bc7b1eb7d38ee717ea95a96eee6cdc0bc2fab8a6cb0f8900",
+      "bytes": 5650
+    },
+    {
+      "path": "/portraits/midpeninsula-water/4.jpg",
+      "url": "https://storage.googleapis.com/midpeninsulawater-org/uploads/joann_covington_hs2.jpg",
+      "sha256": "21ae9339e7f10322148e7be98b5b390a7052043d2f5fb7e8f6ca576163bb8d47",
+      "bytes": 6502
+    },
+    {
+      "path": "/portraits/midpeninsula-water/3.jpg",
+      "url": "https://storage.googleapis.com/midpeninsulawater-org/uploads/neela_patel_150x2252.jpg",
+      "sha256": "3dd4d4148dcbb3ec0800729347890a56afa042e7604e390ccd4e55d772b4fd39",
+      "bytes": 33385
+    },
+    {
+      "path": "/branding/midpeninsula-water/logo.webp",
+      "url": "https://www.midpeninsulawater.org/img/logo.webp",
+      "sha256": "8c8b7c02559fd95028b5a393eb7c33bb9b558b54d8ba29da5b4bc3963e4320c9",
+      "bytes": 21630
+    }
+  ],
+  "notIncluded": [
+    "No owner, APN, voter profiles or other private matching records.",
+    "No copied biographies. No invented terms, office phone numbers, logos or portraits."
+  ],
+  "mapVerification": {
+    "adoption": "Ordinance 122, March 24, 2022, Plan 2",
+    "currentOfficialMapImage": "https://storage.googleapis.com/midpeninsulawater-org/uploads/Midpen-WD-Draft-Plan-2-122.jpeg",
+    "currentOfficialStreetDescriptions": "https://storage.googleapis.com/midpeninsulawater-org/uploads/MPWD_Boundaries_Text.pdf",
+    "method": "Visual numbered-boundary comparison of original RP final geometry to the current official map; no label crosswalk needed. Original projected geometry is used without simplification.",
+    "shapeField": "DISTRICT",
+    "verificationLevel": "adoption-and-current-published-map-visual-comparison"
+  }
+}

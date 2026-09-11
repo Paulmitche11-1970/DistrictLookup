@@ -1,0 +1,92 @@
+{
+  "san-mateo": [
+    {
+      "id": "1",
+      "district": "1",
+      "name": "Lisa Diaz Nash",
+      "photo": "/portraits/san-mateo/1.webp"
+    },
+    {
+      "id": "2",
+      "district": "2",
+      "name": "Nicole Fernandez",
+      "photo": "/portraits/san-mateo/2.webp"
+    },
+    {
+      "id": "3",
+      "district": "3",
+      "name": "Rob Newsom Jr.",
+      "photo": "/portraits/san-mateo/3.webp"
+    },
+    {
+      "id": "4",
+      "district": "4",
+      "name": "Danielle Cwirko-Godycki",
+      "photo": "/portraits/san-mateo/4.webp"
+    },
+    {
+      "id": "5",
+      "district": "5",
+      "name": "Adam Loraine",
+      "photo": "/portraits/san-mateo/5.webp"
+    }
+  ],
+  "burlingame": [
+    {
+      "id": "1",
+      "district": "1",
+      "name": "Andrea Pappajohn",
+      "photo": "/portraits/burlingame/1.webp"
+    },
+    {
+      "id": "2",
+      "district": "2",
+      "name": "Desiree Thayer",
+      "photo": "/portraits/burlingame/2.webp"
+    },
+    {
+      "id": "3",
+      "district": "3",
+      "name": "Michael Brownrigg",
+      "photo": "/portraits/burlingame/3.webp"
+    },
+    {
+      "id": "4",
+      "district": "4",
+      "name": "Donna Colson",
+      "photo": "/portraits/burlingame/4.webp"
+    },
+    {
+      "id": "5",
+      "district": "5",
+      "name": "Peter Stevenson",
+      "photo": "/portraits/burlingame/5.webp"
+    }
+  ],
+  "millbrae": [
+    {
+      "id": "1",
+      "district": "1",
+      "name": "Stephen Rainaldi",
+      "photo": "/portraits/millbrae/1.webp"
+    },
+    {
+      "id": "2",
+      "district": "2",
+      "name": "Sissy Riley",
+      "photo": "/portraits/millbrae/2.webp"
+    },
+    {
+      "id": "4",
+      "district": "4",
+      "name": "Bob Nguyen",
+      "photo": "/portraits/millbrae/4.webp"
+    },
+    {
+      "id": "5",
+      "district": "5",
+      "name": "Anders Fung",
+      "photo": "/portraits/millbrae/5.webp"
+    }
+  ]
+}

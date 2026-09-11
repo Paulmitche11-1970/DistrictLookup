@@ -3,6 +3,7 @@ import type { Content } from '@/lib/model';
 import { instanceFor, adminPath } from '@/lib/instances';
 import { designs } from '@/lib/designs';
 import { ManagementProfiles } from './management-profiles';
+import { agencyLabels, agencyDesignCopy } from '@/lib/agency-labels';
 
 export default function DesignGallery({
   content,
@@ -12,6 +13,10 @@ export default function DesignGallery({
   staff?: boolean;
 }) {
   const instance = instanceFor(content.agency.instanceId || 'martinez')!;
+  const labels = agencyLabels(instance);
+  const boardAgency = ['special', 'school', 'college'].includes(instance.kind);
+  const copy = (text: string) =>
+    boardAgency ? agencyDesignCopy(text, instance) : text;
   const base = '/' + instance.id;
   const preview =
     instance.previewDirectory || '/design-previews/' + instance.id;
@@ -56,7 +61,7 @@ export default function DesignGallery({
               <p className="gallery-agency-name">{content.agency.name}</p>
             )}
             <h1>
-              One {instance.kind === 'county' ? 'county' : 'city'}.
+              One {labels.place}.
               <br />
               <em>Four ways to connect.</em>
             </h1>
@@ -72,7 +77,7 @@ export default function DesignGallery({
             <Check size={16} /> Same {content.agency.shortName} address search
           </span>
           <span>
-            <Check size={16} /> Same districts & officials
+            <Check size={16} /> Same {labels.districtsLower} & officials
           </span>
           <span>
             <Check size={16} /> Street & satellite maps
@@ -114,20 +119,20 @@ export default function DesignGallery({
                 <h3>
                   {instance.kind === 'county'
                     ? design.label.replace('city', 'county')
-                    : design.label}
+                    : copy(design.label)}
                 </h3>
                 <p>
                   {instance.kind === 'county'
                     ? design.description.replace('council', 'board')
-                    : design.description}
+                    : copy(design.description)}
                 </p>
                 <div className="design-fit">
                   <strong>Best fit</strong>
-                  <p>{design.bestFor}</p>
+                  <p>{copy(design.bestFor)}</p>
                 </div>
                 <details>
                   <summary>What informed this design</summary>
-                  <p>{design.lesson}</p>
+                  <p>{copy(design.lesson)}</p>
                 </details>
                 <a className="design-open" href={designPath(design.path)}>
                   Try {design.name} <ArrowRight size={17} />
@@ -156,9 +161,9 @@ export default function DesignGallery({
               <h3>One workspace. Every design.</h3>
               <p>
                 Maintain elected officials, portraits, contact information,
-                display preferences, and district boundaries. Review drafts,
-                publish changes, and choose a design to embed on the agency
-                website.
+                display preferences, and {labels.districtLower} boundaries.
+                Review drafts, publish changes, and choose a design to embed on
+                the agency website.
               </p>
               <div className="design-fit">
                 <strong>Protected agency access</strong>

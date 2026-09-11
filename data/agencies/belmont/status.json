@@ -1,0 +1,18 @@
+{
+  "readyForPromotion": true,
+  "stage": "verified-preview-ready",
+  "addressCount": 7555,
+  "districts": 4,
+  "officials": 5,
+  "portraits": 5,
+  "notes": [
+    "Historical approximate parcel address coverage."
+  ],
+  "slug": "belmont",
+  "mapStatus": "valid-no-overlap",
+  "rosterStatus": "verified-current-official-website",
+  "verifiedPortraits": 5,
+  "pending": [
+    "Historical approximate parcel address coverage."
+  ]
+}

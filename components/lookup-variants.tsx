@@ -4,6 +4,7 @@ import { ArrowRight, Compass, MapPin } from 'lucide-react';
 import type { Content } from '@/lib/model';
 import { ManagementProfiles } from './management-profiles';
 import { colorFor } from '@/lib/model';
+import { agencyLabels } from '@/lib/agency-labels';
 import {
   atLargeOfficials,
   constituencyLabel,
@@ -34,6 +35,7 @@ export default function LookupVariant({
   preview?: boolean;
 }) {
   const lookup = useDistrictLookup(content, preview);
+  const labels = agencyLabels(content.agency);
   const answer = useRef<HTMLDivElement>(null);
   const officials = [
     ...atLargeOfficials(content),
@@ -61,6 +63,7 @@ export default function LookupVariant({
   const map = (
     <DistrictMapView
       geo={content.map}
+      districtLabel={content.agency.districtLabel}
       selected={lookup.selected}
       onSelect={lookup.selectDistrict}
       address={lookup.address}
@@ -95,7 +98,7 @@ export default function LookupVariant({
         <main className="concierge-main">
           <div className="concierge-intro">
             <h1>
-              Your address. <em>Your district.</em>
+              Your address. <em>Your {labels.districtLower}.</em>
             </h1>
             <p>{lookup.intro}</p>
           </div>
@@ -115,19 +118,25 @@ export default function LookupVariant({
                   <p>
                     Your address connects you to one of{' '}
                     {content.agency.shortName}’s {content.map.features.length}{' '}
-                    districts. Your representative’s details will appear here.
+                    {labels.districtsLower}. Your representative’s details will
+                    appear here.
                   </p>
                 </div>
               )}
             </section>
-            <section className="concierge-map" aria-label="District map">
+            <section
+              className="concierge-map"
+              aria-label={`${labels.district} map`}
+            >
               {map}
             </section>
           </div>
-          <section className="concierge-roster" aria-label="Browse districts">
+          <section
+            className="concierge-roster"
+            aria-label={`Browse ${labels.districtsLower}`}
+          >
             <div className="concierge-roster-label">
-              Or browse your{' '}
-              {content.agency.kind === 'county' ? 'board' : 'council'}
+              Or browse your {labels.bodyShort}
             </div>
             <div className="concierge-roster-items">
               {officials.map((official) => (
@@ -144,7 +153,7 @@ export default function LookupVariant({
                     <Portrait official={official} className="avatar" />
                   )}
                   <span>
-                    <small>{constituencyLabel(official)}</small>
+                    <small>{constituencyLabel(official, content.agency)}</small>
                     <strong>
                       {official.vacant ? 'Vacant seat' : official.name}
                     </strong>
@@ -173,28 +182,29 @@ export default function LookupVariant({
                 <span className="eyebrow">
                   Explore {content.agency.shortName}
                 </span>
-                <h1>Find your district.</h1>
+                <h1>Find your {labels.districtLower}.</h1>
               </div>
             </div>
           </section>
           <div className="explorer-workspace">
             {map}
-            <aside className="explorer-answer" aria-label="District details">
+            <aside
+              className="explorer-answer"
+              aria-label={`${labels.district} details`}
+            >
               <div className="explorer-search">{search}</div>
               {lookup.hasResult ? (
                 result
               ) : (
                 <>
                   <span className="eyebrow">
-                    {content.agency.kind === 'county'
-                      ? 'One county.'
-                      : 'One city.'}{' '}
-                    {content.map.features.length} districts.
+                    One {labels.place}. {content.map.features.length}{' '}
+                    {labels.districtsLower}.
                   </span>
                   <h2>Where do you fit in?</h2>
                   <p>
-                    Search your address for your representative, or choose a
-                    district to explore.
+                    Search your address for your representative, or choose a{' '}
+                    {labels.districtLower} to explore.
                   </p>
                   <CouncilList content={content} lookup={lookup} />
                 </>
@@ -217,17 +227,13 @@ export default function LookupVariant({
               <h1>
                 Meet your
                 <br />
-                <em>
-                  {content.agency.kind === 'county'
-                    ? 'Supervisors.'
-                    : 'City Council.'}
-                </em>
+                <em>{labels.presentationBody}.</em>
               </h1>
               <p>{lookup.intro}</p>
             </div>
             <div className="council-search">
               <span className="council-search-caption">
-                <MapPin size={18} /> Find your district
+                <MapPin size={18} /> Find your {labels.districtLower}
               </span>
               {search}
               {lookup.hasResult && (
@@ -239,7 +245,7 @@ export default function LookupVariant({
           </section>
           <section
             className="council-portraits"
-            aria-label="Representatives by district"
+            aria-label={`Representatives by ${labels.districtLower}`}
             data-count={officials.length}
             style={
               {
@@ -265,7 +271,7 @@ export default function LookupVariant({
               >
                 <span className="council-seat-label">
                   {official.district !== null
-                    ? `${!content.agency.kind || content.agency.kind === 'city' ? 'Council District' : 'District'} ${official.district}`
+                    ? `${labels.presentationDistrict} ${official.district}`
                     : hasTitle(official, 'Mayor')
                       ? 'Mayor'
                       : 'At Large'}
@@ -284,7 +290,7 @@ export default function LookupVariant({
                 </div>
                 <div className="council-person-text">
                   {official.district === null && (
-                    <span>{constituencyLabel(official)}</span>
+                    <span>{constituencyLabel(official, content.agency)}</span>
                   )}
                   <h2>{official.vacant ? 'Vacant seat' : official.name}</h2>
                   <small>{titleLabel(official)}</small>
@@ -294,7 +300,7 @@ export default function LookupVariant({
           </section>
           <section
             className="council-detail"
-            aria-label="Your district and representative"
+            aria-label={`Your ${labels.districtLower} and representative`}
             ref={answer}
             tabIndex={-1}
           >
@@ -307,16 +313,17 @@ export default function LookupVariant({
                   <h2>
                     A closer look
                     <br />
-                    at your district.
+                    at your {labels.districtLower}.
                   </h2>
                   <p>
-                    Every {content.agency.shortName} address belongs to a
-                    district. Find yours above, or select a representative to
-                    see their district and contact information.
+                    Every {content.agency.shortName} address belongs to a{' '}
+                    {labels.districtLower}. Find yours above, or select a
+                    representative to see their {labels.districtLower} and
+                    contact information.
                   </p>
                   <span className="council-detail-note">
                     <Compass size={21} /> {content.map.features.length}{' '}
-                    districts. One community.
+                    {labels.districtsLower}. One community.
                   </span>
                 </>
               )}

@@ -19,6 +19,8 @@ const launchAgencies = [
   { id: 'diamond-bar', addresses: 17975, vacancies: 0 },
   { id: 'butte-county', addresses: 123888, vacancies: 0 },
   { id: 'yolo-county', addresses: 102817, vacancies: 0 },
+  { id: 'belmont', addresses: 7555, vacancies: 0 },
+  { id: 'midpeninsula-water', addresses: 7824, vacancies: 0 },
 ] as const;
 
 function readPackage(id: string) {
@@ -80,7 +82,12 @@ for (const expected of launchAgencies) {
     const districts = map.features.map(
       (feature) => feature.properties.district,
     );
-    assert.deepEqual([...districts].sort(), ['1', '2', '3', '4', '5']);
+    assert.deepEqual(
+      [...districts].sort(),
+      expected.id === 'belmont'
+        ? ['1', '2', '3', '4']
+        : ['1', '2', '3', '4', '5'],
+    );
     assert.equal(new Set(districts).size, districts.length);
     assert.equal(instance.districtCount, districts.length);
 

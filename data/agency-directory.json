@@ -70,10 +70,10 @@
     "name": "Belmont",
     "type": "cities",
     "website": "https://www.belmont.gov/",
-    "state": "CA",
+    "state": "California",
     "id": "belmont",
     "status": "in-progress",
-    "logo": "",
+    "logo": "/branding/agencies/belmont.svg",
     "logoSource": "",
     "logoNote": "HTTPError"
   },
@@ -84,7 +84,7 @@
     "state": "CA",
     "id": "burlingame",
     "status": "in-progress",
-    "logo": "",
+    "logo": "/branding/agencies/burlingame.webp",
     "logoSource": "",
     "logoNote": "HTTPError"
   },
@@ -253,7 +253,7 @@
     "state": "CA",
     "id": "millbrae",
     "status": "in-progress",
-    "logo": "",
+    "logo": "/branding/agencies/millbrae.webp",
     "logoSource": "",
     "logoNote": "HTTPError"
   },
@@ -500,5 +500,13 @@
     "logo": "/branding/agencies/imperial-county.webp",
     "logoSource": "https://board.imperialcounty.org/wp-content/uploads/brizy/imgs/halflogoblue-570x283x0x0x570x283x1567723159.png",
     "logoAlt": ""
+  },
+  {
+    "id": "midpeninsula-water",
+    "name": "Mid-Peninsula Water District",
+    "type": "special",
+    "state": "California",
+    "logo": "/branding/midpeninsula-water/logo.webp",
+    "status": "in-progress"
   }
 ]

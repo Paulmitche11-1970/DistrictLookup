@@ -1,0 +1,149 @@
+{
+  "verifiedAt": "2026-09-11",
+  "geography": {
+    "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Belmont\\Final Plan Folder for Submission\\Belmont Final Plan from Plan 2.shp",
+    "sha256": "c7a491dfd9148dba6746fdffff54065f418c9751ea442e778dd644907528198b",
+    "field": "DISTRICT",
+    "sourceCrs": "EPSG:4269",
+    "outputCrs": "EPSG:4326",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "excludedFeatures": [
+      {
+        "district": "",
+        "reason": "Explicit unassigned zero-population feature; not an elected district.",
+        "sourceArea": 2e-06,
+        "bounds": [
+          -122.30195,
+          37.523365,
+          -122.301773,
+          37.523439
+        ]
+      }
+    ],
+    "validation": "Original final line polygons valid and nonoverlapping. No simplification or boundary trimming. Districts 1 northeast, 2 east/central, 3 central/south, 4 west match the numbered final map linked on the current city council page.",
+    "officialMapImage": "https://www.belmont.gov/home/showpublishedimage/17162/638501592363330000",
+    "officialMapPdf": "https://www.belmont.gov/home/showpublisheddocument/21453/637844267769400000",
+    "adoptionPage": "https://www.belmont.gov/our-city/city-government/district-elections-2",
+    "adopted": "2022-04-12",
+    "legalEffectiveDate": "Not independently established; left blank."
+  },
+  "roster": {
+    "localMatches": [
+      {
+        "Off_Full Name": "Julia Mates",
+        "Off_Title": "Mayor",
+        "Off_Agency": "BELMONT",
+        "Off_District": null,
+        "Off_Term Expires": "2026",
+        "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+      },
+      {
+        "Off_Full Name": "Cathy Jordan",
+        "Off_Title": "Vice Mayor, District 2",
+        "Off_Agency": "BELMONT",
+        "Off_District": "2",
+        "Off_Term Expires": "2028",
+        "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+      },
+      {
+        "Off_Full Name": "Robin Pang-Maganaris",
+        "Off_Title": "District 3",
+        "Off_Agency": "BELMONT",
+        "Off_District": "3",
+        "Off_Term Expires": "2026",
+        "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+      },
+      {
+        "Off_Full Name": "Tom McCune",
+        "Off_Title": "District 4",
+        "Off_Agency": "BELMONT",
+        "Off_District": "4",
+        "Off_Term Expires": "2028",
+        "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+      },
+      {
+        "Off_Full Name": "Gina Latimerlo",
+        "Off_Title": "District 1",
+        "Off_Agency": "BELMONT",
+        "Off_District": "1",
+        "Off_Term Expires": "2026",
+        "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities first 75 Matches.xlsx"
+      }
+    ],
+    "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+    "notes": [
+      "Names, districts, emails and term months verified on the current live city roster. Cathy Jordan current heading says Vice Mayor; historical Robin paragraph expressly says calendar year 2025.",
+      "At-large mayor is separate from four numbered council districts; mayor included in every address result.",
+      "No unverified phone or copied biography text added."
+    ]
+  },
+  "addresses": {
+    "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Belmont\\Final Plan Folder for Submission\\Belmont Final Plan By Parcels.shp",
+    "sourceRecords": 8938,
+    "acceptedUnique": 7555,
+    "countsByDistrict": {
+      "2": 2155,
+      "4": 2062,
+      "1": 1607,
+      "3": 1731
+    },
+    "rejected": {
+      "outside_postal_city": 725,
+      "no_number_or_street": 139,
+      "address_range": 38,
+      "district_geometry_mismatch": 3
+    },
+    "method": "Historical public situs parcel interior points. City-name filter plus single-district containment and original parcel district agreement. Address ranges and conflicting duplicates excluded. Only street address/city/location retained; no APN, ownership or voter records."
+  },
+  "assets": [
+    {
+      "name": "Julia Mates",
+      "district": null,
+      "assetId": "87338ae786c400b6",
+      "path": "/portraits/belmont/mayor.webp",
+      "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+      "sourceImage": "https://www.belmont.gov/home/showpublishedimage/17747/638700527316770000"
+    },
+    {
+      "name": "Gina Latimerlo",
+      "district": "1",
+      "assetId": "5bf6457bab784248",
+      "path": "/portraits/belmont/1.webp",
+      "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+      "sourceImage": "https://www.belmont.gov/home/showpublishedimage/15450/638065556549730000"
+    },
+    {
+      "name": "Cathy Jordan",
+      "district": "2",
+      "assetId": "8fd077555e71baf0",
+      "path": "/portraits/belmont/2.webp",
+      "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+      "sourceImage": "https://www.belmont.gov/home/showpublishedimage/17745/638700526310730000"
+    },
+    {
+      "name": "Robin Pang-Maganaris",
+      "district": "3",
+      "assetId": "2f6e52cc816ed66b",
+      "path": "/portraits/belmont/3.webp",
+      "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+      "sourceImage": "https://www.belmont.gov/home/showpublishedimage/15448/638065553815030000"
+    },
+    {
+      "name": "Tom McCune",
+      "district": "4",
+      "assetId": "17fdd2edb576ed61",
+      "path": "/portraits/belmont/4.webp",
+      "sourcePage": "https://www.belmont.gov/departments/meetings-agendas-minutes/council-commissions-committees-boards/city-council",
+      "sourceImage": "https://www.belmont.gov/home/showpublishedimage/17160/638501539906200000"
+    }
+  ],
+  "branding": {
+    "source": "https://www.belmont.gov/Project/Contents/Main/_gfx/cmn/logo.svg",
+    "display": "Original white vector logo on a green backplate for contrast; original geometry preserved."
+  }
+}

@@ -39,9 +39,11 @@ export type DistrictElection = {
   status: 'district' | 'transition';
   firstElection?: string;
 };
+export type DistrictLabel = 'District' | 'Division' | 'Zone' | 'Trustee Area';
 export type Agency = {
   instanceId?: string;
   kind?: 'city' | 'county' | 'school' | 'college' | 'special';
+  districtLabel?: DistrictLabel;
   logo?: string;
   slogan?: string;
   addressMode?: 'local' | 'pending';

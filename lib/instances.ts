@@ -1,9 +1,11 @@
 import records from '../data/instances.json';
+import type { DistrictLabel } from './model';
 export type AgencyInstance = {
   id: string;
   name: string;
   shortName: string;
   kind: 'city' | 'county' | 'school' | 'college' | 'special';
+  districtLabel?: DistrictLabel;
   seedDirectory: string;
   bounds: number[];
   logo: string;

@@ -9,6 +9,7 @@ import { hasBiography } from '@/lib/biography';
 import { constituencyLabel, titleLabel } from '@/lib/representation';
 import { phoneHref, termLabel } from '@/lib/model';
 import { designs } from '@/lib/designs';
+import { agencyLabels } from '@/lib/agency-labels';
 import { Brand, LookupFooter } from './lookup-shared';
 
 export async function OfficialBiographyPage({
@@ -64,7 +65,7 @@ export async function OfficialBiographyPage({
             sandbox={a.sandbox}
           />
           <a className="biography-back" href={back}>
-            <ArrowLeft size={17} /> District lookup
+            <ArrowLeft size={17} /> {agencyLabels(a).district} lookup
           </a>
         </header>
         {preview && (
@@ -85,7 +86,7 @@ export async function OfficialBiographyPage({
             <div>
               <p className="eyebrow">{a.name}</p>
               <p className="biography-office">
-                {titleLabel(official)} · {constituencyLabel(official)}
+                {titleLabel(official)} · {constituencyLabel(official, a)}
               </p>
               <h1 id="official-name">{official.name}</h1>
               {official.termEnd && (
@@ -155,7 +156,8 @@ export async function OfficialBiographyPage({
                 </div>
               )}
               <a className="biography-back" href={back}>
-                <ArrowLeft size={16} /> Find your district
+                <ArrowLeft size={16} /> Find your{' '}
+                {agencyLabels(a).districtLower}
               </a>
             </aside>
           </div>

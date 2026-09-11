@@ -135,5 +135,12 @@
     "No private voter records, ages, household profiles, party affiliations or residential voter matches.",
     "No biographies copied; profile links provided.",
     "No staff-contact or term-limit claims invented."
-  ]
+  ],
+  "portraitRefresh": {
+    "date": "2026-09-11",
+    "manifest": "data/portrait-backfill-20260911.json",
+    "verifiedPortraits": 5,
+    "sourceManifest": "docs/sources/portraits-20260911.json",
+    "method": "Official publicly rendered city profiles; images matched to named incumbent and district. Preserves edited or uploaded photos."
+  }
 }

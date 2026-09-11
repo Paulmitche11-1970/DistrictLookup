@@ -1,0 +1,20 @@
+{
+  "slug": "midpeninsula-water",
+  "agency": "Mid-Peninsula Water District",
+  "readyForReview": true,
+  "readyForPromotion": true,
+  "stage": "verified-preview-ready",
+  "districts": 5,
+  "officials": 5,
+  "vacancies": 0,
+  "verifiedPortraits": 5,
+  "addressCount": 7824,
+  "addressMethod": "parcel-interior",
+  "pending": [
+    "Historical parcel addresses are approximate, not rooftop geocodes; new construction, ranges and unit-specific addresses may be missing."
+  ],
+  "mapStatus": "valid-no-overlap",
+  "currentBoundaryVerified": true,
+  "rosterStatus": "verified-current-official-website",
+  "sourceCheckedAt": "2026-09-11"
+}

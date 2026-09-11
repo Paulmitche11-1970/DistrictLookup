@@ -25,7 +25,11 @@ export function LookupHeader({
           target="_blank"
           rel="noreferrer"
         >
-          {a.kind === 'county' ? 'County website' : 'City website'}{' '}
+          {a.kind === 'county'
+            ? 'County website'
+            : !a.kind || a.kind === 'city'
+              ? 'City website'
+              : 'Agency website'}{' '}
           <ArrowUpRight size={15} />
         </a>
       </nav>

@@ -11,6 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import type { Content } from '@/lib/model';
+import { agencyLabels } from '@/lib/agency-labels';
 import { instanceFor, adminPath } from '@/lib/instances';
 import clientAgencies from '@/data/agency-directory.json';
 const directoryAgencies = clientAgencies.filter((a) => a.id !== 'martinez');
@@ -234,14 +235,15 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                           ? ' · ' +
                             (instance?.districtCount ||
                               content.map.features.length) +
-                            ' districts · ' +
+                            ' ' +
+                            agencyLabels(instance).districtsLower +
+                            ' · ' +
                             (instance?.officialCount ||
                               content.officials.filter(
                                 (o) => o.district !== null,
                               ).length) +
-                            (instance?.kind === 'county'
-                              ? ' supervisors'
-                              : ' councilmembers')
+                            ' ' +
+                            agencyLabels(instance).members.toLowerCase()
                           : ''}
                       </p>
                       <span className="agency-build-note">
