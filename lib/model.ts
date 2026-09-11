@@ -98,7 +98,27 @@ export const districtColors: Record<string, string> = {
   '5': '#b06580',
 };
 export function colorFor(id: string) {
-  return districtColors[id] || '#64748b';
+  if (districtColors[id]) return districtColors[id];
+  const palette = [
+    '#2a808b',
+    '#c68b35',
+    '#7972b6',
+    '#4f91c9',
+    '#b06580',
+    '#658a45',
+    '#b7653f',
+    '#517c99',
+    '#956696',
+    '#84783c',
+  ];
+  // Preserve existing 1–5 colors and support lettered and larger district plans.
+  const suffix = id.toUpperCase().match(/(?:^|\D)(\d+)$|([A-Z])$/);
+  const index = suffix?.[1]
+    ? Number(suffix[1]) - 1
+    : suffix?.[2]
+      ? suffix[2].charCodeAt(0) - 65
+      : -1;
+  return index >= 0 ? palette[index % palette.length] : '#64748b';
 }
 export function phoneHref(value: string) {
   const match = value.match(

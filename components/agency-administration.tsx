@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
   Building2,
   LayoutGrid,
+  Layers,
   Search,
   ShieldCheck,
 } from 'lucide-react';
@@ -59,6 +60,16 @@ export default function AgencyAdministration({
         </div>
         {team && (
           <nav className={styles.tools} aria-label="RP administration tools">
+            <a href="/admin/boundaries">
+              <Layers size={24} />
+              <div>
+                <h2>Boundary library</h2>
+                <p>
+                  Review imported school, college, and special-district maps.
+                </p>
+              </div>
+              <ArrowUpRight size={20} />
+            </a>
             <a href="/logs">
               <Activity size={24} />
               <div>
@@ -120,7 +131,9 @@ export default function AgencyAdministration({
                   </div>
                   <h3>{agency.name}</h3>
                   <p className="small muted">
-                    {agency.districtCount ? `${agency.districtCount} ${labels.districtsLower}` : '4 lookup designs'}
+                    {agency.districtCount
+                      ? `${agency.districtCount} ${labels.districtsLower}`
+                      : '4 lookup designs'}
                   </p>
                   <a
                     className="btn primary"

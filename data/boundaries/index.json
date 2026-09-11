@@ -1,0 +1,3225 @@
+{
+  "importedAt": "2026-09-11T18:34:39.653606+00:00",
+  "sourceRootLabel": "RP Redistricting Files",
+  "categories": [
+    "School districts",
+    "County education boards",
+    "Community colleges",
+    "Special districts"
+  ],
+  "summary": {
+    "School districts": {
+      "imported": 9
+    },
+    "County education boards": {
+      "imported": 4,
+      "imported-needs-review": 4
+    },
+    "Community colleges": {
+      "imported": 18,
+      "imported-needs-review": 9
+    },
+    "Special districts": {
+      "imported": 23,
+      "imported-needs-review": 3
+    }
+  },
+  "agencies": [
+    {
+      "id": "belmont-redwood-shores-school-district",
+      "name": "Belmont-Redwood Shores School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Belmont-Redwood Shores SD/FINAL MATERIALS/BRSSD Final Plan 2023/Shapefile Final Plan 2023/Final Plan Draft E.shp",
+      "shapefile": "Final Plan Draft E.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.334209,
+        37.47628,
+        -122.149811,
+        37.577414
+      ],
+      "parts": {
+        "1": 2,
+        "5": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "177b3a4e6223e4667a312912bb9dfaa5aa641b4514df244c5cf7e10e770f3e86",
+      "compressedBytes": 13557
+    },
+    {
+      "id": "central-unified-school-district",
+      "name": "Central Unified School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Central Unified School District/Base Data/CUSD_TrusteeArea_ApprovedBlocks.shp",
+      "shapefile": "CUSD_TrusteeArea_ApprovedBlocks.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DistrictNu",
+      "sourceRecords": 988,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 8,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.0338289999084,
+        36.662484999882906,
+        -119.83551499981735,
+        36.858548999636696
+      ],
+      "parts": {
+        "6": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "4": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "dfb708f5d4fa66c575e4a0c134d5a557c901281ea8b6a2b3f968760f50497680",
+      "compressedBytes": 32640
+    },
+    {
+      "id": "clay-joint-elementary-school-district",
+      "name": "Clay Joint Elementary School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Clay Elementary School/Final Plan/Clay Elementary Final Plan.shp",
+      "shapefile": "Clay Elementary Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 4,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 4,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -119.529728,
+        36.530688,
+        -119.482112,
+        36.575488
+      ],
+      "parts": {
+        "3": 1,
+        "2": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "fb99dbb8eb447e540903159bc2a4bb28299ec102ac9c5db80acb8dffe76fb98a",
+      "compressedBytes": 2208
+    },
+    {
+      "id": "dry-creek-joint-elementary-school-district",
+      "name": "Dry Creek Joint Elementary School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Dry Creek Joint ESD/FINAL MATERIALS/DCJESD Adopted Map for County/DCJESD Adopted Map.shp",
+      "shapefile": "DCJESD Adopted Map.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.36472,
+        38.702304,
+        -121.301824,
+        38.781729
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 2,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "b7c5c9884bd56e8e04460145140577b2339d3ec6472cdb740ea5e35abba3dd8c",
+      "compressedBytes": 6016
+    },
+    {
+      "id": "lompoc-unified-school-district",
+      "name": "Lompoc Unified School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Lompoc Unified SD/Lompoc Final Submission/Lompoc USD Final Plan.shp",
+      "shapefile": "Lompoc USD Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.653439,
+        34.441539,
+        -120.243815,
+        34.780058
+      ],
+      "parts": {
+        "3": 1,
+        "1": 1,
+        "5": 1,
+        "4": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "358345123c5679ab1851bc2caa9589db03c8652ecb907cce09bc204c7cc5efcd",
+      "compressedBytes": 37765
+    },
+    {
+      "id": "new-haven-unified-school-district",
+      "name": "New Haven Unified School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "New Haven Unified/Final Plan/New Haven USD Final Plan from Plan B2.shp",
+      "shapefile": "New Haven USD Final Plan from Plan B2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.09676,
+        37.561391,
+        -121.93977,
+        37.636598
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "ce1f53cd2e964bc46ae7ec3b3e75dd1b4ebad13bad90d3e333436a83c5e6cb72",
+      "compressedBytes": 10962
+    },
+    {
+      "id": "placer-union-high-school-district",
+      "name": "Placer Union High School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Placer Union High School District/FINAL MATERIALS/PUHSD Final Map Placer County/Shapefile PUHSD Adopted A3/PUHSD Adopted Map A3.shp",
+      "shapefile": "PUHSD Adopted Map A3.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.237993,
+        38.750289,
+        -120.254914,
+        39.315559
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "0f55e0545eb8bd8411778fead3752002450bc9f31faf7a4d64c56b7c99051cb2",
+      "compressedBytes": 115438
+    },
+    {
+      "id": "riverdale-joint-unified-school-district",
+      "name": "Riverdale Joint Unified School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Riverdale Unified School District/FINAL PLAN FOLDER RIVERDALE JUSD/Final Plan Shapefile/Riverdale Final Plan Shapefile.shp",
+      "shapefile": "Riverdale Final Plan Shapefile.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.393515,
+        36.255447,
+        -119.761477,
+        36.546821
+      ],
+      "parts": {
+        "7": 2,
+        "4": 1,
+        "5": 1,
+        "3": 2,
+        "2": 1,
+        "1": 2,
+        "6": 1
+      },
+      "overlaps": [],
+      "mapSha256": "dc15f7ca57502d66f99d31480c79608e38ae579aff899445a626abe2ae73a097",
+      "compressedBytes": 22801
+    },
+    {
+      "id": "roseville-city-school-district",
+      "name": "Roseville City School District",
+      "category": "School districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Roseville City School District/FINAL MATERIALS/RCSD Final Materials for County/Shapefile FINAL RCSD/Final Map B2.shp",
+      "shapefile": "Final Map B2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.469806,
+        38.717734,
+        -121.217839,
+        38.824675
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 9,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "750b819d04ed9ddd031fb3adfeca4fbd9448c54bb7bb263e0c115a9de20819e8",
+      "compressedBytes": 23465
+    },
+    {
+      "id": "alameda-county-board-of-education",
+      "name": "Alameda County Board of Education",
+      "category": "County education boards",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Alameda COE/Alameda COE Final Plan Submission/Alameda COE Final Plan Shapefile/Alameda COE Final Plan.shp",
+      "shapefile": "Alameda COE Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.346681,
+        37.454186,
+        -121.469214,
+        37.905824
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "0aefef4fd41fafd383b5f0870a86cff0a84e7d7a3fce02625bc7905a48d294fa",
+      "compressedBytes": 79967
+    },
+    {
+      "id": "contra-costa-county-board-of-education",
+      "name": "Contra Costa County Board of Education",
+      "category": "County education boards",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Contra Costa County Office of Education/CoCo COE Final Plan Submission Folder/Draft Plan D 3 Adopted Plan 2.9.2022.shp",
+      "shapefile": "Draft Plan D 3 Adopted Plan 2.9.2022.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.441584,
+        37.718531,
+        -121.534102,
+        38.099878
+      ],
+      "parts": {
+        "2": 1,
+        "1": 1,
+        "5": 1,
+        "3": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c6f8381ac58f31a6a95e873b1721d9ef9ccb470265bfd74ffbfb54245a6ca32b",
+      "compressedBytes": 49639
+    },
+    {
+      "id": "fresno-county-board-of-education",
+      "name": "Fresno County Board of Education",
+      "category": "County education boards",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Fresno County Board of Education/FRESNO COE FINAL FOLDER/FInal Plan Shapefile/Fresno COE FInal Shapefile.shp",
+      "shapefile": "Fresno COE FInal Shapefile.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.76544,
+        35.90656,
+        -118.361088,
+        37.584896
+      ],
+      "parts": {
+        "1": 1,
+        "2": 7,
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "72ad8d1fecb58f10e2754a39555dcc0cf75f8f15b30c1b97559e7081235eef8b",
+      "compressedBytes": 102315
+    },
+    {
+      "id": "napa-county-board-of-education",
+      "name": "Napa County Board of Education",
+      "category": "County education boards",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Napa County BOE/Final Plan Submission/Napa County BOE Final Plan.shp",
+      "shapefile": "Napa County BOE Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.752211,
+        38.142957,
+        -122.061379,
+        38.864245
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "1d05ce21e02006a879b7269694ba729472e7eb0fd63a282ee3044d7216b5ba7b",
+      "compressedBytes": 90986
+    },
+    {
+      "id": "orange-county-office-of-education",
+      "name": "Orange County Office of Education",
+      "category": "County education boards",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Orange County Office of Education/2021 Adopted OC COE Shape Hand Drawn by Vance/2021 Adopted OC COE Plan Hand Drawn by Vance.shp",
+      "shapefile": "2021 Adopted OC COE Plan Hand Drawn by Vance.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -118.117803,
+        33.383629,
+        -117.412987,
+        33.947636
+      ],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "8e3c20c5f08ba31c401a783dacc84a9ed02e892776d5223d814c9f2ccce1a089",
+      "compressedBytes": 83111
+    },
+    {
+      "id": "riverside-county-board-of-education",
+      "name": "Riverside County Board of Education",
+      "category": "County education boards",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Riverside BOE/FROM THE COUNTY SHAPES/Riverside COE Draft Plan 3 final adopted.shp",
+      "shapefile": "Riverside COE Draft Plan 3 final adopted.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.676684,
+        33.247324,
+        -114.434949,
+        34.079884
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "76420cff4720651fb65ff3f2fe77f966512643b352c052100c4d37799eae4ce9",
+      "compressedBytes": 119953
+    },
+    {
+      "id": "san-luis-obispo-county-board-of-education",
+      "name": "San Luis Obispo County Board of Education",
+      "category": "County education boards",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "San Luis Obispo BOE/SLO BOE Final Plan.shp",
+      "shapefile": "SLO BOE Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.654685,
+        34.897576,
+        -119.472552,
+        36.141294
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "7aafc3e8b74d8543a5362909de0ed948dc4d371780518ebf8ca97c09f3ebf64a",
+      "compressedBytes": 236600
+    },
+    {
+      "id": "ventura-county-board-of-education",
+      "name": "Ventura County Board of Education",
+      "category": "County education boards",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Ventura County BOE/Final Plan Submission/Ventura BOE Final Plan.shp",
+      "shapefile": "Ventura BOE Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -119.579576,
+        33.214604,
+        -118.632523,
+        34.789485
+      ],
+      "parts": {
+        "1": 3,
+        "2": 3,
+        "3": 1,
+        "4": 1,
+        "5": 6
+      },
+      "overlaps": [],
+      "mapSha256": "de794b3c2b87789130be8f62a197c95e3c635872d9f83ba24dee1bdd21a349b8",
+      "compressedBytes": 184354
+    },
+    {
+      "id": "barstow-community-college-district",
+      "name": "Barstow Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Barstow CCD/Final Map Folder/Barstow CCD FInal Approved Map Shapefile/Barstow FInal Approved Map Shapefile.shp",
+      "shapefile": "Barstow FInal Approved Map Shapefile.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.63329,
+        34.4508,
+        -114.713182,
+        35.810468
+      ],
+      "parts": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "overlaps": [],
+      "mapSha256": "a990516ac0ac65e038bcab5e72bd4a7b8ed487e9a0e52c7c0509a4c2a1a3daa9",
+      "compressedBytes": 54638
+    },
+    {
+      "id": "cabrillo-community-college-district",
+      "name": "Cabrillo Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Cabrillo CCD/Final Plan/Cabrillo CCD Plan A Final Shape.shp",
+      "shapefile": "Cabrillo CCD Plan A Final Shape.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 6,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.317237,
+        36.810273,
+        -121.582308,
+        37.229369
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "2c5b9eaf14547839a84c55337682b64b799700a7fbd23876501e026086ca9557",
+      "compressedBytes": 135143
+    },
+    {
+      "id": "cerritos-community-college-district",
+      "name": "Cerritos Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Cerritos CCD/Cerritos CCD Final Plan/Cerritos CCD Final Plan Shapefile/Cerritos CCD Final Plan.shp",
+      "shapefile": "Cerritos CCD Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -118.177839,
+        33.815494,
+        -117.976496,
+        33.973312
+      ],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "7b8dd92766e2713ac64d85b143610fdbfbabe4b34731dafca0f327e130375d88",
+      "compressedBytes": 17084
+    },
+    {
+      "id": "compton-community-college-district",
+      "name": "Compton Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Compton CCD/Compton Final Shape (2)/Compton Final Shape.zip :: Compton Final Shape.shp",
+      "shapefile": "Compton Final Shape.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "COMPA",
+        "COMPB",
+        "COMPC",
+        "COMPD",
+        "COMPE"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [
+        -118.273989,
+        33.853773,
+        -118.142427,
+        33.945441
+      ],
+      "parts": {
+        "COMPA": 2,
+        "COMPC": 1,
+        "COMPB": 2,
+        "COMPE": 1,
+        "COMPD": 1
+      },
+      "overlaps": [],
+      "mapSha256": "f6a485e004deb05c42036d4b3b902bbbbc070e7aa24d114e9ff81659482e9b1d",
+      "compressedBytes": 13263
+    },
+    {
+      "id": "foothill-de-anza-community-college-district",
+      "name": "Foothill-De Anza Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Foothill De Anza CCD/Final Plan for Submission/Foothill DeAnza CCD Final Plan 2022.shp",
+      "shapefile": "Foothill DeAnza CCD Final Plan 2022.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.202653,
+        37.264508,
+        -121.9664,
+        37.477838
+      ],
+      "parts": {
+        "3": 1,
+        "5": 1,
+        "4": 1,
+        "1": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "086b9eeef85841120418361e4b210cba0f9dcc4e80ab08f83d1723442fffa5d6",
+      "compressedBytes": 42602
+    },
+    {
+      "id": "grossmont-cuyamaca-community-college-district",
+      "name": "Grossmont-Cuyamaca Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Grossmont Cuyamaca CCD/Final/GCCCD_Adopted_Plan.shp",
+      "shapefile": "GCCCD_Adopted_Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DATA",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [
+        "Legacy export: DATA supplies the five area labels. Confirm all assignments against the adopted plan before public address lookup."
+      ],
+      "localRosterCount": 4,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [
+        -117.06695,
+        32.560297,
+        -116.102558,
+        32.963696
+      ],
+      "parts": {
+        "4": 1,
+        "1": 1,
+        "5": 1,
+        "3": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "678a271d841b42d65c2346a3e3cb0d56386fabb8fb35f21625749e6410b50a5a",
+      "compressedBytes": 40155
+    },
+    {
+      "id": "kern-community-college-district",
+      "name": "Kern Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Kern CCD 2021/Kern CCD 2022 Final Map Submission Folder/Kern CCD Map 4.shp",
+      "shapefile": "Kern CCD Map 4.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.194152,
+        34.790609,
+        -115.648357,
+        37.735285
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "e83c3f28704fd99b652c0d8bef7902cd8d863b532a5db7b4e0600dc9441d1496",
+      "compressedBytes": 118870
+    },
+    {
+      "id": "long-beach-community-college-district",
+      "name": "Long Beach Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Long Beach City College/Final Submissions Folder/Long Beach CCD Final Plan - D5.shp",
+      "shapefile": "Long Beach CCD Final Plan - D5.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -118.60612144567136,
+        33.299087308828604,
+        -118.07174648692609,
+        33.88546708734137
+      ],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "5": 1,
+        "3": 1,
+        "4": 2
+      },
+      "overlaps": [],
+      "mapSha256": "79efbdcb4259fe4d5904efa645e133986a32c9b7a26dab3d7723e86fa35ebf0e",
+      "compressedBytes": 145597
+    },
+    {
+      "id": "los-rios-community-college-district",
+      "name": "Los Rios Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Los Rios CCD/Final Packet materials/Los Rios CCD Final 2022 Redistricted Map/Los Rios CCD 2022 Final Map Shapefile/Los Rios Final 2022 Map from A2.shp",
+      "shapefile": "Los Rios Final 2022 Map from A2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.877265,
+        38.21494,
+        -120.042125,
+        39.067478
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "e58b95bd31706f7143d833f68737f41797ee733ebe3b6718ec8ceb7321d2725c",
+      "compressedBytes": 94639
+    },
+    {
+      "id": "mt-san-antonio-community-college-district",
+      "name": "Mt. San Antonio Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Mt. San Antonio CCD/Mt Sac 2022 Final Plan Submission Folder/Mt Sac Current Lines.zip :: Mt Sac Current Lines.shp",
+      "shapefile": "Mt Sac Current Lines.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 8,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -118.01489370100244,
+        33.94576231387885,
+        -117.71106834508512,
+        34.22329483893953
+      ],
+      "parts": {
+        "7": 1,
+        "1": 1,
+        "2": 1,
+        "5": 1,
+        "6": 1,
+        "3": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "8a7680a8c6f6958c6676bf771503db751514eec9babb0105e99932ffa916b783",
+      "compressedBytes": 112111
+    },
+    {
+      "id": "mt-san-jacinto-community-college-district",
+      "name": "Mt. San Jacinto Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Mt. San Jacinto CCD/Mt. San Jacinto Final Maps Packet/Final Plan from Plan B2.shp",
+      "shapefile": "Final Plan from Plan B2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.535033,
+        33.426574,
+        -116.512108,
+        34.034113
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "5d0c2a89b370666fbdcf2c7e1704f66006f390e6c93e942c66b96ed48940d5b2",
+      "compressedBytes": 70285
+    },
+    {
+      "id": "napa-valley-community-college-district",
+      "name": "Napa Valley Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Napa County NVC/Napa NVC Final Plan Folder/Napa NVC Final Plan.shp",
+      "shapefile": "Napa NVC Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 6,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.752211,
+        38.142957,
+        -122.061379,
+        38.864245
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "40dd016538875c5a831d44d168201f3b985408d45e47e8a4d1e28274f91147b3",
+      "compressedBytes": 93801
+    },
+    {
+      "id": "pasadena-area-community-college-district",
+      "name": "Pasadena Area Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Pasadena CCD/PCCD Final Plan Submission Folder/Pasadena CCD Approved Map 12.15.shp",
+      "shapefile": "Pasadena CCD Approved Map 12.15.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -118.223438,
+        34.062676,
+        -117.871166,
+        34.381913
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "efdec07c3263ef7d62256142470fadd8365e089aa8e9b2f39a1a4daa4c83c251",
+      "compressedBytes": 33221
+    },
+    {
+      "id": "rio-hondo-community-college-district",
+      "name": "Rio Hondo Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Rio Hondo CCD/Final Map Folder/Rio Hondo Final Plan from A2.shp",
+      "shapefile": "Rio Hondo Final Plan from A2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [
+        "District polygons overlap. Review the recorded overlap areas before address lookup."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:2229",
+      "bounds": [
+        -118.12290484251045,
+        33.91667397820707,
+        -117.97550604409231,
+        34.112845416695635
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [
+        {
+          "districts": [
+            "3",
+            "5"
+          ],
+          "squareMeters": 0.012
+        }
+      ],
+      "mapSha256": "f0d6daec0d1981a6c477956eee98ecc58de9e11e999fbf6c800a83ce94b6411b",
+      "compressedBytes": 93983
+    },
+    {
+      "id": "riverside-community-college-district",
+      "name": "Riverside Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Riverside CCD/Final Redistricting Materials/Final 2022 shapefile/Export_Output_8.shp",
+      "shapefile": "Export_Output_8.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DIST_ID",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [
+        "District polygons overlap. Review the recorded overlap areas before address lookup."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.67653246290246,
+        33.727609786898995,
+        -117.12106333066743,
+        34.034243400620525
+      ],
+      "parts": {
+        "5": 1,
+        "4": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "overlaps": [
+        {
+          "districts": [
+            "1",
+            "4"
+          ],
+          "squareMeters": 3.707
+        },
+        {
+          "districts": [
+            "2",
+            "3"
+          ],
+          "squareMeters": 2.588
+        },
+        {
+          "districts": [
+            "2",
+            "4"
+          ],
+          "squareMeters": 1.992
+        },
+        {
+          "districts": [
+            "3",
+            "5"
+          ],
+          "squareMeters": 0.608
+        }
+      ],
+      "mapSha256": "8fe0e19ede4f95d05014bb20485abe64cc9fa0be235361eb98d945f3b2bfe4ce",
+      "compressedBytes": 59605
+    },
+    {
+      "id": "san-bernardino-community-college-district",
+      "name": "San Bernardino Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "San Bernardino CCD/2022 Final Map Materials/San Bernardino CCD 2022 Final Map D/SBCCD Final Map Shapefile/SBCCD Final Map from Plan D.shp",
+      "shapefile": "SBCCD Final Map from Plan D.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.559218,
+        33.973576,
+        -116.606539,
+        34.383369
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "1fd421376f50cedfe8a27c48f55d7d51b4bd0d8a3e75634765f566f2b956b785",
+      "compressedBytes": 89490
+    },
+    {
+      "id": "san-joaquin-delta-community-college-district",
+      "name": "San Joaquin Delta Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "San Joaquin Delta/SJDC_FinalTrusteeAreas_2022.shp",
+      "shapefile": "SJDC_FinalTrusteeAreas_2022.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.922329,
+        37.481783,
+        -120.262494,
+        38.48426
+      ],
+      "parts": {
+        "4": 1,
+        "5": 1,
+        "3": 1,
+        "2": 1,
+        "1": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "93846e882e4beaf35389af6876a0f9b22f952dae1418e433a6d49b4c4649eabc",
+      "compressedBytes": 85551
+    },
+    {
+      "id": "san-jose-evergreen-community-college-district",
+      "name": "San Jose-Evergreen Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "San Jose Evergreen CCD/San Jose Evergreen Final Map Submission Folder/San Jose Evergreen Final Map 2022 - Plan D5.shp",
+      "shapefile": "San Jose Evergreen Final Map 2022 - Plan D5.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.04602738094042,
+        37.16087,
+        -121.462791,
+        37.484637
+      ],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "5": 1,
+        "6": 1,
+        "3": 1,
+        "4": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "564b109914aa97834e9b3208c0642e92c3a7518b129e357e6076cab708ccf344",
+      "compressedBytes": 92340
+    },
+    {
+      "id": "san-luis-obispo-county-community-college-district-cuesta",
+      "name": "San Luis Obispo County Community College District (Cuesta)",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Cuesta College District/Cuesta CCD Final Plan Submission/Cuesta CCD  Final Plan Shapefile/Cuesta CCD Final Plan.shp",
+      "shapefile": "Cuesta CCD Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.654685,
+        34.897576,
+        -119.472552,
+        36.141294
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 2,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "7aafc3e8b74d8543a5362909de0ed948dc4d371780518ebf8ca97c09f3ebf64a",
+      "compressedBytes": 236600
+    },
+    {
+      "id": "shasta-tehama-trinity-joint-community-college-district",
+      "name": "Shasta-Tehama-Trinity Joint Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Shasta CCD/Final Plan/Shasta CCD Final Map 2022 Documents/Shasta CCD Final Map Shapefile 2022/Shasta CCD Final Plan.shp",
+      "shapefile": "Shasta CCD Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -123.666234,
+        39.796018,
+        -120.978648,
+        41.368139
+      ],
+      "parts": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1,
+        "F": 1,
+        "G": 1
+      },
+      "overlaps": [],
+      "mapSha256": "8217986ff5496fe87e05f213b49434e5bc1c1458e580c7e0fdffe88120434783",
+      "compressedBytes": 233466
+    },
+    {
+      "id": "siskiyou-joint-community-college-district",
+      "name": "Siskiyou Joint Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Siskiyou CCD/Final Plan/Final Plan from Plan B3.shp",
+      "shapefile": "Final Plan from Plan B3.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -123.719174,
+        40.992193,
+        -121.445994,
+        42.009503
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "fc1eb2e0c8ddc8b5372f230eb288f2be52a65b7f8756da55f2dcfe4773f66382",
+      "compressedBytes": 209246
+    },
+    {
+      "id": "sonoma-county-junior-college-district-santa-rosa",
+      "name": "Sonoma County Junior College District (Santa Rosa)",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Santa Rosa CCD/Santa Rosa Junior College Final 2020 Districting Packet/Final Shapefile/Santa Rosa Junior College Final Plan Map A.shp",
+      "shapefile": "Santa Rosa Junior College Final Plan Map A.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -123.746478,
+        38.068708,
+        -122.35218,
+        39.092339
+      ],
+      "parts": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "341cd0aa77af3f63570cd172cb30df9fe88f48588463f25d54862d895f08cf57",
+      "compressedBytes": 143352
+    },
+    {
+      "id": "south-orange-county-community-college-district",
+      "name": "South Orange County Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "South Orange Community College District/South Orange CCD Final Plan/Final Plan from Plan 3.shp",
+      "shapefile": "Final Plan from Plan 3.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 6,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.869509,
+        33.386895,
+        -117.412987,
+        33.784103
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 2,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "ef5cc75cddf3b3b63fb1ccc83f190e6364c2e0856d14f34e5654b2a745edcce7",
+      "compressedBytes": 66490
+    },
+    {
+      "id": "southwestern-community-college-district",
+      "name": "Southwestern Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Southwestern CCD/Final Plan for Submission/Southwestern CCD B2 Final Plan.shp",
+      "shapefile": "Southwestern CCD B2 Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.227904,
+        32.534307,
+        -116.822016,
+        32.716224
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "b54fe2972bb9db49d3e82678424fbd144fdcd740b6b39abaa54ea8ab64c6cf3f",
+      "compressedBytes": 28382
+    },
+    {
+      "id": "victor-valley-community-college-district",
+      "name": "Victor Valley Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Victor Valley CCD/2022 Final Submission Folder/Victor Valley Final 2022 Redistricting Map B/Shapefile Final Map B/Victor Valley Final Plan 2022 - Plan B.shp",
+      "shapefile": "Victor Valley Final Plan 2022 - Plan B.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 6,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.695195,
+        34.205366,
+        -116.402924,
+        34.822526
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "4dc4fce8c8132df42029fd4f871bb8cbeb0f2a2a6b3a0ca314f8479bd902855a",
+      "compressedBytes": 77698
+    },
+    {
+      "id": "yosemite-community-college-district",
+      "name": "Yosemite Community College District",
+      "category": "Community colleges",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Yosemite CCD/2026 Final Packet/Yosemite CCD Clean Up 2026.shp",
+      "shapefile": "Yosemite CCD Clean Up 2026.shp",
+      "selectionNote": "Selected the 2026 Final Packet cleanup map instead of the older Final Packet plan.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "The source has population in an unassigned feature. Resolve coverage before address lookup."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.700872,
+        37.073434,
+        -119.196182,
+        38.509869
+      ],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "3ecad4f8a0fed3fc0829a1e20d62063eaa0b1ef3ac4e4f035eb3e7aefaccb495",
+      "compressedBytes": 109915
+    },
+    {
+      "id": "yuba-community-college-district",
+      "name": "Yuba Community College District",
+      "category": "Community colleges",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Yuba CCD/Legacy File Atlas/YubaFinalPlan.shp",
+      "shapefile": "YubaFinalPlan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [
+        -122.892676,
+        38.582601,
+        -121.009477,
+        39.757539
+      ],
+      "parts": {
+        "7": 1,
+        "6": 1,
+        "5": 1,
+        "3": 1,
+        "1": 1,
+        "4": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "28bb01694f7d619aa9767b763640a537a39b12fc12657d05378b6711b1bdbefb",
+      "compressedBytes": 149052
+    },
+    {
+      "id": "coastside-county-water-district",
+      "name": "Coastside County Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Coastside Water District/Coastside Water Final Folder/Coastside Water Final Shapefile/Coastside Water District Final Plan Shapefile.shp",
+      "shapefile": "Coastside Water District Final Plan Shapefile.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -122.508221,
+        37.34187899999999,
+        -122.36655300000001,
+        37.536104
+      ],
+      "parts": {
+        "4": 1,
+        "3": 5,
+        "5": 2,
+        "2": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "155c2d7f2c9bda4e7eab1b142745461fb76922be42055249cc4a216b016b9e37",
+      "compressedBytes": 34063
+    },
+    {
+      "id": "coastside-fire-district",
+      "name": "Coastside Fire District",
+      "category": "Special districts",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Coastside Fire District/Final Submission Folder/Coastside Fire Parcel/Coastside Fire District Final Plan from Parcels.shp",
+      "shapefile": "Coastside Fire District Final Plan from Parcels.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [
+        "District polygons overlap. Review the recorded overlap areas before address lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -122.51951238262184,
+        37.36524985218054,
+        -122.35664431326974,
+        37.55112395583692
+      ],
+      "parts": {
+        "C": 2,
+        "D": 2,
+        "E": 1,
+        "A": 1,
+        "B": 69
+      },
+      "overlaps": [
+        {
+          "districts": [
+            "A",
+            "B"
+          ],
+          "squareMeters": 469.106
+        },
+        {
+          "districts": [
+            "A",
+            "C"
+          ],
+          "squareMeters": 94.071
+        },
+        {
+          "districts": [
+            "B",
+            "C"
+          ],
+          "squareMeters": 396.693
+        },
+        {
+          "districts": [
+            "B",
+            "D"
+          ],
+          "squareMeters": 170.018
+        },
+        {
+          "districts": [
+            "C",
+            "D"
+          ],
+          "squareMeters": 26.217
+        },
+        {
+          "districts": [
+            "C",
+            "E"
+          ],
+          "squareMeters": 282.06
+        },
+        {
+          "districts": [
+            "D",
+            "E"
+          ],
+          "squareMeters": 258.067
+        }
+      ],
+      "mapSha256": "21c4f30daff2e99211cb013aaa2d455c8bb662dba1754e389fe920db83920b4c",
+      "compressedBytes": 211849
+    },
+    {
+      "id": "cosumnes-community-services-district",
+      "name": "Cosumnes Community Services District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Cosumnes CSD/Final Plan Folder for Submission/Cosumnes CSD Final Plan.shp",
+      "shapefile": "Cosumnes CSD Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -121.502692,
+        38.227243,
+        -121.24147,
+        38.453209
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "f658e5cd5252717ab7cd2d4f9506dc67750cc2ab51124e6d120dd7dc9cbc7e48",
+      "compressedBytes": 31568
+    },
+    {
+      "id": "goleta-water-district",
+      "name": "Goleta Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Goleta Water District/Final Plan/Goleta Water District Final Plan from D2.shp",
+      "shapefile": "Goleta Water District Final Plan from D2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -120.00096,
+        34.404544,
+        -119.728064,
+        34.493312
+      ],
+      "parts": {
+        "5": 7,
+        "4": 1,
+        "3": 11,
+        "1": 7,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "d5f8c8ddba3a3f0f7bb986c1e051aba7bb1ec810dce0729fa052200dc0863f0c",
+      "compressedBytes": 20364
+    },
+    {
+      "id": "goleta-west-sanitary-district",
+      "name": "Goleta West Sanitary District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Goleta West Sanitary District/FINAL MATERIALS/County Access GWSD Final Map 2023/Shapefile Final Plan GWSD/GWSD Final Map 2023.shp",
+      "shapefile": "GWSD Final Map 2023.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -119.921856,
+        34.408256,
+        -119.842976,
+        34.460704
+      ],
+      "parts": {
+        "2": 1,
+        "1": 2,
+        "4": 1,
+        "3": 2,
+        "5": 2
+      },
+      "overlaps": [],
+      "mapSha256": "1ed5671b289844328b31e2f1568af8561a79d7a97c9dd39d9338a572a88543e7",
+      "compressedBytes": 6218
+    },
+    {
+      "id": "hayward-area-recreation-and-park-district",
+      "name": "Hayward Area Recreation and Park District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Hayward Parks & Rec/FINAL MATERIALS/HARD Final Materials for County/FINAL MAP shapefile/HARD Final Map.shp",
+      "shapefile": "HARD Final Map.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.167289,
+        37.559646,
+        -121.931022,
+        37.800083
+      ],
+      "parts": {
+        "2": 1,
+        "5": 1,
+        "3": 1,
+        "1": 1,
+        "4": 2
+      },
+      "overlaps": [],
+      "mapSha256": "11c381dd46a1fc71e937166d53424a10c2c46eb9d24d09ebcfcedd9cbbbd8c54",
+      "compressedBytes": 44228
+    },
+    {
+      "id": "imperial-irrigation-district",
+      "name": "Imperial Irrigation District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Imperial Irrigation District/Final Plans/IID Draft Plan D 12-03.shp",
+      "shapefile": "IID Draft Plan D 12-03.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -116.084736,
+        32.651584,
+        -114.70848,
+        33.426432
+      ],
+      "parts": {
+        "3": 38,
+        "1": 107,
+        "5": 6,
+        "4": 7,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "ffa0feec93223c392f7a2b90ae49a26e338ef52ec8b92989dee743e711948c52",
+      "compressedBytes": 73038
+    },
+    {
+      "id": "inland-empire-utilities-agency",
+      "name": "Inland Empire Utilities Agency",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Inland Empire Utility Agency/Final Plan Folder/Inland Empire Utility Agency Final Plan from H3.shp",
+      "shapefile": "Inland Empire Utility Agency Final Plan from H3.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.802539,
+        33.87089,
+        -117.400826,
+        34.179399
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "e20f8218083beaebb126dc058a4c9c1d2fc7db048d54bb9a980115a3f8b37aa8",
+      "compressedBytes": 25325
+    },
+    {
+      "id": "midpeninsula-water-district",
+      "name": "Midpeninsula Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Midpeninsula Water District/Final Plan for Submission/Mid Peninsula WD Final Plan from 2.shp",
+      "shapefile": "Mid Peninsula WD Final Plan from 2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.328878,
+        37.497053,
+        -122.256045,
+        37.534388
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "9b3ce94f5db2f3f759b3e06d8b07322a81172d4c8b2ff0e092d5c3a470043578",
+      "compressedBytes": 9907
+    },
+    {
+      "id": "modesto-irrigation-district",
+      "name": "Modesto Irrigation District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Modesto Irrigation District/Base Data/FinalTrustee_ModestoIrrigationDistrict_2012.shp",
+      "shapefile": "FinalTrustee_ModestoIrrigationDistrict_2012.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "districtField": "District",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:2227",
+      "bounds": [
+        -121.20635777730725,
+        37.590903153874194,
+        -120.44172088507763,
+        37.75443231996218
+      ],
+      "parts": {
+        "D2": 1,
+        "D5": 1,
+        "D4": 1,
+        "D1": 3,
+        "D3": 1
+      },
+      "overlaps": [],
+      "mapSha256": "47df6dbadf188aae23e04a2bd79f80b4e19bb1da9968177eb67fa33fdc6234aa",
+      "compressedBytes": 73808
+    },
+    {
+      "id": "montara-water-and-sanitary-district",
+      "name": "Montara Water and Sanitary District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Montara Water and Sanitary District/FINAL MATERIALS/MWSD FINAL DISTRICTING PACKET 2023/Shapefile Final Map MWSD/MWSD FINAL MAP.shp",
+      "shapefile": "MWSD FINAL MAP.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.51951,
+        37.495455,
+        -122.477752,
+        37.580503
+      ],
+      "parts": {
+        "3": 1,
+        "1": 1,
+        "4": 1,
+        "2": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "bfad851eb7ad159d2bbefebb38cc704985f796ae96491469f69cdf3e81e4288a",
+      "compressedBytes": 9537
+    },
+    {
+      "id": "nevada-irrigation-district",
+      "name": "Nevada Irrigation District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Nevada Irrigation District/NID final plan submission folder/NID_Plan_E_Modified_20220908.shp",
+      "shapefile": "NID_Plan_E_Modified_20220908.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4326",
+      "bounds": [
+        -121.35855399999994,
+        38.860880000000044,
+        -120.85263899999997,
+        39.34197499999998
+      ],
+      "parts": {
+        "4": 1,
+        "3": 3,
+        "5": 26,
+        "2": 1,
+        "1": 4
+      },
+      "overlaps": [],
+      "mapSha256": "7e47d133eac331e240a8494009643685ded57d48c46f56941672a22dc8cf1fe8",
+      "compressedBytes": 126192
+    },
+    {
+      "id": "north-coast-county-water-district",
+      "name": "North Coast County Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "North Coast County Water District/Final Packet/NCCWD Plan B3 Final.shp",
+      "shapefile": "NCCWD Plan B3 Final.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "PROJCS[\"Mercator_2SP\",GEOGCS[\"GCS_unnamed ellipse\",DATUM[\"D_unknown\",SPHEROID[\"Unknown\",6378137,0]],PRIMEM[\"Unknown\",0],UNIT[\"Degree\",0.017453292519943295]],PROJECTION[\"Mercator\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"Meter\",1]]",
+      "bounds": [
+        -122.515326,
+        37.566037,
+        -122.44342200000001,
+        37.666957999999994
+      ],
+      "parts": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "overlaps": [],
+      "mapSha256": "9e33a254a528a34d9f7f73d94c028c2d42a3b999a2242337981d5ae5a825070f",
+      "compressedBytes": 18569
+    },
+    {
+      "id": "north-marin-water-district",
+      "name": "North Marin Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "North Marin Water District/Base Data/North Marin Water District Detailed Plan Shapes/Final_Plan 2019-08-21.shp",
+      "shapefile": "Final_Plan 2019-08-21.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [
+        -122.977782,
+        37.999815,
+        -122.481364,
+        38.269974
+      ],
+      "parts": {
+        "1": 3,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "04d968fc1744b34905e4d03468d07a06d5807cfe777b1bc9c0daccc3349dd268",
+      "compressedBytes": 46774
+    },
+    {
+      "id": "novato-fire-protection-district",
+      "name": "Novato Fire Protection District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Novato Fire/Novato Final District Lines/Novato Fire Final District Lines.shp",
+      "shapefile": "Novato Fire Final District Lines.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [
+        -122.703657,
+        38.039387,
+        -122.481364,
+        38.188783
+      ],
+      "parts": {
+        "3": 1,
+        "1": 1,
+        "4": 2,
+        "2": 1,
+        "5": 2
+      },
+      "overlaps": [],
+      "mapSha256": "e28511aea960193d3f8fe5de9b2f4746a3f5020cd1321a6b299b98d0c79d7d14",
+      "compressedBytes": 21668
+    },
+    {
+      "id": "olivehurst-public-utility-district",
+      "name": "Olivehurst Public Utility District",
+      "category": "Special districts",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "OPUD/Final Plan/OPUD Final Plan Base on Parcels.shp",
+      "shapefile": "OPUD Final Plan Base on Parcels.shp",
+      "selectionNote": "Selected the parcel-based plan in OPUD/Final Plan. Rejected a misplaced final-labeled file in the draft-shapefile folder that duplicated Mt. San Jacinto CCD.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [
+        "District polygons overlap. Review the recorded overlap areas before address lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:2226",
+      "bounds": [
+        -121.59089255966542,
+        38.963816819298856,
+        -121.5162108165724,
+        39.11539905029764
+      ],
+      "parts": {
+        "5": 1,
+        "3": 3,
+        "4": 1,
+        "1": 4,
+        "2": 1
+      },
+      "overlaps": [
+        {
+          "districts": [
+            "1",
+            "2"
+          ],
+          "squareMeters": 1217.769
+        },
+        {
+          "districts": [
+            "2",
+            "3"
+          ],
+          "squareMeters": 911.315
+        },
+        {
+          "districts": [
+            "3",
+            "4"
+          ],
+          "squareMeters": 354.972
+        },
+        {
+          "districts": [
+            "4",
+            "5"
+          ],
+          "squareMeters": 1097.393
+        }
+      ],
+      "mapSha256": "557d658a5228b7d9fc26ce1f754c143735f56b94ab42678013e2e14b2b11f8bf",
+      "compressedBytes": 140664
+    },
+    {
+      "id": "olivenhain-municipal-water-district",
+      "name": "Olivenhain Municipal Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Olivenhain Water District/Final Plan for Submission/Olivenhain WD Final Plan from C2.shp",
+      "shapefile": "Olivenhain WD Final Plan from C2.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -117.287341,
+        32.970181,
+        -117.08990100000001,
+        33.09577699999999
+      ],
+      "parts": {
+        "1": 1,
+        "4": 1,
+        "3": 1,
+        "5": 2,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "12ec8f892283fa6abb1246bea9c84ff12e5df5f2bb29674c538eeae3c707f2f0",
+      "compressedBytes": 46449
+    },
+    {
+      "id": "ramona-municipal-water-district",
+      "name": "Ramona Municipal Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Ramona Water District/Final Plan Submission/Ramona Municipal Water District Final Plan.shp",
+      "shapefile": "Ramona Municipal Water District Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.019273,
+        32.930813,
+        -116.754092,
+        33.095116
+      ],
+      "parts": {
+        "1": 1,
+        "2": 9,
+        "3": 10,
+        "4": 1,
+        "5": 8
+      },
+      "overlaps": [],
+      "mapSha256": "98d7d578e75bef543c1d66e1ff718c30d0d4a757fab71f5812b5fee8f385f3be",
+      "compressedBytes": 40449
+    },
+    {
+      "id": "rincon-del-diablo-municipal-water-district",
+      "name": "Rincon del Diablo Municipal Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Rincon del Diablo Municipal Water District/Rincon Final Plan for Submission/Rincon Del Diablo Final Plan from C.shp",
+      "shapefile": "Rincon Del Diablo Final Plan from C.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -117.139952,
+        33.05824,
+        -117.006973,
+        33.19613
+      ],
+      "parts": {
+        "1": 1,
+        "2": 3,
+        "3": 2,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c0df6700a0e682222be85351791720faa56d74a56e6820528107aa18d96068ac",
+      "compressedBytes": 40053
+    },
+    {
+      "id": "sacramento-metropolitan-fire-district",
+      "name": "Sacramento Metropolitan Fire District",
+      "category": "Special districts",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Sac Metro Fire District/Final Packet/Sacramento Metro Fire District Final Plan Reconciled.shp",
+      "shapefile": "Sacramento Metro Fire District Final Plan Reconciled.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 10,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "District polygons overlap. Review the recorded overlap areas before address lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -121.48942601299999,
+        38.39430365308477,
+        -121.02445780785243,
+        38.751609851
+      ],
+      "parts": {
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "1": 1,
+        "2": 2,
+        "7": 3,
+        "8": 1,
+        "9": 1,
+        "3": 1
+      },
+      "overlaps": [
+        {
+          "districts": [
+            "1",
+            "2"
+          ],
+          "squareMeters": 85.355
+        },
+        {
+          "districts": [
+            "1",
+            "3"
+          ],
+          "squareMeters": 42.689
+        },
+        {
+          "districts": [
+            "1",
+            "6"
+          ],
+          "squareMeters": 198.912
+        },
+        {
+          "districts": [
+            "1",
+            "7"
+          ],
+          "squareMeters": 52.488
+        },
+        {
+          "districts": [
+            "2",
+            "3"
+          ],
+          "squareMeters": 220.489
+        },
+        {
+          "districts": [
+            "2",
+            "5"
+          ],
+          "squareMeters": 154.559
+        },
+        {
+          "districts": [
+            "2",
+            "7"
+          ],
+          "squareMeters": 102.011
+        },
+        {
+          "districts": [
+            "3",
+            "5"
+          ],
+          "squareMeters": 140.257
+        },
+        {
+          "districts": [
+            "4",
+            "8"
+          ],
+          "squareMeters": 456.172
+        },
+        {
+          "districts": [
+            "4",
+            "9"
+          ],
+          "squareMeters": 694.242
+        },
+        {
+          "districts": [
+            "5",
+            "7"
+          ],
+          "squareMeters": 185.742
+        },
+        {
+          "districts": [
+            "5",
+            "8"
+          ],
+          "squareMeters": 353.667
+        },
+        {
+          "districts": [
+            "6",
+            "7"
+          ],
+          "squareMeters": 330.831
+        },
+        {
+          "districts": [
+            "6",
+            "8"
+          ],
+          "squareMeters": 0.43
+        },
+        {
+          "districts": [
+            "7",
+            "8"
+          ],
+          "squareMeters": 138.569
+        },
+        {
+          "districts": [
+            "8",
+            "9"
+          ],
+          "squareMeters": 296.951
+        }
+      ],
+      "mapSha256": "51f8927781d503fdf5f588b5d62f3c541aff58989f3fe0beb6dcb44e8d7453e3",
+      "compressedBytes": 118115
+    },
+    {
+      "id": "san-mateo-county-harbor-district",
+      "name": "San Mateo County Harbor District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "San Mateo Harbor District/Final Plan Shape.shp",
+      "shapefile": "Final Plan Shape.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.525015,
+        37.10299,
+        -122.111237,
+        37.708617
+      ],
+      "parts": {
+        "2": 1,
+        "5": 1,
+        "4": 1,
+        "1": 1,
+        "3": 1
+      },
+      "overlaps": [],
+      "mapSha256": "a9e438d05ee8dcfbc440826783588ef97b0c288c9a6ef64ee8e76f02c5a72ae8",
+      "compressedBytes": 59925
+    },
+    {
+      "id": "santa-clara-valley-open-space-authority",
+      "name": "Santa Clara Valley Open Space Authority",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Santa Clara Valley Open Space Authority/Final Plan Submission/Santa Clara Valley Open Space Authority Final Plan.shp",
+      "shapefile": "Santa Clara Valley Open Space Authority Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.046041,
+        36.893026,
+        -121.208383,
+        37.484732
+      ],
+      "parts": {
+        "7": 1,
+        "6": 1,
+        "5": 3,
+        "4": 1,
+        "3": 3,
+        "2": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "2f6184eaabdcba1b194c949a0c7f3a80af31af54efa834e11d9b1a9d6f3e9713",
+      "compressedBytes": 200337
+    },
+    {
+      "id": "santa-clara-valley-water-district",
+      "name": "Santa Clara Valley Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Santa Clara Valley Water District/Santa Clara Valley Water Final Folder for Submission/SCVWD Final 2020 Plan/Final Plan Shapefile/Santa Clara Valley Water District Final Plan.shp",
+      "shapefile": "Santa Clara Valley Water District Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.202653,
+        36.892976,
+        -121.208178,
+        37.484637
+      ],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 2
+      },
+      "overlaps": [],
+      "mapSha256": "5e024205db7d04eeab8289b685f638ab95308dffb75b1e0eb9cebbde48b30ab2",
+      "compressedBytes": 135311
+    },
+    {
+      "id": "sequoia-healthcare-district",
+      "name": "Sequoia Healthcare District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Sequoia Healthcare District/Final Plan Submission/Sequoia HC Final Plan from D.shp",
+      "shapefile": "Sequoia HC Final Plan from D.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.368517,
+        37.318795,
+        -122.161628,
+        37.565934
+      ],
+      "parts": {
+        "A": 5,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1
+      },
+      "overlaps": [],
+      "mapSha256": "5198f86bdc49bc8ef010626cb68dea3e208cc992bcef237cc8a6a18f549da34b",
+      "compressedBytes": 55855
+    },
+    {
+      "id": "vista-fire-protection-district",
+      "name": "Vista Fire Protection District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Vista Fire Protection District/Final Submission Folder/VFPD FINAL DISTRICTED MAP AND MATERIALS/VFPD districted shapefile/Vista Fire Protection Final.shp",
+      "shapefile": "Vista Fire Protection Final.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -117.28162095887728,
+        33.136823537982586,
+        -117.17467431918767,
+        33.26860938536626
+      ],
+      "parts": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 2,
+        "E": 7
+      },
+      "overlaps": [],
+      "mapSha256": "ce1ffa2e7cdfa9cf928a6b52155d9d50828f56dc59e55106760bc7437a610fe4",
+      "compressedBytes": 73146
+    },
+    {
+      "id": "westborough-water-district",
+      "name": "Westborough Water District",
+      "category": "Special districts",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Westborough Water District/Final Districting Materials/Westborough Water District Final Plan.shp",
+      "shapefile": "Westborough Water District Final Plan.shp",
+      "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [
+        -122.472117,
+        37.63449,
+        -122.439865,
+        37.650555
+      ],
+      "parts": {
+        "2": 1,
+        "1": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "0b758b3502ef5d9e9678a0e548813356bdd0248d1fb23d733ffda9a9e6a13cdc",
+      "compressedBytes": 4340
+    }
+  ]
+}

@@ -3,6 +3,11 @@ import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 const files = readdirSync('tests').filter((f) => f.endsWith('.test.ts'));
 mkdirSync('.test-build/data', { recursive: true });
+mkdirSync('.test-build/data/boundaries', { recursive: true });
+writeFileSync(
+  '.test-build/data/boundaries/index.json',
+  readFileSync('data/boundaries/index.json'),
+);
 writeFileSync(
   '.test-build/data/instances.json',
   readFileSync('data/instances.json'),

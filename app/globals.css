@@ -457,6 +457,10 @@ svg {
   background: #e7eff3;
   isolation: isolate;
 }
+.agency-status.status-boundaries-imported {
+  color: #1c674e;
+  background: #e7f3ed;
+}
 .leaflet-map {
   position: absolute;
   inset: 0;

@@ -11,10 +11,22 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import type { Content } from '@/lib/model';
+import type { BoundaryDirectoryEntry } from '@/lib/boundary-model';
 import { agencyLabels } from '@/lib/agency-labels';
 import { instanceFor, adminPath } from '@/lib/instances';
 import clientAgencies from '@/data/agency-directory.json';
-const directoryAgencies = clientAgencies.filter((a) => a.id !== 'martinez');
+type DirectoryAgency = {
+  id: string;
+  name: string;
+  type: string;
+  state: string;
+  status: string;
+  logo?: string;
+  logoDark?: boolean;
+  boundaryId?: string;
+  boundaryDistrictCount?: number;
+  boundaryNeedsReview?: boolean;
+};
 const categories = [
   { id: 'cities', name: 'Cities', icon: Building2 },
   { id: 'counties', name: 'Counties', icon: Landmark },
@@ -28,12 +40,26 @@ const categories = [
 ];
 const statuses = [
   { id: 'in-progress', name: 'In progress' },
+  { id: 'boundaries-imported', name: 'Boundaries imported' },
+  { id: 'source-review', name: 'Source review needed' },
   { id: 'beginning-soon', name: 'Beginning soon' },
   { id: 'ready', name: 'Ready' },
   { id: 'claimed', name: 'Claimed' },
   { id: 'paid', name: 'Paid' },
 ];
-export default function InstanceDirectory({ content }: { content: Content }) {
+export default function InstanceDirectory({
+  content,
+  boundaries,
+}: {
+  content: Content;
+  boundaries: BoundaryDirectoryEntry[];
+}) {
+  const directoryAgencies: DirectoryAgency[] = [
+    ...clientAgencies
+      .filter((a) => a.id !== 'martinez')
+      .map((a) => ({ ...boundaries.find((b) => b.id === a.id), ...a })),
+    ...boundaries.filter((b) => !clientAgencies.some((a) => a.id === b.id)),
+  ];
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('all');
   const visible = directoryAgencies.filter(
@@ -49,6 +75,9 @@ export default function InstanceDirectory({ content }: { content: Content }) {
         </a>
         <nav aria-label="Site navigation">
           <span className="small muted">Internal team workspace</span>
+          <a href="/admin/boundaries">
+            Boundary library <ArrowRight size={15} />
+          </a>
           <a href="/logs">
             Activity logs <ArrowRight size={15} />
           </a>
@@ -247,14 +276,22 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                               ).length) +
                             ' ' +
                             agencyLabels(instance).members.toLowerCase()
-                          : ''}
+                          : a.boundaryDistrictCount
+                            ? ` · ${a.boundaryDistrictCount} ${a.type === 'special' ? 'areas' : 'trustee areas'}`
+                            : ''}
                       </p>
                       <span className="agency-build-note">
                         {built
                           ? '4 designs · Review workspace'
-                          : a.status === 'in-progress'
-                            ? 'Lookup preparation underway'
-                            : 'Lookup preparation pending'}
+                          : a.boundaryId
+                            ? a.status === 'source-review'
+                              ? 'Correct boundary source needed'
+                              : a.boundaryNeedsReview
+                                ? 'Map imported · Review notes'
+                                : 'Map imported · Lookup pages next'
+                            : a.status === 'in-progress'
+                              ? 'Lookup preparation underway'
+                              : 'Lookup preparation pending'}
                       </span>
                     </>
                   );
@@ -265,6 +302,14 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                           {body}
                           <ArrowRight className="card-open-arrow" size={16} />
                         </a>
+                      ) : a.boundaryId ? (
+                        <a
+                          href={'/admin/boundaries/' + a.boundaryId}
+                          className="compact-agency-main"
+                        >
+                          {body}
+                          <ArrowRight className="card-open-arrow" size={16} />
+                        </a>
                       ) : (
                         <div className="compact-agency-main">{body}</div>
                       )}
@@ -272,6 +317,10 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                         {built ? (
                           <a href={adminPath(a.id)}>
                             <ShieldCheck size={13} /> Agency admin
+                          </a>
+                        ) : a.boundaryId ? (
+                          <a href={'/admin/boundaries/' + a.boundaryId}>
+                            <ShieldCheck size={13} /> Review boundary
                           </a>
                         ) : (
                           <span className="admin-pending">
