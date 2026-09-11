@@ -1,5 +1,6 @@
 import { reviewDestination } from '@/lib/review-destination';
 import { LockKeyhole } from 'lucide-react';
+import { adminPath } from '@/lib/instances';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Review access | RP Data' };
 export default async function Page({
@@ -10,6 +11,7 @@ export default async function Page({
   const params = await searchParams;
   const scope = params.scope === 'rp' ? 'rp' : 'martinez';
   const next = reviewDestination(scope, params.next);
+  const administration = scope === 'rp' && next === '/admin';
   return (
     <main className="review-access-page">
       <form
@@ -20,7 +22,11 @@ export default async function Page({
         <span className="eyebrow">RP DATA · PRIVATE REVIEW</span>
         <LockKeyhole size={30} />
         <h1>
-          {scope === 'rp' ? 'Your agency workspace' : 'Martinez design review'}
+          {administration
+            ? 'RP administration'
+            : scope === 'rp'
+              ? 'Your agency workspace'
+              : 'Martinez design review'}
         </h1>
         <p className="muted">
           {scope === 'rp'
@@ -51,7 +57,12 @@ export default async function Page({
         <button className="btn primary" type="submit">
           Open workspace
         </button>
-        <a href="/admin" className="small">
+        <a
+          href={
+            scope === 'martinez' ? adminPath('martinez') : '/admin/agencies'
+          }
+          className="small"
+        >
           Agency administrator sign in
         </a>
       </form>

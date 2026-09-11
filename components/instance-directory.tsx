@@ -78,7 +78,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
               {
                 name: 'Martinez',
                 path: '/martinez',
-                admin: '/admin',
+                admin: adminPath('martinez'),
                 logo: '/branding/martinez-logo.svg',
                 detail: `${content.map.features.length} districts · 4 lookup designs`,
                 status: 'Design review',
@@ -112,7 +112,10 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                 </a>
                 <div className="agency-card-bottom">
                   <a href={agency.admin}>
-                    <ShieldCheck size={13} /> RP admin
+                    <ShieldCheck size={13} />{' '}
+                    {agency.name === 'Arpeeville'
+                      ? 'Edit agency'
+                      : 'Agency admin'}
                   </a>
                   <span className="agency-status status-design-review">
                     {agency.status}
@@ -268,7 +271,7 @@ export default function InstanceDirectory({ content }: { content: Content }) {
                       <div className="agency-card-bottom">
                         {built ? (
                           <a href={adminPath(a.id)}>
-                            <ShieldCheck size={13} /> RP admin
+                            <ShieldCheck size={13} /> Agency admin
                           </a>
                         ) : (
                           <span className="admin-pending">

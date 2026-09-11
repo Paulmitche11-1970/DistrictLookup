@@ -309,6 +309,13 @@ export default function AuthForm({
                 <ArrowLeft size={14} />
                 Return to the lookup
               </a>
+              <a
+                href="/admin/agencies"
+                className="small"
+                style={{ textAlign: 'center' }}
+              >
+                Choose another agency
+              </a>
             </form>
           </>
         )}

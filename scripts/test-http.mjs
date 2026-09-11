@@ -118,12 +118,14 @@ await call(
   },
   403,
 );
-await call('/api/auth/setup', {
+const setupResponse = await call('/api/auth/setup', {
   name: 'Quality assurance',
   email,
   password,
   setupToken: token,
 });
+assert.equal(setupResponse.next, '/martinez/admin/enroll');
+await call('/martinez/admin', null, 307);
 await call('/api/admin', null, 401);
 const enrollment = await call('/api/auth/enroll');
 const authenticator = new TOTP({
@@ -137,6 +139,9 @@ const authenticator = new TOTP({
 const code = authenticator.generate();
 const { recoveryCodes } = await call('/api/auth/enroll', { code });
 assert.equal(recoveryCodes.length, 10);
+assert.ok((await call('/martinez/admin')).includes('Agency workspace'));
+assert.ok((await call('/admin')).includes('RP administration'));
+await call('/belmont/admin', null, 307);
 let admin = await call('/api/admin');
 assert.equal(admin.content.map.features.length, 4);
 const address = (await call('/api/addresses?q=525%20Henrietta')).addresses[0];
@@ -257,10 +262,15 @@ await call(
 await call('/api/auth/logout', {});
 await call('/api/admin', null, 401);
 await call('/api/auth/login', { email, password: 'incorrect-password' }, 401);
-await call('/api/auth/login', { email, password });
+const loginResponse = await call('/api/auth/login', { email, password });
+assert.equal(loginResponse.next, '/martinez/admin/verify');
 await call('/api/admin', null, 401);
 await call('/api/auth/verify', { code: '000000' }, 401);
-await call('/api/auth/verify', { code: recoveryCodes[0], recovery: true });
+const verifyResponse = await call('/api/auth/verify', {
+  code: recoveryCodes[0],
+  recovery: true,
+});
+assert.equal(verifyResponse.next, '/martinez/admin');
 await call('/api/admin');
 await call('/api/auth/logout', {});
 await call('/api/auth/login', { email, password });

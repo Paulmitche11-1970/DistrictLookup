@@ -623,9 +623,7 @@ export default function AdminConsole({
                           ? '/arpeeville/preview'
                           : previewMode
                             ? base + '/lookup'
-                            : agencyId === 'martinez'
-                              ? '/admin/preview'
-                              : base + '/preview'
+                            : base + '/preview'
                       }
                       target="_blank"
                       rel="noreferrer"

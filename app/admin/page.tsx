@@ -1,12 +1,9 @@
-import { redirect } from 'next/navigation';
-import { session } from '@/lib/security';
-import AdminConsole from '@/components/admin-console';
+import { requireReviewAccess } from '@/lib/review-access';
+import AgencyAdministration from '@/components/agency-administration';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
+export const metadata = { title: 'RP administration | RP Data' };
 export default async function Page() {
-  const s = await session();
-  if (!s) redirect('/admin/login');
-  if (s.stage === 'enroll') redirect('/admin/enroll');
-  if (s.stage !== 'full' || !s.admin.totp_active) redirect('/admin/verify');
-  return <AdminConsole />;
+  await requireReviewAccess('rp', '/admin');
+  return <AgencyAdministration team />;
 }

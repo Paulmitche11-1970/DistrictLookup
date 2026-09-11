@@ -13,7 +13,7 @@ export default async function Page({
 }) {
   const s = await session();
   if (!s || s.stage !== 'full' || !s.admin.totp_active)
-    redirect('/admin/login');
+    redirect('/martinez/admin/login');
   const requested = (await searchParams).design;
   const content = state().draft;
   const design =

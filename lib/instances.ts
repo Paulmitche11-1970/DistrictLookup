@@ -30,5 +30,5 @@ export function apiPath(id: string) {
       : '/api/agencies/' + id;
 }
 export function adminPath(id: string) {
-  return id === 'martinez' ? '/admin' : '/' + id + '/admin';
+  return '/' + id + '/admin';
 }
