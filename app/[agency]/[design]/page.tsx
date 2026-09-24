@@ -1,4 +1,4 @@
-import { requireReviewAccess } from '@/lib/review-access';
+import { requireAgencyReviewAccess } from '@/lib/review-access';
 import { notFound, redirect } from 'next/navigation';
 import Lookup from '@/components/lookup';
 import LookupVariant from '@/components/lookup-variants';
@@ -26,8 +26,8 @@ export default async function Page({ params, searchParams }: Props) {
   const instance = instanceFor(agency);
   if (!instance) notFound();
   if (design === 'administration') {
-    await requireReviewAccess(
-      instance.id === 'martinez' ? 'martinez' : 'rp',
+    await requireAgencyReviewAccess(
+      instance.id,
       '/' + instance.id + '/administration',
     );
     const count = inAgency(instance.id, () =>

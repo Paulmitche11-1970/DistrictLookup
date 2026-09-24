@@ -1,0 +1,420 @@
+{
+  "checkedAt": "2026-09-24",
+  "roster": {
+    "id": "california-city",
+    "name": "City of California City",
+    "shortName": "California City",
+    "kind": "city",
+    "districtLabel": "District",
+    "logo": "/branding/agencies/california-city.png",
+    "website": "https://www.californiacity-ca.gov/",
+    "contactEmail": "cityclerk@californiacity-ca.gov",
+    "contactPhone": "(760) 373-7140",
+    "accent": "#0e376d",
+    "showMayor": true,
+    "officials": [
+      {
+        "id": "marquette-hawkins",
+        "district": null,
+        "name": "Marquette E. Hawkins",
+        "title": "Mayor",
+        "selectionMethod": "elected",
+        "email": "mhawkins@californiacity-ca.gov",
+        "phone": "(760) 338-1405",
+        "phoneLabel": "Cell",
+        "website": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "termEnd": "",
+        "photo": "/portraits/california-city/marquette-hawkins.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "jim-creighton",
+        "district": null,
+        "name": "Jim Creighton",
+        "title": "Mayor Pro Tem",
+        "selectionMethod": "appointed",
+        "email": "jcreighton@californiacity-ca.gov",
+        "phone": "(661) 752-3447",
+        "phoneLabel": "Cell",
+        "website": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "termEnd": "",
+        "photo": "/portraits/california-city/jim-creighton.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "ronald-smith",
+        "district": null,
+        "name": "Ronald Smith",
+        "title": "Councilmember",
+        "selectionMethod": "elected",
+        "email": "rsmith@californiacity-ca.gov",
+        "phone": "(661) 528-9809",
+        "phoneLabel": "Cell",
+        "website": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "termEnd": "",
+        "photo": "/portraits/california-city/ronald-smith.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "della-clark",
+        "district": null,
+        "name": "Della Clark",
+        "title": "Councilmember",
+        "selectionMethod": "appointed",
+        "email": "dclark@californiacity-ca.gov",
+        "phone": "(661) 752-3448",
+        "phoneLabel": "City cell",
+        "website": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "termEnd": "",
+        "photo": "/portraits/california-city/della-clark.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "shawn-bradley",
+        "district": null,
+        "name": "Shawn Bradley",
+        "title": "Councilmember",
+        "selectionMethod": "elected",
+        "email": "sbradley@californiacity-ca.gov",
+        "phone": "(760) 338-8130",
+        "phoneLabel": "City cell",
+        "website": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "termEnd": "",
+        "photo": "/portraits/california-city/shawn-bradley.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      }
+    ],
+    "districtElections": {
+      "1": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "2": {
+        "status": "transition",
+        "firstElection": "2028-11"
+      },
+      "3": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "4": {
+        "status": "transition",
+        "firstElection": "2028-11"
+      }
+    },
+    "dataReviewedAt": "2026-09-24",
+    "sourceUrl": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+    "notes": [
+      "All current members serve citywide. First district elections are November 2026 for districts 1 and 3 and November 2028 for districts 2 and 4. Do not assign incumbents by residence or candidacy.",
+      "The mayor remains separately elected at large.",
+      "Shawn Bradley is now listed on the official council page, replacing the gap in the local four-member roster.",
+      "Term-end dates are not provided on the current council page or in the local roster; left blank.",
+      "The November 2026 election also contains a special at-large council seat. Do not auto-replace officials on election day; wait for new terms and certified/current council data.",
+      "Official council page still contains a leftover empty Jesse Hightower email link. It is not the email of Shawn Bradley and was excluded.",
+      "Photo files are exact official assets. Logo is the full official wordmark, 679x110."
+    ],
+    "sources": [
+      {
+        "url": "https://www.californiacity-ca.gov/CC/index.php/city-council",
+        "supports": "Current five members, titles, public phone/email contacts and headshots"
+      },
+      {
+        "url": "https://www.californiacity-ca.gov/CC/index.php/departments-1/city-clerk",
+        "supports": "City Clerk general contact information"
+      },
+      {
+        "url": "https://www.californiacity-ca.gov/CC/index.php/district-elections",
+        "supports": "Current at-large system and district transition; links adopted map report"
+      },
+      {
+        "url": "https://www.californiacity-ca.gov/CC/images/Districting2/10292025/Final_Report_City_of_California_City-DISTRICT_VOTING.pdf",
+        "supports": "April 22, 2025 adoption; odd district elections2026, even2028"
+      },
+      {
+        "url": "https://www.californiacity-ca.gov/CC/images/2026-08-13_Notice_of_Nominees_Official_List.pdf",
+        "supports": "November2026 offices/candidates; James Creighton is appointed incumbent; candidacy not current district representation"
+      },
+      {
+        "url": "https://www.californiacity-ca.gov/CC/images/City_of_California_City_General_and_Special_Election_-_November_3_2026.pdf",
+        "supports": "November2026 district1, district3, at-large mayor and special at-large council election"
+      },
+      {
+        "url": "https://www.aol.com/articles/california-city-council-member-sworn-021606000.html",
+        "publisher": "KGET syndicated via AOL, July15 2026",
+        "supports": "Secondary corroboration: Bradley elected June2026, sworn July14; Creighton and Clark appointed September2025"
+      }
+    ],
+    "boundaryAdoptionNotes": [
+      "Local final ordinance25-826 expressly preserves existing at-large terms (section2-1.505b).",
+      "Current official2026 election notice map hyperlink points to https://redistrictingpartners.com/wp-content/uploads/2025/04/Draft-A-renumbered.html . Local March2026 county-compliant geometry was not independently corroborated from the official current website during this roster task.",
+      "Resolved: local CA City Adopted Map for Kern County/Shapefile/CA City Adopted Map 2025.shp matches allfour current official-linked RPdistricts at1e-8degreeprecision. The March2026 county-compliant variant materially differs and requires client confirmation before replacing adopted2025 geometry."
+    ]
+  },
+  "map": {
+    "source": "C:/PDI - Redistricting Dropbox/Redistricting Files/City of California City/Final Materials/CA City Adopted Map for Kern County/Shapefile/CA City Adopted Map 2025.shp",
+    "districtField": "DISTRICT",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "sourceRecords": 4,
+    "assignedRecords": 4,
+    "excludedRecords": 0,
+    "sourceCrs": "EPSG:4269",
+    "bounds": [
+      -118.132736,
+      35.012608,
+      -117.633024,
+      35.274752
+    ],
+    "parts": {
+      "1": 1,
+      "2": 1,
+      "4": 1,
+      "3": 1
+    },
+    "overlaps": [],
+    "warnings": [],
+    "geometryValid": true,
+    "needsReview": false,
+    "componentHashes": {
+      ".shp": "04e413110c5444da6d09ad03b2540abd2e9ab46c878265fc24f40a1341a926a5",
+      ".shx": "22b3b6bf1db324b122e9722304e0c9625fcb687dae8362fed87190054926bd59",
+      ".dbf": "27fe778271db53d00778e829d90371f6e0288b0070fb8dab28a2f93d74079d20",
+      ".prj": "84cf5b9a3c1a444f83ac30ff76f8c5035990223027ba69b2f4d628388adcbd65"
+    },
+    "excludedSourceRecords": []
+  },
+  "addresses": {
+    "source": {
+      "url": "https://gis.water.ca.gov/arcgis/rest/services/Planning/i15_Parcels_Assessor_Lightbox/MapServer/0",
+      "fields": "OBJECTID,SITE_ADDR,SITE_CITY,SITE_ZIP",
+      "method": "parcel-interior",
+      "credit": "California Department of Water Resources public parcel service; source LightBox",
+      "where": "SITE_ADDR IS NOT NULL AND SITE_ADDR <> ''",
+      "cache": "dwr-address-source"
+    },
+    "checkedAt": "2026-09-24",
+    "acceptedUnique": 5248,
+    "byDistrict": {
+      "1": 1359,
+      "2": 1342,
+      "3": 1215,
+      "4": 1332
+    },
+    "byCity": {
+      "Arvin": 1,
+      "Bakersfield": 17,
+      "Boron": 2,
+      "California City": 5134,
+      "Frazier Park": 1,
+      "Lake Isabella": 2,
+      "Mc Farland": 1,
+      "Mojave": 80,
+      "North Edwards": 2,
+      "Pine Mountain Club": 1,
+      "Ridgecrest": 1,
+      "Rosamond": 3,
+      "Tehachapi": 3
+    },
+    "excluded": {
+      "no_complete_situs_address": 297,
+      "parcel_crosses_district_boundary": 5,
+      "outside_or_ambiguous_boundary": 982,
+      "duplicate_distant_or_conflicting_address": 157,
+      "deduplicated": 79
+    },
+    "sha256": "141d5bc91b45172237f0712ed0997ac65df88aaa52291f7a94ef4aafa76c7e9b",
+    "samples": [
+      {
+        "label": "1103 La Madrid St",
+        "city": "Arvin",
+        "zip": "93203",
+        "lon": -117.7765538,
+        "lat": 35.1798117,
+        "district": "1",
+        "id": "1991b3d24c72b008eb86"
+      },
+      {
+        "label": "1022 Sequoia Dr",
+        "city": "Bakersfield",
+        "zip": "93308",
+        "lon": -117.9693661,
+        "lat": 35.1234913,
+        "district": "2",
+        "id": "778b585270cdf3a20d10"
+      },
+      {
+        "label": "24 Wilson Rd",
+        "city": "Bakersfield",
+        "zip": "93307",
+        "lon": -118.0095716,
+        "lat": 35.13929,
+        "district": "3",
+        "id": "01af30c8038747a9f995"
+      },
+      {
+        "label": "6604 Hooper Ave",
+        "city": "Bakersfield",
+        "zip": "93308",
+        "lon": -117.9894576,
+        "lat": 35.1032488,
+        "district": "4",
+        "id": "ce381ff96ca18c5fe5ef"
+      }
+    ],
+    "retainedFields": [
+      "id",
+      "label",
+      "city",
+      "zip",
+      "lon",
+      "lat",
+      "district"
+    ],
+    "notes": "Only public situs fields retained. Strict point-in-polygon; ambiguous or cross-district parcels excluded. Parcel locations are approximate; coverage is not an authoritative voter registration roll."
+  },
+  "boundaryVerification": [
+    {
+      "agency": "california-city",
+      "comparisonAt": "2026-09-24",
+      "precisionDegrees": 1e-08,
+      "projectedAreaCRS": "EPSG:3310",
+      "districts": [
+        {
+          "district": "1",
+          "linkedAreaSqm": 309384720.43832344,
+          "localAreaSqm": 307663030.548385,
+          "symmetricDifferenceSqm": 34745452.20144674,
+          "differencePercentOfLinked": 11.230500379017046,
+          "hausdorffDistanceMeters": 903.9672519986041,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "2",
+          "linkedAreaSqm": 46912445.62153178,
+          "localAreaSqm": 47450017.5611626,
+          "symmetricDifferenceSqm": 6803192.893416768,
+          "differencePercentOfLinked": 14.501893481106968,
+          "hausdorffDistanceMeters": 897.6349835387492,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "3",
+          "linkedAreaSqm": 35704333.83652649,
+          "localAreaSqm": 42808017.08447667,
+          "symmetricDifferenceSqm": 7103683.247950175,
+          "differencePercentOfLinked": 19.895857126125446,
+          "hausdorffDistanceMeters": 895.9029826954868,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "4",
+          "linkedAreaSqm": 130529397.94065702,
+          "localAreaSqm": 128619581.6555711,
+          "symmetricDifferenceSqm": 9874564.859969402,
+          "differencePercentOfLinked": 7.565012185575777,
+          "hausdorffDistanceMeters": 904.6570003797807,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        }
+      ],
+      "unionDifferenceSqm": 58526884.047839954,
+      "sourceHtmlSha256": "f982234ec4ac4b8de1c472aacc168b553c8164657f0edf2d5d07f2204d01f047"
+    },
+    {
+      "agency": "galt",
+      "comparisonAt": "2026-09-24",
+      "precisionDegrees": 1e-08,
+      "projectedAreaCRS": "EPSG:3310",
+      "districts": [
+        {
+          "district": "1",
+          "linkedAreaSqm": 2361109.3934453535,
+          "localAreaSqm": 2361109.3934453535,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "2",
+          "linkedAreaSqm": 2258658.3904878977,
+          "localAreaSqm": 2258658.3904878977,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "3",
+          "linkedAreaSqm": 5495090.933406519,
+          "localAreaSqm": 5495090.933406519,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "4",
+          "linkedAreaSqm": 4513771.983701446,
+          "localAreaSqm": 4513771.983701446,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "5",
+          "linkedAreaSqm": 5606756.396729419,
+          "localAreaSqm": 5606756.396729419,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        }
+      ],
+      "unionDifferenceSqm": 0.0,
+      "sourceHtmlSha256": "f5d7b24edb801cc40dd7f92c7b7e3652be8ea9589a6f094bbf214d0d98195fb9"
+    }
+  ]
+}

@@ -10,7 +10,12 @@ export function ActivityTracker() {
   const design = params.get('design') || '';
   const preview = params.get('preview') === '1';
   useEffect(() => {
-    if (preview || !activityContext(path, design)) return;
+    if (
+      preview ||
+      /^(www\.)?rpdata\.net$/.test(location.hostname) ||
+      !activityContext(path, design)
+    )
+      return;
     // Scheduling avoids duplicate events from React's development effect replay.
     const timer = setTimeout(() => trackActivity('page_view'), 0);
     function click(event: MouseEvent) {

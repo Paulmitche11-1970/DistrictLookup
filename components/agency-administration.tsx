@@ -13,11 +13,14 @@ import {
 import { instances, adminPath } from '@/lib/instances';
 import { agencyLabels } from '@/lib/agency-labels';
 import styles from './agency-administration.module.css';
+import { AgencySendingLink } from './agency-sending-link';
 
 export default function AgencyAdministration({
   team = false,
+  sendingLinks = {},
 }: {
   team?: boolean;
+  sendingLinks?: Record<string, string>;
 }) {
   const [query, setQuery] = useState('');
   const available = instances.filter((agency) => team || !agency.sandbox);
@@ -159,6 +162,9 @@ export default function AgencyAdministration({
                       )}
                       <a href={'/' + agency.id}>View designs</a>
                     </div>
+                  )}
+                  {team && sendingLinks[agency.id] && (
+                    <AgencySendingLink path={sendingLinks[agency.id]} />
                   )}
                 </article>
               );

@@ -1,0 +1,146 @@
+.introduction {
+  margin: -8px 0 24px;
+}
+.reopen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #176e77;
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(680px, calc(100vw - 32px));
+  max-height: min(900px, calc(100dvh - 32px));
+  border: 1px solid #dce5e9;
+  border-radius: 20px;
+  padding: 0;
+  color: #173648;
+  background: #fff;
+  box-shadow: 0 30px 100px #071f3555;
+}
+:global(body:has(dialog[data-agency-welcome][open])) {
+  overflow: hidden;
+}
+.dialog::backdrop {
+  background: #102b40b8;
+  backdrop-filter: blur(3px);
+}
+.close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: #f0f5f6;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #294856;
+}
+.content {
+  padding: 38px 40px 34px;
+}
+.eyebrow {
+  margin: 0 34px 14px 0;
+  color: #277a80;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.content h2 {
+  font-size: clamp(25px, 4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin: 0 16px 15px 0;
+}
+.lead {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #516778;
+  margin: 0 0 25px;
+}
+.features {
+  display: grid;
+  gap: 21px;
+}
+.features > div {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+.features svg {
+  flex: 0 0 23px;
+  color: #20777a;
+  margin-top: 2px;
+}
+.features h3 {
+  font-weight: 650;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+.features p,
+.offer p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: #536775;
+}
+.offer {
+  margin: 27px 0 23px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid #c4e0dc;
+  background: #edf7f4;
+}
+.offer strong {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 5px;
+  color: #185e5a;
+}
+.continue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: #156b72;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 14px 18px;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.continue:hover {
+  background: #10565c;
+}
+.dialog button:focus-visible,
+.reopen:focus-visible {
+  outline: 3px solid #35a4ae;
+  outline-offset: 4px;
+}
+@media (max-width: 560px) {
+  .content {
+    padding: 32px 23px 23px;
+  }
+  .features {
+    gap: 17px;
+  }
+  .lead {
+    font-size: 14px;
+  }
+}

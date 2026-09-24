@@ -16,8 +16,8 @@
       "imported-needs-review": 4
     },
     "Community colleges": {
-      "imported": 18,
-      "imported-needs-review": 9
+      "imported": 17,
+      "imported-needs-review": 10
     },
     "Special districts": {
       "imported": 23,
@@ -747,7 +747,7 @@
       "id": "barstow-community-college-district",
       "name": "Barstow Community College District",
       "category": "Community colleges",
-      "status": "imported",
+      "status": "imported-needs-review",
       "mapAvailable": true,
       "source": "Barstow CCD/Final Map Folder/Barstow CCD FInal Approved Map Shapefile/Barstow FInal Approved Map Shapefile.shp",
       "shapefile": "Barstow FInal Approved Map Shapefile.shp",
@@ -762,7 +762,9 @@
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
-      "warnings": [],
+      "warnings": [
+        "September 2026 verification: Area C in this saved shapefile includes territory absent from the adopted PDF and current agency-linked map. The Barstow lookup uses the agency-linked geometry verified against the adopted PDF; this library view preserves the original source for review."
+      ],
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",

@@ -1,0 +1,17 @@
+{
+  "slug": "california-city",
+  "agency": "City of California City",
+  "stage": "agency-review",
+  "readyForReview": true,
+  "readyForPromotion": false,
+  "districts": 4,
+  "officials": 5,
+  "verifiedPortraits": 5,
+  "addressCount": 5248,
+  "addressMethod": "parcel-interior",
+  "sourceCheckedAt": "2026-09-24",
+  "pending": [
+    "Agency review of the map, current officials, and public address coverage before launch.",
+    "The March 2026 county-compliant boundary variant differs from the adopted 2025 map currently linked by the city; confirm whether that later variant was adopted before changing this preview."
+  ]
+}

@@ -4,13 +4,17 @@ import { instanceFor, adminPath } from '@/lib/instances';
 import { designs } from '@/lib/designs';
 import { ManagementProfiles } from './management-profiles';
 import { agencyLabels, agencyDesignCopy } from '@/lib/agency-labels';
+import { AgencyWelcome } from './agency-welcome';
+import { AgencySendingLink } from './agency-sending-link';
 
 export default function DesignGallery({
   content,
   staff = false,
+  sendingPath,
 }: {
   content: Content;
   staff?: boolean;
+  sendingPath?: string;
 }) {
   const instance = instanceFor(content.agency.instanceId || 'martinez')!;
   const labels = agencyLabels(instance);
@@ -24,7 +28,10 @@ export default function DesignGallery({
   return (
     <div className="design-gallery">
       <header className="gallery-header">
-        <a href={staff ? '/' : base} className="rp-gallery-brand">
+        <a
+          href={staff ? '/' : 'https://rpdata.net'}
+          className="rp-gallery-brand"
+        >
           <span>RP</span> RP Data
         </a>
         <span className="gallery-review-label">
@@ -72,6 +79,8 @@ export default function DesignGallery({
             inside the administration workspace.
           </p>
         </div>
+        <AgencyWelcome id={instance.id} name={content.agency.name} />
+        {staff && sendingPath && <AgencySendingLink path={sendingPath} />}
         <div className="gallery-shared">
           <span>
             <Check size={16} /> Same {content.agency.shortName} address search
@@ -168,13 +177,13 @@ export default function DesignGallery({
               <div className="design-fit">
                 <strong>Protected agency access</strong>
                 <p>
-                  {instance.sandbox
+                  {instance.sandbox && staff
                     ? 'Open the workspace to edit officials, upload portraits, and try the draft and publish controls.'
                     : 'The live workspace uses password and two-factor authentication. This preview is read only and shows published agency information.'}
                 </p>
               </div>
               <a className="design-open" href={base + '/administration'}>
-                {instance.sandbox
+                {instance.sandbox && staff
                   ? 'Open administration'
                   : 'Explore administration preview'}{' '}
                 <ArrowRight size={17} />

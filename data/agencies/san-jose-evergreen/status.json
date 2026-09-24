@@ -1,0 +1,17 @@
+{
+  "slug": "san-jose-evergreen",
+  "agency": "San José–Evergreen Community College District",
+  "stage": "agency-review",
+  "readyForReview": true,
+  "readyForPromotion": false,
+  "districts": 7,
+  "officials": 7,
+  "verifiedPortraits": 7,
+  "addressCount": 212737,
+  "addressMethod": "historical-parcel-interior",
+  "sourceCheckedAt": "2026-09-24",
+  "pending": [
+    "Agency review of the map, current officials, and public address coverage before launch.",
+    "The current linked web display contains overlapping district edges; this preview retains the valid adopted D5 final source instead. Confirm current boundaries with the agency."
+  ]
+}

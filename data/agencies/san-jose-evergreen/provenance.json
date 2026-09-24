@@ -1,0 +1,613 @@
+{
+  "checkedAt": "2026-09-24",
+  "roster": {
+    "slug": "san-jose-evergreen",
+    "agency": {
+      "instanceId": "san-jose-evergreen",
+      "name": "San José–Evergreen Community College District",
+      "shortName": "San José–Evergreen CCD",
+      "kind": "college",
+      "districtLabel": "Trustee Area",
+      "state": "California",
+      "heading": "Find your trustee",
+      "intro": "Enter your street address to find your trustee area and the board member who represents you.",
+      "website": "https://sjeccd.edu",
+      "contactEmail": "ChancellorsOffice@sjeccd.edu",
+      "contactPhone": "(408) 270-6402",
+      "accent": "#722671",
+      "logo": "/branding/agencies/san-jose-evergreen.png",
+      "showMayor": false,
+      "showPhotos": true,
+      "showEmail": true,
+      "showPhone": true,
+      "showWebsite": true,
+      "showTerm": true,
+      "showStaff": false,
+      "showBiographies": true,
+      "lookupDesign": "classic"
+    },
+    "officials": [
+      {
+        "id": "1",
+        "district": "1",
+        "name": "Marsha Grilli",
+        "title": "Trustee",
+        "email": "Marsha.Grilli@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2028-12",
+        "photo": "/portraits/san-jose-evergreen/1.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "2",
+        "district": "2",
+        "name": "Karen Martinez",
+        "title": "Trustee",
+        "email": "Karen.Martinez@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2026-12",
+        "photo": "/portraits/san-jose-evergreen/2.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "3",
+        "district": "3",
+        "name": "Tony Alexander",
+        "title": "Trustee",
+        "email": "Tony.Alexander@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2028-12",
+        "photo": "/portraits/san-jose-evergreen/3.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "4",
+        "district": "4",
+        "name": "Maria Fuentes",
+        "title": "Trustee",
+        "email": "Maria.Fuentes@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2026-12",
+        "photo": "/portraits/san-jose-evergreen/4.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "5",
+        "district": "5",
+        "name": "Buu Thai",
+        "title": "Trustee",
+        "email": "Buu.Thai@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2028-12",
+        "photo": "/portraits/san-jose-evergreen/5.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "6",
+        "district": "6",
+        "name": "Jeffrey Lease",
+        "title": "Board President",
+        "email": "Jeffrey.Lease@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2026-12",
+        "photo": "/portraits/san-jose-evergreen/6.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      },
+      {
+        "id": "7",
+        "district": "7",
+        "name": "Clay Hale",
+        "title": "Board Vice President",
+        "email": "Clay.Hale@sjeccd.edu",
+        "phone": "(408) 270-6402",
+        "phoneLabel": "Board office",
+        "website": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+        "termEnd": "2028",
+        "photo": "/portraits/san-jose-evergreen/7.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false,
+        "selectionMethod": "elected"
+      }
+    ],
+    "mapName": "San Jose Evergreen Final Map 2022 - Plan D5",
+    "mapEffectiveDate": "2022-01-25",
+    "dataReviewedAt": "2026-09-24",
+    "sourceUrl": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+    "provenance": {
+      "rosterAndAreas": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+      "termsSixTrustees": "https://sjeccd.edu/sites/default/files/documents/SJECCD_Audit_Report_06-30-2025.pdf",
+      "auditPage": 66,
+      "termCrossCheck": "https://vote.santaclaracounty.gov/november-3-2026-general-election-list-offices",
+      "clayHaleReelection": "https://sjeccd.edu/node/227",
+      "officeContact": "https://sjeccd.edu/discover-sjeccd/board-of-trustees/board-meetings",
+      "adoptedMap": "https://sjeccd.edu/sites/default/files/documents/SJECCD_Redistricting_Plan_D5.pdf",
+      "adoptedResolution": "https://go.boarddocs.com/ca/sjeccd/Board.nsf/files/CB4QWY653690/$file/Approved%20-%20SJECCD_Resolution012522-1_for_Adopting_Trustee_AreasFollowingCensus2020.FinalUNANIMOUSLYapproved2022Jan25%20-%20signed.pdf",
+      "publicOverview": "https://redistrictingpartners.com/wp-content/uploads/2026/09/San-Jose-Evergreen-CCD-Final-Plan.html",
+      "localComparison": "local-public-office-comparison.json",
+      "assets": "assets.json",
+      "checkedAt": "2026-09-24"
+    },
+    "notes": [
+      "Current board page and April2026 legislative priorities identify Lease as president and Hale as vice president; local collected roster retains old Alexander/Lease leadership, so current official source takes precedence.",
+      "Local collected roster has six of seven current trustees and includes administrative Clerk Sherri Brusseau; current official board page supplies Clay Hale in Area7. Do not put the staff clerk in an elected trustee slot.",
+      "Terms for Areas1-6 are stated in the district2025audit (PDFpage66); county2026office list independently identifies Areas2,4,6 on the2026ballot.",
+      "Clay Hale was reelected in November 2024 according to the official December 2024 news release. The 2028 end year follows the normal four-year trustee term; month is left unspecified because the 2025 audit omits his row.",
+      "Student trustees are selected by students, not by residential trustee area, and are intentionally excluded from district lookup results.",
+      "Karen Martinez, Maria Fuentes and Jeffrey Lease official original portraits are only100x123pixels; higher-resolution originals should be requested from the agency.",
+      "Map adoption date is official board adoption; parent importer must compare actual selectedgeometry to finalD5 before activation."
+    ]
+  },
+  "map": {
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\San Jose Evergreen CCD\\San Jose Evergreen Final Map Submission Folder\\San Jose Evergreen Final Map 2022 - Plan D5.shp",
+    "districtField": "DISTRICT",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "sourceRecords": 7,
+    "assignedRecords": 7,
+    "excludedRecords": 0,
+    "sourceCrs": "EPSG:4269",
+    "bounds": [
+      -122.04602738094042,
+      37.16087,
+      -121.462791,
+      37.484637
+    ],
+    "parts": {
+      "1": 2,
+      "2": 1,
+      "5": 1,
+      "6": 1,
+      "3": 1,
+      "4": 1,
+      "7": 1
+    },
+    "overlaps": [],
+    "warnings": [],
+    "geometryValid": true,
+    "needsReview": false,
+    "componentHashes": {
+      ".shp": "cfa5fbf3a776ef2df16e77d47f36e07ae4c913909af949a5f3b5817a31f5a7cf",
+      ".shx": "6f22dae14f10c9f9a3b2fe0b97ce7496d0b8e8ead8179c204bf3209b9c99d3c2",
+      ".dbf": "6ae0298fa4902dc59b667367432f539680062a72bc2ffa8405035283995038d8",
+      ".prj": "84cf5b9a3c1a444f83ac30ff76f8c5035990223027ba69b2f4d628388adcbd65"
+    },
+    "excludedSourceRecords": []
+  },
+  "addresses": {
+    "source": {
+      "path": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\San Jose Evergreen CCD\\San Jose Evergreen Final Map Submission Folder\\San Jose Evergreen CCD Final Map Parcels.shp",
+      "method": "historical-parcel-interior",
+      "credit": "RP final submission public parcel situs data",
+      "sourceRecords": 221849,
+      "sourceCrs": "EPSG:3857"
+    },
+    "checkedAt": "2026-09-24",
+    "acceptedUnique": 212737,
+    "byDistrict": {
+      "1": 32331,
+      "3": 35349,
+      "7": 22970,
+      "2": 22754,
+      "4": 27374,
+      "5": 33543,
+      "6": 38416
+    },
+    "byCity": {
+      "Milpitas": 19820,
+      "Mount Hamilton": 1,
+      "San Jose": 192876,
+      "Santa Clara": 40
+    },
+    "excluded": {
+      "no_complete_situs_address": 8581,
+      "map_parcel_assignment_disagreement": 16,
+      "deduplicated": 423,
+      "duplicate_distant_or_conflicting_address": 92
+    },
+    "sha256": "b6fe39725171b2f5b9f1e8881f3826236b9638418ec8c24c7e006faf6882f35b",
+    "samples": [
+      {
+        "label": "1 Carnegie Dr",
+        "city": "Milpitas",
+        "zip": "95035",
+        "lon": -121.8819001,
+        "lat": 37.4359139,
+        "district": "1",
+        "id": "c19e0ebcfc391c01781f"
+      },
+      {
+        "label": "1 Birch Ln",
+        "city": "San Jose",
+        "zip": "95127",
+        "lon": -121.834249,
+        "lat": 37.3633027,
+        "district": "2",
+        "id": "c6d168182864fdc87d5c"
+      },
+      {
+        "label": "16100 Mt Hamilton Rd",
+        "city": "Mount Hamilton",
+        "zip": "95140",
+        "lon": -121.7248173,
+        "lat": 37.3479894,
+        "district": "3",
+        "id": "9f637aa45d45fe9bf04b"
+      },
+      {
+        "label": "1 Esfahan Dr",
+        "city": "San Jose",
+        "zip": "95111",
+        "lon": -121.851962,
+        "lat": 37.293786,
+        "district": "4",
+        "id": "9342e729a2c43968382f"
+      },
+      {
+        "label": "1 Great Oaks Bl",
+        "city": "San Jose",
+        "zip": "95119",
+        "lon": -121.7864896,
+        "lat": 37.244135,
+        "district": "5",
+        "id": "82ff4ee79411ecf70a70"
+      },
+      {
+        "label": "1 Muller Pl",
+        "city": "San Jose",
+        "zip": "95126",
+        "lon": -121.9165268,
+        "lat": 37.3238719,
+        "district": "6",
+        "id": "194f0975c0d797e865fd"
+      },
+      {
+        "label": "1 Almaden Bl",
+        "city": "San Jose",
+        "zip": "95113",
+        "lon": -121.8952501,
+        "lat": 37.3333996,
+        "district": "7",
+        "id": "efa68844fb20ed9e7ada"
+      }
+    ],
+    "retainedFields": [
+      "id",
+      "label",
+      "city",
+      "zip",
+      "lon",
+      "lat",
+      "district"
+    ],
+    "notes": "Only public situs fields retained. Strict point-in-polygon; ambiguous or cross-district parcels excluded. Parcel locations are approximate; coverage is not an authoritative voter registration roll."
+  },
+  "boundaryVerification": {
+    "barstow-college": {
+      "checkedAt": "2026-09-24",
+      "currentLinkedWebMap": "https://redistrictingpartners.com/wp-content/uploads/2026/09/Barstow-CCD-Draft-Map-A-Overview.html",
+      "currentLinkedSourcePage": "https://www.barstow.edu/about-bcc/board-trustees",
+      "localMapSha256": "a990516ac0ac65e038bcab5e72bd4a7b8ed487e9a0e52c7c0509a4c2a1a3daa9",
+      "cleanWebMapSha256": "31963d55279b10797a24bd41755bcc889dfe0a1a3dd5e6db74116c8cc09ae58d",
+      "comparisonCrs": "EPSG:3310 California Albers (meters)",
+      "cleanMapFile": "barstow-current-verified-map.json",
+      "validGeometry": true,
+      "districts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "bounds": [
+        -117.63328999999997,
+        34.4508,
+        -114.713182,
+        35.810468
+      ],
+      "pairwiseOverlaps": [],
+      "differences": [
+        {
+          "district": "A",
+          "localAreaM2": 36815284.8195274,
+          "webAreaM2": 36815284.81953228,
+          "symmetricDifferenceM2": 1.3021445692634332e-05,
+          "differencePercentOfLocal": 3.536967255982644e-11,
+          "hausdorffDistanceM": 6.909080168550902e-09,
+          "matchesWithinFloatingPrecision": true
+        },
+        {
+          "district": "B",
+          "localAreaM2": 11871850.76067119,
+          "webAreaM2": 11871850.760670219,
+          "symmetricDifferenceM2": 9.009066044692923e-06,
+          "differencePercentOfLocal": 7.588594420794069e-11,
+          "hausdorffDistanceM": 6.226043350165963e-09,
+          "matchesWithinFloatingPrecision": true
+        },
+        {
+          "district": "C",
+          "localAreaM2": 7496370651.539655,
+          "webAreaM2": 7018196287.406041,
+          "symmetricDifferenceM2": 479798739.250737,
+          "differencePercentOfLocal": 6.400413767590224,
+          "hausdorffDistanceM": 16326.492974887682,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "D",
+          "localAreaM2": 16619946420.27082,
+          "webAreaM2": 16619946420.270826,
+          "symmetricDifferenceM2": 0.000334146254309687,
+          "differencePercentOfLocal": 2.0105134268191108e-12,
+          "hausdorffDistanceM": 7.454217687985916e-09,
+          "matchesWithinFloatingPrecision": true
+        },
+        {
+          "district": "E",
+          "localAreaM2": 27324060.049103085,
+          "webAreaM2": 27324060.049100544,
+          "symmetricDifferenceM2": 1.8852088772881856e-05,
+          "differencePercentOfLocal": 6.899446399621229e-11,
+          "hausdorffDistanceM": 7.069775113225438e-09,
+          "matchesWithinFloatingPrecision": true
+        }
+      ],
+      "exactComparisonPass": false,
+      "adoptedPdf": "https://www.barstow.edu/sites/default/files/media/pdf_document/2022/Maps.Trustee.Areas_2022.pdf",
+      "adoptedPdfVisualReviewPages": [
+        1,
+        5
+      ],
+      "adoptedPdfVisualFinding": "The approved February16,2022 overview and AreaC page both show a large southwest rectangular notch matching the linked current web geometry. The local FinalApproved shapefile fills this notch with approximately478.56 squarekilometers. Other four web areas match local geometry within floating precision. Web geometry is retained as a separate reviewed candidate; original shapefile is preserved.",
+      "recommendation": "Use clean official-linked web geometry for this agency preview with explicit provenance, while flagging the local AreaC source discrepancy in the boundary library. Do not describe the original shapefile as matching the adoptedPDF."
+    },
+    "san-jose-evergreen": {
+      "checkedAt": "2026-09-24",
+      "currentLinkedWebMap": "https://redistrictingpartners.com/wp-content/uploads/2026/09/San-Jose-Evergreen-CCD-Final-Plan.html",
+      "currentLinkedSourcePage": "https://sjeccd.edu/discover-sjeccd/board-of-trustees",
+      "localMapSha256": "564b109914aa97834e9b3208c0642e92c3a7518b129e357e6076cab708ccf344",
+      "cleanWebMapSha256": "81ed77348907b2e7299aa609ade9da181af825b143543216e2e51c0b9b6670f9",
+      "comparisonCrs": "EPSG:3310 California Albers (meters)",
+      "cleanMapFile": "sjeccd-current-web-reference-map.json",
+      "validGeometry": true,
+      "districts": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "bounds": [
+        -122.04704307013269,
+        37.16086929175921,
+        -121.46278497275432,
+        37.48463771275969
+      ],
+      "pairwiseOverlaps": [
+        {
+          "a": "1",
+          "b": "3",
+          "areaM2": 4476.40052633755
+        },
+        {
+          "a": "1",
+          "b": "7",
+          "areaM2": 1360.2446807449462
+        },
+        {
+          "a": "2",
+          "b": "3",
+          "areaM2": 3570.676373734702
+        },
+        {
+          "a": "2",
+          "b": "4",
+          "areaM2": 1557.623738538816
+        },
+        {
+          "a": "2",
+          "b": "7",
+          "areaM2": 815.5322745742443
+        },
+        {
+          "a": "3",
+          "b": "4",
+          "areaM2": 2582.4197666486675
+        },
+        {
+          "a": "3",
+          "b": "5",
+          "areaM2": 1613.336975381012
+        },
+        {
+          "a": "3",
+          "b": "7",
+          "areaM2": 301.0094396443189
+        },
+        {
+          "a": "4",
+          "b": "5",
+          "areaM2": 848.3578259772345
+        },
+        {
+          "a": "4",
+          "b": "7",
+          "areaM2": 1130.233469710933
+        },
+        {
+          "a": "5",
+          "b": "6",
+          "areaM2": 3199.1432045314914
+        },
+        {
+          "a": "5",
+          "b": "7",
+          "areaM2": 48.797980635226594
+        },
+        {
+          "a": "6",
+          "b": "7",
+          "areaM2": 2256.350146712512
+        }
+      ],
+      "differences": [
+        {
+          "district": "1",
+          "localAreaM2": 308998793.33993036,
+          "webAreaM2": 310596779.9431,
+          "symmetricDifferenceM2": 2502236.2596994974,
+          "differencePercentOfLocal": 0.8097883595767901,
+          "hausdorffDistanceM": 1640.1171029914724,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "2",
+          "localAreaM2": 35616406.41078555,
+          "webAreaM2": 35607892.33150641,
+          "symmetricDifferenceM2": 73358.92481237689,
+          "differencePercentOfLocal": 0.20596947363606552,
+          "hausdorffDistanceM": 77.25170427490978,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "3",
+          "localAreaM2": 226699860.27397153,
+          "webAreaM2": 226661985.43933403,
+          "symmetricDifferenceM2": 519619.2621560159,
+          "differencePercentOfLocal": 0.22921022603544844,
+          "hausdorffDistanceM": 188.73309777775125,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "4",
+          "localAreaM2": 37169037.6841615,
+          "webAreaM2": 37130536.54832507,
+          "symmetricDifferenceM2": 112104.1154337749,
+          "differencePercentOfLocal": 0.3016061819688832,
+          "hausdorffDistanceM": 110.03549133390126,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "5",
+          "localAreaM2": 79848690.58113275,
+          "webAreaM2": 79836130.31309445,
+          "symmetricDifferenceM2": 431676.00589401415,
+          "differencePercentOfLocal": 0.540617513890721,
+          "hausdorffDistanceM": 302.96889429371845,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "6",
+          "localAreaM2": 46473525.1451575,
+          "webAreaM2": 46406513.061721206,
+          "symmetricDifferenceM2": 295248.55438173603,
+          "differencePercentOfLocal": 0.6353048396039324,
+          "hausdorffDistanceM": 1387.6184205158977,
+          "matchesWithinFloatingPrecision": false
+        },
+        {
+          "district": "7",
+          "localAreaM2": 33523064.241891287,
+          "webAreaM2": 33506748.74986904,
+          "symmetricDifferenceM2": 87837.67252236622,
+          "differencePercentOfLocal": 0.26202160962541726,
+          "hausdorffDistanceM": 137.73393633685984,
+          "matchesWithinFloatingPrecision": false
+        }
+      ],
+      "exactComparisonPass": false,
+      "adoptedPdf": "https://sjeccd.edu/sites/default/files/documents/SJECCD_Redistricting_Plan_D5.pdf",
+      "adoptedPdfVisualReviewPages": [
+        1
+      ],
+      "adoptedPdfVisualFinding": "Local imported geometry has the same recognizable PlanD5 arrangement and area labels as the adoptedPDF overview. Current web geometry is not identical: differences include edge offsets and additional small holes. No cause such as simplification, buffering or later adoption has been established.",
+      "recommendation": "Keep the original adopted D5 local source unchanged. Current web geometry has 13 positive-area overlaps totaling 23760.13 square meters, while the imported local map has none. Mark the current-web exact comparison as failed and retain source-review attention. The PDF visual check is not coordinate-level verification.",
+      "overlapAreaTotalM2": 23760.126403171653,
+      "localPopulationVsAdoptedPdf": {
+        "1": {
+          "local": 130258,
+          "pdf": 130259
+        },
+        "2": {
+          "local": 121483,
+          "pdf": 121484
+        },
+        "3": {
+          "local": 129469,
+          "pdf": 129471
+        },
+        "4": {
+          "local": 128695,
+          "pdf": 128696
+        },
+        "5": {
+          "local": 127915,
+          "pdf": 127913
+        },
+        "6": {
+          "local": 129997,
+          "pdf": 129997
+        },
+        "7": {
+          "local": 122561,
+          "pdf": 122562
+        }
+      },
+      "localPopulationNote": "Source PPA_POPULA differs by zero to two people per area from the adopted PDF summary; these small aggregate differences are recorded for review, not used to infer boundary validity."
+    }
+  }
+}

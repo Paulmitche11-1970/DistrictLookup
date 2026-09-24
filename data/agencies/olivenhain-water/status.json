@@ -1,0 +1,16 @@
+{
+  "slug": "olivenhain-water",
+  "agency": "Olivenhain Municipal Water District",
+  "stage": "agency-review",
+  "readyForReview": true,
+  "readyForPromotion": false,
+  "districts": 5,
+  "officials": 5,
+  "verifiedPortraits": 5,
+  "addressCount": 25805,
+  "addressMethod": "public-situs-address-point",
+  "sourceCheckedAt": "2026-09-24",
+  "pending": [
+    "Agency review of the map, current officials, and public address coverage before launch."
+  ]
+}

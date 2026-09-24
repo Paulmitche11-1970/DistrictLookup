@@ -990,10 +990,16 @@ function OfficialEditor({
                       <label className="field">
                         Term ends
                         <input
-                          type="month"
+                          type="text"
+                          placeholder="2028 or 2028-11"
+                          pattern="20[0-9]{2}(-(0[1-9]|1[0-2]))?"
+                          maxLength={7}
                           value={draft.termEnd}
                           onChange={(e) => field('termEnd', e.target.value)}
                         />
+                        <span className="small muted">
+                          Enter the year; add -MM if the ending month is known.
+                        </span>
                       </label>
                       <div className="wide stack">
                         <div>

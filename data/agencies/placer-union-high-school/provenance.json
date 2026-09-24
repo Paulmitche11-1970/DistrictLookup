@@ -1,0 +1,577 @@
+{
+  "checkedAt": "2026-09-24",
+  "roster": {
+    "slug": "placer-union-high-school",
+    "dataReviewedAt": "2026-09-24",
+    "sourceUrl": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+    "agency": {
+      "kind": "school",
+      "districtLabel": "Trustee Area",
+      "name": "Placer Union High School District",
+      "shortName": "Placer Union",
+      "state": "CA",
+      "website": "https://www.puhsd.k12.ca.us/",
+      "contactEmail": "",
+      "contactPhone": "(530) 886-4400",
+      "accent": "#173d59",
+      "logo": "/branding/agencies/placer-union-high-school.png",
+      "showMayor": false,
+      "showManagement": false,
+      "showPhotos": true,
+      "showEmail": true,
+      "showPhone": true,
+      "showWebsite": true,
+      "showTerm": true,
+      "showBiographies": true,
+      "showStaff": false
+    },
+    "officials": [
+      {
+        "id": "jeremy-jeffreys",
+        "district": "1",
+        "name": "Jeremy Jeffreys",
+        "title": "Board Member",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "jjeffreys@puhsd.k12.ca.us",
+        "phone": "(530) 886-4400",
+        "phoneLabel": "District office",
+        "website": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "termEnd": "2028",
+        "photo": "/portraits/placer-union-high-school/jeremy-jeffreys.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "jessica-spaid",
+        "district": null,
+        "name": "Jessica Spaid",
+        "title": "Board President",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "jspaid@puhsd.k12.ca.us",
+        "phone": "(530) 886-4400",
+        "phoneLabel": "District office",
+        "website": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "termEnd": "2026",
+        "photo": "/portraits/placer-union-high-school/jessica-spaid.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "david-underwood",
+        "district": null,
+        "name": "David Underwood",
+        "title": "Board Member",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "dunderwood@puhsd.k12.ca.us",
+        "phone": "(530) 886-4400",
+        "phoneLabel": "District office",
+        "website": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "termEnd": "2026",
+        "photo": "/portraits/placer-union-high-school/david-underwood.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "emerson-lake",
+        "district": null,
+        "name": "Emerson Lake",
+        "title": "Board Clerk",
+        "additionalTitles": [],
+        "selectionMethod": "appointed",
+        "email": "elake@puhsd.k12.ca.us",
+        "phone": "(530) 886-4400",
+        "phoneLabel": "District office",
+        "website": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "termEnd": "2026",
+        "photo": "/portraits/placer-union-high-school/emerson-lake.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "carleton-copa",
+        "district": "5",
+        "name": "Carleton Copa",
+        "title": "Trustee",
+        "additionalTitles": [],
+        "selectionMethod": "appointed",
+        "email": "ccopa@puhsd.k12.ca.us",
+        "phone": "(530) 886-4400",
+        "phoneLabel": "District office",
+        "website": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "termEnd": "2028-12",
+        "photo": "/portraits/placer-union-high-school/carleton-copa.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      }
+    ],
+    "districtElections": {
+      "1": {
+        "status": "district",
+        "firstElection": "2024-11"
+      },
+      "2": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "3": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "4": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "5": {
+        "status": "district",
+        "firstElection": "2024-11"
+      }
+    },
+    "mapEffectiveDate": "2024-06-11",
+    "mapName": "PUHSD Adopted Map A3",
+    "officialPageAreaLabels": {
+      "jeremy-jeffreys": "1",
+      "jessica-spaid": "2",
+      "david-underwood": "3",
+      "emerson-lake": "4",
+      "carleton-copa": "5"
+    },
+    "representationEvidence": [
+      {
+        "url": "https://www.puhsd.k12.ca.us/redistricting-trustee-boundaries",
+        "fact": "District transition page and adopted sequence identify first by-area elections for areas 1/5 in November 2024, areas 2/3/4 in November 2026; existing members retain their terms."
+      },
+      {
+        "url": "https://drive.google.com/file/d/1jHXrol4Ih0zBR4QYhYTs1mszhjwgpevh/view",
+        "fact": "Signed resolution 24:23-24, June 4 2024, confirms previous at-large elections and approves Map A3 and sequencing. Downloaded and visually reviewed pages 1 and 2."
+      },
+      {
+        "url": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "fact": "Spaid and Underwood were elected in 2022; Lake appointed January 16 2025 to a 2026 term; Copa provisionally appointed September 10 2026 to December 2028."
+      },
+      {
+        "url": "https://online.flippingbook.com/view/100988938/4/",
+        "fact": "Official district January 2025 newsletter describes Area 4 appointment replacing Ron Oates after November 2024 resignation."
+      }
+    ],
+    "uncertainties": [
+      "Lake is stored at large in this candidate based on filling a continuing 2022-2026 term and the published November 2026 first-election schedule. However, appointment announcement and current roster explicitly call the appointment Area 4. Obtain district confirmation of interim representation scope before describing his current seat as district-only or making a legal statement; he remains visible for every resident under this inclusive candidate interpretation.",
+      "Board roster labels Spaid and Underwood by area of residence, although their 2022 at-large terms continue. Do not copy the labels into district-only representation until new terms begin.",
+      "Exact term-end month is not published for four officials; year only preserved."
+    ],
+    "localRosterComparison": {
+      "source": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "School Boards",
+      "publicFieldsOnly": [
+        "Off_Full Name",
+        "Off_Title",
+        "Off_Agency",
+        "Off_District",
+        "Off_Term Expires",
+        "Official_Email"
+      ],
+      "namesMatched": [
+        "Jeremy Jeffreys",
+        "Jessica Spaid",
+        "David Underwood",
+        "Dr. Emerson Lake"
+      ],
+      "outdatedMember": "Tom Duncan replaced by Carleton Copa, effective September 10 2026 provisional appointment",
+      "localDistrictValues": "No district IDs on local public-office rows; current official web/adoption sources used."
+    },
+    "assets": [
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/header_logo_img_k7al50543sh17ddobid.png",
+        "publicPath": "/branding/agencies/placer-union-high-school.png",
+        "downloadedAt": "2026-09-24",
+        "sha256": "e5ce6e7a8e531d970459e1783b1cf70b57d09d0aea2b7080161261132da38b90",
+        "bytes": 39632,
+        "dimensions": [
+          458,
+          291
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Schools",
+        "preparation": "Original white transparent logo padded 20px and placed on #173d59 for contrast in light-background agency headers; logo artwork unchanged.",
+        "originalSha256": "b5e500606d69c6c423dca1e6c93d16d773a9a45028465c85677455cdef65822e",
+        "originalBytes": 28911,
+        "originalDimensions": [
+          418,
+          251
+        ]
+      },
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/klub2sfsfp1t0gpjgpa.jpg",
+        "publicPath": "/portraits/placer-union-high-school/jeremy-jeffreys.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "d0db3e8d0875eddd6f40c5261596c06067dc7890eedca644913bd33e406e3830",
+        "bytes": 29076,
+        "dimensions": [
+          566,
+          720
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Mr. Jeremy Jeffreys",
+        "originalPublicPath": "/portraits/placer-union-high-school/jeremy-jeffreys.jpg",
+        "originalSha256": "5c0437500372bfde704226330831fc5897f2df552c1b833296a5cd909d4f2f53",
+        "originalBytes": 45243,
+        "originalDimensions": [
+          603,
+          767
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/g3ovve1pn8fm6hihebk.png",
+        "publicPath": "/portraits/placer-union-high-school/jessica-spaid.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "979722fa54df95fe43321c17608e5ebc1bc0fea3a69e042357507091a65fd845",
+        "bytes": 31950,
+        "dimensions": [
+          479,
+          720
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Mrs. Jessica Spaid",
+        "originalPublicPath": "/portraits/placer-union-high-school/jessica-spaid.png",
+        "originalSha256": "244033969098f655d84bd591bc37cf5a60c2b709a421cd94effc8968ee6a5bd1",
+        "originalBytes": 4024566,
+        "originalDimensions": [
+          1023,
+          1537
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/c0fc3g7fqhfs4olckfo.jpg",
+        "publicPath": "/portraits/placer-union-high-school/david-underwood.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "2bfc5e0b836e75d01b03121a3beece61acc55cf8a87b6d42e32d7e3d42ad9157",
+        "bytes": 33362,
+        "dimensions": [
+          581,
+          720
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Mr. David Underwood",
+        "originalPublicPath": "/portraits/placer-union-high-school/david-underwood.jpg",
+        "originalSha256": "ee509d0dbeba7a50c8be88141bba111c889aa9ce54a094384621c08049b7c3d2",
+        "originalBytes": 165773,
+        "originalDimensions": [
+          1280,
+          1586
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/rkn88gupdgdo2dlhhld.jpg",
+        "publicPath": "/portraits/placer-union-high-school/emerson-lake.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "57866c25e88724308a8ce578d5038f48b991c750fdf7dc71e5b1bf8896d1d6a7",
+        "bytes": 172318,
+        "dimensions": [
+          583,
+          720
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Dr. Emerson Lake",
+        "originalPublicPath": "/portraits/placer-union-high-school/emerson-lake.jpg",
+        "originalSha256": "291d4a4a03ac6791b33966787fc8318285f99c74210297235393a8a118a8f6e3",
+        "originalBytes": 746316,
+        "originalDimensions": [
+          1280,
+          1582
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://files.smartsites.parentsquare.com/11488/86on4nn1nthvbicljoe.jpeg",
+        "publicPath": "/portraits/placer-union-high-school/carleton-copa.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "b6b22078c2b0190b3749b5e8c5ba9085fa363061ead19fd7259a02a024ede50e",
+        "bytes": 33402,
+        "dimensions": [
+          540,
+          720
+        ],
+        "sourcePage": "https://www.puhsd.k12.ca.us/board-of-trustees-home",
+        "imageHeading": "Mr. Carleton Copa",
+        "originalPublicPath": "/portraits/placer-union-high-school/carleton-copa.jpeg",
+        "originalSha256": "eb87afe53a3d23922c7bfcb6dd791d062d0e54aeb8e91e62a1be76c402eaae6c",
+        "originalBytes": 4178402,
+        "originalDimensions": [
+          5712,
+          4284
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      }
+    ]
+  },
+  "map": {
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\Placer Union High School District\\FINAL MATERIALS\\PUHSD Final Map Placer County\\Shapefile PUHSD Adopted A3\\PUHSD Adopted Map A3.shp",
+    "districtField": "DISTRICT",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "sourceRecords": 5,
+    "assignedRecords": 5,
+    "excludedRecords": 0,
+    "sourceCrs": "EPSG:4269",
+    "bounds": [
+      -121.237993,
+      38.750289,
+      -120.254914,
+      39.315559
+    ],
+    "parts": {
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1
+    },
+    "overlaps": [],
+    "warnings": [],
+    "geometryValid": true,
+    "needsReview": false,
+    "componentHashes": {
+      ".shp": "b002e01e89a0472dc75b4d39b31f7013d069bcff942a7c73ddcc065db11ec9e4",
+      ".shx": "f5262e9ca70d3653f45aa4c7abcdf6696e5255cf95a5d4574bccb19149808add",
+      ".dbf": "43eddeca84f67052b20effe96bde225de8b171a948b7c4ee9165278cc343da13",
+      ".prj": "84cf5b9a3c1a444f83ac30ff76f8c5035990223027ba69b2f4d628388adcbd65"
+    },
+    "excludedSourceRecords": []
+  },
+  "addresses": {
+    "source": {
+      "url": "https://gis.water.ca.gov/arcgis/rest/services/Planning/i15_Parcels_Assessor_Lightbox/MapServer/0",
+      "fields": "OBJECTID,SITE_ADDR,SITE_CITY,SITE_ZIP",
+      "method": "parcel-interior",
+      "credit": "California Department of Water Resources public parcel service; source LightBox",
+      "where": "SITE_ADDR IS NOT NULL AND SITE_ADDR <> ''",
+      "cache": "dwr-address-source"
+    },
+    "checkedAt": "2026-09-24",
+    "acceptedUnique": 36443,
+    "byDistrict": {
+      "1": 8368,
+      "3": 7365,
+      "4": 6986,
+      "2": 6551,
+      "5": 7173
+    },
+    "byCity": {
+      "Alta": 647,
+      "Applegate": 767,
+      "Auburn": 15181,
+      "Colfax": 3819,
+      "Dutch Flat": 288,
+      "Emigrant Gap": 98,
+      "Foresthill": 2872,
+      "Gold Run": 119,
+      "Granite Bay": 1158,
+      "Grass Valley": 2,
+      "Iowa Hill": 8,
+      "Lincoln": 392,
+      "Loomis": 5100,
+      "Loomis Basin-Folsom Lake": 1,
+      "Meadow Vista": 2175,
+      "Newcastle": 2014,
+      "Olympic Valley": 1,
+      "Penryn": 1113,
+      "Rocklin": 674,
+      "Roseville": 2,
+      "Soda Springs": 1,
+      "Truckee": 1,
+      "Weimar": 10
+    },
+    "excluded": {
+      "outside_or_ambiguous_boundary": 65240,
+      "no_complete_situs_address": 291,
+      "invalid_geometry": 6,
+      "parcel_crosses_district_boundary": 208,
+      "deduplicated": 608,
+      "duplicate_distant_or_conflicting_address": 119
+    },
+    "sha256": "b1ddbe178a8870331dc7f1d66b43889fa7481b5b9480761f1a6a1dbd062a8e6f",
+    "samples": [
+      {
+        "label": "1 Fulda Dr",
+        "city": "Alta",
+        "zip": "95701",
+        "lon": -120.6929549,
+        "lat": 39.2745003,
+        "district": "1",
+        "id": "05184b458a9c30cbdad5"
+      },
+      {
+        "label": "1 Lily Ave",
+        "city": "Auburn",
+        "zip": "95603",
+        "lon": -121.0874142,
+        "lat": 38.9222198,
+        "district": "2",
+        "id": "cec93b7f8e0fad906d09"
+      },
+      {
+        "label": "100 Bon Vue Pl",
+        "city": "Applegate",
+        "zip": "95703",
+        "lon": -120.99991,
+        "lat": 38.9901746,
+        "district": "3",
+        "id": "5e9b0c776f6cbd8ea619"
+      },
+      {
+        "label": "1 California St",
+        "city": "Auburn",
+        "zip": "95603",
+        "lon": -121.0691318,
+        "lat": 38.8980771,
+        "district": "4",
+        "id": "f6f22c9488e717b6abff"
+      },
+      {
+        "label": "4404 Polo Ranch Pl",
+        "city": "Granite Bay",
+        "zip": "95746",
+        "lon": -121.2221876,
+        "lat": 38.7602311,
+        "district": "5",
+        "id": "3c68ff73f21f8d2e2d5f"
+      }
+    ],
+    "retainedFields": [
+      "id",
+      "label",
+      "city",
+      "zip",
+      "lon",
+      "lat",
+      "district"
+    ],
+    "notes": "Only public situs fields retained. Strict point-in-polygon; ambiguous or cross-district parcels excluded. Parcel locations are approximate; coverage is not an authoritative voter registration roll."
+  },
+  "boundaryVerification": [
+    {
+      "id": "placer-union-high-school-district",
+      "comparison": "Every local district compared with same DISTRICT ID on the currently agency-linked interactive map. Projection EPSG:3310.",
+      "districts": [
+        {
+          "district": "1",
+          "localAreaM2": 1685116186.5922892,
+          "webAreaM2": 1685116186.592297,
+          "symmetricDifferenceM2": 0.00014926852263191266,
+          "hausdorffDistanceM": 8.847672161511452e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "2",
+          "localAreaM2": 123273599.4093686,
+          "webAreaM2": 123273599.40936597,
+          "symmetricDifferenceM2": 3.429311370340935e-05,
+          "hausdorffDistanceM": 8.187647743857472e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "3",
+          "localAreaM2": 230587172.3901864,
+          "webAreaM2": 230587172.3901905,
+          "symmetricDifferenceM2": 5.633899405981827e-05,
+          "hausdorffDistanceM": 8.783813757841577e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "4",
+          "localAreaM2": 94580703.36874244,
+          "webAreaM2": 94580703.36874248,
+          "symmetricDifferenceM2": 3.54683292906976e-05,
+          "hausdorffDistanceM": 8.187647743857472e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "5",
+          "localAreaM2": 91855886.26025413,
+          "webAreaM2": 91855886.26025064,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 6.956241672824749e-09,
+          "equalAt1cmTolerance": true
+        }
+      ],
+      "allMatchAt1cm": true
+    },
+    {
+      "id": "olivenhain-municipal-water-district",
+      "comparison": "Every local district compared with same DISTRICT ID on the currently agency-linked interactive map. Projection EPSG:3310.",
+      "districts": [
+        {
+          "district": "1",
+          "localAreaM2": 70436426.69930899,
+          "webAreaM2": 70436426.69930899,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "2",
+          "localAreaM2": 10186009.3249445,
+          "webAreaM2": 10186009.3249445,
+          "symmetricDifferenceM2": 1.1852211780375918e-09,
+          "hausdorffDistanceM": 8.559693331977319e-10,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "3",
+          "localAreaM2": 14895495.6784998,
+          "webAreaM2": 14895495.6784998,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "4",
+          "localAreaM2": 17250604.938734468,
+          "webAreaM2": 17250604.938734468,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "5",
+          "localAreaM2": 13554715.040385274,
+          "webAreaM2": 13554715.040385285,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        }
+      ],
+      "allMatchAt1cm": true
+    }
+  ]
+}

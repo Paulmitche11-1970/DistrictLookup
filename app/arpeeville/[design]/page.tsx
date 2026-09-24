@@ -1,5 +1,10 @@
 import { notFound } from 'next/navigation';
-import { requireReviewAccess } from '@/lib/review-access';
+import {
+  requireReviewAccess,
+  requireAgencyReviewAccess,
+  hasAgencySendingAccess,
+  hasReviewAccess,
+} from '@/lib/review-access';
 import { inArpeeville } from '@/lib/agency-scope';
 import { publicContent, state } from '@/lib/store';
 import { designs } from '@/lib/designs';
@@ -21,7 +26,17 @@ export default async function Page({
 }) {
   const { design } = await params;
   if (design === 'administration') {
-    await requireReviewAccess('rp', '/arpeeville/administration');
+    await requireAgencyReviewAccess('arpeeville', '/arpeeville/administration');
+    if (
+      (await hasAgencySendingAccess('arpeeville')) &&
+      !(await hasReviewAccess('rp'))
+    )
+      return (
+        <AdminConsole
+          agencyId="arpeeville"
+          previewContent={inArpeeville(publicContent)}
+        />
+      );
     return <AdminConsole sandbox agencyId="arpeeville" />;
   }
   const preview = design === 'preview';

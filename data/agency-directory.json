@@ -508,5 +508,59 @@
     "state": "California",
     "logo": "/branding/midpeninsula-water/logo.webp",
     "status": "in-progress"
+  },
+  {
+    "id": "san-jose-evergreen",
+    "name": "San José–Evergreen Community College District",
+    "type": "colleges",
+    "state": "CA",
+    "website": "https://sjeccd.edu",
+    "logo": "/branding/agencies/san-jose-evergreen.png",
+    "status": "in-progress"
+  },
+  {
+    "id": "barstow-college",
+    "name": "Barstow Community College District",
+    "type": "colleges",
+    "state": "CA",
+    "website": "https://www.barstow.edu",
+    "logo": "/branding/agencies/barstow-college.png",
+    "status": "in-progress"
+  },
+  {
+    "id": "placer-union-high-school",
+    "name": "Placer Union High School District",
+    "type": "schools",
+    "state": "CA",
+    "website": "https://www.puhsd.k12.ca.us/",
+    "logo": "/branding/agencies/placer-union-high-school.png",
+    "status": "in-progress"
+  },
+  {
+    "id": "california-city",
+    "name": "California City",
+    "type": "cities",
+    "state": "CA",
+    "website": "https://www.californiacity-ca.gov/",
+    "logo": "/branding/agencies/california-city.png",
+    "status": "in-progress"
+  },
+  {
+    "id": "olivenhain-water",
+    "name": "Olivenhain Municipal Water District",
+    "type": "special",
+    "state": "CA",
+    "website": "https://www.olivenhain.com/",
+    "logo": "/branding/agencies/olivenhain-water.png",
+    "status": "in-progress"
+  },
+  {
+    "id": "galt",
+    "name": "Galt",
+    "type": "cities",
+    "state": "CA",
+    "website": "https://www.cityofgalt.org/",
+    "logo": "/branding/agencies/galt.png",
+    "status": "in-progress"
   }
 ]

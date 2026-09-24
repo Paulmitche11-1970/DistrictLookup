@@ -12,9 +12,11 @@ type Mode = 'login' | 'setup' | 'enroll' | 'verify';
 export default function AuthForm({
   mode,
   agencyId = 'martinez',
+  agencyOnly = false,
 }: {
   mode: Mode;
   agencyId?: string;
+  agencyOnly?: boolean;
 }) {
   const base = adminPath(agencyId);
   const apiRoot = apiPath(agencyId);
@@ -309,13 +311,15 @@ export default function AuthForm({
                 <ArrowLeft size={14} />
                 Return to the lookup
               </a>
-              <a
-                href="/admin/agencies"
-                className="small"
-                style={{ textAlign: 'center' }}
-              >
-                Choose another agency
-              </a>
+              {!agencyOnly && (
+                <a
+                  href="/admin/agencies"
+                  className="small"
+                  style={{ textAlign: 'center' }}
+                >
+                  Choose another agency
+                </a>
+              )}
             </form>
           </>
         )}

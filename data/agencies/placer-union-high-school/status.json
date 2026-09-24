@@ -1,0 +1,17 @@
+{
+  "slug": "placer-union-high-school",
+  "agency": "Placer Union High School District",
+  "stage": "agency-review",
+  "readyForReview": true,
+  "readyForPromotion": false,
+  "districts": 5,
+  "officials": 5,
+  "verifiedPortraits": 5,
+  "addressCount": 36443,
+  "addressMethod": "parcel-interior",
+  "sourceCheckedAt": "2026-09-24",
+  "pending": [
+    "Agency review of the map, current officials, and public address coverage before launch.",
+    "Confirm Emerson Lake continues the at-large term for the Area 4 residency seat until the 2026 district term begins."
+  ]
+}

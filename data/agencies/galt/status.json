@@ -1,0 +1,16 @@
+{
+  "slug": "galt",
+  "agency": "City of Galt",
+  "stage": "agency-review",
+  "readyForReview": true,
+  "readyForPromotion": false,
+  "districts": 5,
+  "officials": 5,
+  "verifiedPortraits": 5,
+  "addressCount": 9550,
+  "addressMethod": "parcel-interior",
+  "sourceCheckedAt": "2026-09-24",
+  "pending": [
+    "Agency review of the map, current officials, and public address coverage before launch."
+  ]
+}

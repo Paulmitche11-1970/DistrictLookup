@@ -659,11 +659,7 @@ export function LookupFooter(_props: { content: Content }) {
     <footer className="public-footer">
       <span>
         Powered by{' '}
-        <a
-          href="https://redistrictingpartners.com"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://rpdata.net" target="_blank" rel="noreferrer">
           RP Data
         </a>
       </span>

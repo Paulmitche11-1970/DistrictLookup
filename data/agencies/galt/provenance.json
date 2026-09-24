@@ -1,0 +1,445 @@
+{
+  "checkedAt": "2026-09-24",
+  "roster": {
+    "id": "galt",
+    "name": "City of Galt",
+    "shortName": "Galt",
+    "kind": "city",
+    "districtLabel": "District",
+    "logo": "/branding/agencies/galt.png",
+    "website": "https://www.cityofgalt.org/",
+    "contactEmail": "clerk@cityofgalt.org",
+    "contactPhone": "(209) 366-7130",
+    "accent": "#143356",
+    "showMayor": true,
+    "officials": [
+      {
+        "id": "bonnie-rodriguez",
+        "district": null,
+        "name": "Bonnie Rodriguez",
+        "title": "Mayor",
+        "selectionMethod": "appointed",
+        "email": "brodriguez@cityofgalt.org",
+        "phone": "(209) 366-7113",
+        "phoneLabel": "Office",
+        "website": "https://www.cityofgalt.org/government/city-council/council-member-jay-vandenburg",
+        "termEnd": "2026",
+        "photo": "/portraits/galt/bonnie-rodriguez.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "tim-reed",
+        "district": null,
+        "name": "Tim Reed",
+        "title": "Vice Mayor",
+        "selectionMethod": "elected",
+        "email": "treed@cityofgalt.org",
+        "phone": "(209) 366-7121",
+        "phoneLabel": "Office",
+        "website": "https://www.cityofgalt.org/government/city-council/council-member-rich-lozano",
+        "termEnd": "2028",
+        "photo": "/portraits/galt/tim-reed.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "shawn-farmer",
+        "district": null,
+        "name": "Shawn Farmer",
+        "title": "Councilmember",
+        "selectionMethod": "elected",
+        "email": "sfarmer@cityofgalt.org",
+        "phone": "(209) 366-7116",
+        "phoneLabel": "Office",
+        "website": "https://www.cityofgalt.org/government/city-council/mayor-shawn-farmer",
+        "termEnd": "2026",
+        "photo": "/portraits/galt/shawn-farmer.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "paul-sandhu",
+        "district": null,
+        "name": "Paul Sandhu",
+        "title": "Councilmember",
+        "selectionMethod": "elected",
+        "email": "psandhu@cityofgalt.org",
+        "phone": "(209) 366-7117",
+        "phoneLabel": "Office",
+        "website": "https://www.cityofgalt.org/government/city-council/vice-mayor-paul-sandhu",
+        "termEnd": "2026",
+        "photo": "/portraits/galt/paul-sandhu.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "mathew-pratton",
+        "district": null,
+        "name": "Mathew Pratton",
+        "title": "Councilmember",
+        "selectionMethod": "elected",
+        "email": "mpratton@cityofgalt.org",
+        "phone": "(209) 366-7114",
+        "phoneLabel": "Office",
+        "website": "https://www.cityofgalt.org/government/city-council/council-member-kevin-papineau",
+        "termEnd": "2028",
+        "photo": "/portraits/galt/mathew-pratton.webp",
+        "bio": "",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      }
+    ],
+    "districtElections": {
+      "1": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "2": {
+        "status": "transition",
+        "firstElection": "2028-11"
+      },
+      "3": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      },
+      "4": {
+        "status": "transition",
+        "firstElection": "2028-11"
+      },
+      "5": {
+        "status": "transition",
+        "firstElection": "2026-11"
+      }
+    },
+    "dataReviewedAt": "2026-09-24",
+    "sourceUrl": "https://www.cityofgalt.org/government/city-council-62",
+    "notes": [
+      "All five current officials represent the entire city. First district elections are November2026 for districts1,3,5 and November2028 for districts2,4.",
+      "The official election page lists residence districts and an apparent vacantDistrict1 but explicitly says the current seats were chosen at large. Do not create a vacant district official or assign the current members by those residence labels.",
+      "Bonnie Rodriguez was appointed to the council vacancy December2024. Mayor is a council-selected annual title; she is not a separately elected citywide mayor.",
+      "Term years are from the official current roster. No month/day inferred.",
+      "Galt profile URLs still contain former official names; verified visible page headings and pictures identify current members.",
+      "No biography text copied. Names, public contacts, photos and term years verified."
+    ],
+    "sources": [
+      {
+        "url": "https://www.cityofgalt.org/government/city-council-62",
+        "supports": "Current five-member roster, current titles, term end years; individual profile links"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/city-council/council-member-jay-vandenburg",
+        "supports": "Bonnie Rodriguez official portrait and public email/telephone"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/city-council/council-member-rich-lozano",
+        "supports": "Tim Reed official portrait and public email/telephone"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/city-council/mayor-shawn-farmer",
+        "supports": "Shawn Farmer official portrait and public email/telephone"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/city-council/vice-mayor-paul-sandhu",
+        "supports": "Paul Sandhu official portrait and public email/telephone"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/city-council/council-member-kevin-papineau",
+        "supports": "Mathew Pratton official portrait and public email/telephone"
+      },
+      {
+        "url": "https://www.cityofgalt.org/government/clerk-administrator-and-elected-city-clerk/elections/november-3-2026-general-election",
+        "supports": "2026 election districts1,3,5; explicit statement that existing council seats are at-large"
+      },
+      {
+        "url": "https://content.govdelivery.com/accounts/CAGALT/bulletins/3dd1a49",
+        "supports": "Official city newsletter confirms2026odd/2028even district sequence and annual council appointment of mayor"
+      },
+      {
+        "url": "https://content.govdelivery.com/accounts/CAGALT/bulletins/3c74146",
+        "supports": "Official city newsletter confirms Bonnie Rodriguez appointment to council December2024; TimReed/MathewPratton elected"
+      },
+      {
+        "url": "https://content.govdelivery.com/accounts/CAGALT/bulletins/3fe2c17",
+        "supports": "Official city newsletter confirms2026MayorBonnieRodriguez andViceMayorTimReed"
+      },
+      {
+        "url": "https://content.govdelivery.com/attachments/fancy_images/CAGALT/2022/07/6215915/full-color_original.png",
+        "supports": "Official city logo shown in City of Galt website subscription dialog"
+      }
+    ],
+    "boundaryAdoptionNotes": [
+      "Local signed/scanned ordinance is at Redistricting Files/City of Galt/FINAL MATERIALS/City of Galt Final Map/Ord.2025-04.pdf.",
+      "Official election page saysMarch27 2025; city newsletter saysApril1 2025 adoption. Exacteffective date not inferred in this roster preparation.",
+      "Current city November2026 election page links https://redistrictingpartners.com/wp-content/uploads/2025/04/City-of-Galt-Final-Map.html . Allfive imported local district geometries exactlymatch that linked map at1e-8degreeprecision."
+    ]
+  },
+  "map": {
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Galt\\FINAL MATERIALS\\City of Galt Final Map\\City of Galt Final Map 2025.shp",
+    "districtField": "DISTRICT",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "sourceRecords": 6,
+    "assignedRecords": 5,
+    "excludedRecords": 1,
+    "sourceCrs": "EPSG:4269",
+    "bounds": [
+      -121.33749,
+      38.234663,
+      -121.264282,
+      38.305471
+    ],
+    "parts": {
+      "1": 1,
+      "2": 1,
+      "3": 2,
+      "5": 1,
+      "4": 1
+    },
+    "overlaps": [],
+    "warnings": [
+      "1 feature(s) with blank district assignments excluded from the district map."
+    ],
+    "geometryValid": true,
+    "needsReview": false,
+    "componentHashes": {
+      ".shp": "7fd0043f695293715fd680d4716f8899204c0c584d60ea79a265d43b0240ce91",
+      ".shx": "a9e65380fc88ddfdbaea0ff075616eaecf76b0a7c3e15bb0dc5ff8952ee823bc",
+      ".dbf": "8739f51b78a8b930f9d8f156526ae1028fc8fc3d7de7922996c91a366afaba7b",
+      ".prj": "84cf5b9a3c1a444f83ac30ff76f8c5035990223027ba69b2f4d628388adcbd65"
+    },
+    "excludedSourceRecords": [
+      {
+        "record": 1,
+        "sourceLabel": "Unassigned|--",
+        "population": 0.0
+      }
+    ]
+  },
+  "addresses": {
+    "source": {
+      "url": "https://mapservices.gis.saccounty.net/arcgis/rest/services/PARCELS/MapServer/3",
+      "fields": "OBJECTID,SITUS_ADD1,CITY,SITUS_ZIP",
+      "method": "parcel-interior",
+      "credit": "Sacramento County GIS"
+    },
+    "checkedAt": "2026-09-24",
+    "acceptedUnique": 9550,
+    "byDistrict": {
+      "4": 1921,
+      "2": 1697,
+      "3": 2073,
+      "1": 1498,
+      "5": 2361
+    },
+    "byCity": {
+      "Galt": 9550
+    },
+    "excluded": {
+      "no_complete_situs_address": 643,
+      "outside_or_ambiguous_boundary": 975,
+      "invalid_geometry": 9,
+      "parcel_crosses_district_boundary": 18,
+      "deduplicated": 30,
+      "duplicate_distant_or_conflicting_address": 2
+    },
+    "sha256": "57360391952de0fc58d7be785b47eaec3a0d5b6b9c2ce460b727a8e967e9534c",
+    "samples": [
+      {
+        "label": "100 6Th St",
+        "city": "Galt",
+        "zip": "95632",
+        "lon": -121.3038606,
+        "lat": 38.2546048,
+        "district": "1",
+        "id": "724501a8217978df8a7b"
+      },
+      {
+        "label": "1 W A St",
+        "city": "Galt",
+        "zip": "95632",
+        "lon": -121.3145426,
+        "lat": 38.2550732,
+        "district": "2",
+        "id": "400b0e2be764bdda4421"
+      },
+      {
+        "label": "10 Live Oak Ave",
+        "city": "Galt",
+        "zip": "95632",
+        "lon": -121.3138885,
+        "lat": 38.2738316,
+        "district": "3",
+        "id": "147f8eecd62a9ee6aca5"
+      },
+      {
+        "label": "1 Common Rd",
+        "city": "Galt",
+        "zip": "95632",
+        "lon": -121.2774836,
+        "lat": 38.2807296,
+        "district": "4",
+        "id": "8e930f47bbdf3a450f43"
+      },
+      {
+        "label": "1000 C St",
+        "city": "Galt",
+        "zip": "95632",
+        "lon": -121.2980738,
+        "lat": 38.2527871,
+        "district": "5",
+        "id": "42aec17bb6a2380e23c0"
+      }
+    ],
+    "retainedFields": [
+      "id",
+      "label",
+      "city",
+      "zip",
+      "lon",
+      "lat",
+      "district"
+    ],
+    "notes": "Only public situs fields retained. Strict point-in-polygon; ambiguous or cross-district parcels excluded. Parcel locations are approximate; coverage is not an authoritative voter registration roll."
+  },
+  "boundaryVerification": [
+    {
+      "agency": "california-city",
+      "comparisonAt": "2026-09-24",
+      "precisionDegrees": 1e-08,
+      "projectedAreaCRS": "EPSG:3310",
+      "districts": [
+        {
+          "district": "1",
+          "linkedAreaSqm": 309384720.43832344,
+          "localAreaSqm": 307663030.548385,
+          "symmetricDifferenceSqm": 34745452.20144674,
+          "differencePercentOfLinked": 11.230500379017046,
+          "hausdorffDistanceMeters": 903.9672519986041,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "2",
+          "linkedAreaSqm": 46912445.62153178,
+          "localAreaSqm": 47450017.5611626,
+          "symmetricDifferenceSqm": 6803192.893416768,
+          "differencePercentOfLinked": 14.501893481106968,
+          "hausdorffDistanceMeters": 897.6349835387492,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "3",
+          "linkedAreaSqm": 35704333.83652649,
+          "localAreaSqm": 42808017.08447667,
+          "symmetricDifferenceSqm": 7103683.247950175,
+          "differencePercentOfLinked": 19.895857126125446,
+          "hausdorffDistanceMeters": 895.9029826954868,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "4",
+          "linkedAreaSqm": 130529397.94065702,
+          "localAreaSqm": 128619581.6555711,
+          "symmetricDifferenceSqm": 9874564.859969402,
+          "differencePercentOfLinked": 7.565012185575777,
+          "hausdorffDistanceMeters": 904.6570003797807,
+          "equalAt1e8DegreePrecision": false,
+          "linkedValid": true,
+          "localValid": true
+        }
+      ],
+      "unionDifferenceSqm": 58526884.047839954,
+      "sourceHtmlSha256": "f982234ec4ac4b8de1c472aacc168b553c8164657f0edf2d5d07f2204d01f047"
+    },
+    {
+      "agency": "galt",
+      "comparisonAt": "2026-09-24",
+      "precisionDegrees": 1e-08,
+      "projectedAreaCRS": "EPSG:3310",
+      "districts": [
+        {
+          "district": "1",
+          "linkedAreaSqm": 2361109.3934453535,
+          "localAreaSqm": 2361109.3934453535,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "2",
+          "linkedAreaSqm": 2258658.3904878977,
+          "localAreaSqm": 2258658.3904878977,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "3",
+          "linkedAreaSqm": 5495090.933406519,
+          "localAreaSqm": 5495090.933406519,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "4",
+          "linkedAreaSqm": 4513771.983701446,
+          "localAreaSqm": 4513771.983701446,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        },
+        {
+          "district": "5",
+          "linkedAreaSqm": 5606756.396729419,
+          "localAreaSqm": 5606756.396729419,
+          "symmetricDifferenceSqm": 0.0,
+          "differencePercentOfLinked": 0.0,
+          "hausdorffDistanceMeters": 0.0,
+          "equalAt1e8DegreePrecision": true,
+          "linkedValid": true,
+          "localValid": true
+        }
+      ],
+      "unionDifferenceSqm": 0.0,
+      "sourceHtmlSha256": "f5d7b24edb801cc40dd7f92c7b7e3652be8ea9589a6f094bbf214d0d98195fb9"
+    }
+  ]
+}

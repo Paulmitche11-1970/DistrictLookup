@@ -5,6 +5,22 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   devIndicators: false,
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/',
+          has: [{ type: 'host', value: '(?:www\\.)?rpdata\\.net' }],
+          destination: '/rpdata',
+        },
+        ...['about', 'what-we-do', 'my-district'].map((page) => ({
+          source: '/' + page,
+          has: [{ type: 'host' as const, value: '(?:www\\.)?rpdata\\.net' }],
+          destination: '/rpdata/' + page,
+        })),
+      ],
+    };
+  },
   async headers() {
     return [
       {
@@ -16,6 +32,14 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+        ],
+      },
+      {
+        source: '/send/:path*',
+        headers: [
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'Cache-Control', value: 'private, no-store' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
         ],
       },
       {

@@ -5,9 +5,16 @@ export type { BoundaryAgency } from './boundary-model';
 export const boundaryAgencies: BoundaryAgency[] = inventory.agencies;
 export const boundaryCategories = inventory.categories;
 export const boundaryImportDate = inventory.importedAt;
+const lookupIds: Record<string, string> = {
+  'midpeninsula-water-district': 'midpeninsula-water',
+  'san-jose-evergreen-community-college-district': 'san-jose-evergreen',
+  'barstow-community-college-district': 'barstow-college',
+  'placer-union-high-school-district': 'placer-union-high-school',
+  'olivenhain-municipal-water-district': 'olivenhain-water',
+};
 export const boundaryDirectoryEntries: BoundaryDirectoryEntry[] =
   boundaryAgencies.map((a) => ({
-    id: a.id === 'midpeninsula-water-district' ? 'midpeninsula-water' : a.id,
+    id: lookupIds[a.id] || a.id,
     name: a.name,
     type:
       a.category === 'Community colleges'

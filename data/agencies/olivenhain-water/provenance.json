@@ -1,0 +1,512 @@
+{
+  "checkedAt": "2026-09-24",
+  "roster": {
+    "slug": "olivenhain-water",
+    "dataReviewedAt": "2026-09-24",
+    "sourceUrl": "https://www.olivenhain.com/about-us/governing-board/",
+    "agency": {
+      "kind": "special",
+      "districtLabel": "Division",
+      "name": "Olivenhain Municipal Water District",
+      "shortName": "Olivenhain Water",
+      "state": "CA",
+      "website": "https://www.olivenhain.com/",
+      "contactEmail": "CustomerService@olivenhain.com",
+      "contactPhone": "(760) 753-6466",
+      "accent": "#067eab",
+      "logo": "/branding/agencies/olivenhain-water.png",
+      "showMayor": false,
+      "showManagement": false,
+      "showPhotos": true,
+      "showEmail": false,
+      "showPhone": true,
+      "showWebsite": true,
+      "showTerm": true,
+      "showBiographies": true,
+      "showStaff": false
+    },
+    "officials": [
+      {
+        "id": "ebin-lanfried",
+        "district": "1",
+        "name": "Ebin Lanfried",
+        "title": "Director",
+        "additionalTitles": [],
+        "selectionMethod": "appointed",
+        "email": "",
+        "phone": "(760) 632-4648",
+        "phoneLabel": "Board office",
+        "website": "https://www.olivenhain.com/about-us/governing-board/",
+        "termEnd": "2026",
+        "photo": "/portraits/olivenhain-water/ebin-lanfried.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "scott-maloni",
+        "district": "2",
+        "name": "Scott Maloni",
+        "title": "Treasurer",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "",
+        "phone": "(760) 632-4648",
+        "phoneLabel": "Board office",
+        "website": "https://www.olivenhain.com/about-us/governing-board/",
+        "termEnd": "2028",
+        "photo": "/portraits/olivenhain-water/scott-maloni.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "christy-guerin",
+        "district": "3",
+        "name": "Christy Guerin",
+        "title": "Secretary",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "",
+        "phone": "(760) 632-4648",
+        "phoneLabel": "Board office",
+        "website": "https://www.olivenhain.com/about-us/governing-board/",
+        "termEnd": "2028",
+        "photo": "/portraits/olivenhain-water/christy-guerin.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "matthew-hahn",
+        "district": "4",
+        "name": "Matthew R. Hahn",
+        "title": "President",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "",
+        "phone": "(760) 632-4648",
+        "phoneLabel": "Board office",
+        "website": "https://www.olivenhain.com/about-us/governing-board/",
+        "termEnd": "2026",
+        "photo": "/portraits/olivenhain-water/matthew-hahn.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      },
+      {
+        "id": "neal-meyers",
+        "district": "5",
+        "name": "Neal Meyers",
+        "title": "Vice President",
+        "additionalTitles": [],
+        "selectionMethod": "elected",
+        "email": "",
+        "phone": "(760) 632-4648",
+        "phoneLabel": "Board office",
+        "website": "https://www.olivenhain.com/about-us/governing-board/",
+        "termEnd": "2028",
+        "photo": "/portraits/olivenhain-water/neal-meyers.webp",
+        "bio": "",
+        "bioFormat": "text",
+        "staffName": "",
+        "staffEmail": "",
+        "staffPhone": "",
+        "vacant": false
+      }
+    ],
+    "districtElections": {
+      "1": {
+        "status": "district"
+      },
+      "2": {
+        "status": "district"
+      },
+      "3": {
+        "status": "district"
+      },
+      "4": {
+        "status": "district"
+      },
+      "5": {
+        "status": "district"
+      }
+    },
+    "mapEffectiveDate": "",
+    "mapName": "Olivenhain Water District Final Plan C2",
+    "contactEvidence": {
+      "url": "https://www.olivenhain.com/contact-us/",
+      "publicContact": "Board Secretary / General Manager office 760-632-4648; direct official emails not published on board page. Shared office number explicitly labeled."
+    },
+    "boundaryEvidence": {
+      "page": "https://www.olivenhain.com/about-us/governing-board/",
+      "map": "https://www.olivenhain.com/wp-content/uploads/Olivenhain-Water-District-Final-Plan-edit.html",
+      "result": "Every division geometry matches RP final C2 boundary library within 1cm tolerance (actual max <1e-9m).",
+      "adoptionDate": "Not established from current board page. Leave effective date blank rather than infer an exact day."
+    },
+    "uncertainties": [
+      "Direct individual office email addresses not found; no guessed aliases used.",
+      "Exact end month not provided on current director roster; year only preserved."
+    ],
+    "localRosterComparison": {
+      "result": "Prior source inventory had zero matched local roster records. Official agency page provides all five current directors."
+    },
+    "assets": [
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/themes/Olivenhain-wp/images/logo2.png",
+        "publicPath": "/branding/agencies/olivenhain-water.png",
+        "downloadedAt": "2026-09-24",
+        "sha256": "b50d0595d2e44ed177e78b1f9893892ab7ec9b2dcdb00daebc03dc7068eb1683",
+        "bytes": 13255,
+        "dimensions": [
+          224,
+          112
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Board Meetings",
+        "preparation": "Original agency asset unchanged."
+      },
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/uploads/Hahn-circle.png",
+        "publicPath": "/portraits/olivenhain-water/matthew-hahn.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "7d2a7758b5b445606d0b88aa496a08899f9a969a6b4c7bedbc66a19caf6f9f20",
+        "bytes": 34264,
+        "dimensions": [
+          664,
+          720
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Matthew R. Hahn, President",
+        "originalPublicPath": "/portraits/olivenhain-water/matthew-hahn.png",
+        "originalSha256": "72efd76fe14fce9cc908c25358af9d08d484fc1e718e0f9d19ad9c706d3afdf5",
+        "originalBytes": 3068703,
+        "originalDimensions": [
+          1453,
+          1575
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/uploads/2021-09-NMeyers-web-circle.jpg",
+        "publicPath": "/portraits/olivenhain-water/neal-meyers.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "2f743f00fca0845f39389316ae14c76e5a31b676227df865b598436e20506f41",
+        "bytes": 13604,
+        "dimensions": [
+          422,
+          424
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Neal Meyers, Vice President",
+        "originalPublicPath": "/portraits/olivenhain-water/neal-meyers.jpg",
+        "originalSha256": "787a7dda6fd5c4ffd9ddfc9f385854d897d877fac5b7f108bc7efbf80aec75a3",
+        "originalBytes": 26341,
+        "originalDimensions": [
+          422,
+          424
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/uploads/profile-christy-2.jpg",
+        "publicPath": "/portraits/olivenhain-water/christy-guerin.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "34be6fdebf1fa520c51c2122617066194dc6230a52deb3e87a04a97d7793eefc",
+        "bytes": 7052,
+        "dimensions": [
+          180,
+          180
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Christy Guerin, Secretary",
+        "originalPublicPath": "/portraits/olivenhain-water/christy-guerin.jpg",
+        "originalSha256": "388e6d98b6d6d7399e109c8d4dbec998587c0176db5582fa826af0582fd0d2ba",
+        "originalBytes": 10109,
+        "originalDimensions": [
+          180,
+          180
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/uploads/scott-maloni-head-shot-circle-crop.jpg",
+        "publicPath": "/portraits/olivenhain-water/scott-maloni.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "74794bfc0c8d34083bfdbf2db88972a752888bc2b164a86eb698705a63f72820",
+        "bytes": 17480,
+        "dimensions": [
+          463,
+          523
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Scott Maloni, Treasurer",
+        "originalPublicPath": "/portraits/olivenhain-water/scott-maloni.jpg",
+        "originalSha256": "d66ccee15e26a992b98f4890f70313c6682b2d30bbdf79205bc2d0c628579142",
+        "originalBytes": 33117,
+        "originalDimensions": [
+          463,
+          523
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      },
+      {
+        "sourceUrl": "https://www.olivenhain.com/wp-content/uploads/Lanfried-circle-1-e1743697558725.png",
+        "publicPath": "/portraits/olivenhain-water/ebin-lanfried.webp",
+        "downloadedAt": "2026-09-24",
+        "sha256": "2768f429464b033515aee2b32fdc0c5b87406479d8d39a8b60b8e4aa018204ce",
+        "bytes": 28850,
+        "dimensions": [
+          544,
+          554
+        ],
+        "sourcePage": "https://www.olivenhain.com/about-us/governing-board/",
+        "imageHeading": "Ebin Lanfried, Director",
+        "originalPublicPath": "/portraits/olivenhain-water/ebin-lanfried.png",
+        "originalSha256": "5598bf586a801c1916ae92f00daae335be73a45258481b3f29d5ab8de4a072a7",
+        "originalBytes": 278762,
+        "originalDimensions": [
+          544,
+          554
+        ],
+        "preparation": "EXIF orientation normalized, resized within 720x720, WebP quality 88; no cropping or retouching."
+      }
+    ]
+  },
+  "map": {
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\Olivenhain Water District\\Final Plan for Submission\\Olivenhain WD Final Plan from C2.shp",
+    "districtField": "DISTRICT",
+    "districts": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "sourceRecords": 5,
+    "assignedRecords": 5,
+    "excludedRecords": 0,
+    "sourceCrs": "EPSG:3857",
+    "bounds": [
+      -117.287341,
+      32.970181,
+      -117.08990100000001,
+      33.09577699999999
+    ],
+    "parts": {
+      "1": 1,
+      "4": 1,
+      "3": 1,
+      "5": 2,
+      "2": 1
+    },
+    "overlaps": [],
+    "warnings": [],
+    "geometryValid": true,
+    "needsReview": false,
+    "componentHashes": {
+      ".shp": "8b3b79b63cd797a194f6ab4a423442a9417c704373699a3535969a5522fe64cb",
+      ".shx": "5f56b258cfb69808f6aae3569f9b4cf9b9312fb76488ea2493387f88411a80ff",
+      ".dbf": "6a2e8010064110f0132dd9dd305c7d4a73ef544aa4a3e137fc1c9d3711de191d",
+      ".prj": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0"
+    },
+    "excludedSourceRecords": []
+  },
+  "addresses": {
+    "source": {
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Address_Points/FeatureServer/0",
+      "fields": "objectid,addrnmbr,addrfrac,addrpdir,addrname,addrpostd,addrsfx,addrunit,addrjur,addrzip,community,placement_location",
+      "method": "public-situs-address-point",
+      "credit": "SanGIS / SANDAG Regional GIS Data Warehouse"
+    },
+    "checkedAt": "2026-09-24",
+    "acceptedUnique": 25805,
+    "byDistrict": {
+      "5": 4649,
+      "2": 4592,
+      "3": 5495,
+      "1": 6463,
+      "4": 4606
+    },
+    "byCity": {
+      "Carlsbad": 6599,
+      "County Of San Diego": 9526,
+      "Encinitas": 8855,
+      "San Diego": 620,
+      "San Marcos": 9,
+      "Solana Beach": 196
+    },
+    "excluded": {
+      "outside_or_ambiguous_boundary": 42786,
+      "no_complete_situs_address": 4114,
+      "deduplicated": 1076,
+      "duplicate_distant_or_conflicting_address": 247
+    },
+    "sha256": "171a9da61d947428cdaf2c1adbbe97613132b9c12aaedb12a2b3617139d05023",
+    "samples": [
+      {
+        "label": "100 Via Coronado",
+        "city": "County Of San Diego",
+        "zip": "92091",
+        "lon": -117.2114257,
+        "lat": 32.9922431,
+        "district": "1",
+        "id": "8edd186f329710b4c0ac"
+      },
+      {
+        "label": "1901 Calle Barcelona",
+        "city": "Carlsbad",
+        "zip": "92024",
+        "lon": -117.2660879,
+        "lat": 33.0714531,
+        "district": "2",
+        "id": "577bf983963ad84b3832"
+      },
+      {
+        "label": "1966 Olivenhain Rd",
+        "city": "Carlsbad",
+        "zip": "",
+        "lon": -117.247426,
+        "lat": 33.066977,
+        "district": "3",
+        "id": "945e8afaa034ae9ef5e6"
+      },
+      {
+        "label": "10002 Baylee Ln",
+        "city": "County Of San Diego",
+        "zip": "92127",
+        "lon": -117.1151578,
+        "lat": 33.0116998,
+        "district": "4",
+        "id": "e9caaa4e9987048ef2f1"
+      },
+      {
+        "label": "1442 Avenida La Posta",
+        "city": "Carlsbad",
+        "zip": "92009",
+        "lon": -117.2272939,
+        "lat": 33.062772,
+        "district": "5",
+        "id": "e5212575277de16fa501"
+      }
+    ],
+    "retainedFields": [
+      "id",
+      "label",
+      "city",
+      "zip",
+      "lon",
+      "lat",
+      "district"
+    ],
+    "notes": "Only public situs fields retained. Strict point-in-polygon; ambiguous or cross-district parcels excluded. Parcel locations are approximate; coverage is not an authoritative voter registration roll."
+  },
+  "boundaryVerification": [
+    {
+      "id": "placer-union-high-school-district",
+      "comparison": "Every local district compared with same DISTRICT ID on the currently agency-linked interactive map. Projection EPSG:3310.",
+      "districts": [
+        {
+          "district": "1",
+          "localAreaM2": 1685116186.5922892,
+          "webAreaM2": 1685116186.592297,
+          "symmetricDifferenceM2": 0.00014926852263191266,
+          "hausdorffDistanceM": 8.847672161511452e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "2",
+          "localAreaM2": 123273599.4093686,
+          "webAreaM2": 123273599.40936597,
+          "symmetricDifferenceM2": 3.429311370340935e-05,
+          "hausdorffDistanceM": 8.187647743857472e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "3",
+          "localAreaM2": 230587172.3901864,
+          "webAreaM2": 230587172.3901905,
+          "symmetricDifferenceM2": 5.633899405981827e-05,
+          "hausdorffDistanceM": 8.783813757841577e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "4",
+          "localAreaM2": 94580703.36874244,
+          "webAreaM2": 94580703.36874248,
+          "symmetricDifferenceM2": 3.54683292906976e-05,
+          "hausdorffDistanceM": 8.187647743857472e-09,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "5",
+          "localAreaM2": 91855886.26025413,
+          "webAreaM2": 91855886.26025064,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 6.956241672824749e-09,
+          "equalAt1cmTolerance": true
+        }
+      ],
+      "allMatchAt1cm": true
+    },
+    {
+      "id": "olivenhain-municipal-water-district",
+      "comparison": "Every local district compared with same DISTRICT ID on the currently agency-linked interactive map. Projection EPSG:3310.",
+      "districts": [
+        {
+          "district": "1",
+          "localAreaM2": 70436426.69930899,
+          "webAreaM2": 70436426.69930899,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "2",
+          "localAreaM2": 10186009.3249445,
+          "webAreaM2": 10186009.3249445,
+          "symmetricDifferenceM2": 1.1852211780375918e-09,
+          "hausdorffDistanceM": 8.559693331977319e-10,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "3",
+          "localAreaM2": 14895495.6784998,
+          "webAreaM2": 14895495.6784998,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "4",
+          "localAreaM2": 17250604.938734468,
+          "webAreaM2": 17250604.938734468,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        },
+        {
+          "district": "5",
+          "localAreaM2": 13554715.040385274,
+          "webAreaM2": 13554715.040385285,
+          "symmetricDifferenceM2": 0.0,
+          "hausdorffDistanceM": 0.0,
+          "equalAt1cmTolerance": true
+        }
+      ],
+      "allMatchAt1cm": true
+    }
+  ]
+}

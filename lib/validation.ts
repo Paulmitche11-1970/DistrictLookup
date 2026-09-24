@@ -23,7 +23,12 @@ export const officialSchema = z
     website: url,
     termEnd: z.union([
       z.literal(''),
-      z.string().regex(/^20\d{2}-(0[1-9]|1[0-2])$/),
+      z
+        .string()
+        .regex(
+          /^20\d{2}(?:-(0[1-9]|1[0-2]))?$/,
+          'Enter a year (2028) or year and month (2028-11).',
+        ),
     ]),
     photo: z
       .string()
