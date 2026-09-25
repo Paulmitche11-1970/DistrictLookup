@@ -1,6 +1,12 @@
 import { instances } from './instances';
 import type { ReviewScope } from './review-token';
 export function reviewDestination(scope: ReviewScope, value?: string | null) {
+  if (
+    scope === 'rp' &&
+    value &&
+    /^\/admin\/website(?:\/preview\/[a-z0-9-]+)?$/.test(value)
+  )
+    return value;
   // Safe internal boundary-library routes retain their destination after sign-in.
   if (
     scope === 'rp' &&

@@ -13,6 +13,20 @@ Services follow Paul’s requested scope: Census Data Consulting, Census Outreac
 
 All biographies are concise paraphrases with links to the source pages. No UT endorsement is claimed. Photos are real supplied/source images. The home page map is a decorative vector illustration, not an agency boundary map.
 
-## Verification
+## Website content management
 
-Production build, TypeScript and lint pass. Host routing checked for all four pages at both root and www; wheresmydistrict.com keeps its protected RP directory. Desktop navigation, portraits, preview screenshots and overflow checked in browser. Responsive CSS is included; the current browser viewport override did not change its actual desktop width during this QA run. Visual artifacts are in ../outputs/rpdata. No agency invitation emails sent.
+Open **https://rpdata.net/admin**. It redirects to the protected RP staff workspace at **https://wheresmydistrict.com/admin/website**, using the existing RP team password. Agency administrator accounts and agency Sending Links cannot access the website editor. This is a native content editor in the existing application; it does not require a WordPress installation or plugins.
+
+- **Pages:** Home, What We Do, About Us, and My District are seeded from the existing website. Expand sections to edit headings, rich text, links, photos, service cards, and team profiles. Add or reorder sections; create additional pages with their own address, search description, navigation label/order, and visibility.
+- **Media library:** Upload JPG, PNG, WebP, and GIF files (first frame), add an image description, and reuse the pictures on different pages. Original team portraits and screenshots are also available. Files are re-encoded as WebP, limited to 8 MB / 30 megapixels at input and 2,000 pixels at output. Uploaded images are private until referenced by published content.
+- **Site settings:** Edit the shared brand, footer, partner link, and contact section. Publishing these settings updates every page.
+- **Save draft** keeps changes private; **Preview** opens the saved draft in a staff-only window; **Publish** saves and immediately publishes the current edits. **Unpublish** removes a page from public routes/navigation while keeping its draft. The homepage and shared settings always remain published. Existing core-page addresses are fixed; additional pages can use custom slugs.
+- **Revision history:** Keeps the last 100 revisions per document, displays the latest 50, and restores an earlier version as a draft. Stale edits return a conflict rather than silently overwriting another editor. Unsaved changes trigger a browser leave warning.
+
+Persistence is independent of agency content: `$DATA_DIR/rpdata-website/website.sqlite` plus the adjacent `media/` directory. On Railway this is on the existing `/data` volume. Seed content is loaded only when this website database is empty. Deployments do not overwrite editorial changes. Back up the database using SQLite's backup API (or a quiesced volume backup) together with the media directory; do not copy a live WAL database alone. No new credentials, hosting services, or paid dependencies were introduced.
+
+Rich HTML is sanitized on save and read. Scripts, event handlers, iframes, and remote tracking images are removed. Edits and uploads require the RP review session and an existing allowed application Origin. The public website and its metadata only read published content. Draft previews are authenticated, not indexed, and not cached.
+
+CMS verification: 84 unit/integration tests, 45 HTTP checks against a disposable database, production build, TypeScript, and lint pass. The HTTP suite covers staff-only access (including rejected Martinez review and agency Sending Link sessions), origin checks, private drafts/uploads, image validation, create/preview/publish/unpublish, history restoration, conflict detection, domain routing, shared contact publication, and unchanged agency data. A browser walkthrough also created and published a test page using rich formatting and an image from the media library. Test edits are local only.
+
+Desktop and 390-pixel mobile layouts were checked in the browser, with no horizontal overflow on the public homepage or editor. CMS visual artifacts are in ../outputs/rpdata-cms; initial public-site artifacts remain in ../outputs/rpdata. No agency invitation emails sent.

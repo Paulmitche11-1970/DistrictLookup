@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   devIndicators: false,
+  async redirects() {
+    return [
+      {
+        source: '/admin/:path*',
+        has: [{ type: 'host', value: '(?:www\\.)?rpdata\\.net' }],
+        destination: 'https://wheresmydistrict.com/admin/website',
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
@@ -13,11 +23,12 @@ const nextConfig: NextConfig = {
           has: [{ type: 'host', value: '(?:www\\.)?rpdata\\.net' }],
           destination: '/rpdata',
         },
-        ...['about', 'what-we-do', 'my-district'].map((page) => ({
-          source: '/' + page,
-          has: [{ type: 'host' as const, value: '(?:www\\.)?rpdata\\.net' }],
-          destination: '/rpdata/' + page,
-        })),
+        {
+          source:
+            '/:slug((?!admin(?:/|$)|api(?:/|$)|rpdata(?:/|$)|review-access(?:/|$)|logs(?:/|$)|send(?:/|$))[a-z0-9-]+)',
+          has: [{ type: 'host', value: '(?:www\\.)?rpdata\\.net' }],
+          destination: '/rpdata/:slug',
+        },
       ],
     };
   },

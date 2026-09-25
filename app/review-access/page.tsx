@@ -12,6 +12,7 @@ export default async function Page({
   const scope = params.scope === 'rp' ? 'rp' : 'martinez';
   const next = reviewDestination(scope, params.next);
   const administration = scope === 'rp' && next === '/admin';
+  const website = scope === 'rp' && next.startsWith('/admin/website');
   return (
     <main className="review-access-page">
       <form
@@ -22,16 +23,20 @@ export default async function Page({
         <span className="eyebrow">RP DATA · PRIVATE REVIEW</span>
         <LockKeyhole size={30} />
         <h1>
-          {administration
-            ? 'RP administration'
-            : scope === 'rp'
-              ? 'Your agency workspace'
-              : 'Martinez design review'}
+          {website
+            ? 'RP Data website editor'
+            : administration
+              ? 'RP administration'
+              : scope === 'rp'
+                ? 'Your agency workspace'
+                : 'Martinez design review'}
         </h1>
         <p className="muted">
-          {scope === 'rp'
-            ? 'Enter the RP team password to open your agency workspace.'
-            : 'Enter your review password to explore the four designs and administration preview.'}
+          {website
+            ? 'Enter the RP team password to manage website pages, pictures, and content.'
+            : scope === 'rp'
+              ? 'Enter the RP team password to open your agency workspace.'
+              : 'Enter your review password to explore the four designs and administration preview.'}
         </p>
         <input type="hidden" name="scope" value={scope} />
         <input type="hidden" name="next" value={next} />
@@ -57,14 +62,16 @@ export default async function Page({
         <button className="btn primary" type="submit">
           Open workspace
         </button>
-        <a
-          href={
-            scope === 'martinez' ? adminPath('martinez') : '/admin/agencies'
-          }
-          className="small"
-        >
-          Agency administrator sign in
-        </a>
+        {!website && (
+          <a
+            href={
+              scope === 'martinez' ? adminPath('martinez') : '/admin/agencies'
+            }
+            className="small"
+          >
+            Agency administrator sign in
+          </a>
+        )}
       </form>
     </main>
   );

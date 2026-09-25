@@ -1,0 +1,443 @@
+{
+  "settings": {
+    "kind": "settings",
+    "siteName": "RP Data",
+    "tagline": "Data. Place. Perspective.",
+    "description": "The home of data and analysis for Redistricting Partners and related projects.",
+    "logo": "",
+    "contactEyebrow": "Let’s work together",
+    "contactTitle": "What are you trying\nto understand?",
+    "contactBody": "<p>A community. A changing population. A question in your data. Tell us what you’re working on, and we’ll help you find a path forward.</p>",
+    "contactEmail": "info@redistrictingpartners.com",
+    "contactButton": "Start a conversation",
+    "partnerLabel": "Visit Redistricting Partners",
+    "partnerUrl": "https://redistrictingpartners.com/"
+  },
+  "home": {
+    "kind": "page",
+    "slug": "",
+    "title": "Home",
+    "navLabel": "Home",
+    "showInNav": true,
+    "order": 0,
+    "description": "The home of data and analysis for Redistricting Partners and related projects. Census consulting, outreach, GIS, data analysis, and My District.",
+    "sections": [
+      {
+        "id": "section-1",
+        "type": "hero",
+        "eyebrow": "An initiative of Redistricting Partners",
+        "title": "Good data.\nClearer perspective.",
+        "body": "<p>We turn information about people and places into understanding—and tools communities can use.</p><p>RP Data is the home of data and analysis for Redistricting Partners and related projects.</p>",
+        "image": "",
+        "alt": "",
+        "link": "/what-we-do",
+        "linkLabel": "Explore what we do",
+        "items": []
+      },
+      {
+        "id": "section-2",
+        "type": "services",
+        "eyebrow": "What we do",
+        "title": "From questions\nto useful answers.",
+        "body": "<p>Research, analysis, and practical tools for public agencies, organizations, and the communities they serve.</p>",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": [
+          {
+            "id": "census-data",
+            "title": "Census Data Consulting",
+            "subtitle": "",
+            "body": "<p>Understand the people behind the numbers.</p>",
+            "image": "",
+            "alt": "",
+            "link": "/what-we-do#census-data",
+            "linkLabel": "Learn more"
+          },
+          {
+            "id": "census-outreach",
+            "title": "Census Outreach",
+            "subtitle": "",
+            "body": "<p>Reach the communities that need to be counted.</p>",
+            "image": "",
+            "alt": "",
+            "link": "/what-we-do#census-outreach",
+            "linkLabel": "Learn more"
+          },
+          {
+            "id": "gis",
+            "title": "GIS Services / Mapping",
+            "subtitle": "",
+            "body": "<p>Put your information in context.</p>",
+            "image": "",
+            "alt": "",
+            "link": "/what-we-do#gis",
+            "linkLabel": "Learn more"
+          },
+          {
+            "id": "analysis",
+            "title": "Data Analysis",
+            "subtitle": "",
+            "body": "<p>Move from a spreadsheet to an answer.</p>",
+            "image": "",
+            "alt": "",
+            "link": "/what-we-do#analysis",
+            "linkLabel": "Learn more"
+          },
+          {
+            "id": "my-district",
+            "title": "My District",
+            "subtitle": "",
+            "body": "<p>Connect residents with their representatives.</p>",
+            "image": "",
+            "alt": "",
+            "link": "/what-we-do#my-district",
+            "linkLabel": "Learn more"
+          }
+        ]
+      },
+      {
+        "id": "section-3",
+        "type": "split",
+        "eyebrow": "Meet My District",
+        "title": "The right district.\nThe right people.",
+        "body": "<p>Make it easy for a resident to find who represents them. A clear map, a simple address search, and the information your agency wants to share.</p>",
+        "image": "/design-previews/galt/classic.webp",
+        "alt": "My District example showing a city address search, representatives, and a district map",
+        "link": "/my-district",
+        "linkLabel": "Explore the lookup tool",
+        "items": []
+      },
+      {
+        "id": "section-4",
+        "type": "text",
+        "eyebrow": "The people behind the work",
+        "title": "Experience in the data.\nA commitment to the community.",
+        "body": "<p>Led by Paul Mitchell, our team brings experience in demographic analysis, redistricting, mapping, public policy, and outreach.</p>",
+        "image": "",
+        "alt": "",
+        "link": "/about",
+        "linkLabel": "Meet the team",
+        "items": []
+      }
+    ]
+  },
+  "about": {
+    "kind": "page",
+    "slug": "about",
+    "title": "About Us",
+    "navLabel": "About Us",
+    "showInNav": true,
+    "order": 20,
+    "description": "Meet Paul Mitchell, Jacob Thompson Fisher, Chris Chaffee, and Liz Stitt—the people behind RP Data.",
+    "sections": [
+      {
+        "id": "section-5",
+        "type": "intro",
+        "eyebrow": "About us",
+        "title": "People who see\nthe bigger picture.",
+        "body": "<p>RP Data brings the data and analysis work of Redistricting Partners together with related projects, public tools, and a team that understands communities.</p>",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": []
+      },
+      {
+        "id": "section-6",
+        "type": "profiles",
+        "eyebrow": "",
+        "title": "",
+        "body": "",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": [
+          {
+            "id": "",
+            "title": "Paul Mitchell",
+            "subtitle": "Leadership · Data & analysis",
+            "body": "<p>Paul leads RP Data. He is the owner of Redistricting Partners and Vice President of Political Data, bringing experience in demographics, redistricting, polling, and survey research. His work spans states, cities, counties, school boards, and community college districts, as well as nonprofit organizations working on elections and community engagement.</p><p>Paul holds a Master of Public Policy from the University of Southern California, an undergraduate degree from American University, and an associate degree from Orange Coast College.</p>",
+            "image": "/rpdata/team/paul.jpg",
+            "alt": "Paul Mitchell",
+            "link": "https://redistrictingpartners.com/about/",
+            "linkLabel": "Redistricting Partners profile"
+          },
+          {
+            "id": "",
+            "title": "Jacob Thompson Fisher",
+            "subtitle": "Data · Mapping",
+            "body": "<p>Jacob is part of the RP Data team and contributes to the mapping work of Redistricting Partners. His published projects include interactive district maps for the City of Napa and San Juan Water District, helping people explore proposed boundaries and compare different plans.</p><p>His work connects geographic information with tools that make district maps easier to use and share.</p>",
+            "image": "/rpdata/team/jacob.png",
+            "alt": "Jacob Thompson Fisher",
+            "link": "https://redistrictingpartners.com/2020/",
+            "linkLabel": "Mapping projects at Redistricting Partners"
+          },
+          {
+            "id": "",
+            "title": "Chris Chaffee",
+            "subtitle": "Outreach · Strategy",
+            "body": "<p>Chris brings more than two decades of experience in policy, data management, campaigns, and community outreach. As a former Chief Operating Officer of Redistricting Partners, he helped guide local agencies through the 2020 redistricting cycle.</p><p>His experience includes developing systems that organize outreach, track engagement, and help organizations use data to make decisions. He brings that practical connection between information and community participation to the team.</p>",
+            "image": "/rpdata/team/chris.png",
+            "alt": "Chris Chaffee",
+            "link": "https://socalgrantmakers.org/events/event-calendar/understanding-luca-process-and-how-it-impacts-accurate-2030-census",
+            "linkLabel": "Professional biography"
+          },
+          {
+            "id": "",
+            "title": "Liz Stitt",
+            "subtitle": "Public policy · Redistricting",
+            "body": "<p>Elizabeth “Liz” Stitt is the Administrative Program Coordinator at the University of Texas at Austin’s Center for Law and Democracy. Previously, she served as Chief Administrative Officer and Senior Line Drawer at Redistricting Partners, leading municipal redistricting projects and helping draw California’s 2025 congressional districts.</p><p>Liz has also worked in the California and Texas legislatures. She earned a Master in Public Affairs from UT Austin’s LBJ School and bachelor’s degrees in international relations and political science from UC Davis.</p>",
+            "image": "/rpdata/team/liz.jpg",
+            "alt": "Liz Stitt",
+            "link": "https://liberalarts.utexas.edu/lawanddemocracy/researchers/eas4477",
+            "linkLabel": "UT Austin profile"
+          }
+        ]
+      },
+      {
+        "id": "section-7",
+        "type": "text",
+        "eyebrow": "Shared roots. A broader view.",
+        "title": "Built on the work of\nRedistricting Partners.",
+        "body": "<p>RP Data extends that work into Census consulting, outreach, geographic analysis, and public information tools. For redistricting services and more about the firm, visit Redistricting Partners.</p>",
+        "image": "",
+        "alt": "",
+        "link": "https://redistrictingpartners.com/",
+        "linkLabel": "Visit Redistricting Partners",
+        "items": []
+      }
+    ]
+  },
+  "what-we-do": {
+    "kind": "page",
+    "slug": "what-we-do",
+    "title": "What We Do",
+    "navLabel": "What We Do",
+    "showInNav": true,
+    "order": 10,
+    "description": "Census data consulting, Census outreach, GIS and mapping, data analysis, and the My District lookup tool.",
+    "sections": [
+      {
+        "id": "section-8",
+        "type": "intro",
+        "eyebrow": "What we do",
+        "title": "Make information\nwork for you.",
+        "body": "<p>Understand a population. Plan your outreach. Put a question on a map. We bring research and practical tools to the work you need to do.</p>",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": []
+      },
+      {
+        "id": "section-9",
+        "type": "services",
+        "eyebrow": "",
+        "title": "",
+        "body": "",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": [
+          {
+            "id": "census-data",
+            "title": "Census Data Consulting",
+            "subtitle": "Understand the people behind the numbers.",
+            "body": "<p>Make Census data useful for your organization. We help agencies and community partners understand population, demographic change, and the geographic patterns that shape their work.</p><ul><li>Population and demographic profiles</li><li>Census and American Community Survey data</li><li>Research, interpretation, and clear reporting</li></ul>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "census-outreach",
+            "title": "Census Outreach",
+            "subtitle": "Reach the communities that need to be counted.",
+            "body": "<p>Turn demographic research into an outreach plan. We help identify communities that may be missed, organize geographic priorities, and give local partners information they can use.</p><ul><li>Community and audience mapping</li><li>Outreach planning and partner support</li><li>Tools to organize and evaluate engagement</li></ul>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "gis",
+            "title": "GIS Services / Mapping",
+            "subtitle": "Put your information in context.",
+            "body": "<p>From boundary files to maps residents can use, we connect data to place. We create geographic analysis and maps that make complex information easier to explore and explain.</p><ul><li>District and service-area mapping</li><li>Geographic data preparation and analysis</li><li>Interactive web maps and presentation maps</li></ul>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "analysis",
+            "title": "Data Analysis",
+            "subtitle": "Move from a spreadsheet to an answer.",
+            "body": "<p>Bring a dataset, a research question, or a decision you need to make. We help organize the information, examine the patterns, and communicate what the results mean.</p><ul><li>Data cleaning, integration, and review</li><li>Demographic, survey, and geographic analysis</li><li>Visualizations, reports, and decision support</li></ul>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "my-district",
+            "title": "My District",
+            "subtitle": "Connect residents with their representatives.",
+            "body": "<p>An address lookup built for cities, counties, school districts, community colleges, and special districts. Residents find their district and elected officials; your team keeps the information current.</p><ul><li>Four layouts with agency branding</li><li>A hosted page or an embedded lookup</li><li>Editable officials, photos, biographies, and contacts</li></ul>",
+            "image": "",
+            "alt": "",
+            "link": "/my-district",
+            "linkLabel": "See My District"
+          }
+        ]
+      }
+    ]
+  },
+  "my-district": {
+    "kind": "page",
+    "slug": "my-district",
+    "title": "My District",
+    "navLabel": "My District",
+    "showInNav": true,
+    "order": 30,
+    "description": "A public address lookup that connects residents with their districts and elected officials. Four layouts, your branding, and editable agency information.",
+    "sections": [
+      {
+        "id": "section-10",
+        "type": "intro",
+        "eyebrow": "My District · A tool from RP Data",
+        "title": "Your community.\nA clearer connection.",
+        "body": "<p>A simple question deserves a clear answer: who represents me? Give residents an address lookup that puts their district, their elected officials, and useful contact information in one place.</p>",
+        "image": "",
+        "alt": "",
+        "link": "https://wheresmydistrict.com/martinez/classic",
+        "linkLabel": "Try a live example",
+        "items": []
+      },
+      {
+        "id": "section-11",
+        "type": "cards",
+        "eyebrow": "",
+        "title": "",
+        "body": "",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": [
+          {
+            "id": "",
+            "title": "Start with an address",
+            "subtitle": "",
+            "body": "<p>Find a district, see a location on the map, and connect with the representatives who serve that area.</p>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "",
+            "title": "Fit your website",
+            "subtitle": "",
+            "body": "<p>Use a page hosted by RP Data or embed the lookup on your existing website. Choose a layout and add your agency branding.</p>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          },
+          {
+            "id": "",
+            "title": "Keep it current",
+            "subtitle": "",
+            "body": "<p>Your agency can update names, photos, biographies, dates, and contact information through a protected administration workspace.</p>",
+            "image": "",
+            "alt": "",
+            "link": "",
+            "linkLabel": ""
+          }
+        ]
+      },
+      {
+        "id": "section-12",
+        "type": "cards",
+        "eyebrow": "Four starting points",
+        "title": "Your information.\nYour preferred layout.",
+        "body": "<p>All four designs use the same agency information. Publish an update once and it appears across the layouts.</p>",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": [
+          {
+            "id": "",
+            "title": "Classic",
+            "subtitle": "",
+            "body": "<p>Address search, representative information, and a map together in a familiar layout.</p>",
+            "image": "/design-previews/classic.webp",
+            "alt": "Martinez example of the Classic lookup layout",
+            "link": "https://wheresmydistrict.com/martinez/classic",
+            "linkLabel": "Open example"
+          },
+          {
+            "id": "",
+            "title": "Concierge",
+            "subtitle": "",
+            "body": "<p>A focused, guided experience that starts with the resident’s address.</p>",
+            "image": "/design-previews/concierge.webp",
+            "alt": "Martinez example of the Concierge lookup layout",
+            "link": "https://wheresmydistrict.com/martinez/concierge",
+            "linkLabel": "Open example"
+          },
+          {
+            "id": "",
+            "title": "Explorer",
+            "subtitle": "",
+            "body": "<p>A map-led experience for people who want to explore the geography.</p>",
+            "image": "/design-previews/explorer.webp",
+            "alt": "Martinez example of the Explorer lookup layout",
+            "link": "https://wheresmydistrict.com/martinez/explorer",
+            "linkLabel": "Open example"
+          },
+          {
+            "id": "",
+            "title": "Presentation",
+            "subtitle": "",
+            "body": "<p>A welcoming introduction to the people who serve your community.</p>",
+            "image": "/design-previews/directory.webp",
+            "alt": "Martinez example of the Presentation lookup layout",
+            "link": "https://wheresmydistrict.com/martinez/council",
+            "linkLabel": "Open example"
+          }
+        ]
+      },
+      {
+        "id": "section-13",
+        "type": "offer",
+        "eyebrow": "An invitation to your agency",
+        "title": "Free until\nJuly 1, 2027.",
+        "body": "<p>Then <strong>$75/month</strong> or <strong>$900/year.</strong></p><ul><li>Your agency’s map, branding, and representatives</li><li>Four preset layouts to choose from</li><li>Hosted page or website embed</li><li>Editable photos, biographies, and contact details</li><li>Options to control which information residents see</li></ul>",
+        "image": "",
+        "alt": "",
+        "link": "mailto:info@redistrictingpartners.com?subject=RP%20Data%20inquiry",
+        "linkLabel": "Request an agency preview",
+        "items": []
+      },
+      {
+        "id": "section-14",
+        "type": "text",
+        "eyebrow": "",
+        "title": "Have something else in mind?",
+        "body": "<p>We welcome feature requests and can discuss changes to meet your agency’s needs. From a city council to a school board or water district, the experience should fit the people using it.</p>",
+        "image": "",
+        "alt": "",
+        "link": "",
+        "linkLabel": "",
+        "items": []
+      }
+    ]
+  }
+}

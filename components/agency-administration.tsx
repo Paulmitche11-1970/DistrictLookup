@@ -63,6 +63,17 @@ export default function AgencyAdministration({
         </div>
         {team && (
           <nav className={styles.tools} aria-label="RP administration tools">
+            <a href="/admin/website">
+              <LayoutGrid size={24} />
+              <div>
+                <h2>RP Data website</h2>
+                <p>
+                  Edit pages, team profiles, images, and navigation on
+                  rpdata.net.
+                </p>
+              </div>
+              <ArrowUpRight size={20} />
+            </a>
             <a href="/admin/boundaries">
               <Layers size={24} />
               <div>
