@@ -1,8 +1,4 @@
-import { cookies } from 'next/headers';
-import {
-  agencyPreviewCookie,
-  validAgencyPreviewToken,
-} from '@/lib/agency-preview-token';
+import { validAgencyPreviewToken } from '@/lib/agency-preview-token';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -23,16 +19,9 @@ export async function GET(
       { status: 404, headers },
     );
   }
-  (await cookies()).set(agencyPreviewCookie(agency), token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/' + agency,
-    maxAge: 30 * 24 * 60 * 60,
-  });
   // Strip the credential before rendering any page, analytics, or external link.
   return new Response(null, {
     status: 303,
-    headers: { ...headers, Location: '/' + agency },
+    headers: { ...headers, Location: '/preview/' + agency },
   });
 }

@@ -10,7 +10,7 @@ import {
   boundedBody,
   rateLimit,
 } from '@/lib/security';
-import { dataDir, database } from '@/lib/store';
+import { photoDirectory, photoTable, database } from '@/lib/store';
 import { photoPrefix } from '@/lib/agency-scope';
 export const runtime = 'nodejs';
 export async function POST(request: Request) {
@@ -54,11 +54,11 @@ export async function POST(request: Request) {
       );
     }
     const id = randomBytes(16).toString('hex');
-    const dir = path.join(dataDir(), 'uploads');
+    const dir = photoDirectory();
     await mkdir(dir, { recursive: true });
     await writeFile(path.join(dir, id + '.webp'), photo, { flag: 'wx' });
     database()
-      .prepare('INSERT INTO photos(id,mime,created_at) VALUES(?,?,?)')
+      .prepare(`INSERT INTO ${photoTable()}(id,mime,created_at) VALUES(?,?,?)`)
       .run(id, 'image/webp', new Date().toISOString());
     return Response.json({ url: photoPrefix() + id });
   } catch (e) {

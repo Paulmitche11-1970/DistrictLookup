@@ -116,15 +116,19 @@ function ManagementEditorForm({ content, busy, agencyId, save }: Props) {
     try {
       const form = new FormData();
       form.append('photo', file);
-      const response = await fetch(apiPath(agencyId) + '/photos', {
-        method: 'POST',
-        body: form,
-        signal: controller.signal,
-      });
+      const response = await fetch(
+        apiPath(agencyId, content.agency.clientPreview) + '/photos',
+        {
+          method: 'POST',
+          body: form,
+          signal: controller.signal,
+        },
+      );
       const result = await response.json();
       if (!response.ok)
         throw Error(result.error || 'The photo could not be uploaded.');
-      const prefix = apiPath(agencyId) + '/photos/';
+      const prefix =
+        apiPath(agencyId, content.agency.clientPreview) + '/photos/';
       if (
         typeof result.url !== 'string' ||
         !result.url.startsWith(prefix) ||
@@ -134,7 +138,9 @@ function ManagementEditorForm({ content, busy, agencyId, save }: Props) {
       if (!controller.signal.aborted) {
         update(id, { photo: result.url });
         setMessage(
-          'Photo uploaded. Save the management draft to keep this change.',
+          content.agency.clientPreview
+            ? 'Photo uploaded. Save to update your preview.'
+            : 'Photo uploaded. Save the management draft to keep this change.',
         );
       }
     } catch (cause) {

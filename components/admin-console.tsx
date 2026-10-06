@@ -1,4 +1,5 @@
 'use client';
+import { ClientPreviewBanner } from './client-preview-banner';
 import type { FeatureCollection, Feature } from 'geojson';
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -96,6 +97,7 @@ type Dashboard = {
   publishedRevision: number;
   publishedAt: string;
   hasChanges: boolean;
+  previewEdited?: boolean;
   admin: { name: string; email: string };
   addressCount: number;
   activity: Activity[];
@@ -110,8 +112,13 @@ const navigation = [
   { id: 'security', label: 'Account security', icon: ShieldCheck },
   { id: 'activity', label: 'Change history', icon: History },
 ];
-async function api(url: string, body?: unknown, agencyId = 'martinez') {
-  url = url.replace(/^\/api(?=\/)/, apiPath(agencyId));
+async function api(
+  url: string,
+  body?: unknown,
+  agencyId = 'martinez',
+  clientPreview = false,
+) {
+  url = url.replace(/^\/api(?=\/)/, apiPath(agencyId, clientPreview));
   const r = await fetch(
     url,
     body
@@ -126,9 +133,11 @@ async function api(url: string, body?: unknown, agencyId = 'martinez') {
   if (!r.ok) {
     if (r.status === 401)
       location.assign(
-        agencyId === 'arpeeville'
-          ? '/review-access?scope=rp&next=/arpeeville/administration'
-          : adminPath(agencyId) + '/login',
+        clientPreview
+          ? '/preview/' + agencyId
+          : agencyId === 'arpeeville'
+            ? '/review-access?scope=rp&next=/arpeeville/administration'
+            : adminPath(agencyId) + '/login',
       );
     throw Error(d.error || 'The request could not be completed.');
   }
@@ -136,11 +145,13 @@ async function api(url: string, body?: unknown, agencyId = 'martinez') {
 }
 export default function AdminConsole({
   sandbox: sandboxProp = false,
+  clientPreview = false,
   previewContent,
   previewAddressCount = 0,
   agencyId = 'martinez',
 }: {
   sandbox?: boolean;
+  clientPreview?: boolean;
   previewContent?: Content;
   previewAddressCount?: number;
   agencyId?: string;
@@ -176,28 +187,35 @@ export default function AdminConsole({
   const [discardOpen, setDiscardOpen] = useState(false);
   async function load() {
     if (previewMode) return;
-    setData(await api('/api/admin', undefined, agencyId));
+    setData(await api('/api/admin', undefined, agencyId, clientPreview));
   }
   useEffect(() => {
     if (!previewMode)
-      api('/api/admin', undefined, agencyId)
+      api('/api/admin', undefined, agencyId, clientPreview)
         .then(setData)
         .catch((e) => setError(e.message));
-  }, [previewMode, agencyId]);
+  }, [previewMode, agencyId, clientPreview]);
   async function mutate(body: Record<string, unknown>) {
     if (!data || previewMode) return false;
     setBusy(true);
     setError('');
     setSuccess('');
     try {
-      await api('/api/admin', { ...body, revision: data.revision }, agencyId);
+      await api(
+        '/api/admin',
+        { ...body, revision: data.revision },
+        agencyId,
+        clientPreview,
+      );
       await load();
       setSuccess(
-        body.action === 'publish'
-          ? 'Your changes are published.'
-          : body.action === 'discard'
-            ? 'Unpublished changes discarded.'
-            : 'Draft saved. Preview it before publishing.',
+        clientPreview
+          ? 'Preview saved. All four layouts now show your changes.'
+          : body.action === 'publish'
+            ? 'Your changes are published.'
+            : body.action === 'discard'
+              ? 'Unpublished changes discarded.'
+              : 'Draft saved. Preview it before publishing.',
       );
       return true;
     } catch (e) {
@@ -283,7 +301,11 @@ export default function AdminConsole({
           <footer>
             <div className="row" style={{ marginBottom: 8 }}>
               <ShieldCheck size={16} />
-              {sandbox ? 'RP review access · Sandbox' : 'Two-factor protected'}
+              {clientPreview
+                ? 'Agency preview password'
+                : sandbox
+                  ? 'RP review access · Sandbox'
+                  : 'Two-factor protected'}
             </div>
             <div>{instance.name}</div>
           </footer>
@@ -294,9 +316,11 @@ export default function AdminConsole({
           <div className="row">
             <SidebarTrigger />
             <span className="small muted">
-              {previewMode
-                ? 'Administration preview · Read only'
-                : 'Agency workspace'}
+              {clientPreview
+                ? 'Editable agency preview'
+                : previewMode
+                  ? 'Administration preview · Read only'
+                  : 'Agency workspace'}
             </span>
           </div>
           <div className="row">
@@ -309,7 +333,7 @@ export default function AdminConsole({
               <ExternalLink size={16} />
               View lookup designs
             </a>
-            {!previewMode && !sandbox && (
+            {!previewMode && !sandbox && !clientPreview && (
               <button
                 className="icon-btn"
                 aria-label="Sign out"
@@ -329,6 +353,17 @@ export default function AdminConsole({
           </div>
         </header>
         <main className="admin-work">
+          {clientPreview && data && (
+            <ClientPreviewBanner
+              agencyId={agencyId}
+              edited={!!data.previewEdited}
+              revision={data.revision}
+              onReset={async () => {
+                setEditing(null);
+                await load();
+              }}
+            />
+          )}
           {previewMode && (
             <div className="notice admin-preview-notice">
               <strong>This is a read-only design preview.</strong> To edit
@@ -388,11 +423,15 @@ export default function AdminConsole({
                   </p>
                 </div>
                 <span className="pill">
-                  {previewMode
-                    ? 'Read-only preview'
-                    : data.hasChanges
-                      ? 'Unpublished changes'
-                      : 'Published and up to date'}
+                  {clientPreview
+                    ? data.previewEdited
+                      ? 'Edited preview'
+                      : 'Prepared default'
+                    : previewMode
+                      ? 'Read-only preview'
+                      : data.hasChanges
+                        ? 'Unpublished changes'
+                        : 'Published and up to date'}
                 </span>
               </div>
               <div className="admin-grid">
@@ -539,7 +578,17 @@ export default function AdminConsole({
                     />
                   )}
                   {section === 'security' &&
-                    (sandbox ? (
+                    (clientPreview ? (
+                      <div className="panel stack">
+                        <h3>Shared agency preview</h3>
+                        <p>
+                          This password lets your agency’s team try the editor
+                          together. Saved changes stay in the preview. Live
+                          administration uses a separate account with two-factor
+                          authentication.
+                        </p>
+                      </div>
+                    ) : sandbox ? (
                       <div className="panel stack">
                         <ShieldCheck size={30} />
                         <h3>Sandbox access</h3>
@@ -599,75 +648,100 @@ export default function AdminConsole({
                   )}
                 </fieldset>
                 <aside className="admin-aside">
-                  <div className="status-box">
-                    <div
-                      className="eyebrow"
-                      style={{ color: '#82c2c7', marginBottom: 15 }}
-                    >
-                      Preview, then publish
-                    </div>
-                    <h3>
-                      {data.hasChanges
-                        ? 'Your draft is ready to review'
-                        : 'Your public lookup is live'}
-                    </h3>
-                    <p>
-                      {data.hasChanges
-                        ? 'Saved edits stay private until you publish them. Check the resident view first.'
-                        : 'Make changes at your own pace. Residents will continue to see the published version.'}
-                    </p>
-                    <a
-                      className="btn"
-                      href={
-                        sandbox
-                          ? '/arpeeville/preview'
-                          : previewMode
-                            ? base + '/lookup'
-                            : base + '/preview'
-                      }
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Eye size={17} />
-                      {previewMode ? 'View public lookup' : 'Preview draft'}
-                      <ArrowUpRight size={15} />
-                    </a>
-                    <button
-                      className="btn"
-                      style={{
-                        marginTop: 10,
-                        background: '#70d0c5',
-                        color: '#123b43',
-                      }}
-                      disabled={previewMode || !data.hasChanges || busy}
-                      onClick={() => setPublishOpen(true)}
-                    >
-                      <Check size={17} />
-                      Publish changes
-                    </button>
-                    {data.hasChanges && (
-                      <button
-                        onClick={() => setDiscardOpen(true)}
-                        className="example-link"
-                        style={{ color: '#d0e3eb', marginTop: 18 }}
+                  {clientPreview ? (
+                    <div className="status-box">
+                      <div className="eyebrow">YOUR SHARED PREVIEW</div>
+                      <h3>Save and see your changes</h3>
+                      <p>
+                        Each save updates all four preview layouts. Return to
+                        default restores the version we prepared.
+                      </p>
+                      <a
+                        className="btn"
+                        href={base}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        Discard unpublished changes
-                      </button>
-                    )}
-                    <p
-                      className="small"
-                      style={{ margin: '18px 0 0', fontSize: 12 }}
-                    >
-                      {previewMode ? (
-                        'Preview uses published public content.'
-                      ) : (
-                        <>
-                          Last published{' '}
-                          {new Date(data.publishedAt).toLocaleDateString()}
-                        </>
-                      )}
-                    </p>
-                  </div>
+                        <Eye size={17} /> View all four layouts
+                      </a>
+                      <p className="small">
+                        These changes do not publish to the public site.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {' '}
+                      <div className="status-box">
+                        <div
+                          className="eyebrow"
+                          style={{ color: '#82c2c7', marginBottom: 15 }}
+                        >
+                          Preview, then publish
+                        </div>
+                        <h3>
+                          {data.hasChanges
+                            ? 'Your draft is ready to review'
+                            : 'Your public lookup is live'}
+                        </h3>
+                        <p>
+                          {data.hasChanges
+                            ? 'Saved edits stay private until you publish them. Check the resident view first.'
+                            : 'Make changes at your own pace. Residents will continue to see the published version.'}
+                        </p>
+                        <a
+                          className="btn"
+                          href={
+                            sandbox
+                              ? '/arpeeville/preview'
+                              : previewMode
+                                ? base + '/lookup'
+                                : base + '/preview'
+                          }
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Eye size={17} />
+                          {previewMode ? 'View public lookup' : 'Preview draft'}
+                          <ArrowUpRight size={15} />
+                        </a>
+                        <button
+                          className="btn"
+                          style={{
+                            marginTop: 10,
+                            background: '#70d0c5',
+                            color: '#123b43',
+                          }}
+                          disabled={previewMode || !data.hasChanges || busy}
+                          onClick={() => setPublishOpen(true)}
+                        >
+                          <Check size={17} />
+                          Publish changes
+                        </button>
+                        {data.hasChanges && (
+                          <button
+                            onClick={() => setDiscardOpen(true)}
+                            className="example-link"
+                            style={{ color: '#d0e3eb', marginTop: 18 }}
+                          >
+                            Discard unpublished changes
+                          </button>
+                        )}
+                        <p
+                          className="small"
+                          style={{ margin: '18px 0 0', fontSize: 12 }}
+                        >
+                          {previewMode ? (
+                            'Preview uses published public content.'
+                          ) : (
+                            <>
+                              Last published{' '}
+                              {new Date(data.publishedAt).toLocaleDateString()}
+                            </>
+                          )}
+                        </p>
+                      </div>
+                    </>
+                  )}
                   <div className="panel review-notes">
                     <h3>At a glance</h3>
                     <ul style={{ paddingLeft: 19 }}>
@@ -694,6 +768,7 @@ export default function AdminConsole({
         </main>
       </div>
       <OfficialEditor
+        clientPreview={clientPreview}
         agencyId={agencyId}
         kind={a?.kind}
         isNew={
@@ -807,6 +882,7 @@ export default function AdminConsole({
   );
 }
 function OfficialEditor({
+  clientPreview = false,
   agencyId = 'martinez',
   kind,
   isNew = false,
@@ -816,6 +892,7 @@ function OfficialEditor({
   busy,
 }: {
   agencyId?: string;
+  clientPreview?: boolean;
   kind?: Agency['kind'];
   isNew?: boolean;
   official: Official | null;
@@ -845,7 +922,7 @@ function OfficialEditor({
     try {
       const f = new FormData();
       f.append('photo', file);
-      const r = await fetch(apiPath(agencyId) + '/photos', {
+      const r = await fetch(apiPath(agencyId, clientPreview) + '/photos', {
         method: 'POST',
         body: f,
       });
@@ -874,8 +951,9 @@ function OfficialEditor({
                 : `Edit ${draft ? constituencyLabel(draft, instanceFor(agencyId)) : 'official'}`}
             </SheetTitle>
             <SheetDescription>
-              Update this official’s details. Save a draft, then publish when
-              ready.
+              {clientPreview
+                ? 'Update this official’s details. Save to see the changes in all four preview layouts.'
+                : 'Update this official’s details. Save a draft, then publish when ready.'}
             </SheetDescription>
           </SheetHeader>
           {draft && (
@@ -1156,6 +1234,7 @@ function OfficialEditor({
                       key={draft.id}
                       official={draft}
                       agencyId={agencyId}
+                      clientPreview={clientPreview}
                       disabled={busy || uploading}
                       onUploading={setUploading}
                       onChange={(html) =>
@@ -1165,13 +1244,18 @@ function OfficialEditor({
                       }
                     />
                     <p className="small muted" style={{ marginTop: 18 }}>
-                      Save the draft, then preview it. Publishing updates the
-                      biography in all four layouts.
+                      {clientPreview
+                        ? 'Save the preview to update this biography in all four layouts.'
+                        : 'Save the draft, then preview it. Publishing updates the biography in all four layouts.'}
                     </p>
                     {!isNew && official && hasBiography(official) && (
                       <a
                         className="btn"
-                        href={biographyPath(agencyId, official.id, true)}
+                        href={biographyPath(
+                          agencyId,
+                          official.id,
+                          !clientPreview,
+                        )}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -1225,7 +1309,11 @@ function OfficialEditor({
                   disabled={busy || uploading}
                 >
                   <Save size={16} />
-                  {busy ? 'Saving…' : 'Save draft'}
+                  {busy
+                    ? 'Saving…'
+                    : clientPreview
+                      ? 'Save preview'
+                      : 'Save draft'}
                 </button>
               </footer>
             </form>

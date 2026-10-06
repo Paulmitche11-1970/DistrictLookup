@@ -46,6 +46,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/preview/:path*',
+        headers: [
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'none'" },
+          { key: 'Cache-Control', value: 'private, no-store' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
         source: '/send/:path*',
         headers: [
           { key: 'Referrer-Policy', value: 'no-referrer' },

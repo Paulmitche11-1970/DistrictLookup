@@ -41,6 +41,7 @@ export type DistrictElection = {
 };
 export type DistrictLabel = 'District' | 'Division' | 'Zone' | 'Trustee Area';
 export type Agency = {
+  clientPreview?: boolean;
   instanceId?: string;
   kind?: 'city' | 'county' | 'school' | 'college' | 'special';
   districtLabel?: DistrictLabel;

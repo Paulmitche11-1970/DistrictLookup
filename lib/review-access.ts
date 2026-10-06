@@ -1,10 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { validReviewToken, type ReviewScope } from './review-token';
-import {
-  agencyPreviewCookie,
-  validAgencyPreviewToken,
-} from './agency-preview-token';
+import { hasClientPreviewAccess } from './client-preview-access';
 export async function hasReviewAccess(scope: ReviewScope) {
   const jar = await cookies();
   return (
@@ -19,13 +16,11 @@ export async function requireReviewAccess(scope: ReviewScope, next: string) {
 }
 
 export async function hasAgencySendingAccess(id: string) {
-  return validAgencyPreviewToken(
-    id,
-    (await cookies()).get(agencyPreviewCookie(id))?.value,
-  );
+  return hasClientPreviewAccess(id);
 }
 
 export async function requireAgencyReviewAccess(id: string, next: string) {
   if (await hasAgencySendingAccess(id)) return;
-  await requireReviewAccess(id === 'martinez' ? 'martinez' : 'rp', next);
+  if (await hasReviewAccess(id === 'martinez' ? 'martinez' : 'rp')) return;
+  redirect(`/preview/${id}?next=${encodeURIComponent(next)}`);
 }

@@ -80,7 +80,9 @@ export function AgencyWelcome({ id, name }: { id: string; name: string }) {
                   In the protected administration workspace, update elected
                   officials’ names, photos, biographies, and contact
                   information. Choose which details residents see, then publish
-                  your changes across all four layouts.
+                  your changes across all four layouts. In this preview, try the
+                  editor and save to see your changes immediately. Return to
+                  default restores our prepared version.
                 </p>
               </section>
             </div>

@@ -3,8 +3,8 @@ import { instanceFor } from './instances';
 
 export const agencyPreviewCookie = (id: string) => `agency_preview_${id}`;
 
-// These shareable credentials open published previews only. They are never
-// accepted by RP review access, client login, draft preview, or write APIs.
+// Retained to validate legacy sending links, which now redirect to the password
+// screen. These tokens never authorize preview editing or live administration.
 export function agencyPreviewToken(id: string) {
   const secret = process.env.APP_SECRET;
   if (!instanceFor(id) || !secret || secret.length < 32) return '';
@@ -27,5 +27,5 @@ export function validAgencyPreviewToken(id: string, token?: string) {
 
 export function agencySendingPath(id: string) {
   const token = agencyPreviewToken(id);
-  return token ? `/send/${id}/${token}` : '';
+  return token ? `/preview/${id}` : '';
 }

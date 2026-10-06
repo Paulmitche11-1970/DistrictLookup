@@ -12,6 +12,8 @@ import { database } from './store';
 import { isSandbox, currentAgencyId, currentInstance } from './agency-scope';
 import { hasReviewAccess } from './review-access';
 import { acceptedRequestOrigin } from './app-origins';
+import { isClientPreview } from './client-preview-scope';
+import { hasClientPreviewAccess } from './client-preview-access';
 export const SESSION_COOKIE = 'dl_session';
 export const sessionCookie = () =>
   currentAgencyId() === 'martinez'
@@ -132,6 +134,23 @@ export async function session(): Promise<Session | null> {
   return r ? { admin: r, stage: r.stage, tokenHash } : null;
 }
 export async function requireAdmin() {
+  if (isClientPreview()) {
+    if (!(await hasClientPreviewAccess(currentAgencyId())))
+      throw new HttpError(401, 'Enter your agency preview password.');
+    return {
+      admin: {
+        id: 'client-preview',
+        name: 'Agency preview visitor',
+        email: 'Shared agency preview',
+        password: '',
+        totp_secret: null,
+        totp_active: 0,
+        last_totp: -1,
+      },
+      stage: 'client-preview',
+      tokenHash: '',
+    };
+  }
   if (isSandbox()) {
     if (!(await hasReviewAccess('rp')))
       throw new HttpError(

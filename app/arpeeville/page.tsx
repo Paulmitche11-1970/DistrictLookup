@@ -1,10 +1,12 @@
+import { inViewerAgency } from '@/lib/client-preview-access';
+import { ClientPreviewStatus } from '@/components/client-preview-status';
+import { clientPreviewPassword } from '@/lib/client-preview-token';
 import {
   requireAgencyReviewAccess,
   hasReviewAccess,
   hasAgencySendingAccess,
 } from '@/lib/review-access';
 import { agencySendingPath } from '@/lib/agency-preview-token';
-import { inArpeeville } from '@/lib/agency-scope';
 import { publicContent } from '@/lib/store';
 import DesignGallery from '@/components/design-gallery';
 export const dynamic = 'force-dynamic';
@@ -19,10 +21,16 @@ export default async function Page() {
     (await hasReviewAccess('rp')) &&
     !(await hasAgencySendingAccess('arpeeville'));
   return (
-    <DesignGallery
-      content={inArpeeville(publicContent)}
-      staff={staff}
-      sendingPath={staff ? agencySendingPath('arpeeville') : undefined}
-    />
+    <>
+      <ClientPreviewStatus agencyId={'arpeeville'} />
+      <DesignGallery
+        content={await inViewerAgency('arpeeville', publicContent)}
+        staff={staff}
+        sendingPath={staff ? agencySendingPath('arpeeville') : undefined}
+        previewPassword={
+          staff ? clientPreviewPassword('arpeeville') : undefined
+        }
+      />
+    </>
   );
 }

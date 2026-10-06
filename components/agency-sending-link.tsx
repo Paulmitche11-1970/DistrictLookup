@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react';
 import { Copy, Check, ArrowUpRight } from 'lucide-react';
 import styles from './agency-sending-link.module.css';
 
-export function AgencySendingLink({ path }: { path: string }) {
+export function AgencySendingLink({
+  path,
+  password,
+}: {
+  path: string;
+  password?: string;
+}) {
   const [url, setUrl] = useState(path);
   const [message, setMessage] = useState('');
   useEffect(() => {
@@ -22,8 +28,8 @@ export function AgencySendingLink({ path }: { path: string }) {
     <section className={styles.box} aria-label="Agency sending link">
       <strong>Sending Link</strong>
       <p>
-        Opens only this agency’s designs and read-only administration preview.
-        No login needed.
+        Opens this agency’s designs and editable preview. Send the preview
+        password with this link.
       </p>
       <input
         aria-label="Sending Link"
@@ -31,6 +37,11 @@ export function AgencySendingLink({ path }: { path: string }) {
         readOnly
         onFocus={(e) => e.currentTarget.select()}
       />
+      {password && (
+        <p>
+          Preview password: <code>{password}</code>
+        </p>
+      )}
       <div className={styles.actions}>
         <button type="button" onClick={copy} className="btn">
           {message === 'Sending link copied.' ? (

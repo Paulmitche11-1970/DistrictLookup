@@ -1,5 +1,12 @@
 import { z } from 'zod';
-import { database, state, changeDraft, publish } from '@/lib/store';
+import {
+  database,
+  state,
+  changeDraft,
+  publish,
+  auditTable,
+  photoTable,
+} from '@/lib/store';
 import {
   requireAdmin,
   checkOrigin,
@@ -41,7 +48,7 @@ function checkPhoto(photo: string) {
   if (
     photo.startsWith(photoPrefix()) &&
     !database()
-      .prepare('SELECT id FROM photos WHERE id=?')
+      .prepare(`SELECT id FROM ${photoTable()} WHERE id=?`)
       .get(photo.split('/').at(-1)!)
   )
     throw new HttpError(400, 'Please upload that photo again.');
@@ -61,6 +68,7 @@ export async function GET() {
         revision: current.revision,
         publishedRevision: current.publishedRevision,
         publishedAt: current.publishedAt,
+        previewEdited: current.previewEdited,
         hasChanges:
           JSON.stringify(current.draft) !== JSON.stringify(current.published),
         admin: { name: s.admin.name, email: s.admin.email },
@@ -70,7 +78,7 @@ export async function GET() {
           }
         ).n,
         activity: database()
-          .prepare('SELECT * FROM audit ORDER BY id DESC LIMIT 60')
+          .prepare(`SELECT * FROM ${auditTable()} ORDER BY id DESC LIMIT 60`)
           .all(),
       },
       { headers: { 'Cache-Control': 'no-store' } },
@@ -106,7 +114,7 @@ export async function POST(request: Request) {
       if (
         official.photo.startsWith(photoPrefix()) &&
         !database()
-          .prepare('SELECT id FROM photos WHERE id=?')
+          .prepare(`SELECT id FROM ${photoTable()} WHERE id=?`)
           .get(official.photo.split('/').at(-1)!)
       )
         throw new HttpError(400, 'Please upload that photo again.');

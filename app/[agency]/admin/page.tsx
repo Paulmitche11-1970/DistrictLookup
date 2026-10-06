@@ -3,6 +3,7 @@ import { inAgency } from '@/lib/agency-scope';
 import { instanceFor, adminPath } from '@/lib/instances';
 import { session } from '@/lib/security';
 import AdminConsole from '@/components/admin-console';
+import { hasClientPreviewAccess } from '@/lib/client-preview-access';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 export default async function Page({
@@ -12,6 +13,8 @@ export default async function Page({
 }) {
   const instance = instanceFor((await params).agency);
   if (!instance) notFound();
+  if (await hasClientPreviewAccess(instance.id))
+    redirect('/' + instance.id + '/administration');
   if (instance.sandbox) redirect('/arpeeville/administration');
   const s = await inAgency(instance.id, session);
   const base = adminPath(instance.id);

@@ -27,12 +27,14 @@ import type { Official } from '@/lib/model';
 export function BiographyEditor({
   official,
   agencyId,
+  clientPreview = false,
   disabled,
   onChange,
   onUploading,
 }: {
   official: Official;
   agencyId: string;
+  clientPreview?: boolean;
   disabled: boolean;
   onChange: (html: string) => void;
   onUploading: (busy: boolean) => void;
@@ -54,6 +56,8 @@ export function BiographyEditor({
               getAttrs: (node) => {
                 const src = (node as HTMLElement).getAttribute('src') || '';
                 return src.startsWith(apiPath(agencyId) + '/photos/') ||
+                  (clientPreview &&
+                    src.startsWith(apiPath(agencyId, true) + '/photos/')) ||
                   src.startsWith('/portraits/' + agencyId + '/')
                   ? null
                   : false;
@@ -62,7 +66,7 @@ export function BiographyEditor({
           ];
         },
       }).configure({ allowBase64: false }),
-    [agencyId],
+    [agencyId, clientPreview],
   );
   const html = biographyEditorHtml(official);
   const editor = useEditor({
@@ -117,7 +121,7 @@ export function BiographyEditor({
     try {
       const form = new FormData();
       form.append('photo', file);
-      const r = await fetch(apiPath(agencyId) + '/photos', {
+      const r = await fetch(apiPath(agencyId, clientPreview) + '/photos', {
         method: 'POST',
         body: form,
       });

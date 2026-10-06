@@ -1,3 +1,6 @@
+import { inViewerAgency } from '@/lib/client-preview-access';
+import { ClientPreviewStatus } from '@/components/client-preview-status';
+import { clientPreviewPassword } from '@/lib/client-preview-token';
 import {
   requireAgencyReviewAccess,
   hasReviewAccess,
@@ -8,7 +11,6 @@ import { notFound } from 'next/navigation';
 import DesignGallery from '@/components/design-gallery';
 import { publicContent } from '@/lib/store';
 import { instanceFor } from '@/lib/instances';
-import { inAgency } from '@/lib/agency-scope';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 type Props = { params: Promise<{ agency: string }> };
@@ -25,10 +27,14 @@ export default async function Page({ params }: Props) {
     (await hasReviewAccess('rp')) &&
     !(await hasAgencySendingAccess(instance.id));
   return (
-    <DesignGallery
-      content={inAgency(instance.id, publicContent)}
-      staff={staff}
-      sendingPath={staff ? agencySendingPath(instance.id) : undefined}
-    />
+    <>
+      <ClientPreviewStatus agencyId={instance.id} />
+      <DesignGallery
+        content={await inViewerAgency(instance.id, publicContent)}
+        staff={staff}
+        sendingPath={staff ? agencySendingPath(instance.id) : undefined}
+        previewPassword={staff ? clientPreviewPassword(instance.id) : undefined}
+      />
+    </>
   );
 }

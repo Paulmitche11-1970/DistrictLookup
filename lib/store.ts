@@ -7,6 +7,7 @@ import { currentAgencyId, currentInstance } from './agency-scope';
 import { visibleOfficial } from './representation';
 import { sanitizeBiography } from './biography-html';
 import { backfillOfficialPortraits } from './portrait-backfill';
+import { isClientPreview } from './client-preview-scope';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
 function withPostalCode(address: Address): Address {
@@ -258,13 +259,56 @@ export function normalizeSearch(value: string) {
     .map((t) => synonyms[t] || t)
     .join(' ');
 }
+export const auditTable = () =>
+  isClientPreview() ? 'client_preview_audit' : 'audit';
+export const photoTable = () =>
+  isClientPreview() ? 'client_preview_photos' : 'photos';
+export const photoDirectory = () =>
+  path.join(dataDir(), isClientPreview() ? 'preview-uploads' : 'uploads');
+export function clientPreviewEdited() {
+  const db = database();
+  if (
+    !db
+      .prepare(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='client_preview_state'",
+      )
+      .get()
+  )
+    return false;
+  const row = db
+    .prepare('SELECT draft,baseline FROM client_preview_state WHERE id=1')
+    .get() as { draft: string; baseline: string } | undefined;
+  return !!row && row.draft !== row.baseline;
+}
+function stateTable() {
+  if (!isClientPreview()) return 'app_state';
+  const db = database();
+  db.exec(`CREATE TABLE IF NOT EXISTS client_preview_state (id INTEGER PRIMARY KEY CHECK(id=1), draft TEXT NOT NULL, published TEXT NOT NULL, baseline TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, published_revision INTEGER NOT NULL DEFAULT 1, published_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS client_preview_audit (id INTEGER PRIMARY KEY, actor TEXT NOT NULL, action TEXT NOT NULL, detail TEXT NOT NULL, created_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS client_preview_photos (id TEXT PRIMARY KEY, mime TEXT NOT NULL, created_at TEXT NOT NULL);`);
+  if (!db.prepare('SELECT id FROM client_preview_state WHERE id=1').get()) {
+    const original = db
+      .prepare('SELECT published FROM app_state WHERE id=1')
+      .get() as { published: string };
+    const content = JSON.stringify(
+      withInstance(JSON.parse(original.published)),
+    );
+    db.prepare(
+      'INSERT OR IGNORE INTO client_preview_state(id,draft,published,baseline,published_at) VALUES(1,?,?,?,?)',
+    ).run(content, content, content, new Date().toISOString());
+  }
+  return 'client_preview_state';
+}
 export function state() {
-  const r = database().prepare('SELECT * FROM app_state WHERE id=1').get() as {
+  const r = database()
+    .prepare(`SELECT * FROM ${stateTable()} WHERE id=1`)
+    .get() as {
     draft: string;
     published: string;
     revision: number;
     published_revision: number;
     published_at: string;
+    baseline?: string;
   };
   return {
     draft: withInstance(JSON.parse(r.draft) as Content),
@@ -272,6 +316,7 @@ export function state() {
     revision: r.revision,
     publishedRevision: r.published_revision,
     publishedAt: r.published_at,
+    previewEdited: !!r.baseline && r.draft !== r.baseline,
   };
 }
 function withInstance(content: Content): Content {
@@ -320,6 +365,7 @@ function withInstance(content: Content): Content {
       addressMode: instance.addressMode,
       sampleAddress: instance.sampleAddress,
       addressNote: instance.addressNote,
+      ...(isClientPreview() ? { clientPreview: true } : {}),
       ...(instance.sandbox ? { sandbox: true } : {}),
     },
   };
@@ -370,7 +416,7 @@ export function visibleContent(content: Content): Content {
 export function audit(actor: string, action: string, detail: string) {
   database()
     .prepare(
-      'INSERT INTO audit(actor,action,detail,created_at) VALUES(?,?,?,?)',
+      `INSERT INTO ${auditTable()}(actor,action,detail,created_at) VALUES(?,?,?,?)`,
     )
     .run(actor, action, detail, new Date().toISOString());
 }
@@ -380,6 +426,23 @@ export function changeDraft(
   actor: string,
   detail: string,
 ) {
+  if (isClientPreview()) {
+    // Saving applies only to this agency's shared preview, across all four designs.
+    const result = database()
+      .prepare(
+        `UPDATE ${stateTable()} SET draft=?,published=?,revision=revision+1,published_revision=revision+1,published_at=? WHERE id=1 AND revision=?`,
+      )
+      .run(
+        JSON.stringify(content),
+        JSON.stringify(content),
+        new Date().toISOString(),
+        revision,
+      );
+    if (Number(result.changes) !== 1)
+      throw Error('Another edit was saved. Reload to avoid overwriting it.');
+    audit(actor, 'Preview saved', detail);
+    return state();
+  }
   const result = database()
     .prepare(
       'UPDATE app_state SET draft=?,revision=revision+1 WHERE id=1 AND revision=?',
@@ -391,6 +454,8 @@ export function changeDraft(
   return state();
 }
 export function publish(revision: number, actor: string) {
+  if (isClientPreview())
+    throw Error('Preview changes cannot be published to the live site.');
   const result = database()
     .prepare(
       'UPDATE app_state SET published=draft,published_revision=revision,published_at=? WHERE id=1 AND revision=?',
@@ -399,6 +464,22 @@ export function publish(revision: number, actor: string) {
   if (Number(result.changes) !== 1)
     throw Error('The draft changed. Refresh and review before publishing.');
   audit(actor, 'Published', 'Council information and map published');
+  return state();
+}
+export function resetClientPreview(revision: number) {
+  if (!isClientPreview()) throw Error('Preview access required.');
+  const result = database()
+    .prepare(
+      `UPDATE ${stateTable()} SET draft=baseline,published=baseline,revision=revision+1,published_revision=revision+1,published_at=? WHERE id=1 AND revision=?`,
+    )
+    .run(new Date().toISOString(), revision);
+  if (Number(result.changes) !== 1)
+    throw Error('Another edit was saved. Reload before resetting.');
+  audit(
+    'Agency preview visitor',
+    'Returned to default',
+    'Restored the prepared preview, including information, photos, settings and map.',
+  );
   return state();
 }
 export function addressById(id: string) {

@@ -13,7 +13,7 @@ void test('Sending links are agency-bound, stable, separately scoped, and revoca
   const token = agencyPreviewToken('galt');
   assert.match(token, /^[A-Za-z0-9_-]{43}$/);
   assert.equal(agencyPreviewToken('galt'), token);
-  assert.equal(agencySendingPath('galt'), '/send/galt/' + token);
+  assert.equal(agencySendingPath('galt'), '/preview/galt');
   assert.equal(validAgencyPreviewToken('galt', token), true);
   assert.equal(validAgencyPreviewToken('martinez', token), false);
   assert.equal(validAgencyPreviewToken('rp', token), false);

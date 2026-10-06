@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight, Mail, Phone, Globe } from 'lucide-react';
-import { inAgency } from '@/lib/agency-scope';
+import { inViewerAgency } from '@/lib/client-preview-access';
+import { ClientPreviewStatus } from './client-preview-status';
 import { adminPath, instanceFor } from '@/lib/instances';
 import { publicContent, state, visibleContent } from '@/lib/store';
 import { requireAdmin } from '@/lib/security';
@@ -25,7 +26,7 @@ export async function OfficialBiographyPage({
 }) {
   const instance = instanceFor(agencyId);
   if (!instance) notFound();
-  return inAgency(instance.id, async () => {
+  return inViewerAgency(instance.id, async () => {
     if (preview) {
       try {
         await requireAdmin();
@@ -58,6 +59,7 @@ export async function OfficialBiographyPage({
         className="biography-page"
         style={{ '--primary': a.accent } as React.CSSProperties}
       >
+        <ClientPreviewStatus agencyId={instance.id} />
         <header className="biography-header">
           <Brand
             name={a.shortName}

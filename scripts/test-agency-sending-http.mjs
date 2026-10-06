@@ -1,114 +1,214 @@
-// Read-only checks against the disposable localhost server, never production.
+// Integration checks against a disposable local database only.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const {
+  clientPreviewPassword,
+} = require('../.test-build/lib/client-preview-token.js');
 const { origin, reviewPassword } = JSON.parse(
   readFileSync('.test-build/http-config.json', 'utf8'),
 );
 assert.equal(origin, 'http://localhost:3001');
 const instances = JSON.parse(readFileSync('data/instances.json', 'utf8'));
 let checks = 0;
-async function get(path, cookie = '') {
-  const response = await fetch(origin + path, {
+async function call(
+  path,
+  cookie = '',
+  body,
+  status = 200,
+  form = false,
+  foreign = false,
+) {
+  const r = await fetch(origin + path, {
     redirect: 'manual',
-    headers: { Cookie: cookie },
-  });
-  checks++;
-  return { response, body: await response.text() };
-}
-const login = await fetch(origin + '/api/review', {
-  method: 'POST',
-  redirect: 'manual',
-  headers: {
-    Origin: origin,
-    'Content-Type': 'application/x-www-form-urlencoded',
-  },
-  body: new URLSearchParams({
-    scope: 'rp',
-    next: '/admin',
-    password: reviewPassword,
-  }),
-});
-assert.equal(login.status, 303);
-const rp = login.headers.get('set-cookie').split(';')[0];
-const hub = (await get('/admin', rp)).body;
-for (const { id } of instances) {
-  const path = hub.match(new RegExp(`/send/${id}/[A-Za-z0-9_-]{43}`))?.[0];
-  assert.ok(path, id + ' Sending Link exists');
-  const sent = await get(path);
-  assert.equal(sent.response.status, 303);
-  assert.equal(sent.response.headers.get('location'), '/' + id);
-  assert.match(sent.response.headers.get('cache-control'), /no-store/);
-  assert.equal(sent.response.headers.get('referrer-policy'), 'no-referrer');
-  const cookieHeader = sent.response.headers.get('set-cookie');
-  assert.match(cookieHeader, new RegExp(`Path=/${id}(;|$)`));
-  assert.match(cookieHeader, /HttpOnly/i);
-  const cookie = cookieHeader.split(';')[0];
-  const gallery = await get('/' + id, cookie);
-  assert.equal(gallery.response.status, 200);
-  assert.match(gallery.body, /Help residents find their representatives/);
-  assert.match(gallery.body, /href="https:\/\/rpdata\.net"/);
-  assert.doesNotMatch(
-    gallery.body,
-    /All agencies|href="\/"|\/send\/|Sending Link/,
-  );
-  const preview = await get('/' + id + '/administration', cookie);
-  assert.equal(preview.response.status, 200);
-  assert.match(preview.body, /read-only design preview/);
-  if (id === 'arpeeville') {
-    const staffPreview = await get(
-      '/arpeeville/administration',
-      rp + '; ' + cookie,
-    );
-    assert.equal(staffPreview.response.status, 200);
-    assert.doesNotMatch(staffPreview.body, /read-only design preview/);
-  }
-  // Deliberately send the cookie even outside its browser path scope.
-  for (const route of [
-    '/',
-    '/admin',
-    '/logs',
-    '/admin/boundaries',
-    '/' + (id === 'galt' ? 'barstow-college' : 'galt'),
-    '/' + id + '/preview',
-  ]) {
-    assert.equal(
-      (await get(route, cookie)).response.status,
-      307,
-      id + ' cannot open ' + route,
-    );
-  }
-  const api =
-    id === 'martinez'
-      ? '/api/admin'
-      : id === 'arpeeville'
-        ? '/api/arpeeville/admin'
-        : `/api/agencies/${id}/admin`;
-  assert.equal((await get(api, cookie)).response.status, 401);
-  const deniedWrite = await fetch(origin + api, {
-    method: 'POST',
+    method: body === undefined ? 'GET' : 'POST',
     headers: {
       Cookie: cookie,
-      Origin: origin,
-      'Content-Type': 'application/json',
+      Origin: foreign ? 'https://evil.invalid' : origin,
+      ...(body === undefined
+        ? {}
+        : {
+            'Content-Type': form
+              ? 'application/x-www-form-urlencoded'
+              : 'application/json',
+          }),
     },
-    body: JSON.stringify({ action: 'publish', revision: 0 }),
+    body:
+      body === undefined
+        ? undefined
+        : form
+          ? new URLSearchParams(body)
+          : JSON.stringify(body),
   });
-  assert.equal(deniedWrite.status, 401);
+  const text = await r.text();
+  assert.equal(r.status, status, path + ' ' + text.slice(0, 180));
   checks++;
-  if (id !== 'arpeeville') {
-    const auth = await get('/' + id + '/admin/login', cookie);
-    assert.equal(auth.response.status, 200);
-    assert.doesNotMatch(auth.body, /Choose another agency/);
-  }
-  const other = id === 'galt' ? 'barstow-college' : 'galt';
-  assert.equal(
-    (await get(path.replace('/' + id + '/', '/' + other + '/'))).response
-      .status,
-    404,
-  );
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch {}
+  return { r, text, data };
 }
-assert.equal((await get('/send/galt/GALTPreview')).response.status, 404);
-assert.equal((await get('/rpdata')).response.status, 200);
+const staff = await call(
+  '/api/review',
+  '',
+  { scope: 'rp', password: reviewPassword, next: '/admin' },
+  303,
+  true,
+);
+const rp = staff.r.headers.get('set-cookie').split(';')[0];
+const hub = (await call('/admin', rp)).text;
+for (const { id } of instances) {
+  const loginPath = `/api/previews/${id}/login`;
+  assert.ok(hub.includes('/preview/' + id));
+  const loginPage = await call('/preview/' + id);
+  assert.ok(!loginPage.text.includes(clientPreviewPassword(id)));
+  await call(`/api/previews/${id}/admin`, '', undefined, 401);
+  const wrong = await call(
+    loginPath,
+    '',
+    { password: 'WrongPassword' },
+    303,
+    true,
+  );
+  assert.match(wrong.r.headers.get('location'), /error=incorrect/);
+  await call(
+    loginPath,
+    '',
+    { password: clientPreviewPassword(id) },
+    403,
+    true,
+    true,
+  );
+  const ok = await call(
+    loginPath,
+    '',
+    { password: clientPreviewPassword(id) },
+    303,
+    true,
+  );
+  const cookie = ok.r.headers.get('set-cookie').split(';')[0];
+  assert.match(ok.r.headers.get('set-cookie'), /HttpOnly/);
+  const before = (await call(`/api/previews/${id}/admin`, cookie)).data;
+  if (before.previewEdited)
+    await call(`/api/previews/${id}/reset`, cookie, {
+      revision: before.revision,
+    });
+  const gallery = await call('/' + id, cookie);
+  assert.match(gallery.text, /Prepared default/);
+  assert.doesNotMatch(gallery.text, /All agencies|Sending Link/);
+  await call('/' + id + '/administration', cookie);
+  await call('/' + id + '/preview', cookie);
+  for (const path of ['/admin', '/logs', '/admin/boundaries', '/admin/website'])
+    await call(path, cookie, undefined, 307);
+  const other = id === 'galt' ? 'barstow-college' : 'galt';
+  await call(`/api/previews/${other}/admin`, cookie, undefined, 401);
+  await call(`/api/previews/${other}/reset`, cookie, { revision: 1 }, 401);
+  const api =
+    id === 'martinez'
+      ? '/api'
+      : id === 'arpeeville'
+        ? '/api/arpeeville'
+        : '/api/agencies/' + id;
+  await call(api + '/admin', cookie, undefined, 401);
+  await call(api + '/admin', cookie, { action: 'publish', revision: 1 }, 401);
+  await call(`/api/previews/${id}/auth/password`, cookie, {}, 404);
+  let current = (await call(`/api/previews/${id}/admin`, cookie)).data;
+  const original = structuredClone(current.content);
+  const edited = {
+    ...current.content.officials[0],
+    name: 'Preview QA ' + id,
+    bio: '<p>Preview <strong>biography</strong><script>alert(1)</script></p>',
+    bioFormat: 'html',
+  };
+  await call(`/api/previews/${id}/admin`, cookie, {
+    action: 'official',
+    official: edited,
+    revision: current.revision,
+  });
+  await call(
+    `/api/previews/${id}/reset`,
+    cookie,
+    { revision: current.revision },
+    409,
+  );
+  current = (await call(`/api/previews/${id}/admin`, cookie)).data;
+  assert.equal(current.previewEdited, true);
+  assert.equal(current.content.officials[0].bio.includes('<script'), false);
+  for (const design of ['classic', 'concierge', 'explorer', 'council']) {
+    const page = await call('/' + id + '/' + design, cookie);
+    assert.match(page.text, /Edited preview/);
+    assert.ok(page.text.includes(edited.name));
+  }
+  const bio = await call('/' + id + '/officials/' + edited.id, cookie);
+  assert.ok(bio.text.includes('Preview <strong>biography</strong>'));
+  const live = await call('/' + id + '/classic');
+  assert.ok(!live.text.includes(edited.name));
+  await call(
+    `/api/previews/${id}/admin`,
+    cookie,
+    { action: 'publish', revision: current.revision },
+    400,
+  );
+  await call(`/api/previews/${id}/reset`, cookie, {
+    revision: current.revision,
+  });
+  const restored = (await call(`/api/previews/${id}/admin`, cookie)).data;
+  assert.equal(restored.previewEdited, false);
+  assert.deepEqual(restored.content, original);
+  await call(`/api/previews/${id}/logout`, cookie, {});
+}
+// Uploaded images are private to a preview, including when referenced from a biography.
+const id = 'arpeeville';
+const login = await call(
+  `/api/previews/${id}/login`,
+  '',
+  { password: clientPreviewPassword(id) },
+  303,
+  true,
+);
+const cookie = login.r.headers.get('set-cookie').split(';')[0];
+const form = new FormData();
+form.set(
+  'photo',
+  new Blob([readFileSync('public/portraits/arpeeville/gabriella.jpg')], {
+    type: 'image/jpeg',
+  }),
+  'portrait.jpg',
+);
+const uploaded = await fetch(origin + `/api/previews/${id}/photos`, {
+  method: 'POST',
+  headers: { Cookie: cookie, Origin: origin },
+  body: form,
+});
+assert.equal(uploaded.status, 200);
+checks++;
+const { url } = await uploaded.json();
+await call(url, '', undefined, 401);
+await call(url, cookie);
+const current = (await call(`/api/previews/${id}/admin`, cookie)).data;
+const official = {
+  ...current.content.officials[0],
+  photo: url,
+  bio: `<p>Photo</p><img src="${url}" alt="Test portrait">`,
+  bioFormat: 'html',
+};
+await call(`/api/previews/${id}/admin`, cookie, {
+  action: 'official',
+  official,
+  revision: current.revision,
+});
+const saved = (await call(`/api/previews/${id}/admin`, cookie)).data;
+assert.equal(saved.content.officials[0].photo, url);
+assert.ok(saved.content.officials[0].bio.includes(url));
+await call(
+  '/api/arpeeville/photos/' + url.split('/').at(-1),
+  cookie,
+  undefined,
+  404,
+);
+await call(`/api/previews/${id}/reset`, cookie, { revision: saved.revision });
 console.log(
-  `PASS: ${checks} sending-link HTTP checks across all ${instances.length} agencies; recipients cannot open other galleries, RP tools, drafts or editing APIs.`,
+  `PASS: ${checks} HTTP checks across ${instances.length} agencies: passwords, all layouts, biography, photo upload, reset, conflicting edits, CSRF, tenant isolation and denied live publication.`,
 );

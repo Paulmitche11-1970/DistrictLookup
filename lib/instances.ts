@@ -22,7 +22,8 @@ export const instances = records as AgencyInstance[];
 export function instanceFor(id: string) {
   return instances.find((record) => record.id === id.toLowerCase());
 }
-export function apiPath(id: string) {
+export function apiPath(id: string, preview = false) {
+  if (preview) return '/api/previews/' + id;
   return id === 'martinez'
     ? '/api'
     : id === 'arpeeville'

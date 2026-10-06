@@ -11,10 +11,12 @@ export default function DesignGallery({
   content,
   staff = false,
   sendingPath,
+  previewPassword,
 }: {
   content: Content;
   staff?: boolean;
   sendingPath?: string;
+  previewPassword?: string;
 }) {
   const instance = instanceFor(content.agency.instanceId || 'martinez')!;
   const labels = agencyLabels(instance);
@@ -49,7 +51,7 @@ export default function DesignGallery({
                 : adminPath(instance.id)
             }
           >
-            Agency sign in <ArrowRight size={15} />
+            Try the editor <ArrowRight size={15} />
           </a>
         )}
       </header>
@@ -80,7 +82,9 @@ export default function DesignGallery({
           </p>
         </div>
         <AgencyWelcome id={instance.id} name={content.agency.name} />
-        {staff && sendingPath && <AgencySendingLink path={sendingPath} />}
+        {staff && sendingPath && (
+          <AgencySendingLink path={sendingPath} password={previewPassword} />
+        )}
         <div className="gallery-shared">
           <span>
             <Check size={16} /> Same {content.agency.shortName} address search
@@ -179,7 +183,9 @@ export default function DesignGallery({
                 <p>
                   {instance.sandbox && staff
                     ? 'Open the workspace to edit officials, upload portraits, and try the draft and publish controls.'
-                    : 'The live workspace uses password and two-factor authentication. This preview is read only and shows published agency information.'}
+                    : content.agency.clientPreview
+                      ? 'Try changing names, photos, biographies and display options. Saved edits update all four preview layouts. Return to default restores the version RP prepared.'
+                      : 'Open your Sending Link and enter the preview password to try editing. Live administration uses a separate account and two-factor authentication.'}
                 </p>
               </div>
               <a className="design-open" href={base + '/administration'}>
@@ -195,7 +201,7 @@ export default function DesignGallery({
         <footer className="gallery-footer">
           <span>
             Screenshots show the initial designs. Open a design to see the
-            latest published agency information.
+            latest saved information for your preview.
           </span>
           {content.sourceUrl && (
             <a href={content.sourceUrl} target="_blank" rel="noreferrer">

@@ -161,8 +161,9 @@ export function useDistrictLookup(content: Content, preview = false) {
   const a = content.agency;
   const apiRoot = apiPath(
     a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
+    a.clientPreview,
   );
-  const minSearchLength = apiRoot === '/api/arpeeville' ? 1 : 2;
+  const minSearchLength = a.instanceId === 'arpeeville' ? 1 : 2;
   useEffect(() => {
     if (
       preview ||

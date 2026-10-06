@@ -1,3 +1,8 @@
+import {
+  inViewerAgency,
+  hasClientPreviewAccess,
+} from '@/lib/client-preview-access';
+import { ClientPreviewStatus } from '@/components/client-preview-status';
 import { requireAgencyReviewAccess } from '@/lib/review-access';
 import { notFound, redirect } from 'next/navigation';
 import Lookup from '@/components/lookup';
@@ -26,6 +31,8 @@ export default async function Page({ params, searchParams }: Props) {
   const instance = instanceFor(agency);
   if (!instance) notFound();
   if (design === 'administration') {
+    if (await hasClientPreviewAccess(instance.id))
+      return <AdminConsole agencyId={instance.id} clientPreview />;
     await requireAgencyReviewAccess(
       instance.id,
       '/' + instance.id + '/administration',
@@ -41,13 +48,14 @@ export default async function Page({ params, searchParams }: Props) {
       />
     );
   }
-  const preview = design === 'preview';
+  const clientPreview = await hasClientPreviewAccess(instance.id);
+  const preview = design === 'preview' && !clientPreview;
   if (preview) {
     const s = await inAgency(instance.id, session);
     if (!s || s.stage !== 'full' || !s.admin.totp_active)
       redirect(adminPath(instance.id) + '/login');
   }
-  const content = inAgency(instance.id, () =>
+  const content = await inViewerAgency(instance.id, () =>
     preview ? state().draft : publicContent(),
   );
   const requested = (await searchParams).design;
@@ -57,14 +65,23 @@ export default async function Page({ params, searchParams }: Props) {
       )
     : designs.find((d) => d.path.endsWith('/' + design));
   if (!current) notFound();
-  return current.id === 'classic' ? (
-    <Lookup content={content} preview={preview} embedded={design === 'embed'} />
-  ) : (
-    <LookupVariant
-      content={content}
-      design={current.id}
-      preview={preview}
-      embedded={design === 'embed'}
-    />
+  return (
+    <>
+      <ClientPreviewStatus agencyId={instance.id} />
+      {current.id === 'classic' ? (
+        <Lookup
+          content={content}
+          preview={preview}
+          embedded={design === 'embed'}
+        />
+      ) : (
+        <LookupVariant
+          content={content}
+          design={current.id}
+          preview={preview}
+          embedded={design === 'embed'}
+        />
+      )}
+    </>
   );
 }

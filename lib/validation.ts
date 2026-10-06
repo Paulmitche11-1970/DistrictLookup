@@ -38,7 +38,7 @@ export const officialSchema = z
           !v ||
           /^\/portraits\/(1|2|3|4|mayor)\.jpg$/.test(v) ||
           /^\/portraits\/[a-z0-9-]+\/[a-zA-Z0-9_-]+\.(jpg|webp|png)$/.test(v) ||
-          /^\/api\/(arpeeville\/|agencies\/[a-z0-9-]+\/)?photos\/[a-f0-9]{32}$/.test(
+          /^\/api\/(arpeeville\/|(?:agencies|previews)\/[a-z0-9-]+\/)?photos\/[a-f0-9]{32}$/.test(
             v,
           ),
       ),

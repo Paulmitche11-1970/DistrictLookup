@@ -18,9 +18,13 @@ import { AgencySendingLink } from './agency-sending-link';
 export default function AgencyAdministration({
   team = false,
   sendingLinks = {},
+  previewPasswords = {},
+  previewEdits = {},
 }: {
   team?: boolean;
   sendingLinks?: Record<string, string>;
+  previewPasswords?: Record<string, string>;
+  previewEdits?: Record<string, boolean>;
 }) {
   const [query, setQuery] = useState('');
   const available = instances.filter((agency) => team || !agency.sandbox);
@@ -144,6 +148,11 @@ export default function AgencyAdministration({
                     )}
                   </div>
                   <h3>{agency.name}</h3>
+                  {team && previewEdits[agency.id] && (
+                    <p className="pill">
+                      Edited preview · Client changes saved
+                    </p>
+                  )}
                   <p className="small muted">
                     {agency.districtCount
                       ? `${agency.districtCount} ${labels.districtsLower}`
@@ -175,7 +184,10 @@ export default function AgencyAdministration({
                     </div>
                   )}
                   {team && sendingLinks[agency.id] && (
-                    <AgencySendingLink path={sendingLinks[agency.id]} />
+                    <AgencySendingLink
+                      path={sendingLinks[agency.id]}
+                      password={previewPasswords[agency.id]}
+                    />
                   )}
                 </article>
               );

@@ -1,11 +1,13 @@
+import {
+  inViewerAgency,
+  hasClientPreviewAccess,
+} from '@/lib/client-preview-access';
+import { ClientPreviewStatus } from '@/components/client-preview-status';
 import { notFound } from 'next/navigation';
 import {
   requireReviewAccess,
   requireAgencyReviewAccess,
-  hasAgencySendingAccess,
-  hasReviewAccess,
 } from '@/lib/review-access';
-import { inArpeeville } from '@/lib/agency-scope';
 import { publicContent, state } from '@/lib/store';
 import { designs } from '@/lib/designs';
 import Lookup from '@/components/lookup';
@@ -26,22 +28,15 @@ export default async function Page({
 }) {
   const { design } = await params;
   if (design === 'administration') {
+    if (await hasClientPreviewAccess('arpeeville'))
+      return <AdminConsole agencyId={'arpeeville'} clientPreview />;
     await requireAgencyReviewAccess('arpeeville', '/arpeeville/administration');
-    if (
-      (await hasAgencySendingAccess('arpeeville')) &&
-      !(await hasReviewAccess('rp'))
-    )
-      return (
-        <AdminConsole
-          agencyId="arpeeville"
-          previewContent={inArpeeville(publicContent)}
-        />
-      );
     return <AdminConsole sandbox agencyId="arpeeville" />;
   }
-  const preview = design === 'preview';
+  const clientPreview = await hasClientPreviewAccess('arpeeville');
+  const preview = design === 'preview' && !clientPreview;
   if (preview) await requireReviewAccess('rp', '/arpeeville/preview');
-  const content = inArpeeville(() =>
+  const content = await inViewerAgency('arpeeville', () =>
     preview ? state().draft : publicContent(),
   );
   const requested = (await searchParams).design;
@@ -51,14 +46,23 @@ export default async function Page({
       )
     : designs.find((d) => d.path.endsWith('/' + design));
   if (!current) notFound();
-  return current.id === 'classic' ? (
-    <Lookup content={content} preview={preview} embedded={design === 'embed'} />
-  ) : (
-    <LookupVariant
-      content={content}
-      design={current.id}
-      preview={preview}
-      embedded={design === 'embed'}
-    />
+  return (
+    <>
+      <ClientPreviewStatus agencyId={'arpeeville'} />
+      {current.id === 'classic' ? (
+        <Lookup
+          content={content}
+          preview={preview}
+          embedded={design === 'embed'}
+        />
+      ) : (
+        <LookupVariant
+          content={content}
+          design={current.id}
+          preview={preview}
+          embedded={design === 'embed'}
+        />
+      )}
+    </>
   );
 }
