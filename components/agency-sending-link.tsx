@@ -14,7 +14,14 @@ export function AgencySendingLink({
   const [url, setUrl] = useState(path);
   const [message, setMessage] = useState('');
   useEffect(() => {
-    setUrl(new URL(path, window.location.origin).href);
+    const link = new URL(path, window.location.origin);
+    link.searchParams.set('utm_source', 'rp_outreach');
+    link.searchParams.set('utm_medium', 'email');
+    link.searchParams.set(
+      'utm_campaign',
+      path.split('/').filter(Boolean).at(-1) || 'agency-preview',
+    );
+    setUrl(link.href);
   }, [path]);
   async function copy() {
     try {
@@ -29,7 +36,8 @@ export function AgencySendingLink({
       <strong>Sending Link</strong>
       <p>
         Opens this agency’s designs and editable preview. Send the preview
-        password with this link.
+        password with this link. The link includes an outreach tag so visits can
+        be measured in RP administration.
       </p>
       <input
         aria-label="Sending Link"

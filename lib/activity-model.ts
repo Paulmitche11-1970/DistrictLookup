@@ -14,7 +14,25 @@ export const activityLabels = {
   website_click: 'Website clicked',
   navigation_click: 'Page link clicked',
   map_control: 'Map control used',
+  preview_login: 'Preview password accepted',
+  preview_save: 'Preview changes saved',
+  preview_reset: 'Preview returned to default',
+  implementation_request: 'Implementation requested',
 } as const;
+export const serverActivityTypes = [
+  'preview_login',
+  'preview_save',
+  'preview_reset',
+  'implementation_request',
+] as const;
+export const audienceLabels = {
+  preview_entry: 'Preview entrance',
+  agency_preview: 'Agency reviewer',
+  rp_staff: 'RP staff',
+  public: 'Public visitor',
+  unknown: 'Earlier / unclassified',
+} as const;
+export type ActivityAudience = keyof typeof audienceLabels;
 export type ActivityType = keyof typeof activityLabels;
 export const RETENTION_DAYS = 90;
 export function activityContext(path: string, design?: string) {
@@ -26,6 +44,12 @@ export function activityContext(path: string, design?: string) {
       page: 'Embedded lookup',
     };
   const parts = path.split('/').filter(Boolean);
+  if (parts.length === 2 && parts[0] === 'preview' && instanceFor(parts[1]))
+    return {
+      agency: instanceFor(parts[1])!.id,
+      layout: '',
+      page: 'Preview entrance',
+    };
   const agency = instanceFor(parts[0] || '');
   if (!agency) return null;
   if (parts.length === 1)
@@ -41,6 +65,15 @@ export function activityContext(path: string, design?: string) {
       page: 'Biography',
     };
   if (parts.length !== 2) return null;
+  if (['administration', 'implementation'].includes(parts[1]))
+    return {
+      agency: agency.id,
+      layout: '',
+      page:
+        parts[1] === 'administration'
+          ? 'Preview editor'
+          : 'Implementation request',
+    };
   const layout = parts[1] === 'council' ? 'directory' : parts[1];
   if (designs.some((d) => d.id === layout))
     return { agency: agency.id, layout, page: 'Lookup' };
@@ -127,6 +160,8 @@ export type ActivityFilters = {
   type: string;
   source: string;
   query: string;
+  audience?: string;
+  visit?: string;
   page: number;
 };
 export function activityFilters(
@@ -151,6 +186,11 @@ export function activityFilters(
         : '',
     source: cleanActivityText(params.source || '', 200),
     query: cleanActivityText(params.query || '', 100),
+    audience:
+      params.audience && Object.hasOwn(audienceLabels, params.audience)
+        ? params.audience
+        : '',
+    visit: /^[a-f0-9-]{36}$/i.test(params.visit || '') ? params.visit : '',
     page: Math.min(
       10000,
       Math.max(1, Number.parseInt(params.page || '1') || 1),

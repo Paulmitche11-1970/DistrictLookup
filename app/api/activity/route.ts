@@ -6,6 +6,7 @@ import {
   cleanActivityText,
   referralSource,
   type ActivityType,
+  serverActivityTypes,
 } from '@/lib/activity-model';
 import { recordActivity } from '@/lib/activity-store';
 import {
@@ -14,7 +15,11 @@ import {
   errorResponse,
   HttpError,
 } from '@/lib/security';
-import { inAgency } from '@/lib/agency-scope';
+import {
+  inViewerAgency,
+  hasClientPreviewAccess,
+} from '@/lib/client-preview-access';
+import { hasReviewAccess } from '@/lib/review-access';
 import { addressById, publicContent } from '@/lib/store';
 import { locate } from '@/lib/geo';
 import { fullAddress } from '@/lib/model';
@@ -55,9 +60,20 @@ export async function POST(request: Request) {
     const origin = checkOrigin(request);
     limit(request);
     const body = schema.parse(await jsonBody(request, 8000));
+    if ((serverActivityTypes as readonly string[]).includes(body.type))
+      throw new HttpError(400, 'This activity is recorded by the server.');
     const context = activityContext(body.path, body.design);
     if (!context)
       throw new HttpError(400, 'Only public lookup pages can be recorded.');
+    const staff = await hasReviewAccess('rp');
+    const preview =
+      !!context.agency && (await hasClientPreviewAccess(context.agency));
+    if (
+      ['Preview editor', 'Implementation request'].includes(context.page) &&
+      !preview &&
+      !staff
+    )
+      throw new HttpError(401, 'Agency preview access is required.');
     const ua = request.headers.get('user-agent') || '';
     if (/bot|crawler|spider|headless|preview|lighthouse/i.test(ua))
       return new Response(null, { status: 204 });
@@ -77,7 +93,7 @@ export async function POST(request: Request) {
         !['Lookup', 'Embedded lookup'].includes(context.page)
       )
         throw new HttpError(400, 'An agency lookup page is required.');
-      inAgency(context.agency, () => {
+      await inViewerAgency(context.agency, () => {
         if (body.type === 'address_lookup' || body.type === 'lookup_error') {
           const selected = addressById(body.addressId || '');
           if (!selected) throw new HttpError(400, 'Unknown agency address.');
@@ -113,6 +129,13 @@ export async function POST(request: Request) {
       agency: context.agency,
       layout: context.layout,
       type: body.type,
+      audience: staff
+        ? 'rp_staff'
+        : preview
+          ? 'agency_preview'
+          : context.page === 'Preview entrance'
+            ? 'preview_entry'
+            : 'public',
       ...source,
       medium: cleanActivityText(body.medium, 80),
       campaign: cleanActivityText(body.campaign, 120),

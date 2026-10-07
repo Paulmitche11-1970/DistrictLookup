@@ -9,6 +9,9 @@ export function ActivityTracker() {
   const params = useSearchParams();
   const design = params.get('design') || '';
   const preview = params.get('preview') === '1';
+  const campaign = params.get('utm_campaign') || '';
+  const source = params.get('utm_source') || '';
+  const medium = params.get('utm_medium') || '';
   useEffect(() => {
     if (
       preview ||
@@ -69,6 +72,6 @@ export function ActivityTracker() {
       clearTimeout(timer);
       document.removeEventListener('click', click);
     };
-  }, [path, design, preview]);
+  }, [path, design, preview, campaign, source, medium]);
   return null;
 }

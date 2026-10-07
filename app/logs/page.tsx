@@ -13,6 +13,7 @@ import {
 import { requireReviewAccess } from '@/lib/review-access';
 import {
   activityFilters,
+  audienceLabels,
   activityLabels,
   shiftDay,
   RETENTION_DAYS,
@@ -97,11 +98,14 @@ export default async function Logs({
             <p className="eyebrow">LOOKUP ACTIVITY</p>
             <h1>Activity logs</h1>
             <p>
-              See where residents arrive, what they explore, and which addresses
+              See where visitors arrive, what they explore, and which addresses
               they look up.
             </p>
           </div>
           <div className="logs-actions">
+            <a className="btn" href="/admin/outreach">
+              Outreach & implementation
+            </a>
             <a className="btn" href={filterUrl(filters)}>
               <RefreshCw size={16} /> Refresh
             </a>
@@ -139,6 +143,20 @@ export default async function Logs({
               ))}
             </select>
           </label>
+          <label className="field">
+            Audience
+            <select name="audience" defaultValue={filters.audience}>
+              <option value="">All visitors</option>
+              {Object.entries(audienceLabels).map(([key, label]) => (
+                <option key={key} value={key}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </label>
+          {filters.visit && (
+            <input type="hidden" name="visit" value={filters.visit} />
+          )}
           <label className="field">
             Activity
             <select name="type" defaultValue={filters.type}>
@@ -412,7 +430,15 @@ export default async function Logs({
                       {r.campaign && <small>Campaign: {r.campaign}</small>}
                       {r.medium && <small>Medium: {r.medium}</small>}
                     </td>
-                    <td>{r.device}</td>
+                    <td>
+                      {r.device}
+                      <small>{audienceLabels[r.audience || 'unknown']}</small>
+                      <a
+                        href={filterUrl(filters, { visit: r.visitId, page: 1 })}
+                      >
+                        Visit details
+                      </a>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -449,8 +475,9 @@ export default async function Logs({
             minutes of inactivity; it is not a count of individual people.
             Address lookups record the selected address and confirmed district.
             A search with no matches records the text after a two-second pause.
-            Admin screens and draft previews are excluded. Known crawler traffic
-            is filtered, but browser blocking can reduce counts.
+            Agency trial editor visits and confirmed saves are included; live
+            administration and unpublished drafts are excluded. Known crawler
+            traffic is filtered, but browser blocking can reduce counts.
           </p>
           <p>
             RP team access only. Addresses are stored for {RETENTION_DAYS} days.

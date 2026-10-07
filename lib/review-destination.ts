@@ -4,6 +4,12 @@ export function reviewDestination(scope: ReviewScope, value?: string | null) {
   if (
     scope === 'rp' &&
     value &&
+    /^\/admin\/outreach(?:\/[a-f0-9-]{36})?$/.test(value)
+  )
+    return value;
+  if (
+    scope === 'rp' &&
+    value &&
     /^\/admin\/website(?:\/preview\/[a-z0-9-]+)?$/.test(value)
   )
     return value;

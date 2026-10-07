@@ -54,6 +54,9 @@ export function ClientPreviewBanner({
         </p>
       </div>
       <div className="client-preview-actions">
+        <a className="btn primary" href={`/${agencyId}/implementation`}>
+          Use this tool
+        </a>
         <a className="btn" href={`/${agencyId}/administration`}>
           <Pencil size={15} /> Try the editor
         </a>

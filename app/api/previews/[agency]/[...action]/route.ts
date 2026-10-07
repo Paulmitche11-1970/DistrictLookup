@@ -19,6 +19,7 @@ import {
   rateLimit,
 } from '@/lib/security';
 import { state, resetClientPreview } from '@/lib/store';
+import { recordPreviewAction } from '@/lib/outreach-activity';
 import * as admin from '../../../admin/route';
 import * as photos from '../../../photos/route';
 import * as photo from '../../../photos/[id]/route';
@@ -71,6 +72,7 @@ export async function POST(request: Request, context: Context) {
             maxAge: previewSessionSeconds,
           },
         );
+        await recordPreviewAction(agency, 'preview_login');
         return new Response(null, {
           status: 303,
           headers: { ...privateHeaders, Location: '/' + agency },
@@ -93,7 +95,14 @@ export async function POST(request: Request, context: Context) {
               400,
               'Save your preview, or use Return to default.',
             );
-          return admin.POST(request);
+          const response = await admin.POST(request);
+          if (response.ok)
+            await recordPreviewAction(
+              agency,
+              'preview_save',
+              String(body.action),
+            );
+          return response;
         }
         if (action.join('/') === 'photos') return photos.POST(request);
         if (action.join('/') === 'reset') {
@@ -107,6 +116,7 @@ export async function POST(request: Request, context: Context) {
               'Another preview edit was saved. Reload before resetting.',
             );
           resetClientPreview(body.revision as number);
+          await recordPreviewAction(agency, 'preview_reset');
           return Response.json({ ok: true }, { headers: privateHeaders });
         }
         return new Response('Not found', { status: 404 });

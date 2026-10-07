@@ -1,5 +1,9 @@
 'use client';
-import { activityContext, type ActivityType } from './activity-model';
+import {
+  activityContext,
+  referralSource,
+  type ActivityType,
+} from './activity-model';
 type Visit = {
   id: string;
   touched: number;
@@ -22,7 +26,10 @@ function visit() {
   if (
     !saved ||
     Date.now() - saved.touched > 30 * 60_000 ||
-    (explicitSource && explicitSource !== saved.source)
+    (explicitSource &&
+      (explicitSource !== saved.source ||
+        (params.get('utm_campaign') || '') !== saved.campaign ||
+        (params.get('utm_medium') || '') !== saved.medium))
   ) {
     saved = {
       id: crypto.randomUUID(),
@@ -37,6 +44,15 @@ function visit() {
   memoryVisit = saved;
   try {
     sessionStorage.setItem('rp-lookup-visit', JSON.stringify(saved));
+    // Share this tab's visit attribution with confirmed server-side actions.
+    const context = {
+      id: saved.id,
+      touched: saved.touched,
+      ...referralSource(saved.referrer, location.hostname, saved.source),
+      medium: saved.medium.slice(0, 80),
+      campaign: saved.campaign.slice(0, 120),
+    };
+    document.cookie = `rp_activity_context=${encodeURIComponent(JSON.stringify(context))}; Path=/; Max-Age=1800; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`;
   } catch {
     /* Use this tab's in-memory visit. */
   }

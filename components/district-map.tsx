@@ -207,7 +207,7 @@ export default function DistrictMapView({
           const text = document.createElement('span');
           const title = document.createElement('strong');
           title.textContent = approximateAddress
-            ? 'Approximate address location'
+            ? 'Address location'
             : 'You are here';
           text.append(title, document.createTextNode(fullAddress(address)));
           pin.current.bindTooltip(text, {

@@ -29,6 +29,8 @@ export async function GET(request: Request) {
       'Medium',
       'Campaign',
       'Device',
+      'Audience',
+      'Anonymous visit',
     ],
     ...rows.map((r) => [
       new Date(r.createdAt).toISOString(),
@@ -44,6 +46,8 @@ export async function GET(request: Request) {
       r.medium,
       r.campaign,
       r.device,
+      r.audience,
+      r.visitId,
     ]),
   ]
     .map((row) => row.map(csvCell).join(','))

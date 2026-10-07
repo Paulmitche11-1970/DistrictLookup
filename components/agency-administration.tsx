@@ -88,6 +88,17 @@ export default function AgencyAdministration({
               </div>
               <ArrowUpRight size={20} />
             </a>
+            <a href="/admin/outreach">
+              <Activity size={24} />
+              <div>
+                <h2>Outreach & implementation</h2>
+                <p>
+                  Agency preview visits, pages browsed, implementation requests,
+                  and invoice drafts.
+                </p>
+              </div>
+              <ArrowUpRight size={20} />
+            </a>
             <a href="/logs">
               <Activity size={24} />
               <div>

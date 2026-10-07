@@ -46,6 +46,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/:agency/implementation',
+        headers: [
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'none'" },
+          { key: 'Cache-Control', value: 'private, no-store' },
+        ],
+      },
+      {
         source: '/preview/:path*',
         headers: [
           { key: 'X-Frame-Options', value: 'DENY' },

@@ -11,12 +11,23 @@ export default async function Page({
   searchParams,
 }: {
   params: Promise<{ agency: string }>;
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{
+    error?: string;
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+  }>;
 }) {
   const instance = instanceFor((await params).agency);
   if (!instance) notFound();
-  if (await hasClientPreviewAccess(instance.id)) redirect('/' + instance.id);
-  const { error } = await searchParams;
+  const query = await searchParams;
+  if (await hasClientPreviewAccess(instance.id)) {
+    const attribution = new URLSearchParams();
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign'] as const)
+      if (query[key]) attribution.set(key, query[key]!.slice(0, 120));
+    redirect('/' + instance.id + (attribution.size ? '?' + attribution : ''));
+  }
+  const { error } = query;
   return (
     <main className="client-preview-login">
       <section>

@@ -96,10 +96,13 @@ for (const route of [
   '/logs/export',
   '/admin',
   '/arpeeville/preview',
-  '/arpeeville/administration',
   '/api/admin',
 ])
   await request('/api/activity', { body: event({ path: route }), status: 400 });
+await request('/api/activity', {
+  body: event({ path: '/arpeeville/administration' }),
+  status: 401,
+});
 await request('/api/activity', { body: event(), status: 403, foreign: true });
 await request('/api/activity', {
   body: event({ password: 'must-not-be-stored' }),

@@ -21,7 +21,7 @@ import {
   type ActivityEvent,
 } from '../lib/activity-store';
 
-void test('Activity only accepts known public agency pages, including four layouts and embeds', () => {
+void test('Activity accepts known public and agency-preview pages, excluding live admin and unknown routes', () => {
   assert.equal(activityContext('/arpeeville/council')?.layout, 'directory');
   assert.equal(
     activityContext('/carpinteria/lookup', 'concierge')?.layout,
@@ -29,11 +29,22 @@ void test('Activity only accepts known public agency pages, including four layou
   );
   assert.equal(activityContext('/embed', 'explorer')?.agency, 'martinez');
   assert.equal(activityContext('/arpeeville/officials/liz')?.page, 'Biography');
+  assert.equal(
+    activityContext('/arpeeville/administration')?.page,
+    'Preview editor',
+  );
+  assert.equal(
+    activityContext('/preview/san-jose-evergreen')?.page,
+    'Preview entrance',
+  );
+  assert.equal(
+    activityContext('/galt/implementation')?.page,
+    'Implementation request',
+  );
   for (const p of [
     '/logs',
     '/logs/export',
     '/admin',
-    '/arpeeville/administration',
     '/arpeeville/preview',
     '/martinez/admin',
     '/api/admin',

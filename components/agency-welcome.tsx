@@ -3,9 +3,11 @@
 import { useEffect, useRef } from 'react';
 import { ArrowRight, Globe, LayoutGrid, Pencil, X } from 'lucide-react';
 import styles from './agency-welcome.module.css';
+import { serviceOffer } from '@/lib/service-offer';
 
 /** The introduction belongs to the agency design review, not residents' lookups. */
 export function AgencyWelcome({ id, name }: { id: string; name: string }) {
+  const offer = serviceOffer(id);
   const dialog = useRef<HTMLDialogElement>(null);
   const storageKey = `rp-agency-welcome-2026-09-v1:${id}`;
   useEffect(() => {
@@ -99,10 +101,10 @@ export function AgencyWelcome({ id, name }: { id: string; name: string }) {
             </div>
           </div>
           <div className={styles.offer}>
-            <strong>Free until July 1, 2027</strong>
+            <strong>{offer.headline}</strong>
             <p>
-              Beginning July 1, 2027, the service is billed at{' '}
-              <b>$75 per month</b> or <b>$900 per year</b>.
+              {offer.description} Beginning {offer.billingLabel}, the service is
+              billed at <b>$75 per month</b> or <b>$900 per year</b>.
             </p>
           </div>
           <button

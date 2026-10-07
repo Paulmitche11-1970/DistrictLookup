@@ -7,6 +7,7 @@ import {
   RETENTION_DAYS,
   type ActivityFilters,
   type ActivityType,
+  type ActivityAudience,
 } from './activity-model';
 
 export type ActivityEvent = {
@@ -24,6 +25,7 @@ export type ActivityEvent = {
   address: string;
   district: string;
   device: string;
+  audience?: ActivityAudience;
 };
 export type ActivityRow = ActivityEvent & { createdAt: number; day: string };
 let connection: DatabaseSync | undefined;
@@ -43,6 +45,13 @@ export function activityDatabase() {
       CREATE INDEX IF NOT EXISTS events_day ON events(day, createdAt);
       CREATE INDEX IF NOT EXISTS events_agency_day ON events(agency, day);
       CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);`);
+    const columns = connection.prepare('PRAGMA table_info(events)').all() as {
+      name: string;
+    }[];
+    if (!columns.some((column) => column.name === 'audience'))
+      connection.exec(
+        "ALTER TABLE events ADD COLUMN audience TEXT NOT NULL DEFAULT 'unknown'",
+      );
     connection
       .prepare('INSERT OR IGNORE INTO metadata(key,value) VALUES(?,?)')
       .run('startedAt', new Date().toISOString());
@@ -58,8 +67,8 @@ export function activityDatabase() {
 }
 export function recordActivity(event: ActivityEvent, now = new Date()) {
   activityDatabase()
-    .prepare(`INSERT OR IGNORE INTO events(id,visitId,createdAt,day,agency,layout,path,type,source,referrerHost,medium,campaign,target,address,district,device)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
+    .prepare(`INSERT OR IGNORE INTO events(id,visitId,createdAt,day,agency,layout,path,type,source,referrerHost,medium,campaign,target,address,district,device,audience)
+    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
     .run(
       event.id,
       event.visitId,
@@ -77,6 +86,7 @@ export function recordActivity(event: ActivityEvent, now = new Date()) {
       event.address,
       event.district,
       event.device,
+      event.audience || 'unknown',
     );
 }
 function where(filters: ActivityFilters) {
@@ -86,6 +96,8 @@ function where(filters: ActivityFilters) {
     ['agency', filters.agency],
     ['type', filters.type],
     ['source', filters.source],
+    ['audience', filters.audience],
+    ['visitId', filters.visit],
   ]) {
     if (val) {
       clauses.push(key + ' = ?');

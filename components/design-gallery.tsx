@@ -82,6 +82,20 @@ export default function DesignGallery({
           </p>
         </div>
         <AgencyWelcome id={instance.id} name={content.agency.name} />
+        {content.agency.clientPreview && (
+          <section className="outreach-cta">
+            <div>
+              <h2>Found a good fit?</h2>
+              <p>
+                Choose a layout, tell us what you’d like adjusted, and we’ll
+                help your team get started.
+              </p>
+            </div>
+            <a className="btn primary" href={base + '/implementation'}>
+              Use this tool <ArrowRight size={17} />
+            </a>
+          </section>
+        )}
         {staff && sendingPath && (
           <AgencySendingLink path={sendingPath} password={previewPassword} />
         )}

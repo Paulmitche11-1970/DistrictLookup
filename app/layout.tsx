@@ -5,6 +5,7 @@ import './globals.css';
 import './designs.css';
 import './biographies.css';
 import './logs.css';
+import './implementation.css';
 export const metadata: Metadata = {
   title: 'Martinez | Find your councilmember',
   description:
