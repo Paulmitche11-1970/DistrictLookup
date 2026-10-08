@@ -77,11 +77,17 @@ await call(profile + '?preview=1', { status: 307 });
 await call('/martinez/officials/1?preview=1', { cookie, status: 307 });
 await save({ ...member, bio: '', bioFormat: 'text' });
 await mutate({ action: 'publish' });
-await call(profile, { status: 404 });
+assert.match(
+  await call(profile),
+  /An administrator can add biographical information/,
+);
 const plain =
   'Local draft biography test.\n\nSecond paragraph keeps <literal> text safe.';
 await save({ ...member, bio: plain, bioFormat: 'text' });
-await call(profile, { status: 404 });
+assert.match(
+  await call(profile),
+  /An administrator can add biographical information/,
+);
 const preview = await call(profile + '?preview=1', { cookie });
 assert.ok(preview.includes('Local draft biography test.'));
 assert.ok(preview.includes('&lt;literal&gt;'));

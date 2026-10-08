@@ -2,11 +2,10 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   MapPin,
-  ArrowUpRight,
   ChevronRight,
   Mail,
   Phone,
-  Globe,
+  UserRound,
   ArrowLeft,
 } from 'lucide-react';
 import {
@@ -20,6 +19,7 @@ import {
 import type { Content, Address, Official } from '@/lib/model';
 import type { DesignId } from '@/lib/designs';
 import { BiographyLink } from './biography-link';
+import { biographyPath } from '@/lib/biography';
 import { trackActivity } from '@/lib/activity-client';
 import { apiPath, instanceFor } from '@/lib/instances';
 import { agencyLabels, districtName } from '@/lib/agency-labels';
@@ -483,11 +483,18 @@ export function OfficialDetails({
             </span>
           </a>
         )}
-        {a.showWebsite && official.website && (
-          <a href={official.website} target="_blank" rel="noreferrer">
-            <Globe size={18} />
+        {a.showBiographies !== false && !official.vacant && (
+          <a
+            href={biographyPath(
+              a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
+              official.id,
+              preview,
+              design,
+            )}
+          >
+            <UserRound size={18} />
             <span>About {official.name.split(' ')[0]}</span>
-            <ArrowUpRight size={15} style={{ marginLeft: 'auto' }} />
+            <ChevronRight size={15} style={{ marginLeft: 'auto' }} />
           </a>
         )}
       </div>

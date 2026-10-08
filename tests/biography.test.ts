@@ -53,7 +53,7 @@ void test('Biography pictures stay in their agency scope and respect the photo d
   });
   assert.doesNotMatch(sanitizeBiography(html), /arpeeville/);
 });
-void test('Empty biographies have no links; a supported picture counts as biography content', () => {
+void test('Empty biographies are detected; a supported picture counts as biography content', () => {
   assert.equal(hasBiography({ bio: '  ' }), false);
   assert.equal(
     hasBiography({ bio: '<p><br></p><p>&nbsp;</p>', bioFormat: 'html' }),

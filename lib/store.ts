@@ -7,6 +7,7 @@ import { currentAgencyId, currentInstance } from './agency-scope';
 import { visibleOfficial } from './representation';
 import { sanitizeBiography } from './biography-html';
 import { backfillOfficialPortraits } from './portrait-backfill';
+import { backfillOfficialBiographies } from './biography-backfill';
 import { isClientPreview } from './client-preview-scope';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
@@ -228,6 +229,8 @@ export function database() {
     }
   }
   backfillOfficialPortraits(conn, currentAgencyId());
+  backfillOfficialBiographies(conn, currentAgencyId());
+  backfillOfficialBiographies(conn, currentAgencyId(), 'client_preview_state');
   databases.set(dir, conn);
   return conn;
 }
@@ -297,6 +300,7 @@ function stateTable() {
       'INSERT OR IGNORE INTO client_preview_state(id,draft,published,baseline,published_at) VALUES(1,?,?,?,?)',
     ).run(content, content, content, new Date().toISOString());
   }
+  backfillOfficialBiographies(db, currentAgencyId(), 'client_preview_state');
   return 'client_preview_state';
 }
 export function state() {

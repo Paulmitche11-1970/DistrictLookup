@@ -43,12 +43,7 @@ export async function OfficialBiographyPage({
     const official = content.officials.find(
       (o) => o.id === officialId && !o.vacant,
     );
-    if (
-      !official ||
-      content.agency.showBiographies === false ||
-      !hasBiography(official)
-    )
-      notFound();
+    if (!official || content.agency.showBiographies === false) notFound();
     const a = content.agency;
     const currentDesign =
       designs.find((d) => d.id === design)?.id || a.lookupDesign || 'classic';
@@ -99,10 +94,17 @@ export async function OfficialBiographyPage({
           <div className="biography-columns">
             <article className="biography-article">
               <h2>Biography</h2>
-              <div
-                className="biography-content"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
+              {hasBiography(official) ? (
+                <div
+                  className="biography-content"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+              ) : (
+                <p className="biography-content">
+                  An administrator can add biographical information in the
+                  backend editor.
+                </p>
+              )}
             </article>
             <aside
               className="biography-contact"
