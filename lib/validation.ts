@@ -1,5 +1,7 @@
 import { z } from 'zod';
 import { BIOGRAPHY_MAX_LENGTH } from './biography';
+import { photoAspectRatios } from './portrait-shape';
+export const photoAspectRatioSchema = z.enum(photoAspectRatios);
 const text = (max = 200) => z.string().trim().max(max);
 const email = z.union([z.literal(''), z.email().max(254)]);
 const url = z.union([
@@ -43,6 +45,13 @@ export const officialSchema = z
           ),
       ),
     bio: text(BIOGRAPHY_MAX_LENGTH),
+    photoCrop: z
+      .object({
+        x: z.number().min(0).max(1),
+        y: z.number().min(0).max(1),
+        zoom: z.number().min(1).max(3),
+      })
+      .optional(),
     bioFormat: z.enum(['text', 'html']).optional(),
     staffName: text(120),
     staffEmail: email,
@@ -66,6 +75,7 @@ export const agencySchema = z.object({
   showMayor: z.boolean(),
   showManagement: z.boolean().optional(),
   showPhotos: z.boolean(),
+  photoAspectRatio: photoAspectRatioSchema.optional(),
   showEmail: z.boolean(),
   showPhone: z.boolean(),
   showWebsite: z.boolean(),

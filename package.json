@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
+    "prebuild": "node --experimental-strip-types scripts/prepare-portrait-shapes.mjs",
+    "prepare:portraits": "node --experimental-strip-types scripts/prepare-portrait-shapes.mjs",
     "start": "next start --hostname 0.0.0.0",
     "lint": "oxlint",
     "format": "oxfmt",

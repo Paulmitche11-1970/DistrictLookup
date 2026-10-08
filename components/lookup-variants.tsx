@@ -5,6 +5,7 @@ import type { Content } from '@/lib/model';
 import { ManagementProfiles } from './management-profiles';
 import { colorFor } from '@/lib/model';
 import { agencyLabels } from '@/lib/agency-labels';
+import { portraitStyle } from '@/lib/portrait-shape';
 import {
   atLargeOfficials,
   constituencyLabel,
@@ -82,7 +83,12 @@ export default function LookupVariant({
     <div
       data-lookup-design={design}
       className={`design-page design-${design} ${lookup.hasResult ? 'has-result' : ''} ${embedded ? 'embedded' : ''}`}
-      style={{ '--primary': content.agency.accent } as React.CSSProperties}
+      style={
+        {
+          '--primary': content.agency.accent,
+          ...portraitStyle(content.agency),
+        } as React.CSSProperties
+      }
     >
       <a className="skip-link" href="#address-search">
         Skip to address search

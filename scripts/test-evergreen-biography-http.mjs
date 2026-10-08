@@ -48,7 +48,7 @@ for (const design of ['classic', 'concierge', 'explorer', 'directory']) {
   assert.match(tony.text, /JW Consulting Group/);
   assert.match(
     tony.text,
-    /class="biography-portrait" src="\/portraits\/san-jose-evergreen\/3.webp"/,
+    /class="official-portrait biography-portrait"[^>]*><img src="\/portraits\/san-jose-evergreen\/3.webp"/,
   );
   assert.ok(tony.text.includes('/san-jose-evergreen/lookup?design=' + design));
   assert.match((await call(profile + '1?design=' + design)).text, fallback);
@@ -99,7 +99,7 @@ await call(api + '/admin', cookie, {
 const hiddenContact = (await call(profile + '3', cookie)).text;
 assert.doesNotMatch(
   hiddenContact,
-  /class="biography-portrait"|mailto:|Term ends|Official website/,
+  /class="official-portrait biography-portrait"|mailto:|Term ends|Official website/,
 );
 assert.match(hiddenContact, /Our edited trustee biography/);
 current = await getState();
@@ -119,7 +119,7 @@ assert.ok(
 );
 assert.doesNotMatch(
   hidden,
-  /Our edited trustee biography|class="biography-portrait"/,
+  /Our edited trustee biography|class="official-portrait biography-portrait"/,
 );
 checks++;
 current = await getState();

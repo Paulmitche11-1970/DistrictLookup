@@ -90,7 +90,10 @@ try {
     .all();
   assert.equal(stored.length, 65);
   assert.equal(new Set(stored.map((a) => a.id)).size, 65);
-  assert.equal(new Set(stored.map((a) => `${a.lon},${a.lat}`)).size, 65);
+  assert.equal(
+    new Set(stored.map((a) => `${String(a.lon)},${String(a.lat)}`)).size,
+    65,
+  );
   const byId = new Map(stored.map((a) => [a.id, a]));
   for (const { id, label, lon, lat, city } of allAddresses)
     assert.deepEqual(

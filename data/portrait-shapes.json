@@ -1,0 +1,74 @@
+{
+  "martinez": {
+    "ratio": 0.71429,
+    "imageCount": 5
+  },
+  "arpeeville": {
+    "ratio": 1,
+    "imageCount": 6
+  },
+  "solano-county": {
+    "ratio": 1,
+    "imageCount": 5
+  },
+  "san-mateo": {
+    "ratio": 0.82251,
+    "imageCount": 5
+  },
+  "burlingame": {
+    "ratio": 1,
+    "imageCount": 5
+  },
+  "millbrae": {
+    "ratio": 0.66596,
+    "imageCount": 4
+  },
+  "carpinteria": {
+    "ratio": 0.9005,
+    "imageCount": 5
+  },
+  "diamond-bar": {
+    "ratio": 0.71429,
+    "imageCount": 5
+  },
+  "butte-county": {
+    "ratio": 0.66667,
+    "imageCount": 5
+  },
+  "yolo-county": {
+    "ratio": 0.8,
+    "imageCount": 5
+  },
+  "belmont": {
+    "ratio": 0.66648,
+    "imageCount": 5
+  },
+  "midpeninsula-water": {
+    "ratio": 0.66667,
+    "imageCount": 5
+  },
+  "san-jose-evergreen": {
+    "ratio": 0.8,
+    "imageCount": 7
+  },
+  "barstow-college": {
+    "ratio": 0.677,
+    "imageCount": 5
+  },
+  "placer-union-high-school": {
+    "ratio": 0.80833,
+    "imageCount": 5
+  },
+  "california-city": {
+    "ratio": 0.66111,
+    "imageCount": 5
+  },
+  "olivenhain-water": {
+    "ratio": 0.99764,
+    "imageCount": 5
+  },
+  "galt": {
+    "ratio": 0.8,
+    "imageCount": 5
+  }
+}

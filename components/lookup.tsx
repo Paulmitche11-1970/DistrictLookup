@@ -1,6 +1,7 @@
 'use client';
 import type { Content } from '@/lib/model';
 import { agencyLabels } from '@/lib/agency-labels';
+import { portraitStyle } from '@/lib/portrait-shape';
 import { ManagementProfiles } from './management-profiles';
 import DistrictMapView from './district-map';
 import {
@@ -31,7 +32,12 @@ export default function Lookup({
         embedded ? 'embedded' : '',
         lookup.hasResult ? 'has-result' : '',
       ].join(' ')}
-      style={{ '--primary': content.agency.accent } as React.CSSProperties}
+      style={
+        {
+          '--primary': content.agency.accent,
+          ...portraitStyle(content.agency),
+        } as React.CSSProperties
+      }
     >
       <a className="skip-link" href="#address-search">
         Skip to address search

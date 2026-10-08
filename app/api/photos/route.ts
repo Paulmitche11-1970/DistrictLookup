@@ -26,7 +26,10 @@ export async function POST(request: Request) {
     }).formData();
     const file = form.get('photo');
     if (!(file instanceof File) || file.size > 5_000_000 || file.size === 0)
-      throw new HttpError(400, 'Choose a JPG, PNG or GIF smaller than 5 MB.');
+      throw new HttpError(
+        400,
+        'Choose a JPG, PNG, GIF or WebP smaller than 5 MB.',
+      );
     const input = Buffer.from(await file.arrayBuffer());
     let photo: Buffer;
     try {
@@ -35,7 +38,7 @@ export async function POST(request: Request) {
         animated: false,
       });
       const meta = await img.metadata();
-      if (!['jpeg', 'png', 'gif'].includes(meta.format || ''))
+      if (!['jpeg', 'png', 'gif', 'webp'].includes(meta.format || ''))
         throw Error('format');
       photo = await img
         .rotate()
@@ -50,7 +53,7 @@ export async function POST(request: Request) {
     } catch {
       throw new HttpError(
         400,
-        'This file is not a supported JPG, PNG or GIF image.',
+        'This file is not a supported JPG, PNG, GIF or WebP image.',
       );
     }
     const id = randomBytes(16).toString('hex');

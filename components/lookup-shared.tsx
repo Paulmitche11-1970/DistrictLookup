@@ -19,6 +19,8 @@ import {
 import type { Content, Address, Official } from '@/lib/model';
 import type { DesignId } from '@/lib/designs';
 import { BiographyLink } from './biography-link';
+import { Portrait } from './official-portrait';
+export { Portrait } from './official-portrait';
 import { biographyPath } from '@/lib/biography';
 import { trackActivity } from '@/lib/activity-client';
 import { apiPath, instanceFor } from '@/lib/instances';
@@ -104,42 +106,6 @@ export function Brand({
     </a>
   );
 }
-export function Portrait({
-  official,
-  className,
-}: {
-  official: Official;
-  className: string;
-}) {
-  return official.photo ? (
-    <img
-      className={className}
-      src={official.photo}
-      alt={official.name}
-      onError={(e) => {
-        e.currentTarget.style.display = 'none';
-      }}
-    />
-  ) : (
-    <div
-      className={className}
-      aria-hidden="true"
-      style={{
-        display: 'grid',
-        placeItems: 'center',
-        fontWeight: 700,
-        color: '#597583',
-      }}
-    >
-      {official.name
-        .split(' ')
-        .map((s) => s[0])
-        .slice(0, 2)
-        .join('')}
-    </div>
-  );
-}
-
 export function useDistrictLookup(content: Content, preview = false) {
   const [query, setQuery] = useState('');
   const lookupRequest = useRef(0);

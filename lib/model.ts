@@ -1,4 +1,5 @@
 import type { FeatureCollection, MultiPolygon, Polygon } from 'geojson';
+import type { PhotoAspectRatio, PhotoCrop } from './portrait-shape';
 export type DistrictMap = FeatureCollection<
   Polygon | MultiPolygon,
   { district: string }
@@ -16,6 +17,7 @@ export type Official = {
   website: string;
   termEnd: string;
   photo: string;
+  photoCrop?: PhotoCrop;
   bio: string;
   bioFormat?: 'text' | 'html';
   staffName: string;
@@ -63,6 +65,8 @@ export type Agency = {
   showMayor: boolean;
   showManagement?: boolean;
   showPhotos: boolean;
+  photoAspectRatio?: PhotoAspectRatio;
+  sourcePhotoAspectRatio?: number;
   showEmail: boolean;
   showPhone: boolean;
   showWebsite: boolean;

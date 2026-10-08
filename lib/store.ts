@@ -11,6 +11,7 @@ import { backfillOfficialBiographies } from './biography-backfill';
 import { isClientPreview } from './client-preview-scope';
 const databases = new Map<string, DatabaseSync>();
 let postalCodes: Record<string, string> | undefined;
+let portraitShapes: Record<string, { ratio: number }> | undefined;
 function withPostalCode(address: Address): Address {
   if (currentAgencyId() !== 'martinez')
     return { ...address, city: address.city || currentInstance().shortName };
@@ -325,6 +326,9 @@ export function state() {
 }
 function withInstance(content: Content): Content {
   const instance = currentInstance();
+  portraitShapes ||= JSON.parse(
+    readFileSync(path.join(process.cwd(), 'data/portrait-shapes.json'), 'utf8'),
+  );
   if (content.management === undefined && instance.id === 'martinez')
     content.management = JSON.parse(
       readFileSync(
@@ -362,6 +366,7 @@ function withInstance(content: Content): Content {
     agency: {
       ...content.agency,
       instanceId: instance.id,
+      sourcePhotoAspectRatio: portraitShapes?.[instance.id]?.ratio || 0.8,
       kind: instance.kind,
       districtLabel: instance.districtLabel || 'District',
       logo: instance.logo,

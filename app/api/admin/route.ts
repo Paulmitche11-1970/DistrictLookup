@@ -19,6 +19,7 @@ import {
   agencySchema,
   managementSchema,
   districtElectionSchema,
+  photoAspectRatioSchema,
 } from '@/lib/validation';
 import { validateRepresentation } from '@/lib/representation';
 import { normalizeMap, locate } from '@/lib/geo';
@@ -100,6 +101,13 @@ export async function POST(request: Request) {
         'Another edit was saved. Reload before saving your changes.',
       );
     const content = current.draft;
+    if (
+      ['official', 'official-add'].includes(String(body.action)) &&
+      body.photoAspectRatio !== undefined
+    )
+      content.agency.photoAspectRatio = photoAspectRatioSchema.parse(
+        body.photoAspectRatio,
+      );
     if (body.action === 'official') {
       const official = officialSchema.parse(body.official);
       prepareBiography(official);

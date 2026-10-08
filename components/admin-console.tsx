@@ -84,6 +84,10 @@ import { apiPath, adminPath, instanceFor } from '@/lib/instances';
 import { designs } from '@/lib/designs';
 import { BiographyEditor } from './biography-editor';
 import { biographyPath, hasBiography } from '@/lib/biography';
+import { OfficialPhotoEditor } from './official-photo-editor';
+import { PhotoShapePicker } from './photo-shape-picker';
+import { Portrait } from './official-portrait';
+import { portraitStyle, type PhotoAspectRatio } from '@/lib/portrait-shape';
 type Activity = {
   id: number;
   actor: string;
@@ -261,7 +265,10 @@ export default function AdminConsole({
     setSuccess('');
   }
   return (
-    <SidebarProvider className="admin-shell">
+    <SidebarProvider
+      className="admin-shell"
+      style={portraitStyle(a || {}) as React.CSSProperties}
+    >
       <Sidebar className="admin-nav">
         <SidebarHeader>
           <div className="brand">
@@ -472,23 +479,7 @@ export default function AdminConsole({
                               {constituencyLabel(o, data.content.agency)}
                             </div>
                             <div className="row">
-                              {o.photo ? (
-                                <img
-                                  src={o.photo}
-                                  alt={o.name}
-                                  className="avatar"
-                                />
-                              ) : (
-                                <div
-                                  className="avatar"
-                                  style={{
-                                    display: 'grid',
-                                    placeItems: 'center',
-                                  }}
-                                >
-                                  <Users size={24} />
-                                </div>
-                              )}
+                              <Portrait official={o} className="avatar" />
                               <div>
                                 <div className="small muted">
                                   {titleLabel(o)}
@@ -558,6 +549,7 @@ export default function AdminConsole({
                   {section === 'display' && (
                     <DisplayOptions
                       agency={data.content.agency}
+                      officials={data.content.officials}
                       busy={busy || previewMode}
                       save={(agency) => mutate({ action: 'agency', agency })}
                     />
@@ -771,19 +763,21 @@ export default function AdminConsole({
         clientPreview={clientPreview}
         agencyId={agencyId}
         kind={a?.kind}
+        agency={a}
         isNew={
           !!editing && !data?.content.officials.some((o) => o.id === editing.id)
         }
         official={editing}
         close={() => setEditing(null)}
         busy={busy || previewMode}
-        save={async (official) => {
+        save={async (official, photoAspectRatio) => {
           const exists = data?.content.officials.some(
             (o) => o.id === official.id,
           );
           const done = await mutate({
             action: exists ? 'official' : 'official-add',
             official,
+            photoAspectRatio,
           });
           if (done) setEditing(null);
           return done;
@@ -885,6 +879,7 @@ function OfficialEditor({
   clientPreview = false,
   agencyId = 'martinez',
   kind,
+  agency,
   isNew = false,
   official,
   close,
@@ -894,46 +889,34 @@ function OfficialEditor({
   agencyId?: string;
   clientPreview?: boolean;
   kind?: Agency['kind'];
+  agency?: Agency;
   isNew?: boolean;
   official: Official | null;
   close: () => void;
-  save: (official: Official) => Promise<unknown>;
+  save: (official: Official, ratio: PhotoAspectRatio) => Promise<unknown>;
   busy: boolean;
 }) {
   const [draft, setDraft] = useState<Official | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [photoRatio, setPhotoRatio] = useState<PhotoAspectRatio>('auto');
   const [error, setError] = useState('');
   const [confirmClose, setConfirmClose] = useState(false);
   useEffect(() => {
     setDraft(official ? { ...official } : null);
+    setPhotoRatio(agency?.photoAspectRatio || 'auto');
     setError('');
-  }, [official]);
+  }, [official, agency?.photoAspectRatio]);
   function field<K extends keyof Official>(key: K, value: Official[K]) {
     setDraft((d) => (d ? { ...d, [key]: value } : d));
   }
   function requestClose() {
-    if (JSON.stringify(draft) !== JSON.stringify(official))
+    if (busy || uploading) return;
+    if (
+      JSON.stringify(draft) !== JSON.stringify(official) ||
+      photoRatio !== (agency?.photoAspectRatio || 'auto')
+    )
       setConfirmClose(true);
     else close();
-  }
-  async function upload(file: File) {
-    setUploading(true);
-    setError('');
-    try {
-      const f = new FormData();
-      f.append('photo', file);
-      const r = await fetch(apiPath(agencyId, clientPreview) + '/photos', {
-        method: 'POST',
-        body: f,
-      });
-      const d = await r.json();
-      if (!r.ok) throw Error(d.error);
-      field('photo', d.url);
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setUploading(false);
-    }
   }
   return (
     <>
@@ -973,7 +956,7 @@ function OfficialEditor({
                     ?.map((title) => title.trim())
                     .filter(Boolean),
                 };
-                if (!(await save(official)))
+                if (!(await save(official, photoRatio)))
                   setError(
                     'The draft could not be saved. Check your entries. If someone else saved an edit, close this form and reload the page.',
                   );
@@ -989,59 +972,31 @@ function OfficialEditor({
                     {error}
                   </div>
                 )}
-                <div className="photo-editor">
-                  {draft.photo ? (
-                    <img
-                      src={draft.photo}
-                      alt={draft.name || 'Official portrait'}
-                    />
-                  ) : (
-                    <div
-                      className="avatar"
-                      style={{
-                        width: 85,
-                        height: 105,
-                        display: 'grid',
-                        placeItems: 'center',
-                      }}
-                    >
-                      <Users size={28} />
-                    </div>
-                  )}
-                  <div>
-                    <strong className="small">Official portrait</strong>
-                    <p className="small muted" style={{ margin: '6px 0 10px' }}>
-                      JPG, PNG or GIF, up to 5 MB.
-                      <br />
-                      Animated GIFs use the first frame.
-                    </p>
-                    <label className="btn" style={{ cursor: 'pointer' }}>
-                      <Upload size={15} />
-                      {uploading ? 'Uploading…' : 'Choose photo'}
-                      <input
-                        type="file"
-                        accept="image/jpeg,image/png,image/gif"
-                        className="sr-only"
-                        disabled={uploading}
-                        onChange={(e) => {
-                          if (e.target.files?.[0])
-                            void upload(e.target.files[0]);
-                          e.target.value = '';
-                        }}
-                      />
-                    </label>
-                    {draft.photo && (
-                      <button
-                        type="button"
-                        className="example-link"
-                        style={{ marginLeft: 12 }}
-                        onClick={() => field('photo', '')}
-                      >
-                        Remove
-                      </button>
-                    )}
-                  </div>
-                </div>
+                {agency && (
+                  <OfficialPhotoEditor
+                    official={draft}
+                    agency={{ ...agency, photoAspectRatio: photoRatio }}
+                    agencyId={agencyId}
+                    clientPreview={clientPreview}
+                    disabled={busy || uploading}
+                    onBusyChange={setUploading}
+                    onAccept={(photo, photoCrop, ratio) => {
+                      setDraft((d) => (d ? { ...d, photo, photoCrop } : d));
+                      setPhotoRatio(ratio);
+                    }}
+                    onRemove={() =>
+                      setDraft((d) =>
+                        d ? { ...d, photo: '', photoCrop: undefined } : d,
+                      )
+                    }
+                  />
+                )}
+                {photoRatio !== (agency?.photoAspectRatio || 'auto') && (
+                  <p className="notice">
+                    Saving this official will also update the photo shape for
+                    all officials in this agency.
+                  </p>
+                )}
                 <Tabs defaultValue="details">
                   <TabsList style={{ marginBottom: 20 }}>
                     <TabsTrigger value="details">Official details</TabsTrigger>
@@ -1346,10 +1301,12 @@ function OfficialEditor({
 }
 function DisplayOptions({
   agency,
+  officials,
   busy,
   save,
 }: {
   agency: Agency;
+  officials: Official[];
   busy: boolean;
   save: (a: Agency) => Promise<unknown>;
 }) {
@@ -1430,6 +1387,26 @@ function DisplayOptions({
             />
           </div>
         ))}
+      <PhotoShapePicker
+        agency={draft}
+        value={draft.photoAspectRatio || 'auto'}
+        disabled={busy}
+        onChange={(photoAspectRatio) =>
+          setDraft({ ...draft, photoAspectRatio })
+        }
+      />
+      <div
+        className="photo-shape-samples"
+        style={portraitStyle(draft) as React.CSSProperties}
+        aria-label="Photo shape preview"
+      >
+        {officials
+          .filter((o) => !o.vacant && o.photo)
+          .slice(0, 4)
+          .map((o) => (
+            <Portrait key={o.id} official={o} />
+          ))}
+      </div>
       <h3 style={{ margin: '28px 0 20px' }}>Page text and agency contact</h3>
       <div className="form-grid">
         <label className="field wide">

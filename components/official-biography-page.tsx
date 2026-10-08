@@ -7,6 +7,8 @@ import { publicContent, state, visibleContent } from '@/lib/store';
 import { requireAdmin } from '@/lib/security';
 import { biographyHtml } from '@/lib/biography-html';
 import { hasBiography } from '@/lib/biography';
+import { portraitStyle } from '@/lib/portrait-shape';
+import { Portrait } from './official-portrait';
 import { constituencyLabel, titleLabel } from '@/lib/representation';
 import { phoneHref, termLabel } from '@/lib/model';
 import { designs } from '@/lib/designs';
@@ -52,7 +54,9 @@ export async function OfficialBiographyPage({
     return (
       <div
         className="biography-page"
-        style={{ '--primary': a.accent } as React.CSSProperties}
+        style={
+          { '--primary': a.accent, ...portraitStyle(a) } as React.CSSProperties
+        }
       >
         <ClientPreviewStatus agencyId={instance.id} />
         <header className="biography-header">
@@ -74,11 +78,7 @@ export async function OfficialBiographyPage({
         <main>
           <section className="biography-hero" aria-labelledby="official-name">
             {a.showPhotos && official.photo && (
-              <img
-                className="biography-portrait"
-                src={official.photo}
-                alt={official.name}
-              />
+              <Portrait className="biography-portrait" official={official} />
             )}
             <div>
               <p className="eyebrow">{a.name}</p>
