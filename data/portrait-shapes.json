@@ -70,5 +70,9 @@
   "galt": {
     "ratio": 0.8,
     "imageCount": 5
+  },
+  "petaluma": {
+    "ratio": 1.7151,
+    "imageCount": 7
   }
 }

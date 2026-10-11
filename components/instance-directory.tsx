@@ -57,7 +57,17 @@ export default function InstanceDirectory({
   const directoryAgencies: DirectoryAgency[] = [
     ...clientAgencies
       .filter((a) => a.id !== 'martinez')
-      .map((a) => ({ ...boundaries.find((b) => b.id === a.id), ...a })),
+      .map((a) => {
+        const boundary = boundaries.find((b) => b.id === a.id);
+        return {
+          ...boundary,
+          ...a,
+          status:
+            a.status === 'beginning-soon' && boundary
+              ? boundary.status
+              : a.status,
+        };
+      }),
     ...boundaries.filter((b) => !clientAgencies.some((a) => a.id === b.id)),
   ];
   const [query, setQuery] = useState('');

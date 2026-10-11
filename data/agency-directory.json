@@ -193,10 +193,10 @@
     "website": "https://cityofpetaluma.org/",
     "state": "CA",
     "id": "petaluma",
-    "status": "beginning-soon",
-    "logo": "",
-    "logoSource": "",
-    "logoNote": "HTTPError"
+    "status": "in-progress",
+    "logo": "/branding/agencies/petaluma.png",
+    "logoSource": "https://cityofpetaluma.org/",
+    "logoNote": "Official city logo"
   },
   {
     "name": "Riverside",

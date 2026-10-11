@@ -21,6 +21,7 @@ const prefixes: Record<string, string> = {
   'yolo-county': 'YOLO',
   belmont: 'BELMONT',
   'midpeninsula-water': 'MPWD',
+  petaluma: 'PETALUMA',
 };
 export const clientPreviewCookie = (id: string) => `client_preview_${id}`;
 export function clientPreviewPassword(id: string) {

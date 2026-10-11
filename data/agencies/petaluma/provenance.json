@@ -1,0 +1,383 @@
+{
+  "reviewedAt": "2026-10-11",
+  "geometry": {
+    "source": "C:\\PDI - Redistricting Dropbox\\Redistricting Files\\City of Petaluma\\Final Plan for Submission\\Petaluma Final Plan Shape Files\\City of Petaluma Final Plan from IC2.shp",
+    "sha256": "4b8a74c32ecbd882288544d3d2cdca77db69a3f01e366f42e099984ce176077a",
+    "districtField": "DISTRICT",
+    "sourceCrs": "EPSG:4269",
+    "districts": ["6", "5", "3", "4", "2", "1"],
+    "overlaps": [],
+    "valid": true,
+    "bounds": [-122.682404, 38.205269, -122.56767, 38.299326],
+    "parts": {
+      "6": 2,
+      "5": 2,
+      "3": 1,
+      "4": 4,
+      "2": 1,
+      "1": 1
+    }
+  },
+  "publicRosterSource": "https://cityofpetaluma.org/city-council/",
+  "officialProfiles": [
+    {
+      "name": "Janice Cader Thompson",
+      "website": "https://cityofpetaluma.org/contacts/janice-cader-thompson/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/69013e0a-cader-thompson-600-x-300.jpg"
+    },
+    {
+      "name": "John Shribbs",
+      "website": "https://cityofpetaluma.org/contacts/john-shribbs/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/uploads/2023/04/Shribbs-head-shot-New-600x350-1.jpg"
+    },
+    {
+      "name": "Karen Nau",
+      "website": "https://cityofpetaluma.org/contacts/karen-nau/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/f4bdcd3e-nau-600-x-350.jpg"
+    },
+    {
+      "name": "Frank Quint",
+      "website": "https://cityofpetaluma.org/contacts/frank-quint/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/7e27f857-quint-600-x-350.jpg"
+    },
+    {
+      "name": "Alex DeCarli",
+      "website": "https://cityofpetaluma.org/contacts/alex-decarli/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/377bc479-decarli-600-x-350.jpg"
+    },
+    {
+      "name": "Brian Barnacle",
+      "website": "https://cityofpetaluma.org/contacts/brian-barnacle/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/uploads/2023/01/barnacle_600x340.jpg"
+    },
+    {
+      "name": "Kevin McDonnell",
+      "website": "https://cityofpetaluma.org/contacts/kevin-mcdonnell/",
+      "portraitSource": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/697041cf-mcdonnell-600-x-350.jpg"
+    }
+  ],
+  "portraitAssets": {
+    "portraits": [
+      {
+        "district": "1",
+        "name": "Janice Cader Thompson",
+        "photo": "/portraits/petaluma/1.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/69013e0a-cader-thompson-600-x-300.jpg"
+      },
+      {
+        "district": "2",
+        "name": "John Shribbs",
+        "photo": "/portraits/petaluma/2.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/uploads/2023/04/Shribbs-head-shot-New-600x350-1.jpg"
+      },
+      {
+        "district": "3",
+        "name": "Karen Nau",
+        "photo": "/portraits/petaluma/3.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/f4bdcd3e-nau-600-x-350.jpg"
+      },
+      {
+        "district": "4",
+        "name": "Frank Quint",
+        "photo": "/portraits/petaluma/4.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/7e27f857-quint-600-x-350.jpg"
+      },
+      {
+        "district": "5",
+        "name": "Alex DeCarli",
+        "photo": "/portraits/petaluma/5.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/377bc479-decarli-600-x-350.jpg"
+      },
+      {
+        "district": "6",
+        "name": "Brian Barnacle",
+        "photo": "/portraits/petaluma/6.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/uploads/2023/01/barnacle_600x340.jpg"
+      },
+      {
+        "district": null,
+        "name": "Kevin McDonnell",
+        "photo": "/portraits/petaluma/mayor.webp",
+        "source": "https://storage.googleapis.com/proudcity/petalumaca/2025/10/697041cf-mcdonnell-600-x-350.jpg"
+      }
+    ],
+    "logo": {
+      "source": "https://storage.googleapis.com/proudcity/petalumaca/uploads/2019/03/logo-161x64.png",
+      "path": "/branding/agencies/petaluma.png"
+    }
+  },
+  "finishedResultsPublicColumns": [
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Brian Barnacle",
+        "Off_Title": "Council Member District 6",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "6",
+        "Off_Email": "bbarnacle@cityofpetaluma.org",
+        "Off_Term Expires": ""
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Alex DeCarli",
+        "Off_Title": "Vice Mayor, Council Member District 5",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "5",
+        "Off_Email": "",
+        "Off_Term Expires": "2028"
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Kevin McDonnell",
+        "Off_Title": "Mayor",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "",
+        "Off_Email": "kmcdonnell@cityofpetaluma.org",
+        "Off_Term Expires": ""
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Karen Nau",
+        "Off_Title": "Council Member District 3",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "3",
+        "Off_Email": "",
+        "Off_Term Expires": ""
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Frank Quint",
+        "Off_Title": "Council Member District 4",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "4",
+        "Off_Email": "",
+        "Off_Term Expires": ""
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "John Shribbs",
+        "Off_Title": "Council Member District 2",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "2",
+        "Off_Email": "",
+        "Off_Term Expires": ""
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\Finished Results\\Cities Third Pass Matches.xlsx",
+      "official": {
+        "Off_Full Name": "Janice Cader Thompson",
+        "Off_Title": "Council Member District 1",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "1",
+        "Off_Email": "",
+        "Off_Term Expires": ""
+      }
+    }
+  ],
+  "certifiedPublicColumns": [
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Brian Barnacle",
+        "Off_Title": "Council Member District 6",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "6",
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Alex DeCarli",
+        "Off_Title": "Vice Mayor, Council Member District 5",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "5",
+        "Office_Type": "school_esd",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Kevin McDonnell",
+        "Off_Title": "Mayor",
+        "Off_Agency": "PETALUMA",
+        "Off_District": null,
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Karen Nau",
+        "Off_Title": "Council Member District 3",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "3",
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Frank Quint",
+        "Off_Title": "Council Member District 4",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "4",
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "John Shribbs",
+        "Off_Title": "Council Member District 2",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "2",
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    },
+    {
+      "file": "C:\\PDI - Redistricting Dropbox\\Projects\\2025 ELECTED OFFICIALS\\ca_electeds\\CA_Elected_Officials_MASTER.xlsx",
+      "sheet": "City Councils",
+      "official": {
+        "Off_Full Name": "Janice Cader Thompson",
+        "Off_Title": "Council Member District 1",
+        "Off_Agency": "PETALUMA",
+        "Off_District": "1",
+        "Office_Type": "city",
+        "Off_Term Expires": null
+      }
+    }
+  ],
+  "rosterNotes": "RP roster agrees with all seven current officials and district assignments. Council page confirms Alex DeCarli is current Vice Mayor; Karen Nau individual page still says Vice Mayor 2025. No term end month guessed.",
+  "currentBoundaryComparison": "Pending current GIS polygon download and numerical comparison. Final local geometry validated without repairs; multipart islands preserved.",
+  "addressSourceCandidate": "https://maps.cityofpetaluma.net/mapping/rest/services/CityManager/Districting_Web_Service_2_MIL1/FeatureServer/0",
+  "addressSourceNote": "Not downloaded or verified. No address data is included.",
+  "boundarySourceCandidate": "https://maps.cityofpetaluma.net/mapping/rest/services/CityManager/Districting_Web_Service_2_MIL1/FeatureServer/2",
+  "currentRosterVerification": {
+    "url": "https://cityofpetaluma.org/city-council/",
+    "checked": "2026-10-11",
+    "method": "Official rendered city council page",
+    "result": "All six district assignments, Mayor Kevin McDonnell and Vice Mayor Alex DeCarli match the seed."
+  },
+  "addressAudit": {
+    "checked": "2026-10-11",
+    "source": "https://maps.cityofpetaluma.net/mapping/rest/services/CityManager/Districting_Web_Service_2_MIL1/FeatureServer/0",
+    "where": "1=1",
+    "snapshottedSourceIds": 41297,
+    "downloadedRecords": 41297,
+    "acceptedUniqueAddresses": 25219,
+    "districtCounts": {
+      "6": 4536,
+      "1": 5056,
+      "5": 4186,
+      "3": 4092,
+      "4": 3809,
+      "2": 3540
+    },
+    "exclusions": {
+      "outsideOrOnBoundary": 16078,
+      "duplicateSameLocation": 0
+    },
+    "conflicts": [],
+    "sourceMap": "https://maps.cityofpetaluma.net/mapping/rest/services/CityManager/Districting_Web_Service_2_MIL1/FeatureServer/2",
+    "mapSha256": "7f9a5eca959068a59cad118891f8d28c3f63ea54f71399c1b71e38982af670a3",
+    "status": "Prepared locally; verify roster and application checks before activation"
+  },
+  "mapComparison": {
+    "agency": "petaluma",
+    "districts": [
+      {
+        "district": "1",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 8147023.203385381,
+        "officialArea": 8147024.480683431,
+        "differenceSquareMeters": 13198.915250633412,
+        "differenceRatio": 0.0016187791323624516
+      },
+      {
+        "district": "2",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 4276117.720451505,
+        "officialArea": 4276118.454971384,
+        "differenceSquareMeters": 6530.162163033372,
+        "differenceRatio": 0.0015259587434595778
+      },
+      {
+        "district": "3",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 8189184.016751707,
+        "officialArea": 8189185.31558251,
+        "differenceSquareMeters": 11360.50990172698,
+        "differenceRatio": 0.0013862961758468052
+      },
+      {
+        "district": "4",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 4838427.836407548,
+        "officialArea": 4838428.620836574,
+        "differenceSquareMeters": 8188.388144398736,
+        "differenceRatio": 0.0016909344820014098
+      },
+      {
+        "district": "5",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 6750677.802329592,
+        "officialArea": 6750678.850412576,
+        "differenceSquareMeters": 12995.848610752479,
+        "differenceRatio": 0.0019232661882175202
+      },
+      {
+        "district": "6",
+        "localValid": true,
+        "officialValid": true,
+        "localArea": 5410189.209004677,
+        "officialArea": 5410190.10031601,
+        "differenceSquareMeters": 9234.63857103239,
+        "differenceRatio": 0.0017054418773312147
+      }
+    ],
+    "officialOverlaps": []
+  },
+  "mapSelection": "Use the current city GIS district polygons. Archived RP polygons were compared district by district; the small geometric differences are retained in the audit rather than ignored. Current city polygons are valid, have no overlaps, and match all accepted published address district labels.",
+  "remainingIssues": [
+    "Biographies not yet populated; internal profile pages remain available to agency editors.",
+    "Term end dates hidden until exact source dates are confirmed.",
+    "Agency content/layout approval and administrator enrollment remain outstanding."
+  ],
+  "districtingHistory": {
+    "source": "https://cityofpetaluma.org/departments/district-elections/",
+    "checked": "2026-10-11",
+    "mapApproved": "2022-03-21",
+    "ordinanceAdopted": "2022-04-04",
+    "mapTitle": "Draft Plan 2 – Idea Consolidation 2 (Updated)",
+    "transition": "Districts 1–3 first elected in 2022; districts 4–6 in 2024. Mayor remains at large."
+  }
+}

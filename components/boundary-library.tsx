@@ -47,8 +47,8 @@ export default function BoundaryLibrary({
           <span className="eyebrow">FIRST STEP: THE MAPS</span>
           <h1>Boundary library</h1>
           <p>
-            School, college, and special-district boundaries from RP’s final,
-            adopted, and approved map files.
+            City, county, school, college, and special-district boundaries from
+            RP’s final, adopted, and approved map files.
           </p>
         </div>
         <div className={styles.stats}>

@@ -14,7 +14,7 @@ void test('boundary files match the audited district IDs and carry only district
     new Set(boundaryAgencies.map((a) => a.id)).size,
     boundaryAgencies.length,
   );
-  assert.equal(boundaryAgencies.length, 70);
+  assert.equal(boundaryAgencies.length, 110);
   for (const agency of boundaryAgencies) {
     const map = await readBoundaryMap(agency.id);
     if (!agency.mapAvailable) {
@@ -54,7 +54,7 @@ void test('Olivehurst uses its parcel-based final plan instead of the misplaced 
   );
 });
 void test('school boards stay separate from counties and existing water lookup identity is preserved', () => {
-  assert.equal(boundaryFor('napa-county'), undefined);
+  assert.equal(boundaryFor('napa-county')?.category, 'Counties');
   assert.equal(
     boundaryFor('napa-county-board-of-education')?.category,
     'County education boards',
@@ -70,6 +70,14 @@ void test('school boards stay separate from counties and existing water lookup i
   assert.equal(
     boundaryDirectoryEntries.filter((a) => a.type === 'special').length,
     26,
+  );
+  assert.equal(
+    boundaryDirectoryEntries.filter((a) => a.type === 'cities').length,
+    31,
+  );
+  assert.equal(
+    boundaryDirectoryEntries.filter((a) => a.type === 'counties').length,
+    9,
   );
   assert.equal(
     boundaryDirectoryEntries.find((a) => a.id === 'midpeninsula-water')

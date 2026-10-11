@@ -1,0 +1,15 @@
+{
+  "agency": "petaluma",
+  "lookupReady": true,
+  "publishReady": false,
+  "stage": "Functional preview; agency approval pending",
+  "addressCount": 25219,
+  "districtCount": 6,
+  "officialCount": 7,
+  "checked": "2026-10-11",
+  "remainingIssues": [
+    "Biographies not yet populated; internal profile pages remain available to agency editors.",
+    "Term end dates hidden until exact source dates are confirmed.",
+    "Agency content/layout approval and administrator enrollment remain outstanding."
+  ]
+}

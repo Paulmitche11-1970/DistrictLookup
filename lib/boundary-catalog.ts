@@ -17,12 +17,16 @@ export const boundaryDirectoryEntries: BoundaryDirectoryEntry[] =
     id: lookupIds[a.id] || a.id,
     name: a.name,
     type:
-      a.category === 'Community colleges'
-        ? 'colleges'
-        : a.category === 'Special districts'
-          ? 'special'
-          : 'schools',
-    state: 'CA',
+      a.category === 'Cities'
+        ? 'cities'
+        : a.category === 'Counties'
+          ? 'counties'
+          : a.category === 'Community colleges'
+            ? 'colleges'
+            : a.category === 'Special districts'
+              ? 'special'
+              : 'schools',
+    state: a.state || 'CA',
     status: a.mapAvailable ? 'boundaries-imported' : 'source-review',
     boundaryId: a.id,
     boundaryDistrictCount: a.districts.length,

@@ -20,6 +20,7 @@ const priorities = [
   'california-city',
   'olivenhain-water',
   'galt',
+  'petaluma',
 ];
 const load = (id: string) =>
   JSON.parse(readFileSync(`data/agencies/${id}/seed.json`, 'utf8')) as Content;

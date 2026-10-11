@@ -2,6 +2,7 @@ export type BoundaryAgency = {
   id: string;
   name: string;
   category: string;
+  state?: string;
   status: string;
   mapAvailable: boolean;
   source: string;

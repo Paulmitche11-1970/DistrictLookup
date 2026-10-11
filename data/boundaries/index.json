@@ -1,13 +1,24 @@
 {
-  "importedAt": "2026-09-11T18:34:39.653606+00:00",
+  "importedAt": "2026-10-11T12:00:00Z",
   "sourceRootLabel": "RP Redistricting Files",
   "categories": [
+    "Cities",
+    "Counties",
     "School districts",
     "County education boards",
     "Community colleges",
     "Special districts"
   ],
   "summary": {
+    "Cities": {
+      "imported-needs-review": 9,
+      "imported": 17,
+      "needs-source-review": 5
+    },
+    "Counties": {
+      "imported": 8,
+      "imported-needs-review": 1
+    },
     "School districts": {
       "imported": 9
     },
@@ -16,8 +27,8 @@
       "imported-needs-review": 4
     },
     "Community colleges": {
-      "imported": 17,
-      "imported-needs-review": 10
+      "imported-needs-review": 10,
+      "imported": 17
     },
     "Special districts": {
       "imported": 23,
@@ -34,13 +45,7 @@
       "source": "Belmont-Redwood Shores SD/FINAL MATERIALS/BRSSD Final Plan 2023/Shapefile Final Plan 2023/Final Plan Draft E.shp",
       "shapefile": "Final Plan Draft E.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -50,12 +55,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.334209,
-        37.47628,
-        -122.149811,
-        37.577414
-      ],
+      "bounds": [-122.334209, 37.47628, -122.149811, 37.577414],
       "parts": {
         "1": 2,
         "5": 1,
@@ -76,15 +76,7 @@
       "source": "Central Unified School District/Base Data/CUSD_TrusteeArea_ApprovedBlocks.shp",
       "shapefile": "CUSD_TrusteeArea_ApprovedBlocks.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DistrictNu",
       "sourceRecords": 988,
       "excludedRecords": 0,
@@ -93,9 +85,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
       "bounds": [
-        -120.0338289999084,
-        36.662484999882906,
-        -119.83551499981735,
+        -120.0338289999084, 36.662484999882906, -119.83551499981735,
         36.858548999636696
       ],
       "parts": {
@@ -120,11 +110,7 @@
       "source": "Clay Elementary School/Final Plan/Clay Elementary Final Plan.shp",
       "shapefile": "Clay Elementary Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3"
-      ],
+      "districts": ["1", "2", "3"],
       "districtField": "DISTRICT",
       "sourceRecords": 4,
       "excludedRecords": 1,
@@ -134,12 +120,7 @@
       "localRosterCount": 4,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -119.529728,
-        36.530688,
-        -119.482112,
-        36.575488
-      ],
+      "bounds": [-119.529728, 36.530688, -119.482112, 36.575488],
       "parts": {
         "3": 1,
         "2": 1,
@@ -158,13 +139,7 @@
       "source": "Dry Creek Joint ESD/FINAL MATERIALS/DCJESD Adopted Map for County/DCJESD Adopted Map.shp",
       "shapefile": "DCJESD Adopted Map.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -174,12 +149,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.36472,
-        38.702304,
-        -121.301824,
-        38.781729
-      ],
+      "bounds": [-121.36472, 38.702304, -121.301824, 38.781729],
       "parts": {
         "1": 1,
         "2": 1,
@@ -200,13 +170,7 @@
       "source": "Lompoc Unified SD/Lompoc Final Submission/Lompoc USD Final Plan.shp",
       "shapefile": "Lompoc USD Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -214,12 +178,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -120.653439,
-        34.441539,
-        -120.243815,
-        34.780058
-      ],
+      "bounds": [-120.653439, 34.441539, -120.243815, 34.780058],
       "parts": {
         "3": 1,
         "1": 1,
@@ -240,13 +199,7 @@
       "source": "New Haven Unified/Final Plan/New Haven USD Final Plan from Plan B2.shp",
       "shapefile": "New Haven USD Final Plan from Plan B2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -254,12 +207,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.09676,
-        37.561391,
-        -121.93977,
-        37.636598
-      ],
+      "bounds": [-122.09676, 37.561391, -121.93977, 37.636598],
       "parts": {
         "1": 1,
         "2": 1,
@@ -280,13 +228,7 @@
       "source": "Placer Union High School District/FINAL MATERIALS/PUHSD Final Map Placer County/Shapefile PUHSD Adopted A3/PUHSD Adopted Map A3.shp",
       "shapefile": "PUHSD Adopted Map A3.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -294,12 +236,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.237993,
-        38.750289,
-        -120.254914,
-        39.315559
-      ],
+      "bounds": [-121.237993, 38.750289, -120.254914, 39.315559],
       "parts": {
         "1": 1,
         "2": 1,
@@ -320,15 +257,7 @@
       "source": "Riverdale Unified School District/FINAL PLAN FOLDER RIVERDALE JUSD/Final Plan Shapefile/Riverdale Final Plan Shapefile.shp",
       "shapefile": "Riverdale Final Plan Shapefile.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -336,12 +265,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -120.393515,
-        36.255447,
-        -119.761477,
-        36.546821
-      ],
+      "bounds": [-120.393515, 36.255447, -119.761477, 36.546821],
       "parts": {
         "7": 2,
         "4": 1,
@@ -364,13 +288,7 @@
       "source": "Roseville City School District/FINAL MATERIALS/RCSD Final Materials for County/Shapefile FINAL RCSD/Final Map B2.shp",
       "shapefile": "Final Map B2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -378,12 +296,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.469806,
-        38.717734,
-        -121.217839,
-        38.824675
-      ],
+      "bounds": [-121.469806, 38.717734, -121.217839, 38.824675],
       "parts": {
         "1": 1,
         "2": 1,
@@ -404,15 +317,7 @@
       "source": "Alameda COE/Alameda COE Final Plan Submission/Alameda COE Final Plan Shapefile/Alameda COE Final Plan.shp",
       "shapefile": "Alameda COE Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -422,12 +327,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.346681,
-        37.454186,
-        -121.469214,
-        37.905824
-      ],
+      "bounds": [-122.346681, 37.454186, -121.469214, 37.905824],
       "parts": {
         "1": 1,
         "2": 1,
@@ -450,13 +350,7 @@
       "source": "Contra Costa County Office of Education/CoCo COE Final Plan Submission Folder/Draft Plan D 3 Adopted Plan 2.9.2022.shp",
       "shapefile": "Draft Plan D 3 Adopted Plan 2.9.2022.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -464,12 +358,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.441584,
-        37.718531,
-        -121.534102,
-        38.099878
-      ],
+      "bounds": [-122.441584, 37.718531, -121.534102, 38.099878],
       "parts": {
         "2": 1,
         "1": 1,
@@ -490,13 +379,7 @@
       "source": "Fresno County Board of Education/FRESNO COE FINAL FOLDER/FInal Plan Shapefile/Fresno COE FInal Shapefile.shp",
       "shapefile": "Fresno COE FInal Shapefile.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -504,12 +387,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -120.76544,
-        35.90656,
-        -118.361088,
-        37.584896
-      ],
+      "bounds": [-120.76544, 35.90656, -118.361088, 37.584896],
       "parts": {
         "1": 1,
         "2": 7,
@@ -530,15 +408,7 @@
       "source": "Napa County BOE/Final Plan Submission/Napa County BOE Final Plan.shp",
       "shapefile": "Napa County BOE Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -549,12 +419,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.752211,
-        38.142957,
-        -122.061379,
-        38.864245
-      ],
+      "bounds": [-122.752211, 38.142957, -122.061379, 38.864245],
       "parts": {
         "1": 1,
         "2": 1,
@@ -577,13 +442,7 @@
       "source": "Orange County Office of Education/2021 Adopted OC COE Shape Hand Drawn by Vance/2021 Adopted OC COE Plan Hand Drawn by Vance.shp",
       "shapefile": "2021 Adopted OC COE Plan Hand Drawn by Vance.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -594,12 +453,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -118.117803,
-        33.383629,
-        -117.412987,
-        33.947636
-      ],
+      "bounds": [-118.117803, 33.383629, -117.412987, 33.947636],
       "parts": {
         "1": 2,
         "2": 1,
@@ -620,15 +474,7 @@
       "source": "Riverside BOE/FROM THE COUNTY SHAPES/Riverside COE Draft Plan 3 final adopted.shp",
       "shapefile": "Riverside COE Draft Plan 3 final adopted.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -639,12 +485,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.676684,
-        33.247324,
-        -114.434949,
-        34.079884
-      ],
+      "bounds": [-117.676684, 33.247324, -114.434949, 34.079884],
       "parts": {
         "1": 1,
         "2": 1,
@@ -667,13 +508,7 @@
       "source": "San Luis Obispo BOE/SLO BOE Final Plan.shp",
       "shapefile": "SLO BOE Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -684,12 +519,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.654685,
-        34.897576,
-        -119.472552,
-        36.141294
-      ],
+      "bounds": [-121.654685, 34.897576, -119.472552, 36.141294],
       "parts": {
         "1": 1,
         "2": 1,
@@ -710,13 +540,7 @@
       "source": "Ventura County BOE/Final Plan Submission/Ventura BOE Final Plan.shp",
       "shapefile": "Ventura BOE Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -726,12 +550,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -119.579576,
-        33.214604,
-        -118.632523,
-        34.789485
-      ],
+      "bounds": [-119.579576, 33.214604, -118.632523, 34.789485],
       "parts": {
         "1": 3,
         "2": 3,
@@ -752,13 +571,7 @@
       "source": "Barstow CCD/Final Map Folder/Barstow CCD FInal Approved Map Shapefile/Barstow FInal Approved Map Shapefile.shp",
       "shapefile": "Barstow FInal Approved Map Shapefile.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
+      "districts": ["A", "B", "C", "D", "E"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -768,12 +581,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.63329,
-        34.4508,
-        -114.713182,
-        35.810468
-      ],
+      "bounds": [-117.63329, 34.4508, -114.713182, 35.810468],
       "parts": {
         "A": 1,
         "B": 1,
@@ -794,15 +602,7 @@
       "source": "Cabrillo CCD/Final Plan/Cabrillo CCD Plan A Final Shape.shp",
       "shapefile": "Cabrillo CCD Plan A Final Shape.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -812,12 +612,7 @@
       "localRosterCount": 6,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.317237,
-        36.810273,
-        -121.582308,
-        37.229369
-      ],
+      "bounds": [-122.317237, 36.810273, -121.582308, 37.229369],
       "parts": {
         "1": 1,
         "2": 1,
@@ -840,15 +635,7 @@
       "source": "Cerritos CCD/Cerritos CCD Final Plan/Cerritos CCD Final Plan Shapefile/Cerritos CCD Final Plan.shp",
       "shapefile": "Cerritos CCD Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -856,12 +643,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -118.177839,
-        33.815494,
-        -117.976496,
-        33.973312
-      ],
+      "bounds": [-118.177839, 33.815494, -117.976496, 33.973312],
       "parts": {
         "1": 2,
         "2": 1,
@@ -884,13 +666,7 @@
       "source": "Compton CCD/Compton Final Shape (2)/Compton Final Shape.zip :: Compton Final Shape.shp",
       "shapefile": "Compton Final Shape.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "COMPA",
-        "COMPB",
-        "COMPC",
-        "COMPD",
-        "COMPE"
-      ],
+      "districts": ["COMPA", "COMPB", "COMPC", "COMPD", "COMPE"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -898,12 +674,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4019",
-      "bounds": [
-        -118.273989,
-        33.853773,
-        -118.142427,
-        33.945441
-      ],
+      "bounds": [-118.273989, 33.853773, -118.142427, 33.945441],
       "parts": {
         "COMPA": 2,
         "COMPC": 1,
@@ -924,13 +695,7 @@
       "source": "Foothill De Anza CCD/Final Plan for Submission/Foothill DeAnza CCD Final Plan 2022.shp",
       "shapefile": "Foothill DeAnza CCD Final Plan 2022.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -938,12 +703,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.202653,
-        37.264508,
-        -121.9664,
-        37.477838
-      ],
+      "bounds": [-122.202653, 37.264508, -121.9664, 37.477838],
       "parts": {
         "3": 1,
         "5": 1,
@@ -964,13 +724,7 @@
       "source": "Grossmont Cuyamaca CCD/Final/GCCCD_Adopted_Plan.shp",
       "shapefile": "GCCCD_Adopted_Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DATA",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -980,12 +734,7 @@
       "localRosterCount": 4,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4019",
-      "bounds": [
-        -117.06695,
-        32.560297,
-        -116.102558,
-        32.963696
-      ],
+      "bounds": [-117.06695, 32.560297, -116.102558, 32.963696],
       "parts": {
         "4": 1,
         "1": 1,
@@ -1006,15 +755,7 @@
       "source": "Kern CCD 2021/Kern CCD 2022 Final Map Submission Folder/Kern CCD Map 4.shp",
       "shapefile": "Kern CCD Map 4.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1022,12 +763,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -120.194152,
-        34.790609,
-        -115.648357,
-        37.735285
-      ],
+      "bounds": [-120.194152, 34.790609, -115.648357, 37.735285],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1050,13 +786,7 @@
       "source": "Long Beach City College/Final Submissions Folder/Long Beach CCD Final Plan - D5.shp",
       "shapefile": "Long Beach CCD Final Plan - D5.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -1067,9 +797,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -118.60612144567136,
-        33.299087308828604,
-        -118.07174648692609,
+        -118.60612144567136, 33.299087308828604, -118.07174648692609,
         33.88546708734137
       ],
       "parts": {
@@ -1092,15 +820,7 @@
       "source": "Los Rios CCD/Final Packet materials/Los Rios CCD Final 2022 Redistricted Map/Los Rios CCD 2022 Final Map Shapefile/Los Rios Final 2022 Map from A2.shp",
       "shapefile": "Los Rios Final 2022 Map from A2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1111,12 +831,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.877265,
-        38.21494,
-        -120.042125,
-        39.067478
-      ],
+      "bounds": [-121.877265, 38.21494, -120.042125, 39.067478],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1139,15 +854,7 @@
       "source": "Mt. San Antonio CCD/Mt Sac 2022 Final Plan Submission Folder/Mt Sac Current Lines.zip :: Mt Sac Current Lines.shp",
       "shapefile": "Mt Sac Current Lines.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1156,9 +863,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -118.01489370100244,
-        33.94576231387885,
-        -117.71106834508512,
+        -118.01489370100244, 33.94576231387885, -117.71106834508512,
         34.22329483893953
       ],
       "parts": {
@@ -1183,13 +888,7 @@
       "source": "Mt. San Jacinto CCD/Mt. San Jacinto Final Maps Packet/Final Plan from Plan B2.shp",
       "shapefile": "Final Plan from Plan B2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1197,12 +896,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.535033,
-        33.426574,
-        -116.512108,
-        34.034113
-      ],
+      "bounds": [-117.535033, 33.426574, -116.512108, 34.034113],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1223,15 +917,7 @@
       "source": "Napa County NVC/Napa NVC Final Plan Folder/Napa NVC Final Plan.shp",
       "shapefile": "Napa NVC Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1242,12 +928,7 @@
       "localRosterCount": 6,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.752211,
-        38.142957,
-        -122.061379,
-        38.864245
-      ],
+      "bounds": [-122.752211, 38.142957, -122.061379, 38.864245],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1270,15 +951,7 @@
       "source": "Pasadena CCD/PCCD Final Plan Submission Folder/Pasadena CCD Approved Map 12.15.shp",
       "shapefile": "Pasadena CCD Approved Map 12.15.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1286,12 +959,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -118.223438,
-        34.062676,
-        -117.871166,
-        34.381913
-      ],
+      "bounds": [-118.223438, 34.062676, -117.871166, 34.381913],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1314,13 +982,7 @@
       "source": "Rio Hondo CCD/Final Map Folder/Rio Hondo Final Plan from A2.shp",
       "shapefile": "Rio Hondo Final Plan from A2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1331,9 +993,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:2229",
       "bounds": [
-        -118.12290484251045,
-        33.91667397820707,
-        -117.97550604409231,
+        -118.12290484251045, 33.91667397820707, -117.97550604409231,
         34.112845416695635
       ],
       "parts": {
@@ -1345,10 +1005,7 @@
       },
       "overlaps": [
         {
-          "districts": [
-            "3",
-            "5"
-          ],
+          "districts": ["3", "5"],
           "squareMeters": 0.012
         }
       ],
@@ -1364,13 +1021,7 @@
       "source": "Riverside CCD/Final Redistricting Materials/Final 2022 shapefile/Export_Output_8.shp",
       "shapefile": "Export_Output_8.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DIST_ID",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1381,9 +1032,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
       "bounds": [
-        -117.67653246290246,
-        33.727609786898995,
-        -117.12106333066743,
+        -117.67653246290246, 33.727609786898995, -117.12106333066743,
         34.034243400620525
       ],
       "parts": {
@@ -1395,31 +1044,19 @@
       },
       "overlaps": [
         {
-          "districts": [
-            "1",
-            "4"
-          ],
+          "districts": ["1", "4"],
           "squareMeters": 3.707
         },
         {
-          "districts": [
-            "2",
-            "3"
-          ],
+          "districts": ["2", "3"],
           "squareMeters": 2.588
         },
         {
-          "districts": [
-            "2",
-            "4"
-          ],
+          "districts": ["2", "4"],
           "squareMeters": 1.992
         },
         {
-          "districts": [
-            "3",
-            "5"
-          ],
+          "districts": ["3", "5"],
           "squareMeters": 0.608
         }
       ],
@@ -1435,15 +1072,7 @@
       "source": "San Bernardino CCD/2022 Final Map Materials/San Bernardino CCD 2022 Final Map D/SBCCD Final Map Shapefile/SBCCD Final Map from Plan D.shp",
       "shapefile": "SBCCD Final Map from Plan D.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1451,12 +1080,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.559218,
-        33.973576,
-        -116.606539,
-        34.383369
-      ],
+      "bounds": [-117.559218, 33.973576, -116.606539, 34.383369],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1479,15 +1103,7 @@
       "source": "San Joaquin Delta/SJDC_FinalTrusteeAreas_2022.shp",
       "shapefile": "SJDC_FinalTrusteeAreas_2022.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1495,12 +1111,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.922329,
-        37.481783,
-        -120.262494,
-        38.48426
-      ],
+      "bounds": [-121.922329, 37.481783, -120.262494, 38.48426],
       "parts": {
         "4": 1,
         "5": 1,
@@ -1523,15 +1134,7 @@
       "source": "San Jose Evergreen CCD/San Jose Evergreen Final Map Submission Folder/San Jose Evergreen Final Map 2022 - Plan D5.shp",
       "shapefile": "San Jose Evergreen Final Map 2022 - Plan D5.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1539,12 +1142,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.04602738094042,
-        37.16087,
-        -121.462791,
-        37.484637
-      ],
+      "bounds": [-122.04602738094042, 37.16087, -121.462791, 37.484637],
       "parts": {
         "1": 2,
         "2": 1,
@@ -1567,13 +1165,7 @@
       "source": "Cuesta College District/Cuesta CCD Final Plan Submission/Cuesta CCD  Final Plan Shapefile/Cuesta CCD Final Plan.shp",
       "shapefile": "Cuesta CCD Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -1584,12 +1176,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.654685,
-        34.897576,
-        -119.472552,
-        36.141294
-      ],
+      "bounds": [-121.654685, 34.897576, -119.472552, 36.141294],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1610,15 +1197,7 @@
       "source": "Shasta CCD/Final Plan/Shasta CCD Final Map 2022 Documents/Shasta CCD Final Map Shapefile 2022/Shasta CCD Final Plan.shp",
       "shapefile": "Shasta CCD Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G"
-      ],
+      "districts": ["A", "B", "C", "D", "E", "F", "G"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1629,12 +1208,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -123.666234,
-        39.796018,
-        -120.978648,
-        41.368139
-      ],
+      "bounds": [-123.666234, 39.796018, -120.978648, 41.368139],
       "parts": {
         "A": 1,
         "B": 1,
@@ -1657,15 +1231,7 @@
       "source": "Siskiyou CCD/Final Plan/Final Plan from Plan B3.shp",
       "shapefile": "Final Plan from Plan B3.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1675,12 +1241,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -123.719174,
-        40.992193,
-        -121.445994,
-        42.009503
-      ],
+      "bounds": [-123.719174, 40.992193, -121.445994, 42.009503],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1703,15 +1264,7 @@
       "source": "Santa Rosa CCD/Santa Rosa Junior College Final 2020 Districting Packet/Final Shapefile/Santa Rosa Junior College Final Plan Map A.shp",
       "shapefile": "Santa Rosa Junior College Final Plan Map A.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1721,12 +1274,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -123.746478,
-        38.068708,
-        -122.35218,
-        39.092339
-      ],
+      "bounds": [-123.746478, 38.068708, -122.35218, 39.092339],
       "parts": {
         "1": 1,
         "2": 2,
@@ -1749,15 +1297,7 @@
       "source": "South Orange Community College District/South Orange CCD Final Plan/Final Plan from Plan 3.shp",
       "shapefile": "Final Plan from Plan 3.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1768,12 +1308,7 @@
       "localRosterCount": 6,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.869509,
-        33.386895,
-        -117.412987,
-        33.784103
-      ],
+      "bounds": [-117.869509, 33.386895, -117.412987, 33.784103],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1796,13 +1331,7 @@
       "source": "Southwestern CCD/Final Plan for Submission/Southwestern CCD B2 Final Plan.shp",
       "shapefile": "Southwestern CCD B2 Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1810,12 +1339,7 @@
       "localRosterCount": 5,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.227904,
-        32.534307,
-        -116.822016,
-        32.716224
-      ],
+      "bounds": [-117.227904, 32.534307, -116.822016, 32.716224],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1836,13 +1360,7 @@
       "source": "Victor Valley CCD/2022 Final Submission Folder/Victor Valley Final 2022 Redistricting Map B/Shapefile Final Map B/Victor Valley Final Plan 2022 - Plan B.shp",
       "shapefile": "Victor Valley Final Plan 2022 - Plan B.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1850,12 +1368,7 @@
       "localRosterCount": 6,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.695195,
-        34.205366,
-        -116.402924,
-        34.822526
-      ],
+      "bounds": [-117.695195, 34.205366, -116.402924, 34.822526],
       "parts": {
         "1": 1,
         "2": 1,
@@ -1876,15 +1389,7 @@
       "source": "Yosemite CCD/2026 Final Packet/Yosemite CCD Clean Up 2026.shp",
       "shapefile": "Yosemite CCD Clean Up 2026.shp",
       "selectionNote": "Selected the 2026 Final Packet cleanup map instead of the older Final Packet plan.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 8,
       "excludedRecords": 1,
@@ -1895,12 +1400,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.700872,
-        37.073434,
-        -119.196182,
-        38.509869
-      ],
+      "bounds": [-121.700872, 37.073434, -119.196182, 38.509869],
       "parts": {
         "1": 2,
         "2": 1,
@@ -1923,15 +1423,7 @@
       "source": "Yuba CCD/Legacy File Atlas/YubaFinalPlan.shp",
       "shapefile": "YubaFinalPlan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -1939,12 +1431,7 @@
       "localRosterCount": 7,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4019",
-      "bounds": [
-        -122.892676,
-        38.582601,
-        -121.009477,
-        39.757539
-      ],
+      "bounds": [-122.892676, 38.582601, -121.009477, 39.757539],
       "parts": {
         "7": 1,
         "6": 1,
@@ -1967,13 +1454,7 @@
       "source": "Coastside Water District/Coastside Water Final Folder/Coastside Water Final Shapefile/Coastside Water District Final Plan Shapefile.shp",
       "shapefile": "Coastside Water District Final Plan Shapefile.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -1982,10 +1463,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -122.508221,
-        37.34187899999999,
-        -122.36655300000001,
-        37.536104
+        -122.508221, 37.34187899999999, -122.36655300000001, 37.536104
       ],
       "parts": {
         "4": 1,
@@ -2007,13 +1485,7 @@
       "source": "Coastside Fire District/Final Submission Folder/Coastside Fire Parcel/Coastside Fire District Final Plan from Parcels.shp",
       "shapefile": "Coastside Fire District Final Plan from Parcels.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
+      "districts": ["A", "B", "C", "D", "E"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2024,9 +1496,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -122.51951238262184,
-        37.36524985218054,
-        -122.35664431326974,
+        -122.51951238262184, 37.36524985218054, -122.35664431326974,
         37.55112395583692
       ],
       "parts": {
@@ -2038,52 +1508,31 @@
       },
       "overlaps": [
         {
-          "districts": [
-            "A",
-            "B"
-          ],
+          "districts": ["A", "B"],
           "squareMeters": 469.106
         },
         {
-          "districts": [
-            "A",
-            "C"
-          ],
+          "districts": ["A", "C"],
           "squareMeters": 94.071
         },
         {
-          "districts": [
-            "B",
-            "C"
-          ],
+          "districts": ["B", "C"],
           "squareMeters": 396.693
         },
         {
-          "districts": [
-            "B",
-            "D"
-          ],
+          "districts": ["B", "D"],
           "squareMeters": 170.018
         },
         {
-          "districts": [
-            "C",
-            "D"
-          ],
+          "districts": ["C", "D"],
           "squareMeters": 26.217
         },
         {
-          "districts": [
-            "C",
-            "E"
-          ],
+          "districts": ["C", "E"],
           "squareMeters": 282.06
         },
         {
-          "districts": [
-            "D",
-            "E"
-          ],
+          "districts": ["D", "E"],
           "squareMeters": 258.067
         }
       ],
@@ -2099,13 +1548,7 @@
       "source": "Cosumnes CSD/Final Plan Folder for Submission/Cosumnes CSD Final Plan.shp",
       "shapefile": "Cosumnes CSD Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2113,12 +1556,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -121.502692,
-        38.227243,
-        -121.24147,
-        38.453209
-      ],
+      "bounds": [-121.502692, 38.227243, -121.24147, 38.453209],
       "parts": {
         "1": 1,
         "2": 1,
@@ -2139,13 +1577,7 @@
       "source": "Goleta Water District/Final Plan/Goleta Water District Final Plan from D2.shp",
       "shapefile": "Goleta Water District Final Plan from D2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2153,12 +1585,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -120.00096,
-        34.404544,
-        -119.728064,
-        34.493312
-      ],
+      "bounds": [-120.00096, 34.404544, -119.728064, 34.493312],
       "parts": {
         "5": 7,
         "4": 1,
@@ -2179,13 +1606,7 @@
       "source": "Goleta West Sanitary District/FINAL MATERIALS/County Access GWSD Final Map 2023/Shapefile Final Plan GWSD/GWSD Final Map 2023.shp",
       "shapefile": "GWSD Final Map 2023.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2193,12 +1614,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -119.921856,
-        34.408256,
-        -119.842976,
-        34.460704
-      ],
+      "bounds": [-119.921856, 34.408256, -119.842976, 34.460704],
       "parts": {
         "2": 1,
         "1": 2,
@@ -2219,13 +1635,7 @@
       "source": "Hayward Parks & Rec/FINAL MATERIALS/HARD Final Materials for County/FINAL MAP shapefile/HARD Final Map.shp",
       "shapefile": "HARD Final Map.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -2235,12 +1645,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.167289,
-        37.559646,
-        -121.931022,
-        37.800083
-      ],
+      "bounds": [-122.167289, 37.559646, -121.931022, 37.800083],
       "parts": {
         "2": 1,
         "5": 1,
@@ -2261,13 +1666,7 @@
       "source": "Imperial Irrigation District/Final Plans/IID Draft Plan D 12-03.shp",
       "shapefile": "IID Draft Plan D 12-03.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2275,12 +1674,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -116.084736,
-        32.651584,
-        -114.70848,
-        33.426432
-      ],
+      "bounds": [-116.084736, 32.651584, -114.70848, 33.426432],
       "parts": {
         "3": 38,
         "1": 107,
@@ -2301,13 +1695,7 @@
       "source": "Inland Empire Utility Agency/Final Plan Folder/Inland Empire Utility Agency Final Plan from H3.shp",
       "shapefile": "Inland Empire Utility Agency Final Plan from H3.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2315,12 +1703,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.802539,
-        33.87089,
-        -117.400826,
-        34.179399
-      ],
+      "bounds": [-117.802539, 33.87089, -117.400826, 34.179399],
       "parts": {
         "1": 1,
         "2": 1,
@@ -2341,13 +1724,7 @@
       "source": "Midpeninsula Water District/Final Plan for Submission/Mid Peninsula WD Final Plan from 2.shp",
       "shapefile": "Mid Peninsula WD Final Plan from 2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2355,12 +1732,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.328878,
-        37.497053,
-        -122.256045,
-        37.534388
-      ],
+      "bounds": [-122.328878, 37.497053, -122.256045, 37.534388],
       "parts": {
         "1": 1,
         "2": 1,
@@ -2381,13 +1753,7 @@
       "source": "Modesto Irrigation District/Base Data/FinalTrustee_ModestoIrrigationDistrict_2012.shp",
       "shapefile": "FinalTrustee_ModestoIrrigationDistrict_2012.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "D1",
-        "D2",
-        "D3",
-        "D4",
-        "D5"
-      ],
+      "districts": ["D1", "D2", "D3", "D4", "D5"],
       "districtField": "District",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2396,9 +1762,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:2227",
       "bounds": [
-        -121.20635777730725,
-        37.590903153874194,
-        -120.44172088507763,
+        -121.20635777730725, 37.590903153874194, -120.44172088507763,
         37.75443231996218
       ],
       "parts": {
@@ -2421,13 +1785,7 @@
       "source": "Montara Water and Sanitary District/FINAL MATERIALS/MWSD FINAL DISTRICTING PACKET 2023/Shapefile Final Map MWSD/MWSD FINAL MAP.shp",
       "shapefile": "MWSD FINAL MAP.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2435,12 +1793,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.51951,
-        37.495455,
-        -122.477752,
-        37.580503
-      ],
+      "bounds": [-122.51951, 37.495455, -122.477752, 37.580503],
       "parts": {
         "3": 1,
         "1": 1,
@@ -2461,13 +1814,7 @@
       "source": "Nevada Irrigation District/NID final plan submission folder/NID_Plan_E_Modified_20220908.shp",
       "shapefile": "NID_Plan_E_Modified_20220908.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2476,9 +1823,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4326",
       "bounds": [
-        -121.35855399999994,
-        38.860880000000044,
-        -120.85263899999997,
+        -121.35855399999994, 38.860880000000044, -120.85263899999997,
         39.34197499999998
       ],
       "parts": {
@@ -2501,13 +1846,7 @@
       "source": "North Coast County Water District/Final Packet/NCCWD Plan B3 Final.shp",
       "shapefile": "NCCWD Plan B3 Final.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
+      "districts": ["A", "B", "C", "D", "E"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2516,10 +1855,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "PROJCS[\"Mercator_2SP\",GEOGCS[\"GCS_unnamed ellipse\",DATUM[\"D_unknown\",SPHEROID[\"Unknown\",6378137,0]],PRIMEM[\"Unknown\",0],UNIT[\"Degree\",0.017453292519943295]],PROJECTION[\"Mercator\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"Meter\",1]]",
       "bounds": [
-        -122.515326,
-        37.566037,
-        -122.44342200000001,
-        37.666957999999994
+        -122.515326, 37.566037, -122.44342200000001, 37.666957999999994
       ],
       "parts": {
         "A": 1,
@@ -2541,13 +1877,7 @@
       "source": "North Marin Water District/Base Data/North Marin Water District Detailed Plan Shapes/Final_Plan 2019-08-21.shp",
       "shapefile": "Final_Plan 2019-08-21.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -2557,12 +1887,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4019",
-      "bounds": [
-        -122.977782,
-        37.999815,
-        -122.481364,
-        38.269974
-      ],
+      "bounds": [-122.977782, 37.999815, -122.481364, 38.269974],
       "parts": {
         "1": 3,
         "2": 1,
@@ -2583,13 +1908,7 @@
       "source": "Novato Fire/Novato Final District Lines/Novato Fire Final District Lines.shp",
       "shapefile": "Novato Fire Final District Lines.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -2599,12 +1918,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4019",
-      "bounds": [
-        -122.703657,
-        38.039387,
-        -122.481364,
-        38.188783
-      ],
+      "bounds": [-122.703657, 38.039387, -122.481364, 38.188783],
       "parts": {
         "3": 1,
         "1": 1,
@@ -2625,13 +1939,7 @@
       "source": "OPUD/Final Plan/OPUD Final Plan Base on Parcels.shp",
       "shapefile": "OPUD Final Plan Base on Parcels.shp",
       "selectionNote": "Selected the parcel-based plan in OPUD/Final Plan. Rejected a misplaced final-labeled file in the draft-shapefile folder that duplicated Mt. San Jacinto CCD.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2642,9 +1950,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:2226",
       "bounds": [
-        -121.59089255966542,
-        38.963816819298856,
-        -121.5162108165724,
+        -121.59089255966542, 38.963816819298856, -121.5162108165724,
         39.11539905029764
       ],
       "parts": {
@@ -2656,31 +1962,19 @@
       },
       "overlaps": [
         {
-          "districts": [
-            "1",
-            "2"
-          ],
+          "districts": ["1", "2"],
           "squareMeters": 1217.769
         },
         {
-          "districts": [
-            "2",
-            "3"
-          ],
+          "districts": ["2", "3"],
           "squareMeters": 911.315
         },
         {
-          "districts": [
-            "3",
-            "4"
-          ],
+          "districts": ["3", "4"],
           "squareMeters": 354.972
         },
         {
-          "districts": [
-            "4",
-            "5"
-          ],
+          "districts": ["4", "5"],
           "squareMeters": 1097.393
         }
       ],
@@ -2696,13 +1990,7 @@
       "source": "Olivenhain Water District/Final Plan for Submission/Olivenhain WD Final Plan from C2.shp",
       "shapefile": "Olivenhain WD Final Plan from C2.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2711,10 +1999,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -117.287341,
-        32.970181,
-        -117.08990100000001,
-        33.09577699999999
+        -117.287341, 32.970181, -117.08990100000001, 33.09577699999999
       ],
       "parts": {
         "1": 1,
@@ -2736,13 +2021,7 @@
       "source": "Ramona Water District/Final Plan Submission/Ramona Municipal Water District Final Plan.shp",
       "shapefile": "Ramona Municipal Water District Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -2752,12 +2031,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.019273,
-        32.930813,
-        -116.754092,
-        33.095116
-      ],
+      "bounds": [-117.019273, 32.930813, -116.754092, 33.095116],
       "parts": {
         "1": 1,
         "2": 9,
@@ -2778,13 +2052,7 @@
       "source": "Rincon del Diablo Municipal Water District/Rincon Final Plan for Submission/Rincon Del Diablo Final Plan from C.shp",
       "shapefile": "Rincon Del Diablo Final Plan from C.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -2792,12 +2060,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -117.139952,
-        33.05824,
-        -117.006973,
-        33.19613
-      ],
+      "bounds": [-117.139952, 33.05824, -117.006973, 33.19613],
       "parts": {
         "1": 1,
         "2": 3,
@@ -2818,17 +2081,7 @@
       "source": "Sac Metro Fire District/Final Packet/Sacramento Metro Fire District Final Plan Reconciled.shp",
       "shapefile": "Sacramento Metro Fire District Final Plan Reconciled.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
       "districtField": "DISTRICT",
       "sourceRecords": 10,
       "excludedRecords": 1,
@@ -2840,9 +2093,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -121.48942601299999,
-        38.39430365308477,
-        -121.02445780785243,
+        -121.48942601299999, 38.39430365308477, -121.02445780785243,
         38.751609851
       ],
       "parts": {
@@ -2858,115 +2109,67 @@
       },
       "overlaps": [
         {
-          "districts": [
-            "1",
-            "2"
-          ],
+          "districts": ["1", "2"],
           "squareMeters": 85.355
         },
         {
-          "districts": [
-            "1",
-            "3"
-          ],
+          "districts": ["1", "3"],
           "squareMeters": 42.689
         },
         {
-          "districts": [
-            "1",
-            "6"
-          ],
+          "districts": ["1", "6"],
           "squareMeters": 198.912
         },
         {
-          "districts": [
-            "1",
-            "7"
-          ],
+          "districts": ["1", "7"],
           "squareMeters": 52.488
         },
         {
-          "districts": [
-            "2",
-            "3"
-          ],
+          "districts": ["2", "3"],
           "squareMeters": 220.489
         },
         {
-          "districts": [
-            "2",
-            "5"
-          ],
+          "districts": ["2", "5"],
           "squareMeters": 154.559
         },
         {
-          "districts": [
-            "2",
-            "7"
-          ],
+          "districts": ["2", "7"],
           "squareMeters": 102.011
         },
         {
-          "districts": [
-            "3",
-            "5"
-          ],
+          "districts": ["3", "5"],
           "squareMeters": 140.257
         },
         {
-          "districts": [
-            "4",
-            "8"
-          ],
+          "districts": ["4", "8"],
           "squareMeters": 456.172
         },
         {
-          "districts": [
-            "4",
-            "9"
-          ],
+          "districts": ["4", "9"],
           "squareMeters": 694.242
         },
         {
-          "districts": [
-            "5",
-            "7"
-          ],
+          "districts": ["5", "7"],
           "squareMeters": 185.742
         },
         {
-          "districts": [
-            "5",
-            "8"
-          ],
+          "districts": ["5", "8"],
           "squareMeters": 353.667
         },
         {
-          "districts": [
-            "6",
-            "7"
-          ],
+          "districts": ["6", "7"],
           "squareMeters": 330.831
         },
         {
-          "districts": [
-            "6",
-            "8"
-          ],
+          "districts": ["6", "8"],
           "squareMeters": 0.43
         },
         {
-          "districts": [
-            "7",
-            "8"
-          ],
+          "districts": ["7", "8"],
           "squareMeters": 138.569
         },
         {
-          "districts": [
-            "8",
-            "9"
-          ],
+          "districts": ["8", "9"],
           "squareMeters": 296.951
         }
       ],
@@ -2982,13 +2185,7 @@
       "source": "San Mateo Harbor District/Final Plan Shape.shp",
       "shapefile": "Final Plan Shape.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 6,
       "excludedRecords": 1,
@@ -2998,12 +2195,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.525015,
-        37.10299,
-        -122.111237,
-        37.708617
-      ],
+      "bounds": [-122.525015, 37.10299, -122.111237, 37.708617],
       "parts": {
         "2": 1,
         "5": 1,
@@ -3024,15 +2216,7 @@
       "source": "Santa Clara Valley Open Space Authority/Final Plan Submission/Santa Clara Valley Open Space Authority Final Plan.shp",
       "shapefile": "Santa Clara Valley Open Space Authority Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -3040,12 +2224,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.046041,
-        36.893026,
-        -121.208383,
-        37.484732
-      ],
+      "bounds": [-122.046041, 36.893026, -121.208383, 37.484732],
       "parts": {
         "7": 1,
         "6": 1,
@@ -3068,15 +2247,7 @@
       "source": "Santa Clara Valley Water District/Santa Clara Valley Water Final Folder for Submission/SCVWD Final 2020 Plan/Final Plan Shapefile/Santa Clara Valley Water District Final Plan.shp",
       "shapefile": "Santa Clara Valley Water District Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
       "districtField": "DISTRICT",
       "sourceRecords": 7,
       "excludedRecords": 0,
@@ -3084,12 +2255,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.202653,
-        36.892976,
-        -121.208178,
-        37.484637
-      ],
+      "bounds": [-122.202653, 36.892976, -121.208178, 37.484637],
       "parts": {
         "1": 1,
         "2": 1,
@@ -3112,13 +2278,7 @@
       "source": "Sequoia Healthcare District/Final Plan Submission/Sequoia HC Final Plan from D.shp",
       "shapefile": "Sequoia HC Final Plan from D.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
+      "districts": ["A", "B", "C", "D", "E"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -3126,12 +2286,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.368517,
-        37.318795,
-        -122.161628,
-        37.565934
-      ],
+      "bounds": [-122.368517, 37.318795, -122.161628, 37.565934],
       "parts": {
         "A": 5,
         "B": 1,
@@ -3152,13 +2307,7 @@
       "source": "Vista Fire Protection District/Final Submission Folder/VFPD FINAL DISTRICTED MAP AND MATERIALS/VFPD districted shapefile/Vista Fire Protection Final.shp",
       "shapefile": "Vista Fire Protection Final.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
+      "districts": ["A", "B", "C", "D", "E"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -3167,9 +2316,7 @@
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:3857",
       "bounds": [
-        -117.28162095887728,
-        33.136823537982586,
-        -117.17467431918767,
+        -117.28162095887728, 33.136823537982586, -117.17467431918767,
         33.26860938536626
       ],
       "parts": {
@@ -3192,13 +2339,7 @@
       "source": "Westborough Water District/Final Districting Materials/Westborough Water District Final Plan.shp",
       "shapefile": "Westborough Water District Final Plan.shp",
       "selectionNote": "Selected final/adopted source from RP file inventory; current adoption still requires confirmation.",
-      "districts": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ],
+      "districts": ["1", "2", "3", "4", "5"],
       "districtField": "DISTRICT",
       "sourceRecords": 5,
       "excludedRecords": 0,
@@ -3206,12 +2347,7 @@
       "localRosterCount": 0,
       "currentAdoptionVerified": false,
       "sourceCrs": "EPSG:4269",
-      "bounds": [
-        -122.472117,
-        37.63449,
-        -122.439865,
-        37.650555
-      ],
+      "bounds": [-122.472117, 37.63449, -122.439865, 37.650555],
       "parts": {
         "2": 1,
         "1": 1,
@@ -3222,6 +2358,1207 @@
       "overlaps": [],
       "mapSha256": "0b758b3502ef5d9e9678a0e548813356bdd0248d1fb23d733ffda9a9e6a13cdc",
       "compressedBytes": 4340
+    },
+    {
+      "id": "bakersfield",
+      "name": "City of Bakersfield",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Bakersfield/Final Plan Folder/Bakersfield Plan 5b.shp",
+      "shapefile": "Bakersfield Plan 5b.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 8,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-119.265315, 35.194024, -118.772661, 35.447312],
+      "parts": {
+        "1": 4,
+        "2": 1,
+        "3": 1,
+        "4": 2,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "6685313d6f7ff97c6c437bf6819ffe166b92da2f0e8ff248172a45b9d585acdf",
+      "compressedBytes": 80616
+    },
+    {
+      "id": "davis",
+      "name": "City of Davis",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Davis/Davis Final Submission Folder/Davis Final Approved Lines 2022.shp",
+      "shapefile": "Davis Final Approved Lines 2022.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-121.79394, 38.53487, -121.675777, 38.575555],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c5fbfaacee286bef0a86dff2d5b5979236091b43a759f9becb0fa7aeeab79018",
+      "compressedBytes": 6048
+    },
+    {
+      "id": "duarte",
+      "name": "City of Duarte",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Duarte/Base Data/Duarte-Adopted-Map-Files-for-Registrar.zip :: Duarte Adopted Map.shp",
+      "shapefile": "Duarte-Adopted-Map-Files-for-Registrar.zip :: Duarte Adopted Map.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-117.990543, 34.121377, -117.924789, 34.194202],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "4e4f7fe5a11ad67f60ca40cfab88ca4533c5b687b16d9294f79357e72366eac7",
+      "compressedBytes": 5369
+    },
+    {
+      "id": "el-cerrito",
+      "name": "City of El Cerrito",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of El Cerrito/Final Submission Folder/Plan A2 Adopted.shp",
+      "shapefile": "Plan A2 Adopted.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "district",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4326",
+      "bounds": [
+        -122.32331875155622, 37.89749300784193, -122.28111814596178, 37.938342
+      ],
+      "parts": {
+        "4": 3,
+        "5": 3,
+        "2": 1,
+        "3": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "cf3f8a147c47e73fe6408c3e4d6427543c930b57eb192c4de3eadc6cfb43b7d9",
+      "compressedBytes": 19459
+    },
+    {
+      "id": "foster-city",
+      "name": "City of Foster City",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Foster City/Final Submission Folder/Foster City Adopted Map for San Mateo County/Final Shapefile/FC Final Map 2024.shp",
+      "shapefile": "FC Final Map 2024.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 6,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.287888, 37.533119, -122.244598, 37.575879],
+      "parts": {
+        "2": 1,
+        "5": 1,
+        "3": 1,
+        "4": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c352fe88d27dbd9759149e48014292acaf49a1a6b3aafe2833741459003c8f4d",
+      "compressedBytes": 17698
+    },
+    {
+      "id": "gilroy",
+      "name": "City of Gilroy",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Gilroy/Final Materials/City of Gilroy Adopted Map/Shapefile/Gilroy Adopted Map 2025.shp",
+      "shapefile": "Gilroy Adopted Map 2025.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-121.643521, 36.972352, -121.518689, 37.048224],
+      "parts": {
+        "1": 2,
+        "2": 1,
+        "3": 4,
+        "4": 2,
+        "5": 5,
+        "6": 3
+      },
+      "overlaps": [],
+      "mapSha256": "d145c1be98ea9d7d385f7d5aac5c39d8ef96cc0c606b83b852d0240158418e2a",
+      "compressedBytes": 12189
+    },
+    {
+      "id": "healdsburg",
+      "name": "City of Healdsburg",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Healdsburg/Draft Maps/Shapefiles/FINAL MAP D.shp",
+      "shapefile": "FINAL MAP D.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 4,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.902832, 38.581216, -122.842706, 38.656896],
+      "parts": {
+        "1": 5,
+        "3": 1,
+        "2": 1,
+        "4": 1,
+        "5": 3
+      },
+      "overlaps": [],
+      "mapSha256": "b8b699347174bfb60ba38498794db0e28009be850d9342058adaf618c3e6003d",
+      "compressedBytes": 9974
+    },
+    {
+      "id": "laguna-niguel",
+      "name": "City of Laguna Niguel",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Laguna Niguel/Final Submission Folder/Laguna Niguel Districting 2023/FINAL Shapefile/LN Final Map E.shp",
+      "shapefile": "LN Final Map E.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-117.740192, 33.487104, -117.672528, 33.571424],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 2
+      },
+      "overlaps": [],
+      "mapSha256": "922becb543093b3bd0b528e2f6e485fa24c045326c1dfb24b8bc486458ab829c",
+      "compressedBytes": 13442
+    },
+    {
+      "id": "long-beach",
+      "name": "City of Long Beach",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Long Beach/Final Maps Folder/LBC IRC Proposed Final Map 2.shp",
+      "shapefile": "LBC IRC Proposed Final Map 2.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 10,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map.",
+        "Source labels are A–I; verify the adopted numeric district crosswalk before assigning representatives or enabling lookup."
+      ],
+      "localRosterCount": 10,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-118.248966, 33.714873, -118.06317, 33.885531],
+      "parts": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1,
+        "E": 1,
+        "F": 1,
+        "G": 1,
+        "I": 1,
+        "H": 1
+      },
+      "overlaps": [],
+      "mapSha256": "46ebfc7b2a0726abe73974b434c52586f56b261bc30922d40a9c68a159b674d6",
+      "compressedBytes": 19830
+    },
+    {
+      "id": "los-altos",
+      "name": "City of Los Altos",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Los Altos/FINAL MATERIALS/Los Altos Final Materials/Los Altos Final Map Shapefile/Los Altos Final Map.shp",
+      "shapefile": "Los Altos Final Map.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.129654, 37.329723, -122.061746, 37.406425],
+      "parts": {
+        "4": 1,
+        "5": 1,
+        "3": 1,
+        "1": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "861fee011f48486980af0100fbcf2652c0ddceb3effaf71265da807ef244bcca",
+      "compressedBytes": 11037
+    },
+    {
+      "id": "los-angeles",
+      "name": "City of Los Angeles",
+      "category": "Cities",
+      "state": "CA",
+      "status": "needs-source-review",
+      "mapAvailable": false,
+      "source": "City of Los Angeles/2021 City Council Adopted Plan Final.shp",
+      "shapefile": "2021 City Council Adopted Plan Final.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": [],
+      "districtField": "",
+      "sourceRecords": 0,
+      "excludedRecords": 0,
+      "warnings": [
+        "District 4: source geometry requires repair (Self-intersection[-118.361343 34.138734])."
+      ],
+      "localRosterCount": 16,
+      "currentAdoptionVerified": false
+    },
+    {
+      "id": "mesa",
+      "name": "City of Mesa",
+      "category": "Cities",
+      "state": "AZ",
+      "status": "needs-source-review",
+      "mapAvailable": false,
+      "source": "City of Mesa Arizona/Final Plan/City of Mesa Final.shp",
+      "shapefile": "City of Mesa Final.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": [],
+      "districtField": "",
+      "sourceRecords": 0,
+      "excludedRecords": 0,
+      "warnings": [
+        "District 3: source geometry requires repair (Nested shells[-111.893698 33.371917])."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false
+    },
+    {
+      "id": "modesto",
+      "name": "City of Modesto",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Modesto/Final Redistricting Materials/Updated Modesto Map with Annexations/Modesto Final Plan from B3 with Lodi and S. Carpenter Annexes.shp",
+      "shapefile": "Modesto Final Plan from B3 with Lodi and S. Carpenter Annexes.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:3857",
+      "bounds": [
+        -121.11303899999999, 37.478840999999996, -120.90123899999998,
+        37.71182099999999
+      ],
+      "parts": {
+        "4": 4,
+        "3": 1,
+        "6": 1,
+        "5": 1,
+        "2": 4,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "b4c4b80232ad135142131a914031ba15c213f73b4d9023d38ac15827a4e8aff3",
+      "compressedBytes": 23653
+    },
+    {
+      "id": "monterey",
+      "name": "City of Monterey",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Monterey/City of Monterey Districting Final Materials/City of Monterey Final Districted Map 2022/City of Monterey 2022 Shapefile/MontereyCouncilDistricts.shp",
+      "shapefile": "MontereyCouncilDistricts.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 4,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-121.92711400000002, 36.5715, -121.806774, 36.654584],
+      "parts": {
+        "1": 1,
+        "3": 1,
+        "4": 1,
+        "2": 2
+      },
+      "overlaps": [],
+      "mapSha256": "d840e4112fd7008f9586c359157a2aeb113b2c9c78973252065d153bf7934303",
+      "compressedBytes": 10745
+    },
+    {
+      "id": "napa",
+      "name": "City of Napa",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Napa/Final Submission Folder/City of Napa Final Districts 2020-05-10.shp",
+      "shapefile": "City of Napa Final Districts 2020-05-10.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4019",
+      "bounds": [-122.357907, 38.221091, -122.222196, 38.350834],
+      "parts": {
+        "3": 7,
+        "1": 3,
+        "2": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "47ac7c512c737e6152aa354f4157e062f2be50a1d6fd75a0b702ea0559e2449c",
+      "compressedBytes": 15027
+    },
+    {
+      "id": "norwich",
+      "name": "City of Norwich",
+      "category": "Cities",
+      "state": "CT",
+      "status": "needs-source-review",
+      "mapAvailable": false,
+      "source": "City of Norwich/Final Plan/Norwich Final Plan Shapefile.shp",
+      "shapefile": "Norwich Final Plan Shapefile.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": [],
+      "districtField": "",
+      "sourceRecords": 0,
+      "excludedRecords": 0,
+      "warnings": [
+        "Projected bounds fall outside the California review extent."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false
+    },
+    {
+      "id": "oakland",
+      "name": "City of Oakland",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Oakland/City of Oakland Final Plan/Oakland Final Plan.shp",
+      "shapefile": "Oakland Final Plan.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 8,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.355881, 37.631714, -122.114793, 37.885355],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "eecaa1fef1600f1dc1788bbda82f2aab5ceb1c5311e34f96ddfc5229e8789412",
+      "compressedBytes": 39411
+    },
+    {
+      "id": "ojai",
+      "name": "City of Ojai",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Ojai/Final Plan/City of Ojai Final Plan.shp",
+      "shapefile": "City of Ojai Final Plan.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 4,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-119.274569, 34.429244, -119.22048, 34.470662],
+      "parts": {
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "eae1d8c54ec5bd61c0dd43e737c1d7815de574d971a47915fcb05b69ff717496",
+      "compressedBytes": 5112
+    },
+    {
+      "id": "parlier",
+      "name": "City of Parlier",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Parlier/Final Redistricting Materials/City of Parlier 2022 Final Map Materials/Parlier Shapefile/City of Parlier Final Map 2022.shp",
+      "shapefile": "City of Parlier Final Map 2022.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 4,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-119.574884, 36.595914, -119.516056, 36.622417],
+      "parts": {
+        "1": 3,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "69c527c60273198beda055194c40c44f135c2cc846ed1f3bb54f599d69d6267d",
+      "compressedBytes": 3056
+    },
+    {
+      "id": "petaluma",
+      "name": "City of Petaluma",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Petaluma/Final Plan for Submission/Petaluma Final Plan Shape Files/City of Petaluma Final Plan from IC2.shp",
+      "shapefile": "City of Petaluma Final Plan from IC2.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.682404, 38.205269, -122.56767, 38.299326],
+      "parts": {
+        "6": 2,
+        "5": 2,
+        "3": 1,
+        "4": 4,
+        "2": 1,
+        "1": 1
+      },
+      "overlaps": [],
+      "mapSha256": "61577aa99d218c05e8c7cbab5c5f440ca35e0505405574080710522f099fbf43",
+      "compressedBytes": 14401
+    },
+    {
+      "id": "rancho-palos-verdes",
+      "name": "City of Rancho Palos Verdes",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "RPV/Richmond/Adopted Map 201.shp",
+      "shapefile": "Adopted Map 201.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.441484, 37.883725, -122.243449, 38.028136],
+      "parts": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "overlaps": [],
+      "mapSha256": "a8929551ec2ca09400bc639a38cfef4151560fa008396acc5ce99531cbaceab8",
+      "compressedBytes": 27600
+    },
+    {
+      "id": "redwood-city",
+      "name": "City of Redwood City",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Redwood City/Final Plan Folder/Redwood City Final Plan.shp",
+      "shapefile": "Redwood City Final Plan.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 7,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:2227",
+      "bounds": [
+        -122.29088271556616, 37.4471589197157, -122.13854308426966,
+        37.57020042536261
+      ],
+      "parts": {
+        "7": 1,
+        "1": 1,
+        "2": 1,
+        "5": 1,
+        "6": 1,
+        "3": 1,
+        "4": 1
+      },
+      "overlaps": [],
+      "mapSha256": "218f0d744e316832c9408edb03d2cdd38771f7951055f44d34c3a1595be17f6f",
+      "compressedBytes": 86776
+    },
+    {
+      "id": "riverside",
+      "name": "City of Riverside",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Riverside/A3 edit map series/A4 and D3 Mod shapefiles/Draft D3 Modified Final.shp",
+      "shapefile": "Draft D3 Modified Final.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 8,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 8,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-117.523722, 33.872608, -117.278802, 34.019357],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 5,
+        "6": 10,
+        "7": 1
+      },
+      "overlaps": [],
+      "mapSha256": "d73f61f0a8d21d3d00a5b79a056b6ce1a528a7e8ce8257cc1d1d722b64e59f20",
+      "compressedBytes": 68180
+    },
+    {
+      "id": "sacramento",
+      "name": "City of Sacramento",
+      "category": "Cities",
+      "state": "CA",
+      "status": "needs-source-review",
+      "mapAvailable": false,
+      "source": "City of Sacramento/Final 2022 Lines/Council_Districts.shp",
+      "shapefile": "Council_Districts.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": [],
+      "districtField": "",
+      "sourceRecords": 0,
+      "excludedRecords": 0,
+      "warnings": [
+        "No unambiguous district-assignment field; inspect the source attributes."
+      ],
+      "localRosterCount": 9,
+      "currentAdoptionVerified": false
+    },
+    {
+      "id": "san-jose",
+      "name": "City of San Jose",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of San Jose/Final/San Jose Council Map 2 from 12_15 with Split.shp",
+      "shapefile": "San Jose Council Map 2 from 12_15 with Split.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 10,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 11,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.045672, 37.123145, -121.58587, 37.469168],
+      "parts": {
+        "1": 1,
+        "10": 2,
+        "2": 3,
+        "3": 1,
+        "4": 1,
+        "5": 5,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1
+      },
+      "overlaps": [],
+      "mapSha256": "9516602e12048bdc4af322c485bada3253085d576ee6c7ce6e5b13750b2fa16c",
+      "compressedBytes": 99087
+    },
+    {
+      "id": "santa-ana",
+      "name": "City of Santa Ana",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Santa Ana/City of Santa Ana Final Submission Folder/City of Santa Ana Final Plan.shp",
+      "shapefile": "City of Santa Ana Final Plan.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-117.943945, 33.691939, -117.830257, 33.784012],
+      "parts": {
+        "2": 1,
+        "1": 1,
+        "5": 1,
+        "4": 1,
+        "3": 1,
+        "6": 1
+      },
+      "overlaps": [],
+      "mapSha256": "78d7b66c17377c4d02c3dd6b800b733096d31f5353e66c61f4e2ef63e12db3f3",
+      "compressedBytes": 15934
+    },
+    {
+      "id": "santa-rosa",
+      "name": "City of Santa Rosa",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Santa Rosa/Final Plan for Submission/City of Santa Rosa Final Plan from A2.shp",
+      "shapefile": "City of Santa Rosa Final Plan from A2.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5", "6", "7"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 7,
+      "excludedRecords": 0,
+      "warnings": [
+        "October 11, 2026 comparison: the current city GIS export contains invalid geometry and could not be compared reliably with this archived RP plan. Resolve the current adopted source before promoting the lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.834437, 38.364289, -122.570039, 38.508176],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 15
+      },
+      "overlaps": [],
+      "mapSha256": "cf2ade5387476c6e7cfa04fa8a63101f1c738cc85eda670fdedd6de4122042e7",
+      "compressedBytes": 37227
+    },
+    {
+      "id": "sonoma",
+      "name": "City of Sonoma",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of Sonoma/Final Submission Folder/City of Sonoma Districted Map 2025/Shapefile/City of Sonoma Adopted Map.shp",
+      "shapefile": "City of Sonoma Adopted Map.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.48164, 38.274478, -122.433706, 38.307502],
+      "parts": {
+        "4": 1,
+        "5": 1,
+        "3": 3,
+        "1": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "bd21844d1b1f6e16c2c0cc813298e0c0e3ec229c9554bdf63a264fbd9a1fb22e",
+      "compressedBytes": 8873
+    },
+    {
+      "id": "victorville",
+      "name": "City of Victorville",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "City of Victorville/Final Plan Submission Folder/Victorville Final Plan 2021.shp",
+      "shapefile": "Victorville Final Plan 2021.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-117.468734, 34.435586, -117.253512, 34.645491],
+      "parts": {
+        "2": 1,
+        "4": 1,
+        "1": 1,
+        "3": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c62be5a0db59db0ba4cd49c0079ff7c0574e6b19e9c7bc68d7c3f6aca2c67071",
+      "compressedBytes": 21347
+    },
+    {
+      "id": "west-sacramento",
+      "name": "City of West Sacramento",
+      "category": "Cities",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "City of West Sacramento/Final Map Materials/West Sacramento 2022 Final Map/West Sacramento Final Shapefile/West Sacramento Final Map 4A.shp",
+      "shapefile": "West Sacramento Final Map 4A.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-121.589371, 38.501587, -121.506239, 38.604584],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "4": 2,
+        "3": 4
+      },
+      "overlaps": [],
+      "mapSha256": "6874494206c78d30b4d8d4935d8321dd0bb52601953758af3e00517ecf1501ad",
+      "compressedBytes": 8958
+    },
+    {
+      "id": "glenn-county",
+      "name": "Glenn County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Glenn County/Glenn County Final Plan Submission Folder/Glenn County Final Plan from Plan 1.shp",
+      "shapefile": "Glenn County Final Plan from Plan 1.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.938413, 39.382946, -121.856381, 39.800561],
+      "parts": {
+        "1": 1,
+        "3": 1,
+        "5": 1,
+        "4": 1,
+        "2": 1
+      },
+      "overlaps": [],
+      "mapSha256": "a6d6264ee6813463d4d377582d53ee496123f363ee96bc9cd9373aae8c5b0681",
+      "compressedBytes": 25603
+    },
+    {
+      "id": "humboldt-county",
+      "name": "Humboldt County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported-needs-review",
+      "mapAvailable": true,
+      "source": "Humboldt County/Final Plan for Submission/Humboldt County Final 2021 Lines.shp",
+      "shapefile": "Humboldt County Final 2021 Lines.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 6,
+      "excludedRecords": 1,
+      "warnings": [
+        "1 feature(s) with blank district assignments excluded from the district map."
+      ],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-124.416907, 40.001248, -123.40604, 41.465846],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "e838a7c4aa3153b2d586ef6082d0a40b8b14fe217279e3fa8f3f5a19da161080",
+      "compressedBytes": 83296
+    },
+    {
+      "id": "imperial-county",
+      "name": "Imperial County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Imperial County/Imperial County Final Plan Submission Folder/Imperial County Final Plan from Plan 3a.shp",
+      "shapefile": "Imperial County Final Plan from Plan 3a.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-116.106272, 32.61848, -114.46289, 33.433814],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "498d6b872b127d977442e5b0b0a59f4ad418c8a14e25c3b32091bfbadc8996c0",
+      "compressedBytes": 41417
+    },
+    {
+      "id": "kern-county",
+      "name": "Kern County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Kern County/Final Maps Packet/Kern County Plan A3.shp",
+      "shapefile": "Kern County Plan A3.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-120.194369, 34.788655, -117.616517, 35.798392],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "c9b07d08c74c3fe1d176ba99eaddee9a22ee6f2452866f8ae4f8cb82ecbad270",
+      "compressedBytes": 100344
+    },
+    {
+      "id": "napa-county",
+      "name": "Napa County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Napa County/Final Plan for Submission/Napa County Final Plan from Plan ID82492.shp",
+      "shapefile": "Napa County Final Plan from Plan ID82492.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.646421, 38.154933, -122.061379, 38.864245],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "d45f2fb41f6fedc1b7770137742279666ae71ea06d17c7a451032c0927248372",
+      "compressedBytes": 106940
+    },
+    {
+      "id": "new-york-city-council",
+      "name": "New York City Council",
+      "category": "Cities",
+      "state": "NY",
+      "status": "needs-source-review",
+      "mapAvailable": false,
+      "source": "NYC City Council/NYC Council Revised Plan Final 09182022/Shapefiles/SI Revised Plan for City Council 2022-09-18.shp",
+      "shapefile": "SI Revised Plan for City Council 2022-09-18.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": [],
+      "districtField": "",
+      "sourceRecords": 0,
+      "excludedRecords": 0,
+      "warnings": [
+        "Projected bounds fall outside the California review extent.",
+        "This candidate is a Staten Island file; locate and assemble the complete adopted five-borough package before lookup."
+      ],
+      "localRosterCount": 0,
+      "currentAdoptionVerified": false
+    },
+    {
+      "id": "san-luis-obispo-county",
+      "name": "San Luis Obispo County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "San Luis Obispo County/Final Plan for Submission/San Luis Obispo County FInal Plan 2021.shp",
+      "shapefile": "San Luis Obispo County FInal Plan 2021.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-121.438176, 34.897475, -119.472489, 35.796655],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "798d9bb84833a3c8298e719ca1f3318a5f1a0039a5ed09e5050e2617099a4aad",
+      "compressedBytes": 86859
+    },
+    {
+      "id": "santa-clara-county",
+      "name": "Santa Clara County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Santa Clara County/Final Plan Documents/SCC DistrictR ID 90195 Shapefiles/Santa Clara County Final Plan from ID 90195.shp",
+      "shapefile": "Santa Clara County Final Plan from ID 90195.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-122.202653, 36.892976, -121.208178, 37.484637],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "34b948dcb6a507efc754259e53ef981afb1379da8a9486fc8d518445e3ee4b07",
+      "compressedBytes": 138624
+    },
+    {
+      "id": "siskiyou-county",
+      "name": "Siskiyou County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Siskiyou County Supervisors/Final Packet/Siskiyou County Final Plan Shape Files/Siskiyou County Final Plan from Plan 4.shp",
+      "shapefile": "Siskiyou County Final Plan from Plan 4.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-123.719174, 40.992193, -121.445994, 42.009503],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "overlaps": [],
+      "mapSha256": "4b613eb15bab72d471472b6a08f7ab9ee7b14c46095a170e48377f4cd469e9d9",
+      "compressedBytes": 121448
+    },
+    {
+      "id": "ventura-county",
+      "name": "Ventura County",
+      "category": "Counties",
+      "state": "CA",
+      "status": "imported",
+      "mapAvailable": true,
+      "source": "Ventura County/Ventura County 2021 Final Plans/Ventura County Final Plan from ID 82647.shp",
+      "shapefile": "Ventura County Final Plan from ID 82647.shp",
+      "selectionNote": "Selected from the complete October 11 RP folder inventory. This is a source for review; current adoption and official assignments are not yet verified.",
+      "districts": ["1", "2", "3", "4", "5"],
+      "districtField": "DISTRICT",
+      "sourceRecords": 5,
+      "excludedRecords": 0,
+      "warnings": [],
+      "localRosterCount": 5,
+      "currentAdoptionVerified": false,
+      "sourceCrs": "EPSG:4269",
+      "bounds": [-119.636302, 33.163493, -118.632494, 34.901171],
+      "parts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 3
+      },
+      "overlaps": [],
+      "mapSha256": "00f074256add46f87aef4b62698b0476080bb508b225fdb16a46f7404f63d6fc",
+      "compressedBytes": 86132
     }
   ]
 }
