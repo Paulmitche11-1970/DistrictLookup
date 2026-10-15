@@ -4,10 +4,19 @@ import path from 'node:path';
 import type { Content } from './model';
 import { hasBiography } from './biography';
 
-const migrationId = 'official-biographies-20261007-v1';
-type Biography = { id: string; district: string; name: string; bio: string };
+const migrations: Record<string, { id: string; file: string }> = {
+  'san-jose-evergreen': {
+    id: 'official-biographies-20261007-v1',
+    file: 'biography-backfill-20261007.json',
+  },
+  martinez: {
+    id: 'martinez-official-biographies-20261015-v1',
+    file: 'biography-backfill-20261015.json',
+  },
+};
+type Biography = { id: string; district: string | null; name: string; bio: string };
 type Manifest = Record<string, Biography[]>;
-let manifest: Manifest | undefined;
+const manifests = new Map<string, Manifest>();
 const normalizedName = (name: string) =>
   name.trim().replace(/\s+/g, ' ').toLowerCase();
 
@@ -38,8 +47,9 @@ export function backfillOfficialBiographies(
   agencyId: string,
   table: 'app_state' | 'client_preview_state' = 'app_state',
 ) {
-  if (agencyId !== 'san-jose-evergreen') return;
-  const marker = `${migrationId}:${table}`;
+  const migration = migrations[agencyId];
+  if (!migration) return;
+  const marker = `${migration.id}:${table}`;
   if (db.prepare('SELECT id FROM app_migrations WHERE id=?').get(marker))
     return;
   if (
@@ -48,12 +58,13 @@ export function backfillOfficialBiographies(
       .get(table)
   )
     return;
-  manifest ||= JSON.parse(
-    readFileSync(
-      path.join(process.cwd(), 'data/biography-backfill-20261007.json'),
-      'utf8',
-    ),
-  ) as Manifest;
+  let manifest = manifests.get(migration.file);
+  if (!manifest) {
+    manifest = JSON.parse(
+      readFileSync(path.join(process.cwd(), 'data', migration.file), 'utf8'),
+    ) as Manifest;
+    manifests.set(migration.file, manifest);
+  }
   const biographies = manifest[agencyId];
   if (!biographies?.length)
     throw Error('Missing frozen biography migration data.');

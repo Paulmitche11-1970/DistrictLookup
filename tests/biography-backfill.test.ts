@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
+import { readFileSync } from 'node:fs';
 import { backfillOfficialBiographies } from '../lib/biography-backfill';
 
 const original = {
@@ -124,7 +125,7 @@ void test('Does not change another agency, a new occupant, a different district,
   const db = fixture();
   try {
     const untouched = row(db);
-    backfillOfficialBiographies(db, 'martinez');
+    backfillOfficialBiographies(db, 'arpeeville');
     assert.deepEqual(row(db), untouched);
     for (const change of [
       { name: 'New Trustee' },
@@ -142,6 +143,54 @@ void test('Does not change another agency, a new occupant, a different district,
       assert.equal(row(db).published, raw);
       assert.equal(row(db).revision, untouched.revision);
     }
+  } finally {
+    db.close();
+  }
+});
+
+void test('Fills all five Martinez bios, including the at-large mayor, in existing live and preview records', () => {
+  const db = fixture();
+  try {
+    const seed = JSON.parse(readFileSync('data/seed.json', 'utf8'));
+    const existing = structuredClone(seed);
+    for (const official of existing.officials) {
+      official.bio = '';
+      delete official.bioFormat;
+    }
+    const raw = JSON.stringify(existing);
+    db.prepare('UPDATE app_state SET draft=?,published=?').run(raw, raw);
+    db.prepare('UPDATE client_preview_state SET draft=?,published=?,baseline=?').run(raw, raw, raw);
+    for (const table of ['app_state', 'client_preview_state'] as const) {
+      backfillOfficialBiographies(db, 'martinez', table);
+      const after = row(db, table);
+      assert.deepEqual(JSON.parse(after.published), seed);
+      assert.equal(after.draft, after.published);
+      if (table === 'client_preview_state') assert.equal(after.baseline, after.published);
+      backfillOfficialBiographies(db, 'martinez', table);
+      assert.deepEqual(row(db, table), after);
+    }
+    assert.match(seed.officials.find((o: { id: string }) => o.id === 'mayor').bio, /professional wetland scientist/);
+    assert.match(seed.officials.find((o: { id: string }) => o.id === '4').bio, /40 years of experience/);
+    assert.match(seed.officials.find((o: { id: string }) => o.id === '2').bio, /Martinez Planning Commission/);
+  } finally {
+    db.close();
+  }
+});
+
+void test('Martinez biography additions preserve client text and hidden-biography preferences', () => {
+  const db = fixture();
+  try {
+    const content = JSON.parse(readFileSync('data/seed.json', 'utf8'));
+    content.agency.showBiographies = false;
+    content.officials.find((o: { id: string }) => o.id === 'mayor').bio = '<p>Client-approved mayor biography.</p>';
+    content.officials.find((o: { id: string }) => o.id === '1').bio = '';
+    const raw = JSON.stringify(content);
+    db.prepare('UPDATE app_state SET draft=?,published=?').run(raw, raw);
+    backfillOfficialBiographies(db, 'martinez');
+    const after = JSON.parse(row(db).published);
+    assert.equal(after.agency.showBiographies, false);
+    assert.equal(after.officials.find((o: { id: string }) => o.id === 'mayor').bio, '<p>Client-approved mayor biography.</p>');
+    assert.match(after.officials.find((o: { id: string }) => o.id === '1').bio, /G Swanson Construction/);
   } finally {
     db.close();
   }

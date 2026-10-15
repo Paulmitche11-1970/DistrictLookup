@@ -99,5 +99,38 @@
   },
   "addressSource": "https://gis.cccounty.us/Downloads/General%20County%20Data/CCC_DOIT_AddressData.zip",
   "addressFileDate": "2025-10-31",
-  "reviewedOn": "2026-09-09"
+  "reviewedOn": "2026-09-09",
+  "biographies": {
+    "sourceUrl": "https://www.cityofmartinez.org/government/mayor-and-city-council",
+    "suppliedOn": "2026-10-15",
+    "sourceMethod": "Official-page text supplied by Paul Mitchell; direct automated page retrieval returned HTTP 403.",
+    "officials": [
+      {
+        "id": "1",
+        "name": "Jay Howard",
+        "district": "1"
+      },
+      {
+        "id": "2",
+        "name": "Greg Young",
+        "district": "2"
+      },
+      {
+        "id": "3",
+        "name": "Satinder S. Malhi",
+        "district": "3"
+      },
+      {
+        "id": "4",
+        "name": "Debbie McKillop",
+        "district": "4"
+      },
+      {
+        "id": "mayor",
+        "name": "Brianne Zorn",
+        "district": null
+      }
+    ],
+    "note": "Biography paragraphs reproduced from the supplied text. Existing titles and term-end months agree with the supplied roster. Formatting normalized to HTML paragraphs. Shared across all four layouts."
+  }
 }
