@@ -283,7 +283,13 @@ export function useDistrictLookup(content: Content, preview = false) {
 }
 export type LookupState = ReturnType<typeof useDistrictLookup>;
 
-export function AddressSearch({ lookup }: { lookup: LookupState }) {
+export function AddressSearch({
+  lookup,
+  inResult = false,
+}: {
+  lookup: LookupState;
+  inResult?: boolean;
+}) {
   const {
     results,
     searchChoice,
@@ -298,7 +304,7 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
     selected,
     message,
   } = lookup;
-  if (lookup.hasResult) return null;
+  if (lookup.hasResult && !inResult) return null;
   if (lookup.a.addressMode === 'pending')
     return (
       <p className="notice">
@@ -369,22 +375,24 @@ export function AddressSearch({ lookup }: { lookup: LookupState }) {
             </ComboboxList>
           </ComboboxContent>
         </Combobox>
-        {!selected && (lookup.a.sampleAddress || !lookup.a.instanceId) && (
-          <p className="small muted" style={{ marginTop: 14 }}>
-            Try{' '}
-            <button
-              className="example-link"
-              onClick={() => {
-                lookupRequest.current++;
-                setQuery(lookup.a.sampleAddress || '525 Henrietta');
-                setSearchOpen(true);
-              }}
-            >
-              {lookup.a.sampleAddress || '525 Henrietta Street'}
-            </button>
-          </p>
-        )}
-        {lookup.a.addressNote && (
+        {!inResult &&
+          !selected &&
+          (lookup.a.sampleAddress || !lookup.a.instanceId) && (
+            <p className="small muted" style={{ marginTop: 14 }}>
+              Try{' '}
+              <button
+                className="example-link"
+                onClick={() => {
+                  lookupRequest.current++;
+                  setQuery(lookup.a.sampleAddress || '525 Henrietta');
+                  setSearchOpen(true);
+                }}
+              >
+                {lookup.a.sampleAddress || '525 Henrietta Street'}
+              </button>
+            </p>
+          )}
+        {!inResult && lookup.a.addressNote && (
           <p className="small muted address-note">{lookup.a.addressNote}</p>
         )}
       </div>
@@ -481,10 +489,12 @@ export function RepresentativeResult({
   content,
   lookup,
   design = 'classic',
+  inlineSearch = false,
 }: {
   content: Content;
   lookup: LookupState;
   design?: DesignId;
+  inlineSearch?: boolean;
 }) {
   const { selected, address, official, profileId, hasResult, clear } = lookup;
   const a = content.agency;
@@ -502,6 +512,11 @@ export function RepresentativeResult({
   if (!hasResult) return null;
   return (
     <div className="result-card" aria-live="polite">
+      {inlineSearch && (
+        <button className="clear-result result-reset" onClick={clear}>
+          <ArrowLeft size={14} /> Full {labels.bodyShort}
+        </button>
+      )}
       <div
         className="result-district"
         style={{ color: colorFor(selected || '') }}
@@ -520,10 +535,16 @@ export function RepresentativeResult({
             ? 'Represents the entire agency.'
             : `Exploring this ${labels.districtLower}. Search your address to confirm yours.`}
       </p>
-      <button className="clear-result result-reset" onClick={clear}>
-        <ArrowLeft size={14} />
-        {address ? 'Start again' : 'Search for an address'}
-      </button>
+      {inlineSearch ? (
+        <div className="result-address-search">
+          <AddressSearch lookup={lookup} inResult />
+        </div>
+      ) : (
+        <button className="clear-result result-reset" onClick={clear}>
+          <ArrowLeft size={14} />
+          {address ? 'Start again' : 'Search for an address'}
+        </button>
+      )}
       {address && a.addressNote && (
         <p className="small muted address-note">{a.addressNote}</p>
       )}

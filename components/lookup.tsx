@@ -61,7 +61,11 @@ export default function Lookup({
             <p className="intro">{lookup.intro}</p>
           </div>
           <AddressSearch lookup={lookup} />
-          <RepresentativeResult content={content} lookup={lookup} />
+          <RepresentativeResult
+            content={content}
+            lookup={lookup}
+            inlineSearch
+          />
           <CouncilList content={content} lookup={lookup} />
           {!lookup.hasResult && <ManagementProfiles content={content} />}
           <LookupFooter content={content} />

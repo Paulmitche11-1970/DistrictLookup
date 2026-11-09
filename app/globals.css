@@ -596,6 +596,9 @@ svg {
   border-top: 1px solid var(--border);
   padding-top: 22px;
 }
+.result-address-search {
+  margin-bottom: 24px;
+}
 .result-district {
   display: flex;
   align-items: center;
