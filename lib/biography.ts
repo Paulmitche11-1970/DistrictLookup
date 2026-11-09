@@ -37,8 +37,13 @@ export function biographyPath(
   officialId: string,
   preview = false,
   design: DesignId = 'classic',
+  transitionPath?: string,
 ) {
   const params = new URLSearchParams({ design });
+  if (transitionPath) {
+    params.set('official', officialId);
+    return transitionPath + (transitionPath.includes('?') ? '&' : '?') + params;
+  }
   if (preview) params.set('preview', '1');
   return `/${agencyId}/officials/${encodeURIComponent(officialId)}?${params}`;
 }

@@ -54,6 +54,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/:agency/transition',
+        headers: [
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'Cache-Control', value: 'private, no-store' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'none'" },
+        ],
+      },
+      {
         source: '/preview/:path*',
         headers: [
           { key: 'X-Frame-Options', value: 'DENY' },

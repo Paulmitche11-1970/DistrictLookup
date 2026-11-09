@@ -25,7 +25,13 @@ export function BiographyLink({
   return (
     <a
       className="biography-link"
-      href={biographyPath(agencyId, official.id, preview, design)}
+      href={biographyPath(
+        agencyId,
+        official.id,
+        preview,
+        design,
+        agency.boardTransition?.path,
+      )}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Biography of ${official.name} (opens in a new tab)`}

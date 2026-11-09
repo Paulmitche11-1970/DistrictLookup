@@ -6,6 +6,7 @@ import { photoPrefix, currentAgencyId } from '@/lib/agency-scope';
 import { hasClientPreviewAccess } from '@/lib/client-preview-access';
 import { isClientPreview } from '@/lib/client-preview-scope';
 import { biographyImages } from '@/lib/biography-html';
+import { transitionPhotoAllowed } from '@/lib/transition-access';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export async function GET(
@@ -39,6 +40,7 @@ export async function GET(
           biographyImages(o).includes(photoPrefix() + id),
       ) || prepared.management?.some((p) => p.photo === photoPrefix() + id);
   }
+  if (!visible) visible = await transitionPhotoAllowed(photoPrefix() + id);
   if (!visible) {
     try {
       await requireAdmin();

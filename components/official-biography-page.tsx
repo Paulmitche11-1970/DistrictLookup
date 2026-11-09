@@ -10,7 +10,7 @@ import { hasBiography } from '@/lib/biography';
 import { portraitStyle } from '@/lib/portrait-shape';
 import { Portrait } from './official-portrait';
 import { constituencyLabel, titleLabel } from '@/lib/representation';
-import { phoneHref, termLabel } from '@/lib/model';
+import { phoneHref, termLabel, type Content } from '@/lib/model';
 import { designs } from '@/lib/designs';
 import { agencyLabels } from '@/lib/agency-labels';
 import { Brand, LookupFooter } from './lookup-shared';
@@ -20,16 +20,20 @@ export async function OfficialBiographyPage({
   officialId,
   preview,
   design,
+  preparedContent,
+  returnPath,
 }: {
   agencyId: string;
   officialId: string;
   preview: boolean;
   design?: string;
+  preparedContent?: Content;
+  returnPath?: string;
 }) {
   const instance = instanceFor(agencyId);
   if (!instance) notFound();
-  return inViewerAgency(instance.id, async () => {
-    if (preview) {
+  const render = async () => {
+    if (preview && !preparedContent) {
       try {
         await requireAdmin();
       } catch {
@@ -41,7 +45,9 @@ export async function OfficialBiographyPage({
         );
       }
     }
-    const content = preview ? visibleContent(state().draft) : publicContent();
+    const content =
+      preparedContent ||
+      (preview ? visibleContent(state().draft) : publicContent());
     const official = content.officials.find(
       (o) => o.id === officialId && !o.vacant,
     );
@@ -49,7 +55,9 @@ export async function OfficialBiographyPage({
     const a = content.agency;
     const currentDesign =
       designs.find((d) => d.id === design)?.id || a.lookupDesign || 'classic';
-    const back = `/${instance.id}/${preview ? 'preview' : 'lookup'}?design=${currentDesign}`;
+    const back =
+      returnPath ||
+      `/${instance.id}/${preview ? 'preview' : 'lookup'}?design=${currentDesign}`;
     const html = biographyHtml(official, a.showPhotos);
     return (
       <div
@@ -58,18 +66,19 @@ export async function OfficialBiographyPage({
           { '--primary': a.accent, ...portraitStyle(a) } as React.CSSProperties
         }
       >
-        <ClientPreviewStatus agencyId={instance.id} />
+        {!preparedContent && <ClientPreviewStatus agencyId={instance.id} />}
         <header className="biography-header">
           <Brand
             name={a.shortName}
             agencyId={instance.id}
             sandbox={a.sandbox}
+            hrefOverride={a.boardTransition?.path}
           />
           <a className="biography-back" href={back}>
             <ArrowLeft size={17} /> {agencyLabels(a).district} lookup
           </a>
         </header>
-        {preview && (
+        {preview && !preparedContent && (
           <div className="biography-preview" role="status">
             Unpublished biography preview · Save and publish changes in
             administration to update all four public layouts.
@@ -169,5 +178,6 @@ export async function OfficialBiographyPage({
         <LookupFooter content={content} />
       </div>
     );
-  });
+  };
+  return preparedContent ? render() : inViewerAgency(instance.id, render);
 }

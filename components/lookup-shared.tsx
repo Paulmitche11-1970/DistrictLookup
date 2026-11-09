@@ -44,10 +44,12 @@ export function Brand({
   name = 'Martinez',
   sandbox = false,
   agencyId,
+  hrefOverride,
 }: {
   name?: string;
   sandbox?: boolean;
   agencyId?: string;
+  hrefOverride?: string;
 }) {
   const instance = instanceFor(
     agencyId || (sandbox ? 'arpeeville' : name.toLowerCase()),
@@ -56,7 +58,7 @@ export function Brand({
     return (
       <a
         className="wordmark county-wordmark"
-        href={'/' + instance.id}
+        href={hrefOverride || '/' + instance.id}
         aria-label={
           instance.shortName +
           ' ' +
@@ -79,9 +81,10 @@ export function Brand({
       <a
         className="wordmark wordmark-city-logo"
         href={
-          instance.id === 'martinez'
+          hrefOverride ||
+          (instance.id === 'martinez'
             ? 'https://www.cityofmartinez.org/'
-            : '/' + instance.id
+            : '/' + instance.id)
         }
       >
         <img
@@ -95,7 +98,10 @@ export function Brand({
     );
   }
   return (
-    <a className="wordmark" href={sandbox ? '/arpeeville' : '/'}>
+    <a
+      className="wordmark"
+      href={hrefOverride || (sandbox ? '/arpeeville' : '/')}
+    >
       <div className="wordmark-icon">
         <MapPin size={24} />
       </div>
@@ -125,10 +131,12 @@ export function useDistrictLookup(content: Content, preview = false) {
   const mayor = atLargeOfficials(content).find((o) => hasTitle(o, 'Mayor'));
   const hasResult = !!selected || !!profileId;
   const a = content.agency;
-  const apiRoot = apiPath(
-    a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
-    a.clientPreview,
-  );
+  const apiRoot =
+    a.boardTransition?.api ||
+    apiPath(
+      a.instanceId || (a.sandbox ? 'arpeeville' : 'martinez'),
+      a.clientPreview,
+    );
   const minSearchLength = a.instanceId === 'arpeeville' ? 1 : 2;
   useEffect(() => {
     if (
@@ -159,7 +167,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       setBusy(true);
       try {
         const r = await fetch(
-          `${apiRoot}/addresses?q=${encodeURIComponent(query)}`,
+          `${apiRoot}/addresses?q=${encodeURIComponent(query)}${a.boardTransition?.demo ? '&demo=1' : ''}`,
           {
             signal: controller.signal,
           },
@@ -184,7 +192,7 @@ export function useDistrictLookup(content: Content, preview = false) {
       clearTimeout(delay);
       controller.abort();
     };
-  }, [query, apiRoot, minSearchLength]);
+  }, [query, apiRoot, minSearchLength, a.boardTransition?.demo]);
   async function choose(value: Address | null) {
     if (!value) return;
     setSearchChoice(value);
@@ -194,7 +202,7 @@ export function useDistrictLookup(content: Content, preview = false) {
     setMessage('');
     try {
       const r = await fetch(
-        `${apiRoot}/lookup?id=${encodeURIComponent(value.id)}${preview ? '&preview=1' : ''}`,
+        `${apiRoot}/lookup?id=${encodeURIComponent(value.id)}${a.boardTransition ? (a.boardTransition.demo ? '&demo=1' : '') : preview ? '&preview=1' : ''}`,
       );
       const data = await r.json();
       if (request !== lookupRequest.current) return;
@@ -464,6 +472,7 @@ export function OfficialDetails({
               official.id,
               preview,
               design,
+              a.boardTransition?.path,
             )}
           >
             <UserRound size={18} />

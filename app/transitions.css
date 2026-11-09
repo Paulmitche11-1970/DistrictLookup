@@ -1,0 +1,93 @@
+.board-transitions h2 {
+  font-size: 23px;
+}
+.board-transitions .official-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.board-transitions summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 5px 0 15px;
+}
+.transition-layouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.transition-link {
+  width: 100%;
+  border: 1px solid #cbdce1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.transition-launch {
+  border-color: #4b9a96;
+  background: #f2faf8;
+}
+.transition-archive-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #d9e5e8;
+}
+.transition-archive-dialog {
+  max-width: 780px;
+  max-height: 88dvh;
+  overflow-y: auto;
+}
+.transition-archive-bio {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.transition-preview-bar {
+  padding: 16px 28px;
+  background: #163f48;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.transition-preview-bar p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #d5e6e9;
+}
+.transition-preview-bar nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.transition-preview-bar nav a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+.transition-preview-bar nav a[aria-current],
+.transition-preview-bar nav a:hover {
+  background: #e7f7f4;
+  color: #123b43;
+}
+.transition-unavailable {
+  max-width: 650px;
+  margin: 12vh auto;
+  padding: 32px;
+}
+@media (max-width: 640px) {
+  .transition-preview-bar {
+    padding: 14px 16px;
+  }
+  .transition-archive-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

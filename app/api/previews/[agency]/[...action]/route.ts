@@ -20,6 +20,7 @@ import {
 } from '@/lib/security';
 import { state, resetClientPreview } from '@/lib/store';
 import { recordPreviewAction } from '@/lib/outreach-activity';
+import { transitionPhotoAllowed } from '@/lib/transition-access';
 import * as admin from '../../../admin/route';
 import * as photos from '../../../photos/route';
 import * as photo from '../../../photos/[id]/route';
@@ -130,7 +131,14 @@ export async function GET(request: Request, context: Context) {
   const { agency, action } = await context.params;
   if (!instanceFor(agency) || instanceFor(agency)!.id !== agency)
     return new Response('Not found', { status: 404 });
-  if (!(await hasClientPreviewAccess(agency)))
+  const transitionPhoto =
+    action[0] === 'photos' &&
+    action.length === 2 &&
+    /^[a-f0-9]{32}$/.test(action[1]) &&
+    (await inAgency(agency, () =>
+      transitionPhotoAllowed(`/api/previews/${agency}/photos/${action[1]}`),
+    ));
+  if (!(await hasClientPreviewAccess(agency)) && !transitionPhoto)
     return Response.json(
       { error: 'Enter your agency preview password.' },
       { status: 401, headers: privateHeaders },

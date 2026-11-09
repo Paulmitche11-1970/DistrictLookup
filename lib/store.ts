@@ -284,7 +284,7 @@ export function clientPreviewEdited() {
     .get() as { draft: string; baseline: string } | undefined;
   return !!row && row.draft !== row.baseline;
 }
-function stateTable() {
+export function stateTable() {
   if (!isClientPreview()) return 'app_state';
   const db = database();
   db.exec(`CREATE TABLE IF NOT EXISTS client_preview_state (id INTEGER PRIMARY KEY CHECK(id=1), draft TEXT NOT NULL, published TEXT NOT NULL, baseline TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, published_revision INTEGER NOT NULL DEFAULT 1, published_at TEXT NOT NULL);

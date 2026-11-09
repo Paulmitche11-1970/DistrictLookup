@@ -14,10 +14,19 @@ export function LookupHeader({
   const a = content.agency;
   return (
     <header className="public-header">
-      <Brand name={a.shortName} agencyId={a.instanceId} sandbox={a.sandbox} />
+      <Brand
+        name={a.shortName}
+        agencyId={a.instanceId}
+        sandbox={a.sandbox}
+        hrefOverride={a.boardTransition?.path}
+      />
       <nav className="header-links" aria-label="Page navigation">
         {preview && (
-          <span className="preview-label small muted">Unpublished preview</span>
+          <span className="preview-label small muted">
+            {a.boardTransition
+              ? 'Incoming board preview'
+              : 'Unpublished preview'}
+          </span>
         )}
         <a
           className="website-link row"

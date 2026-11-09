@@ -15,6 +15,7 @@ export function ActivityTracker() {
   useEffect(() => {
     if (
       preview ||
+      path.endsWith('/transition') ||
       /^(www\.)?rpdata\.net$/.test(location.hostname) ||
       !activityContext(path, design)
     )

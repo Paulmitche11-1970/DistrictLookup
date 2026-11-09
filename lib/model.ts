@@ -43,6 +43,8 @@ export type DistrictElection = {
 };
 export type DistrictLabel = 'District' | 'Division' | 'Zone' | 'Trustee Area';
 export type Agency = {
+  // Server-provided navigation for the private incoming-board preview only.
+  boardTransition?: { path: string; api: string; demo: boolean };
   clientPreview?: boolean;
   instanceId?: string;
   kind?: 'city' | 'county' | 'school' | 'college' | 'special';

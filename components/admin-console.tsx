@@ -1,5 +1,6 @@
 'use client';
 import { ClientPreviewBanner } from './client-preview-banner';
+import { BoardTransitions } from './board-transitions';
 import type { FeatureCollection, Feature } from 'geojson';
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -108,6 +109,7 @@ type Dashboard = {
 };
 const navigation = [
   { id: 'officials', label: 'Elected officials', icon: Users },
+  { id: 'transition', label: 'Board transition', icon: History },
   { id: 'representation', label: 'Districts & representation', icon: MapPin },
   { id: 'management', label: 'Agency administration', icon: Building2 },
   { id: 'display', label: 'Display & contact options', icon: Settings2 },
@@ -414,19 +416,21 @@ export default function AdminConsole({
                   <p className="muted">
                     {section === 'officials'
                       ? 'Keep the people behind each district up to date.'
-                      : section === 'representation'
-                        ? 'Manage district seats, at-large representation and election transitions.'
-                        : section === 'management'
-                          ? 'Update the agency managers and administrative leaders residents can contact.'
-                          : section === 'display'
-                            ? 'Choose what residents see when they find their representative.'
-                            : section === 'map'
-                              ? 'Review your boundaries before replacing the public map.'
-                              : section === 'embed'
-                                ? 'A simple lookup that fits into your existing website.'
-                                : section === 'security'
-                                  ? 'Manage your password and account recovery.'
-                                  : 'A record of edits and publication.'}
+                      : section === 'transition'
+                        ? 'Prepare incoming officials, preview with staff, and archive the outgoing board at launch.'
+                        : section === 'representation'
+                          ? 'Manage district seats, at-large representation and election transitions.'
+                          : section === 'management'
+                            ? 'Update the agency managers and administrative leaders residents can contact.'
+                            : section === 'display'
+                              ? 'Choose what residents see when they find their representative.'
+                              : section === 'map'
+                                ? 'Review your boundaries before replacing the public map.'
+                                : section === 'embed'
+                                  ? 'A simple lookup that fits into your existing website.'
+                                  : section === 'security'
+                                    ? 'Manage your password and account recovery.'
+                                    : 'A record of edits and publication.'}
                   </p>
                 </div>
                 <span className="pill">
@@ -446,6 +450,15 @@ export default function AdminConsole({
                   disabled={previewMode}
                   className="admin-preview-fields"
                 >
+                  {section === 'transition' && (
+                    <BoardTransitions
+                      agencyId={agencyId}
+                      clientPreview={clientPreview}
+                      readOnly={previewMode}
+                      Editor={OfficialEditor}
+                      onLaunch={load}
+                    />
+                  )}
                   {section === 'officials' && (
                     <div className="stack">
                       <div
@@ -640,7 +653,20 @@ export default function AdminConsole({
                   )}
                 </fieldset>
                 <aside className="admin-aside">
-                  {clientPreview ? (
+                  {section === 'transition' ? (
+                    <div className="status-box">
+                      <div className="eyebrow">A SEPARATE WORKSPACE</div>
+                      <h3>Prepare, preview, launch</h3>
+                      <p>
+                        Incoming edits stay in the transition until you launch.
+                        The private staff preview includes all four layouts.
+                      </p>
+                      <p>
+                        Launching archives the outgoing board. Restoring an
+                        archive creates another transition to review first.
+                      </p>
+                    </div>
+                  ) : clientPreview ? (
                     <div className="status-box">
                       <div className="eyebrow">YOUR SHARED PREVIEW</div>
                       <h3>Save and see your changes</h3>
@@ -875,6 +901,18 @@ export default function AdminConsole({
     </SidebarProvider>
   );
 }
+export type OfficialEditorProps = {
+  agencyId?: string;
+  clientPreview?: boolean;
+  kind?: Agency['kind'];
+  agency?: Agency;
+  isNew?: boolean;
+  transitionPath?: string;
+  official: Official | null;
+  close: () => void;
+  save: (official: Official, ratio: PhotoAspectRatio) => Promise<unknown>;
+  busy: boolean;
+};
 function OfficialEditor({
   clientPreview = false,
   agencyId = 'martinez',
@@ -885,17 +923,8 @@ function OfficialEditor({
   close,
   save,
   busy,
-}: {
-  agencyId?: string;
-  clientPreview?: boolean;
-  kind?: Agency['kind'];
-  agency?: Agency;
-  isNew?: boolean;
-  official: Official | null;
-  close: () => void;
-  save: (official: Official, ratio: PhotoAspectRatio) => Promise<unknown>;
-  busy: boolean;
-}) {
+  transitionPath,
+}: OfficialEditorProps) {
   const [draft, setDraft] = useState<Official | null>(null);
   const [uploading, setUploading] = useState(false);
   const [photoRatio, setPhotoRatio] = useState<PhotoAspectRatio>('auto');
@@ -934,9 +963,11 @@ function OfficialEditor({
                 : `Edit ${draft ? constituencyLabel(draft, instanceFor(agencyId)) : 'official'}`}
             </SheetTitle>
             <SheetDescription>
-              {clientPreview
-                ? 'Update this official’s details. Save to see the changes in all four preview layouts.'
-                : 'Update this official’s details. Save a draft, then publish when ready.'}
+              {transitionPath
+                ? 'Save to update the incoming board preview. The current board changes only when you launch the transition.'
+                : clientPreview
+                  ? 'Update this official’s details. Save to see the changes in all four preview layouts.'
+                  : 'Update this official’s details. Save a draft, then publish when ready.'}
             </SheetDescription>
           </SheetHeader>
           {draft && (
@@ -1199,9 +1230,11 @@ function OfficialEditor({
                       }
                     />
                     <p className="small muted" style={{ marginTop: 18 }}>
-                      {clientPreview
-                        ? 'Save the preview to update this biography in all four layouts.'
-                        : 'Save the draft, then preview it. Publishing updates the biography in all four layouts.'}
+                      {transitionPath
+                        ? 'Save to update this biography in all four transition previews.'
+                        : clientPreview
+                          ? 'Save the preview to update this biography in all four layouts.'
+                          : 'Save the draft, then preview it. Publishing updates the biography in all four layouts.'}
                     </p>
                     {!isNew && official && hasBiography(official) && (
                       <a
@@ -1210,6 +1243,8 @@ function OfficialEditor({
                           agencyId,
                           official.id,
                           !clientPreview,
+                          'classic',
+                          transitionPath,
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -1267,8 +1302,12 @@ function OfficialEditor({
                   {busy
                     ? 'Saving…'
                     : clientPreview
-                      ? 'Save preview'
-                      : 'Save draft'}
+                      ? transitionPath
+                        ? 'Save transition'
+                        : 'Save preview'
+                      : transitionPath
+                        ? 'Save transition'
+                        : 'Save draft'}
                 </button>
               </footer>
             </form>
